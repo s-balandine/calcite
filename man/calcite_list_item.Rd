@@ -25,6 +25,7 @@ The following properties are provided by this component:\tabular{lllll}{
    description \tab description \tab A description for the component. Displays below the label text. \tab string \tab FALSE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    dragDisabled \tab drag-disabled \tab When \code{true}, the item is not draggable. \tab boolean \tab TRUE \cr
+   expanded \tab expanded \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
    iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
    iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
    iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
@@ -46,6 +47,8 @@ The following properties are provided by this component:\tabular{lllll}{
 The following events are observed by shiny:\tabular{ll}{
    Event \tab Description \cr
    calciteListItemClose \tab Fires when the close button is clicked. \cr
+   calciteListItemCollapse \tab Fires when the component's content area is collapsed. \cr
+   calciteListItemExpand \tab Fires when the component's content area is expanded. \cr
    calciteListItemSelect \tab Fires when the component is selected. \cr
    calciteListItemSortHandleBeforeClose \tab Fires when the sort handle is requested to be closed and before the closing transition begins. \cr
    calciteListItemSortHandleBeforeOpen \tab Fires when the sort handle is added to the DOM but not rendered, and before the opening transition begins. \cr

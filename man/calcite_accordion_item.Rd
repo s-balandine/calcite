@@ -21,11 +21,23 @@ Create a AccordionItem component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    description \tab description \tab Specifies a description for the component. \tab string \tab FALSE \cr
-   expanded \tab expanded \tab When \code{true}, the component is expanded. \tab boolean \tab TRUE \cr
+   expanded \tab expanded \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
    heading \tab heading \tab Specifies heading text for the component. \tab string \tab FALSE \cr
+   headingLevel \tab heading-level \tab Specifies the heading level of the component's \code{heading} for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
    iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
    iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
    iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+}
+
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteAccordionItemCollapse \tab Fires when the component's content area is collapsed. \cr
+   calciteAccordionItemExpand \tab Fires when the component's content area is expanded. \cr
 }
 
 }
@@ -37,6 +49,8 @@ The following slots are provided by this component:\tabular{ll}{
    Default (unnamed) \tab A slot for adding custom content, including nested \code{calcite-accordion-item}s. \cr
    actions-end \tab A slot for adding \code{calcite-action}s or content to the end side of the component's header. \cr
    actions-start \tab A slot for adding \code{calcite-action}s or content to the start side of the component's header. \cr
+   content-end \tab A slot for adding non-actionable elements after the component's header text. \cr
+   content-start \tab A slot for adding non-actionable elements before the component's header text. \cr
 }
 
 }

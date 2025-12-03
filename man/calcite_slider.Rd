@@ -27,16 +27,18 @@ The following properties are provided by this component:\tabular{lllll}{
    hasHistogram \tab has-histogram \tab When \code{true}, indicates a histogram is present. \tab boolean \tab TRUE \cr
    histogram \tab NA \tab A list of the histogram's x,y coordinates within the component's \code{min} and \code{max}. Displays above the component's track. \tab Check API reference \tab FALSE \cr
    histogramStops \tab NA \tab A set of single color stops for a histogram, sorted by offset ascending. \tab Check API reference \tab FALSE \cr
-   labelFormatter \tab NA \tab When specified, allows users to customize handle labels. \tab (value: number, type: "min" | "value" | "max" | "tick", defaultFormatter: (value: number) => string) => string \tab FALSE \cr
+   labelFormatter \tab NA \tab When specified, allows users to customize handle labels. \tab (value: number, type: "max" | "min" | "value" | "tick", defaultFormatter: (value: number) => string) => string \tab FALSE \cr
    labelHandles \tab label-handles \tab When \code{true}, displays label handles with their numeric value. \tab boolean \tab TRUE \cr
+   labelText \tab label-text \tab When provided, displays label text on the component. \tab string \tab FALSE \cr
    labelTicks \tab label-ticks \tab When \code{true} and \code{ticks} is specified, displays label tick marks with their numeric value. \tab boolean \tab TRUE \cr
    max \tab max \tab The component's maximum selectable value. \tab number \tab TRUE \cr
    maxLabel \tab max-label \tab For multiple selections, the accessible name for the second handle, such as \code{"Temperature, upper bound"}. \tab string \tab FALSE \cr
    maxValue \tab max-value \tab For multiple selections, the component's upper value. \tab number \tab FALSE \cr
+   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    min \tab min \tab The component's minimum selectable value. \tab number \tab TRUE \cr
    minLabel \tab min-label \tab Accessible name for first (or only) handle, such as \code{"Temperature, lower bound"}. \tab string \tab FALSE \cr
    minValue \tab min-value \tab For multiple selections, the component's lower value. \tab number \tab FALSE \cr
-   mirrored \tab mirrored \tab When \code{true}, the slider will display values from high to low.  Note that this value will be ignored if the slider has an associated histogram. \tab boolean \tab TRUE \cr
+   mirrored \tab mirrored \tab When \code{true}, the component will display values from high to low.  Note that this value will be ignored if the slider has an associated histogram. \tab boolean \tab TRUE \cr
    name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
    numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab FALSE \cr
    pageStep \tab page-step \tab Specifies the interval to move with the page up, or page down keys. \tab number \tab TRUE \cr
@@ -61,6 +63,15 @@ The following events are observed by shiny:\tabular{ll}{
    Event \tab Description \cr
    calciteSliderChange \tab Fires when the thumb is released on the component. Note: To constantly listen to the drag event, use \code{calciteSliderInput} instead. \cr
    calciteSliderInput \tab Fires on all updates to the component. Note: Fires frequently during drag. To perform expensive operations consider using a debounce or throttle to avoid locking up the main thread. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   label-content \tab A slot for rendering content next to the component's \code{labelText}. \cr
 }
 
 }

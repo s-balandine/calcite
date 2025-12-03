@@ -21,7 +21,7 @@ A general purpose list that enables users to construct list items that conform t
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   canPull \tab NA \tab When provided, the method will be called to determine whether the element can  move from the list. \tab (detail: ListDragDetail) => boolean \tab FALSE \cr
+   canPull \tab NA \tab When provided, the method will be called to determine whether the element can move from the list. \tab (detail: ListDragDetail) => boolean | "clone" \tab FALSE \cr
    canPut \tab NA \tab When provided, the method will be called to determine whether the element can be added from another list. \tab (detail: ListDragDetail) => boolean \tab FALSE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    displayMode \tab display-mode \tab Specifies the nesting behavior of \code{calcite-list-item}s, where  \code{"flat"} displays \code{calcite-list-item}s in a uniform list, and  \code{"nested"} displays \code{calcite-list-item}s under their parent element.   The parent component's behavior should follow throughout its child elements. \tab "flat" | "nested" \tab TRUE \cr
@@ -32,7 +32,7 @@ The following properties are provided by this component:\tabular{lllll}{
    filterLabel \tab filter-label \tab Specifies an accessible name for the filter input field. \tab string \tab TRUE \cr
    filterPlaceholder \tab filter-placeholder \tab Placeholder text for the component's filter input field. \tab string \tab TRUE \cr
    filterPredicate \tab NA \tab Specifies a function to handle filtering. \tab (item: HTMLCalciteListItemElement) => boolean \tab FALSE \cr
-   filterProps \tab NA \tab Specifies the properties to match against when filtering. If not set, all properties will be matched (label, description, metadata, value, group heading). \tab Check API reference \tab FALSE \cr
+   filterProps \tab NA \tab Specifies the properties to match against when filtering. If not set, all properties will be matched (\code{description}, \code{label}, \code{metadata}, and the \code{calcite-list-item-group}'s \code{heading}). \tab Check API reference \tab FALSE \cr
    filterText \tab filter-text \tab Text for the component's filter input field. \tab string \tab TRUE \cr
    group \tab group \tab The list's group identifier.  To drag elements from one list into another, both lists must have the same group value. \tab string \tab TRUE \cr
    interactionMode \tab interaction-mode \tab Specifies the interaction mode of the component.  \code{"interactive"} allows interaction styling and pointer changes on hover  \code{"static"} does not allow interaction styling and pointer changes on hover  The \code{"static"} value should only be used when \code{selectionMode} is \code{"none"}. \tab "interactive" | "static" \tab TRUE \cr
@@ -44,6 +44,7 @@ The following properties are provided by this component:\tabular{lllll}{
    selectedItems \tab NA \tab The currently selected items. \tab Check API reference \tab FALSE \cr
    selectionAppearance \tab selection-appearance \tab Specifies the selection appearance - \code{"icon"} (displays a checkmark or dot) or \code{"border"} (displays a border). \tab "border" | "icon" \tab TRUE \cr
    selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where:  \code{"multiple"} allows any number of selections,  \code{"single"} allows only one selection,  \code{"single-persist"} allows one selection and prevents de-selection, and  \code{"none"} does not allow any selections. \tab "multiple" | "none" | "single" | "single-persist" \tab TRUE \cr
+   sortDisabled \tab sort-disabled \tab When \code{true}, and a \code{group} is defined, \code{calcite-list-item}s are no longer sortable. \tab boolean \tab TRUE \cr
 }
 
 }
@@ -56,6 +57,7 @@ The following events are observed by shiny:\tabular{ll}{
    calciteListDragEnd \tab Fires when the component's dragging has ended. \cr
    calciteListDragStart \tab Fires when the component's dragging has started. \cr
    calciteListFilter \tab Fires when the component's filter has changed. \cr
+   calciteListMoveHalt \tab Fires when a user attempts to move an element using the sort menu and 'canPut' or 'canPull' returns falsy. \cr
    calciteListOrderChange \tab Fires when the component's item order changes. \cr
 }
 

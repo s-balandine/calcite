@@ -22,7 +22,7 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    alignment \tab alignment \tab Specifies the text alignment of the component. \tab "center" | "end" | "start" \tab TRUE \cr
    for \tab for \tab Specifies the \code{id} of the component the label is bound to. Use when the component the label is bound to does not reside within the component. \tab string \tab TRUE \cr
-   layout \tab layout \tab Defines the layout of the label in relation to the component. Use \code{"inline"} positions to wrap the label and component on the same line. \tab "default" | "inline" | "inline-space-between" \tab TRUE \cr
+   layout \tab layout \tab Check API reference \tab "block" | "default" | "inline" | "inline-space-between" \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
 }
 

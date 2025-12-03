@@ -25,7 +25,8 @@ The following properties are provided by this component:\tabular{lllll}{
    form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
    groupSeparator \tab group-separator \tab When \code{true}, number values are displayed with a group separator corresponding to the language and country format. \tab boolean \tab TRUE \cr
    label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
-   limitText \tab limit-text \tab Check API reference \tab boolean \tab TRUE \cr
+   labelText \tab label-text \tab When provided, displays label text on the component. \tab string \tab FALSE \cr
+   limitText \tab limit-text \tab When \code{true}, prevents input beyond the \code{maxLength} value, mimicking native text area behavior. \tab boolean \tab TRUE \cr
    maxLength \tab max-length \tab When the component resides in a form, specifies the maximum number of characters allowed. \tab number \tab TRUE \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    minLength \tab min-length \tab When the component resides in a form, specifies the minimum number of characters allowed. \tab number \tab TRUE \cr
@@ -62,6 +63,7 @@ The following events are observed by shiny:\tabular{ll}{
 The following slots are provided by this component:\tabular{ll}{
    Slot \tab Description \cr
    Default (unnamed) \tab A slot for adding text. \cr
+   label-content \tab A slot for rendering content next to the component's \code{labelText}. \cr
    footer-start \tab A slot for adding content to the start of the component's footer. \cr
    footer-end \tab A slot for adding content to the end of the component's footer. \cr
 }

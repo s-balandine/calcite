@@ -25,6 +25,7 @@ The following properties are provided by this component:\tabular{lllll}{
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    dragDisabled \tab drag-disabled \tab When \code{true}, and a parent Block Group is \code{dragEnabled}, the component is not draggable. \tab boolean \tab TRUE \cr
    dragHandle \tab drag-handle \tab When \code{true}, the component displays a draggable button. \tab boolean \tab TRUE \cr
+   expanded \tab expanded \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
    heading \tab heading \tab The component header text. \tab string \tab FALSE \cr
    headingLevel \tab heading-level \tab Specifies the heading level of the component's \code{heading} for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
    iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
@@ -37,6 +38,7 @@ The following properties are provided by this component:\tabular{lllll}{
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    open \tab open \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
    overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    sortHandleOpen \tab sort-handle-open \tab When \code{true}, displays and positions the sort handle. \tab boolean \tab TRUE \cr
    status \tab status \tab Displays a status-related indicator icon. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
 }
@@ -50,6 +52,8 @@ The following events are observed by shiny:\tabular{ll}{
    calciteBlockBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \cr
    calciteBlockBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \cr
    calciteBlockClose \tab Fires when the component is closed and animation is complete. \cr
+   calciteBlockCollapse \tab Fires when the component's content area is collapsed. \cr
+   calciteBlockExpand \tab Fires when the component's content area is expanded. \cr
    calciteBlockOpen \tab Fires when the component is open and animation is complete. \cr
    calciteBlockSortHandleBeforeClose \tab Fires when the sort handle is requested to be closed and before the closing transition begins. \cr
    calciteBlockSortHandleBeforeOpen \tab Fires when the sort handle is added to the DOM but not rendered, and before the opening transition begins. \cr

@@ -13,7 +13,7 @@ calcite_action_pad(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a ActionPad component
+Use the \code{calcite-action-pad} component instead.
 }
 \details{
 \subsection{Properties}{
@@ -22,7 +22,7 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    actionsEndGroupLabel \tab actions-end-group-label \tab Specifies the accessible label for the last \code{calcite-action-group}. \tab string \tab FALSE \cr
    expandDisabled \tab expand-disabled \tab When \code{true}, the expand-toggling behavior is disabled. \tab boolean \tab TRUE \cr
-   expanded \tab expanded \tab When \code{true}, the component is expanded. \tab boolean \tab TRUE \cr
+   expanded \tab expanded \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
    layout \tab layout \tab Indicates the layout of the component. \tab "grid" | "horizontal" | "vertical" \tab TRUE \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
@@ -36,6 +36,8 @@ The following properties are provided by this component:\tabular{lllll}{
 
 The following events are observed by shiny:\tabular{ll}{
    Event \tab Description \cr
+   calciteActionPadCollapse \tab Fires when the component's content area is collapsed. \cr
+   calciteActionPadExpand \tab Fires when the component's content area is expanded. \cr
    calciteActionPadToggle \tab Fires when the \code{expanded} property is toggled. \cr
 }
 

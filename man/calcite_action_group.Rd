@@ -21,7 +21,7 @@ Create a ActionGroup component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    columns \tab columns \tab Indicates number of columns. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
-   expanded \tab expanded \tab When \code{true}, the component is expanded. \tab boolean \tab TRUE \cr
+   expanded \tab expanded \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
    label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
    layout \tab layout \tab Indicates the layout of the component. \tab "grid" | "horizontal" | "vertical" \tab TRUE \cr
    menuFlipPlacements \tab NA \tab Specifies the component's fallback menu \code{placement} when it's initial or specified \code{placement} has insufficient space available. \tab Check API reference \tab FALSE \cr
@@ -30,6 +30,16 @@ The following properties are provided by this component:\tabular{lllll}{
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout. \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the \code{calcite-action-menu}. \tab "l" | "m" | "s" \tab TRUE \cr
+}
+
+}
+
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteActionGroupCollapse \tab Fires when the component's content area is collapsed. \cr
+   calciteActionGroupExpand \tab Fires when the component's content area is expanded. \cr
 }
 
 }

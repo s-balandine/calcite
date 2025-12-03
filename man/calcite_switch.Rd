@@ -24,6 +24,8 @@ The following properties are provided by this component:\tabular{lllll}{
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
    label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   labelTextEnd \tab label-text-end \tab When provided, displays label text at the end of the component \tab string \tab FALSE \cr
+   labelTextStart \tab label-text-start \tab When provided, displays label text at the start of the component \tab string \tab FALSE \cr
    name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    value \tab value \tab The component's value. \tab any \tab FALSE \cr

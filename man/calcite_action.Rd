@@ -23,8 +23,10 @@ The following properties are provided by this component:\tabular{lllll}{
    active \tab active \tab When \code{true}, the component is highlighted. \tab boolean \tab TRUE \cr
    alignment \tab alignment \tab Specifies the horizontal alignment of button elements with text content. \tab "center" | "end" | "start" \tab TRUE \cr
    appearance \tab appearance \tab Specifies the appearance of the component. \tab "solid" | "transparent" \tab TRUE \cr
+   aria \tab NA \tab Use this property to override or extend ARIA properties and attributes on the component's button. \tab Check API reference \tab FALSE \cr
    compact \tab compact \tab When \code{true}, the side padding of the component is reduced. \tab boolean \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
    icon \tab icon \tab Specifies an icon to display. \tab string \tab TRUE \cr
    iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
    indicator \tab indicator \tab When \code{true}, displays a visual indicator. \tab boolean \tab TRUE \cr
@@ -33,7 +35,8 @@ The following properties are provided by this component:\tabular{lllll}{
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    text \tab text \tab Specifies text that accompanies the icon. \tab string \tab FALSE \cr
-   textEnabled \tab text-enabled \tab Indicates whether the text is displayed. \tab boolean \tab TRUE \cr
+   textEnabled \tab text-enabled \tab When \code{true}, indicates whether the text is displayed. \tab boolean \tab TRUE \cr
+   type \tab type \tab Specifies the default behavior of the component. \tab "button" | "reset" | "submit" \tab TRUE \cr
 }
 
 }
@@ -42,7 +45,7 @@ The following properties are provided by this component:\tabular{lllll}{
 
 The following slots are provided by this component:\tabular{ll}{
    Slot \tab Description \cr
-   Default (unnamed) \tab A slot for adding a \code{calcite-icon}. \cr
+   Default (unnamed) \tab A slot for adding non-interactive content, such as a \code{calcite-icon}. \cr
    tooltip \tab \link{Deprecated} Use the \code{calcite-tooltip} component instead. \cr
 }
 

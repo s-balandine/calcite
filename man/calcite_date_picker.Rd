@@ -22,6 +22,7 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    activeDate \tab NA \tab Specifies the component's active date. \tab Date \tab FALSE \cr
    activeRange \tab active-range \tab When \code{range} is true, specifies the active \code{range}. Where \code{"start"} specifies the starting range date and \code{"end"} the ending range date. \tab "end" | "start" \tab TRUE \cr
+   calendars \tab calendars \tab Specifies the number of calendars displayed when \code{range} is \code{true}. \tab 1 | 2 \tab TRUE \cr
    headingLevel \tab heading-level \tab Specifies the heading level of the component's \code{heading} for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
    layout \tab layout \tab Defines the layout of the component. \tab "horizontal" | "vertical" \tab TRUE \cr
    max \tab max \tab When the component resides in a form, specifies the latest allowed date (\code{"yyyy-mm-dd"}). \tab string \tab TRUE \cr

@@ -21,6 +21,7 @@ Create a DropdownGroup component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    groupTitle \tab group-title \tab Specifies and displays a group title. \tab string \tab TRUE \cr
+   position \tab position \tab The position of the group in the dropdown menu. \tab number \tab FALSE \cr
    selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where:  \code{"multiple"} allows any number of selections,  \code{"single"} allows only one selection, and  \code{"none"} does not allow any selections. \tab "multiple" | "none" | "single" \tab TRUE \cr
 }
 

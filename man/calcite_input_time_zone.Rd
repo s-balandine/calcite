@@ -23,6 +23,7 @@ The following properties are provided by this component:\tabular{lllll}{
    clearable \tab clearable \tab When \code{true}, an empty value (\code{null}) will be allowed as a \code{value}.  When \code{false}, an offset or name value is enforced, and clearing the input or blurring will restore the last valid \code{value}. \tab boolean \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
+   labelText \tab label-text \tab When provided, displays label text on the component. \tab string \tab FALSE \cr
    maxItems \tab max-items \tab Specifies the component's maximum number of options to display before displaying a scrollbar. \tab number \tab TRUE \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    mode \tab mode \tab This specifies the type of \code{value} and the associated options presented to the user:  Using \code{"offset"} will provide options that show timezone offsets.  Using \code{"name"} will provide options that show the IANA time zone names. \tab "name" | "offset" | "region" \tab TRUE \cr
@@ -51,6 +52,15 @@ The following events are observed by shiny:\tabular{ll}{
    calciteInputTimeZoneChange \tab Fires when the component's \code{value} changes. \cr
    calciteInputTimeZoneClose \tab Fires after the component is closed and animation is complete. \cr
    calciteInputTimeZoneOpen \tab Fires after the component is opened and animation is complete. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   label-content \tab A slot for rendering content next to the component's \code{labelText}. \cr
 }
 
 }

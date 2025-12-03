@@ -24,11 +24,14 @@ The following properties are provided by this component:\tabular{lllll}{
    closable \tab closable \tab When \code{true}, displays a close button in the trailing side of the header. \tab boolean \tab TRUE \cr
    closed \tab closed \tab When \code{true}, the component will be hidden. \tab boolean \tab TRUE \cr
    collapsed \tab collapsed \tab When \code{true}, hides the component's content area. \tab boolean \tab TRUE \cr
+   collapseDirection \tab collapse-direction \tab When \code{collapsible} is present, specifies the direction of the collapse icon. \tab "down" | "up" \tab FALSE \cr
    collapsible \tab collapsible \tab When \code{true}, the component is collapsible. \tab boolean \tab TRUE \cr
    description \tab description \tab A description for the component. \tab string \tab FALSE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    heading \tab heading \tab The component header text. \tab string \tab FALSE \cr
    headingLevel \tab heading-level \tab Specifies the heading level of the component's \code{heading} for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
+   icon \tab icon \tab Specifies an icon to display. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
    menuFlipPlacements \tab NA \tab Specifies the component's fallback menu \code{placement} when it's initial or specified \code{placement} has insufficient space available. \tab Check API reference \tab FALSE \cr
    menuOpen \tab menu-open \tab When \code{true}, the action menu items in the \code{header-menu-actions} slot are open. \tab boolean \tab TRUE \cr
@@ -45,6 +48,8 @@ The following properties are provided by this component:\tabular{lllll}{
 The following events are observed by shiny:\tabular{ll}{
    Event \tab Description \cr
    calcitePanelClose \tab Fires when the close button is clicked. \cr
+   calcitePanelCollapse \tab Fires when the component's content area is collapsed. \cr
+   calcitePanelExpand \tab Fires when the component's content area is expanded. \cr
    calcitePanelScroll \tab Fires when the content is scrolled. \cr
    calcitePanelToggle \tab Fires when the collapse button is clicked. \cr
 }

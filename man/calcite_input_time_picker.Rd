@@ -24,11 +24,13 @@ The following properties are provided by this component:\tabular{lllll}{
    focusTrapDisabled \tab focus-trap-disabled \tab When \code{true}, prevents focus trapping. \tab boolean \tab TRUE \cr
    form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
    hourFormat \tab hour-format \tab Specifies the component's hour format, where:  \code{"user"} displays the user's locale format, \code{"12"} displays a 12-hour format, and \code{"24"} displays a 24-hour format. \tab "12" | "24" | "user" \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   labelText \tab label-text \tab When provided, displays label text on the component. \tab string \tab FALSE \cr
    max \tab max \tab When the component resides in a form, specifies the maximum value. \tab string \tab TRUE \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    min \tab min \tab When the component resides in a form, specifies the minimum value. \tab string \tab TRUE \cr
    name \tab name \tab Specifies the name of the component on form submission. \tab string \tab FALSE \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab FALSE \cr
+   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab TRUE \cr
    open \tab open \tab When \code{true}, displays the \code{calcite-time-picker} component. \tab boolean \tab TRUE \cr
    overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab FALSE \cr
    placement \tab placement \tab Determines where the popover will be positioned relative to the input. \tab "auto" | "auto-end" | "auto-start" | "bottom" | "bottom-end" | "bottom-start" | "leading" | "leading-end" | "leading-start" | "left" | "left-end" | "left-start" | "right" | "right-end" | "right-start" | "top" | "top-end" | "top-start" | "trailing" | "trailing-end" | "trailing-start" \tab TRUE \cr
@@ -36,7 +38,7 @@ The following properties are provided by this component:\tabular{lllll}{
    required \tab required \tab When \code{true} and the component resides in a form, the component must have a value in order for the form to submit. \tab boolean \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
-   step \tab step \tab Specifies the granularity the component's \code{value} must adhere to (in seconds). \tab number \tab FALSE \cr
+   step \tab step \tab Specifies the granularity the component's \code{value} must adhere to (in seconds). \tab number \tab TRUE \cr
    validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab boolean | string \tab TRUE \cr
    validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
    validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
@@ -51,9 +53,18 @@ The following events are observed by shiny:\tabular{ll}{
    Event \tab Description \cr
    calciteInputTimePickerBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \cr
    calciteInputTimePickerBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \cr
-   calciteInputTimePickerChange \tab Fires when the component's \code{value} is changes. \cr
+   calciteInputTimePickerChange \tab Fires when the component's \code{value} is modified by the user. \cr
    calciteInputTimePickerClose \tab Fires when the component is closed and animation is complete. \cr
    calciteInputTimePickerOpen \tab Fires when the component is open and animation is complete. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   label-content \tab A slot for rendering content next to the component's \code{labelText}. \cr
 }
 
 }

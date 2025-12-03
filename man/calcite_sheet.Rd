@@ -24,6 +24,7 @@ The following properties are provided by this component:\tabular{lllll}{
    displayMode \tab display-mode \tab Specifies the display mode - \code{"float"} (content is separated detached), or \code{"overlay"} (displays on top of center content). \tab "float" | "overlay" \tab TRUE \cr
    escapeDisabled \tab escape-disabled \tab When \code{true}, disables the default close on escape behavior. \tab boolean \tab TRUE \cr
    focusTrapDisabled \tab focus-trap-disabled \tab When \code{true}, prevents focus trapping. \tab boolean \tab TRUE \cr
+   focusTrapOptions \tab NA \tab Specifies custom focus trap configuration on the component, where  \verb{"allowOutsideClick}" allows outside clicks, \code{"initialFocus"} enables initial focus, \code{"returnFocusOnDeactivate"} returns focus when not active, and \code{"extraContainers"} specifies additional focusable elements external to the trap (e.g., 3rd-party components appending elements to the document body). \code{"setReturnFocus"} customizes the element to which focus is returned when the trap is deactivated. Return \code{false} to prevent focus return, or \code{undefined} to use the default behavior (returning focus to the element focused before activation). \tab Check API reference \tab FALSE \cr
    height \tab height \tab Specifies the height of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    heightScale \tab height-scale \tab When \code{position} is \code{"block-start"} or \code{"block-end"}, specifies the height of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    label \tab label \tab Specifies the label of the component. \tab string \tab FALSE \cr
@@ -46,6 +47,15 @@ The following events are observed by shiny:\tabular{ll}{
    calciteSheetBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \cr
    calciteSheetClose \tab Fires when the component is closed and animation is complete. \cr
    calciteSheetOpen \tab Fires when the component is open and animation is complete. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   Default (unnamed) \tab A slot for adding custom content. \cr
 }
 
 }

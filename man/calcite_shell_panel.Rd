@@ -34,6 +34,16 @@ The following properties are provided by this component:\tabular{lllll}{
 
 }
 
+\subsection{Events}{
+
+The following events are observed by shiny:\tabular{ll}{
+   Event \tab Description \cr
+   calciteShellPanelCollapse \tab Fires when the component's content area is collapsed. \cr
+   calciteShellPanelExpand \tab Fires when the component's content area is expanded. \cr
+}
+
+}
+
 \subsection{Slots}{
 
 The following slots are provided by this component:\tabular{ll}{

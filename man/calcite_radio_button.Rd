@@ -23,6 +23,7 @@ The following properties are provided by this component:\tabular{lllll}{
    checked \tab checked \tab When \code{true}, the component is checked. \tab boolean \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
+   labelText \tab label-text \tab When provided, displays label text on the component. \tab string \tab FALSE \cr
    name \tab name \tab Specifies the name of the component. Can be inherited from \code{calcite-radio-button-group}.  Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
    required \tab required \tab When \code{true} and the component resides in a form, the component must have a value selected from the \code{calcite-radio-button-group} in order for the form to submit. \tab boolean \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component inherited from the \code{calcite-radio-button-group}. \tab "l" | "m" | "s" \tab TRUE \cr

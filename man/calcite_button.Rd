@@ -32,7 +32,7 @@ The following properties are provided by this component:\tabular{lllll}{
    iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
    kind \tab kind \tab Specifies the kind of the component, which will apply to the border and background if applicable. \tab "brand" | "danger" | "inverse" | "neutral" \tab TRUE \cr
    label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
-   loading \tab loading \tab When \code{true}, a busy indicator is displayed and interaction is disabled. \tab boolean \tab TRUE \cr
+   loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    name \tab name \tab Specifies the name of the component on form submission. \tab string \tab TRUE \cr
    rel \tab rel \tab Defines the relationship between the \code{href} value and the current document. \tab string \tab TRUE \cr
@@ -40,7 +40,7 @@ The following properties are provided by this component:\tabular{lllll}{
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    splitChild \tab split-child \tab Specifies if the component is a child of a \code{calcite-split-button}. \tab "primary" | "secondary" | boolean \tab TRUE \cr
    target \tab target \tab Specifies where to open the linked document defined in the \code{href} property. \tab string \tab TRUE \cr
-   type \tab type \tab Specifies the default behavior of the component. \tab string \tab TRUE \cr
+   type \tab type \tab Specifies the default behavior of the component. \tab "button" | "reset" | "submit" \tab TRUE \cr
    width \tab width \tab Check API reference \tab "auto" | "full" | "half" \tab TRUE \cr
 }
 

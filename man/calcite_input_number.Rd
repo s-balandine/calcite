@@ -20,7 +20,7 @@ Create a InputNumber component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   alignment \tab alignment \tab Specifies the text alignment of the component's value. \tab "end" | "start" \tab TRUE \cr
+   alignment \tab alignment \tab Specifies the text alignment of the component's value. \tab "center" | "end" | "start" \tab TRUE \cr
    autocomplete \tab NA \tab Specifies the type of content to autocomplete, for use in forms. Read the native attribute's documentation on MDN for more info. \tab AutoFill \tab FALSE \cr
    clearable \tab clearable \tab When \code{true}, a clear button is displayed when the component has a value. \tab boolean \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
@@ -30,6 +30,7 @@ The following properties are provided by this component:\tabular{lllll}{
    iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
    integer \tab integer \tab When \code{true}, restricts the component to integer numbers only and disables exponential notation. \tab boolean \tab FALSE \cr
    label \tab label \tab Accessible name for the component's button or hyperlink. \tab string \tab FALSE \cr
+   labelText \tab label-text \tab When provided, displays label text on the component. \tab string \tab FALSE \cr
    loading \tab loading \tab When \code{true}, the component is in the loading state and \code{calcite-progress} is displayed. \tab boolean \tab TRUE \cr
    max \tab max \tab When the component resides in a form, specifies the maximum value. \tab number \tab TRUE \cr
    maxLength \tab max-length \tab When the component resides in a form, specifies the maximum length of text for the component's value. \tab number \tab TRUE \cr
@@ -69,7 +70,8 @@ The following events are observed by shiny:\tabular{ll}{
 
 The following slots are provided by this component:\tabular{ll}{
    Slot \tab Description \cr
-   action \tab A slot for positioning a button next to the component. \cr
+   action \tab A slot for positioning a \code{calcite-action} or other interactive content. \cr
+   label-content \tab A slot for rendering content next to the component's \code{labelText}. \cr
 }
 
 }

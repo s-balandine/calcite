@@ -32,10 +32,10 @@
 #' @examples
 #' calcite_accordion()
 calcite_accordion <- function(...) {
-  res <- htmltools::tag(
-    "calcite-accordion",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-accordion", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -51,14 +51,25 @@ calcite_accordion <- function(...) {
 
 #' The following properties are provided by this component: 
 
-#'  |Name        |Attribute     |Description                                                                                                 |Values                             |Reflects to Attribute |
-#'  |:-----------|:-------------|:-----------------------------------------------------------------------------------------------------------|:----------------------------------|:---------------------|
-#'  |description |description   |Specifies a description for the component.                                                                  |string                             |FALSE                 |
-#'  |expanded    |expanded      |When `true`, the component is expanded.                                                                     |boolean                            |TRUE                  |
-#'  |heading     |heading       |Specifies heading text for the component.                                                                   |string                             |FALSE                 |
-#'  |iconEnd     |icon-end      |Specifies an icon to display at the end of the component.                                                   |string                             |TRUE                  |
-#'  |iconFlipRtl |icon-flip-rtl |Displays the `iconStart` and/or `iconEnd` as flipped when the element direction is right-to-left (`"rtl"`). |"both" &#124; "end" &#124; "start" |TRUE                  |
-#'  |iconStart   |icon-start    |Specifies an icon to display at the start of the component.                                                 |string                             |TRUE                  |
+#'  |Name             |Attribute     |Description                                                                                                               |Values                                         |Reflects to Attribute |
+#'  |:----------------|:-------------|:-------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:---------------------|
+#'  |description      |description   |Specifies a description for the component.                                                                                |string                                         |FALSE                 |
+#'  |expanded         |expanded      |When `true`, expands the component and its contents.                                                                      |boolean                                        |TRUE                  |
+#'  |heading          |heading       |Specifies heading text for the component.                                                                                 |string                                         |FALSE                 |
+#'  |headingLevel     |heading-level |Specifies the heading level of the component's `heading` for proper document structure, without affecting visual styling. |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6 |TRUE                  |
+#'  |iconEnd          |icon-end      |Specifies an icon to display at the end of the component.                                                                 |string                                         |TRUE                  |
+#'  |iconFlipRtl      |icon-flip-rtl |Displays the `iconStart` and/or `iconEnd` as flipped when the element direction is right-to-left (`"rtl"`).               |"both" &#124; "end" &#124; "start"             |TRUE                  |
+#'  |iconStart        |icon-start    |Specifies an icon to display at the start of the component.                                                               |string                                         |TRUE                  |
+#'  |messageOverrides |NA            |Use this property to override individual strings used by the component.                                                   |Check API reference                            |FALSE                 |
+
+#' ## Events
+
+#' The following events are observed by shiny:
+
+#'  |Event                        |Description                                           |
+#'  |:----------------------------|:-----------------------------------------------------|
+#'  |calciteAccordionItemCollapse |Fires when the component's content area is collapsed. |
+#'  |calciteAccordionItemExpand   |Fires when the component's content area is expanded.  |
 
 #' ## Slots
 
@@ -69,6 +80,8 @@ calcite_accordion <- function(...) {
 #'  |Default (unnamed) |A slot for adding custom content, including nested `calcite-accordion-item`s.               |
 #'  |actions-end       |A slot for adding `calcite-action`s or content to the end side of the component's header.   |
 #'  |actions-start     |A slot for adding `calcite-action`s or content to the start side of the component's header. |
+#'  |content-end       |A slot for adding non-actionable elements after the component's header text.                |
+#'  |content-start     |A slot for adding non-actionable elements before the component's header text.               |
 #'
 #' @param ... named attributes passed to `htmltools::tag()`
 #' @export
@@ -77,10 +90,10 @@ calcite_accordion <- function(...) {
 #' @examples
 #' calcite_accordion_item()
 calcite_accordion_item <- function(...) {
-  res <- htmltools::tag(
-    "calcite-accordion-item",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-accordion-item", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -96,31 +109,34 @@ calcite_accordion_item <- function(...) {
 
 #' The following properties are provided by this component: 
 
-#'  |Name             |Attribute     |Description                                                                                                            |Values                               |Reflects to Attribute |
-#'  |:----------------|:-------------|:----------------------------------------------------------------------------------------------------------------------|:------------------------------------|:---------------------|
-#'  |active           |active        |When `true`, the component is highlighted.                                                                             |boolean                              |TRUE                  |
-#'  |alignment        |alignment     |Specifies the horizontal alignment of button elements with text content.                                               |"center" &#124; "end" &#124; "start" |TRUE                  |
-#'  |appearance       |appearance    |Specifies the appearance of the component.                                                                             |"solid" &#124; "transparent"         |TRUE                  |
-#'  |compact          |compact       |When `true`, the side padding of the component is reduced.                                                             |boolean                              |TRUE                  |
-#'  |disabled         |disabled      |When `true`, interaction is prevented and the component is displayed with lower opacity.                               |boolean                              |TRUE                  |
-#'  |icon             |icon          |Specifies an icon to display.                                                                                          |string                               |TRUE                  |
-#'  |iconFlipRtl      |icon-flip-rtl |When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                           |boolean                              |TRUE                  |
-#'  |indicator        |indicator     |When `true`, displays a visual indicator.                                                                              |boolean                              |TRUE                  |
-#'  |label            |label         |Specifies the label of the component. If no label is provided, the label inherits what's provided for the `text` prop. |string                               |FALSE                 |
-#'  |loading          |loading       |When `true`, a busy indicator is displayed.                                                                            |boolean                              |TRUE                  |
-#'  |messageOverrides |NA            |Use this property to override individual strings used by the component.                                                |Check API reference                  |FALSE                 |
-#'  |scale            |scale         |Specifies the size of the component.                                                                                   |"l" &#124; "m" &#124; "s"            |TRUE                  |
-#'  |text             |text          |Specifies text that accompanies the icon.                                                                              |string                               |FALSE                 |
-#'  |textEnabled      |text-enabled  |Indicates whether the text is displayed.                                                                               |boolean                              |TRUE                  |
+#'  |Name             |Attribute     |Description                                                                                                                                              |Values                                  |Reflects to Attribute |
+#'  |:----------------|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|:---------------------|
+#'  |active           |active        |When `true`, the component is highlighted.                                                                                                               |boolean                                 |TRUE                  |
+#'  |alignment        |alignment     |Specifies the horizontal alignment of button elements with text content.                                                                                 |"center" &#124; "end" &#124; "start"    |TRUE                  |
+#'  |appearance       |appearance    |Specifies the appearance of the component.                                                                                                               |"solid" &#124; "transparent"            |TRUE                  |
+#'  |aria             |NA            |Use this property to override or extend ARIA properties and attributes on the component's button.                                                        |Check API reference                     |FALSE                 |
+#'  |compact          |compact       |When `true`, the side padding of the component is reduced.                                                                                               |boolean                                 |TRUE                  |
+#'  |disabled         |disabled      |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                 |boolean                                 |TRUE                  |
+#'  |form             |form          |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. |string                                  |TRUE                  |
+#'  |icon             |icon          |Specifies an icon to display.                                                                                                                            |string                                  |TRUE                  |
+#'  |iconFlipRtl      |icon-flip-rtl |When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                                                             |boolean                                 |TRUE                  |
+#'  |indicator        |indicator     |When `true`, displays a visual indicator.                                                                                                                |boolean                                 |TRUE                  |
+#'  |label            |label         |Specifies the label of the component. If no label is provided, the label inherits what's provided for the `text` prop.                                   |string                                  |FALSE                 |
+#'  |loading          |loading       |When `true`, a busy indicator is displayed.                                                                                                              |boolean                                 |TRUE                  |
+#'  |messageOverrides |NA            |Use this property to override individual strings used by the component.                                                                                  |Check API reference                     |FALSE                 |
+#'  |scale            |scale         |Specifies the size of the component.                                                                                                                     |"l" &#124; "m" &#124; "s"               |TRUE                  |
+#'  |text             |text          |Specifies text that accompanies the icon.                                                                                                                |string                                  |FALSE                 |
+#'  |textEnabled      |text-enabled  |When `true`, indicates whether the text is displayed.                                                                                                    |boolean                                 |TRUE                  |
+#'  |type             |type          |Specifies the default behavior of the component.                                                                                                         |"button" &#124; "reset" &#124; "submit" |TRUE                  |
 
 #' ## Slots
 
 #' The following slots are provided by this component: 
 
-#'  |Slot              |Description                                               |
-#'  |:-----------------|:---------------------------------------------------------|
-#'  |Default (unnamed) |A slot for adding a `calcite-icon`.                       |
-#'  |tooltip           |[Deprecated] Use the `calcite-tooltip` component instead. |
+#'  |Slot              |Description                                                          |
+#'  |:-----------------|:--------------------------------------------------------------------|
+#'  |Default (unnamed) |A slot for adding non-interactive content, such as a `calcite-icon`. |
+#'  |tooltip           |[Deprecated] Use the `calcite-tooltip` component instead.            |
 #'
 #' @param ... named attributes passed to `htmltools::tag()`
 #' @export
@@ -129,10 +145,10 @@ calcite_accordion_item <- function(...) {
 #' @examples
 #' calcite_action()
 calcite_action <- function(...) {
-  res <- htmltools::tag(
-    "calcite-action",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-action", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -148,25 +164,28 @@ calcite_action <- function(...) {
 
 #' The following properties are provided by this component: 
 
-#'  |Name                    |Attribute                 |Description                                                                                                                                                                                                                                                                                                                                                                   |Values                         |Reflects to Attribute |
-#'  |:-----------------------|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------------------|
-#'  |actionsEndGroupLabel    |actions-end-group-label   |Specifies the accessible label for the last `calcite-action-group`.                                                                                                                                                                                                                                                                                                           |string                         |FALSE                 |
-#'  |expandDisabled          |expand-disabled           |When `true`, the expand-toggling behavior is disabled.                                                                                                                                                                                                                                                                                                                        |boolean                        |TRUE                  |
-#'  |expanded                |expanded                  |When `true`, the component is expanded.                                                                                                                                                                                                                                                                                                                                       |boolean                        |TRUE                  |
-#'  |layout                  |layout                    |Specifies the layout direction of the actions.                                                                                                                                                                                                                                                                                                                                |"horizontal" &#124; "vertical" |TRUE                  |
-#'  |messageOverrides        |NA                        |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                       |Check API reference            |FALSE                 |
-#'  |overflowActionsDisabled |overflow-actions-disabled |Disables automatically overflowing `calcite-action`s that won't fit into menus.                                                                                                                                                                                                                                                                                               |boolean                        |TRUE                  |
-#'  |overlayPositioning      |overlay-positioning       |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. |"absolute" &#124; "fixed"      |TRUE                  |
-#'  |position                |position                  |Arranges the component depending on the element's `dir` property.                                                                                                                                                                                                                                                                                                             |"end" &#124; "start"           |TRUE                  |
-#'  |scale                   |scale                     |Specifies the size of the expand `calcite-action`.                                                                                                                                                                                                                                                                                                                            |"l" &#124; "m" &#124; "s"      |TRUE                  |
+#'  |Name                    |Attribute                 |Description                                                                                                                                                                                                                                                                                                                                                                   |Values                                       |Reflects to Attribute |
+#'  |:-----------------------|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|:---------------------|
+#'  |actionsEndGroupLabel    |actions-end-group-label   |Specifies the accessible label for the last `calcite-action-group`.                                                                                                                                                                                                                                                                                                           |string                                       |FALSE                 |
+#'  |expandDisabled          |expand-disabled           |When `true`, the expand-toggling behavior is disabled.                                                                                                                                                                                                                                                                                                                        |boolean                                      |TRUE                  |
+#'  |expanded                |expanded                  |When `true`, expands the component and its contents.                                                                                                                                                                                                                                                                                                                          |boolean                                      |TRUE                  |
+#'  |floating                |floating                  |When `true`, the component is in a floating state.                                                                                                                                                                                                                                                                                                                            |boolean                                      |TRUE                  |
+#'  |layout                  |layout                    |Specifies the layout direction of the actions.                                                                                                                                                                                                                                                                                                                                |"grid" &#124; "horizontal" &#124; "vertical" |TRUE                  |
+#'  |messageOverrides        |NA                        |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                       |Check API reference                          |FALSE                 |
+#'  |overflowActionsDisabled |overflow-actions-disabled |When `true`, disables automatically overflowing `calcite-action`s that won't fit into menus.                                                                                                                                                                                                                                                                                  |boolean                                      |TRUE                  |
+#'  |overlayPositioning      |overlay-positioning       |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. |"absolute" &#124; "fixed"                    |TRUE                  |
+#'  |position                |position                  |Arranges the component depending on the element's `dir` property.                                                                                                                                                                                                                                                                                                             |"end" &#124; "start"                         |TRUE                  |
+#'  |scale                   |scale                     |Specifies the size of the expand `calcite-action`.                                                                                                                                                                                                                                                                                                                            |"l" &#124; "m" &#124; "s"                    |TRUE                  |
 
 #' ## Events
 
 #' The following events are observed by shiny:
 
-#'  |Event                  |Description                                    |
-#'  |:----------------------|:----------------------------------------------|
-#'  |calciteActionBarToggle |Fires when the `expanded` property is toggled. |
+#'  |Event                    |Description                                           |
+#'  |:------------------------|:-----------------------------------------------------|
+#'  |calciteActionBarCollapse |Fires when the component's content area is collapsed. |
+#'  |calciteActionBarExpand   |Fires when the component's content area is expanded.  |
+#'  |calciteActionBarToggle   |Fires when the `expanded` property is toggled.        |
 
 #' ## Slots
 
@@ -186,10 +205,10 @@ calcite_action <- function(...) {
 #' @examples
 #' calcite_action_bar()
 calcite_action_bar <- function(...) {
-  res <- htmltools::tag(
-    "calcite-action-bar",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-action-bar", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -208,7 +227,7 @@ calcite_action_bar <- function(...) {
 #'  |Name               |Attribute           |Description                                                                                                                                                                                                                                                                                                                                                                  |Values                                                                                                                                                                                                                                                                                                                                                                                          |Reflects to Attribute |
 #'  |:------------------|:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|
 #'  |columns            |columns             |Indicates number of columns.                                                                                                                                                                                                                                                                                                                                                 |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6                                                                                                                                                                                                                                                                                                                                                  |TRUE                  |
-#'  |expanded           |expanded            |When `true`, the component is expanded.                                                                                                                                                                                                                                                                                                                                      |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
+#'  |expanded           |expanded            |When `true`, expands the component and its contents.                                                                                                                                                                                                                                                                                                                         |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 #'  |label              |label               |Accessible name for the component.                                                                                                                                                                                                                                                                                                                                           |string                                                                                                                                                                                                                                                                                                                                                                                          |FALSE                 |
 #'  |layout             |layout              |Indicates the layout of the component.                                                                                                                                                                                                                                                                                                                                       |"grid" &#124; "horizontal" &#124; "vertical"                                                                                                                                                                                                                                                                                                                                                    |TRUE                  |
 #'  |menuFlipPlacements |NA                  |Specifies the component's fallback menu `placement` when it's initial or specified `placement` has insufficient space available.                                                                                                                                                                                                                                             |Check API reference                                                                                                                                                                                                                                                                                                                                                                             |FALSE                 |
@@ -217,6 +236,15 @@ calcite_action_bar <- function(...) {
 #'  |messageOverrides   |NA                  |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                      |Check API reference                                                                                                                                                                                                                                                                                                                                                                             |FALSE                 |
 #'  |overlayPositioning |overlay-positioning |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout. `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. |"absolute" &#124; "fixed"                                                                                                                                                                                                                                                                                                                                                                       |TRUE                  |
 #'  |scale              |scale               |Specifies the size of the `calcite-action-menu`.                                                                                                                                                                                                                                                                                                                             |"l" &#124; "m" &#124; "s"                                                                                                                                                                                                                                                                                                                                                                       |TRUE                  |
+
+#' ## Events
+
+#' The following events are observed by shiny:
+
+#'  |Event                      |Description                                           |
+#'  |:--------------------------|:-----------------------------------------------------|
+#'  |calciteActionGroupCollapse |Fires when the component's content area is collapsed. |
+#'  |calciteActionGroupExpand   |Fires when the component's content area is expanded.  |
 
 #' ## Slots
 
@@ -235,17 +263,17 @@ calcite_action_bar <- function(...) {
 #' @examples
 #' calcite_action_group()
 calcite_action_group <- function(...) {
-  res <- htmltools::tag(
-    "calcite-action-group",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-action-group", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
 }
 #' Create a ActionPad component
 #'
-#' 
+#' Use the `calcite-action-pad` component instead.
 #'
 #' 
 #'
@@ -258,7 +286,7 @@ calcite_action_group <- function(...) {
 #'  |:--------------------|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|:---------------------|
 #'  |actionsEndGroupLabel |actions-end-group-label |Specifies the accessible label for the last `calcite-action-group`.                                                                                                                                                                                                                                                                                                           |string                                       |FALSE                 |
 #'  |expandDisabled       |expand-disabled         |When `true`, the expand-toggling behavior is disabled.                                                                                                                                                                                                                                                                                                                        |boolean                                      |TRUE                  |
-#'  |expanded             |expanded                |When `true`, the component is expanded.                                                                                                                                                                                                                                                                                                                                       |boolean                                      |TRUE                  |
+#'  |expanded             |expanded                |When `true`, expands the component and its contents.                                                                                                                                                                                                                                                                                                                          |boolean                                      |TRUE                  |
 #'  |layout               |layout                  |Indicates the layout of the component.                                                                                                                                                                                                                                                                                                                                        |"grid" &#124; "horizontal" &#124; "vertical" |TRUE                  |
 #'  |messageOverrides     |NA                      |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                       |Check API reference                          |FALSE                 |
 #'  |overlayPositioning   |overlay-positioning     |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. |"absolute" &#124; "fixed"                    |TRUE                  |
@@ -269,9 +297,11 @@ calcite_action_group <- function(...) {
 
 #' The following events are observed by shiny:
 
-#'  |Event                  |Description                                    |
-#'  |:----------------------|:----------------------------------------------|
-#'  |calciteActionPadToggle |Fires when the `expanded` property is toggled. |
+#'  |Event                    |Description                                           |
+#'  |:------------------------|:-----------------------------------------------------|
+#'  |calciteActionPadCollapse |Fires when the component's content area is collapsed. |
+#'  |calciteActionPadExpand   |Fires when the component's content area is expanded.  |
+#'  |calciteActionPadToggle   |Fires when the `expanded` property is toggled.        |
 
 #' ## Slots
 
@@ -289,10 +319,10 @@ calcite_action_group <- function(...) {
 #' @examples
 #' calcite_action_pad()
 calcite_action_pad <- function(...) {
-  res <- htmltools::tag(
-    "calcite-action-pad",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-action-pad", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -352,10 +382,187 @@ calcite_action_pad <- function(...) {
 #' @examples
 #' calcite_alert()
 calcite_alert <- function(...) {
-  res <- htmltools::tag(
-    "calcite-alert",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-alert", dots)
+
+  class(res) <- c("calcite_component", class(res))
+  res
+}
+#' Create a Autocomplete component
+#'
+#' 
+#'
+#' 
+#'
+#' @details
+#' ## Properties
+
+#' The following properties are provided by this component: 
+
+#'  |Name               |Attribute           |Description                                                                                                                                                                                                                                                                                                                                                                   |Values                                                                                              |Reflects to Attribute |
+#'  |:------------------|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|:---------------------|
+#'  |alignment          |alignment           |Specifies the text alignment of the component's value.                                                                                                                                                                                                                                                                                                                        |"end" &#124; "start"                                                                                |TRUE                  |
+#'  |autocomplete       |NA                  |Specifies the type of content to autocomplete, for use in forms. Read the native attribute's documentation on MDN for more info.                                                                                                                                                                                                                                              |AutoFill                                                                                            |FALSE                 |
+#'  |disabled           |disabled            |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                                                                                                                                                                                      |boolean                                                                                             |TRUE                  |
+#'  |flipPlacements     |NA                  |Specifies the component's fallback `placement` when it's initial or specified `placement` has insufficient space available.                                                                                                                                                                                                                                                   |Check API reference                                                                                 |FALSE                 |
+#'  |form               |form                |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any.                                                                                                                                                                                                                      |string                                                                                              |TRUE                  |
+#'  |icon               |icon                |When `true`, shows a default recommended icon. Alternatively, pass a Calcite UI Icon name to display a specific icon.                                                                                                                                                                                                                                                         |boolean &#124; string                                                                               |TRUE                  |
+#'  |iconFlipRtl        |icon-flip-rtl       |When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                                                                                                                                                                                                                                                                                  |boolean                                                                                             |TRUE                  |
+#'  |inputValue         |input-value         |The component's input value.                                                                                                                                                                                                                                                                                                                                                  |string                                                                                              |FALSE                 |
+#'  |label              |label               |Accessible name for the component.                                                                                                                                                                                                                                                                                                                                            |string                                                                                              |FALSE                 |
+#'  |labelText          |label-text          |When provided, displays label text on the component.                                                                                                                                                                                                                                                                                                                          |string                                                                                              |FALSE                 |
+#'  |loading            |loading             |When `true`, a busy indicator is displayed.                                                                                                                                                                                                                                                                                                                                   |boolean                                                                                             |TRUE                  |
+#'  |maxLength          |max-length          |When the component resides in a form, specifies the maximum length of text for the component's value.                                                                                                                                                                                                                                                                         |number                                                                                              |TRUE                  |
+#'  |messageOverrides   |NA                  |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                       |Check API reference                                                                                 |FALSE                 |
+#'  |minLength          |min-length          |When the component resides in a form, specifies the minimum length of text for the component's value.                                                                                                                                                                                                                                                                         |number                                                                                              |TRUE                  |
+#'  |name               |name                |Specifies the name of the component.  Required to pass the component's `value` on form submission.                                                                                                                                                                                                                                                                            |string                                                                                              |TRUE                  |
+#'  |open               |open                |When `true`, displays and positions the component.                                                                                                                                                                                                                                                                                                                            |boolean                                                                                             |TRUE                  |
+#'  |overlayPositioning |overlay-positioning |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. |"absolute" &#124; "fixed"                                                                           |TRUE                  |
+#'  |pattern            |pattern             |When the component resides in a form, specifies a regular expression (regex) pattern the component's `value` must match for validation. Read the native attribute's documentation on MDN for more info.                                                                                                                                                                       |string                                                                                              |FALSE                 |
+#'  |placeholder        |placeholder         |Specifies placeholder text for the component.                                                                                                                                                                                                                                                                                                                                 |string                                                                                              |FALSE                 |
+#'  |placement          |placement           |Determines where the component will be positioned relative to the container element.                                                                                                                                                                                                                                                                                          |"bottom" &#124; "bottom-end" &#124; "bottom-start" &#124; "top" &#124; "top-end" &#124; "top-start" |TRUE                  |
+#'  |prefixText         |prefix-text         |Adds text to the start of the component.                                                                                                                                                                                                                                                                                                                                      |string                                                                                              |FALSE                 |
+#'  |readOnly           |read-only           |When `true`, the component's value can be read, but cannot be modified.                                                                                                                                                                                                                                                                                                       |boolean                                                                                             |TRUE                  |
+#'  |required           |required            |When `true` and the component resides in a form, the component must have a value in order for the form to submit.                                                                                                                                                                                                                                                             |boolean                                                                                             |TRUE                  |
+#'  |scale              |scale               |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                          |"l" &#124; "m" &#124; "s"                                                                           |TRUE                  |
+#'  |status             |status              |Specifies the status of the input field, which determines message and icons.                                                                                                                                                                                                                                                                                                  |"idle" &#124; "invalid" &#124; "valid"                                                              |TRUE                  |
+#'  |suffixText         |suffix-text         |Adds text to the end of the component.                                                                                                                                                                                                                                                                                                                                        |string                                                                                              |FALSE                 |
+#'  |validationIcon     |validation-icon     |Specifies the validation icon to display under the component.                                                                                                                                                                                                                                                                                                                 |boolean &#124; string                                                                               |TRUE                  |
+#'  |validationMessage  |validation-message  |Specifies the validation message to display under the component.                                                                                                                                                                                                                                                                                                              |string                                                                                              |FALSE                 |
+#'  |validity           |NA                  |The current validation state of the component.                                                                                                                                                                                                                                                                                                                                |Check API reference                                                                                 |FALSE                 |
+#'  |value              |value               |The component's value.                                                                                                                                                                                                                                                                                                                                                        |string                                                                                              |FALSE                 |
+
+#' ## Events
+
+#' The following events are observed by shiny:
+
+#'  |Event                          |Description                                                                                              |
+#'  |:------------------------------|:--------------------------------------------------------------------------------------------------------|
+#'  |calciteAutocompleteBeforeClose |Fires when the component is requested to be closed and before the closing transition begins.             |
+#'  |calciteAutocompleteBeforeOpen  |Fires when the component is added to the DOM but not rendered, and before the opening transition begins. |
+#'  |calciteAutocompleteChange      |Fires each time a new `value` is typed and committed.                                                    |
+#'  |calciteAutocompleteClose       |Fires when the component is closed and animation is complete.                                            |
+#'  |calciteAutocompleteOpen        |Fires when the component is open and animation is complete.                                              |
+#'  |calciteAutocompleteTextChange  |Fires each time a new `inputValue` is typed and committed.                                               |
+#'  |calciteAutocompleteTextInput   |Fires each time a new `inputValue` is typed.                                                             |
+
+#' ## Slots
+
+#' The following slots are provided by this component: 
+
+#'  |Slot              |Description                                                           |
+#'  |:-----------------|:---------------------------------------------------------------------|
+#'  |Default (unnamed) |A slot for adding `calcite-autocomplete-item` elements.               |
+#'  |content-bottom    |A slot for adding content below `calcite-autocomplete-item` elements. |
+#'  |content-top       |A slot for adding content above `calcite-autocomplete-item` elements. |
+#'  |label-content     |A slot for rendering content next to the component's `labelText`.     |
+#'
+#' @param ... named attributes passed to `htmltools::tag()`
+#' @export
+#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
+#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/autocomplete/)
+#' @examples
+#' calcite_autocomplete()
+calcite_autocomplete <- function(...) {
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-autocomplete", dots)
+
+  class(res) <- c("calcite_component", class(res))
+  res
+}
+#' Create a AutocompleteItem component
+#'
+#' 
+#'
+#' 
+#'
+#' @details
+#' ## Properties
+
+#' The following properties are provided by this component: 
+
+#'  |Name        |Attribute     |Description                                                                                                 |Values                             |Reflects to Attribute |
+#'  |:-----------|:-------------|:-----------------------------------------------------------------------------------------------------------|:----------------------------------|:---------------------|
+#'  |description |description   |A description for the component. Displays below the label text.                                             |string                             |FALSE                 |
+#'  |disabled    |disabled      |When `true`, interaction is prevented and the component is displayed with lower opacity.                    |boolean                            |TRUE                  |
+#'  |heading     |heading       |Specifies heading text for the component.                                                                   |string                             |FALSE                 |
+#'  |iconEnd     |icon-end      |Specifies an icon to display at the end of the component.                                                   |string                             |TRUE                  |
+#'  |iconFlipRtl |icon-flip-rtl |Displays the `iconStart` and/or `iconEnd` as flipped when the element direction is right-to-left (`"rtl"`). |"both" &#124; "end" &#124; "start" |TRUE                  |
+#'  |iconStart   |icon-start    |Specifies an icon to display at the start of the component.                                                 |string                             |TRUE                  |
+#'  |label       |label         |Accessible name for the component.                                                                          |string                             |FALSE                 |
+#'  |value       |value         |The component's value.                                                                                      |string                             |FALSE                 |
+
+#' ## Events
+
+#' The following events are observed by shiny:
+
+#'  |Event                         |Description                            |
+#'  |:-----------------------------|:--------------------------------------|
+#'  |calciteAutocompleteItemSelect |Fires when the item has been selected. |
+
+#' ## Slots
+
+#' The following slots are provided by this component: 
+
+#'  |Slot          |Description                                                                |
+#'  |:-------------|:--------------------------------------------------------------------------|
+#'  |content-end   |A slot for adding non-actionable elements after content of the component.  |
+#'  |content-start |A slot for adding non-actionable elements before content of the component. |
+#'
+#' @param ... named attributes passed to `htmltools::tag()`
+#' @export
+#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
+#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/autocomplete-item/)
+#' @examples
+#' calcite_autocomplete_item()
+calcite_autocomplete_item <- function(...) {
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-autocomplete-item", dots)
+
+  class(res) <- c("calcite_component", class(res))
+  res
+}
+#' Create a AutocompleteItemGroup component
+#'
+#' 
+#'
+#' 
+#'
+#' @details
+#' ## Properties
+
+#' The following properties are provided by this component: 
+
+#'  |Name    |Attribute |Description                               |Values |Reflects to Attribute |
+#'  |:-------|:---------|:-----------------------------------------|:------|:---------------------|
+#'  |heading |heading   |Specifies heading text for the component. |string |FALSE                 |
+#'  |label   |label     |Accessible name for the component.        |any    |FALSE                 |
+
+#' ## Slots
+
+#' The following slots are provided by this component: 
+
+#'  |Slot              |Description                                     |
+#'  |:-----------------|:-----------------------------------------------|
+#'  |Default (unnamed) |A slot for adding `calcite-autocomplete-item`s. |
+#'
+#' @param ... named attributes passed to `htmltools::tag()`
+#' @export
+#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
+#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/autocomplete-item-group/)
+#' @examples
+#' calcite_autocomplete_item_group()
+calcite_autocomplete_item_group <- function(...) {
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-autocomplete-item-group", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -387,10 +594,10 @@ calcite_alert <- function(...) {
 #' @examples
 #' calcite_avatar()
 calcite_avatar <- function(...) {
-  res <- htmltools::tag(
-    "calcite-avatar",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-avatar", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -413,6 +620,7 @@ calcite_avatar <- function(...) {
 #'  |disabled           |disabled            |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                                                                                                                                                                                      |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 #'  |dragDisabled       |drag-disabled       |When `true`, and a parent Block Group is `dragEnabled`, the component is not draggable.                                                                                                                                                                                                                                                                                       |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 #'  |dragHandle         |drag-handle         |When `true`, the component displays a draggable button.                                                                                                                                                                                                                                                                                                                       |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
+#'  |expanded           |expanded            |When `true`, expands the component and its contents.                                                                                                                                                                                                                                                                                                                          |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 #'  |heading            |heading             |The component header text.                                                                                                                                                                                                                                                                                                                                                    |string                                                                                                                                                                                                                                                                                                                                                                                          |FALSE                 |
 #'  |headingLevel       |heading-level       |Specifies the heading level of the component's `heading` for proper document structure, without affecting visual styling.                                                                                                                                                                                                                                                     |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6                                                                                                                                                                                                                                                                                                                                                  |TRUE                  |
 #'  |iconEnd            |icon-end            |Specifies an icon to display at the end of the component.                                                                                                                                                                                                                                                                                                                     |string                                                                                                                                                                                                                                                                                                                                                                                          |TRUE                  |
@@ -425,6 +633,7 @@ calcite_avatar <- function(...) {
 #'  |messageOverrides   |NA                  |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                       |Check API reference                                                                                                                                                                                                                                                                                                                                                                             |FALSE                 |
 #'  |open               |open                |When `true`, expands the component and its contents.                                                                                                                                                                                                                                                                                                                          |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 #'  |overlayPositioning |overlay-positioning |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. |"absolute" &#124; "fixed"                                                                                                                                                                                                                                                                                                                                                                       |TRUE                  |
+#'  |scale              |scale               |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                          |"l" &#124; "m" &#124; "s"                                                                                                                                                                                                                                                                                                                                                                       |TRUE                  |
 #'  |sortHandleOpen     |sort-handle-open    |When `true`, displays and positions the sort handle.                                                                                                                                                                                                                                                                                                                          |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 #'  |status             |status              |Displays a status-related indicator icon.                                                                                                                                                                                                                                                                                                                                     |"idle" &#124; "invalid" &#124; "valid"                                                                                                                                                                                                                                                                                                                                                          |TRUE                  |
 
@@ -437,6 +646,8 @@ calcite_avatar <- function(...) {
 #'  |calciteBlockBeforeClose           |Fires when the component is requested to be closed and before the closing transition begins.               |
 #'  |calciteBlockBeforeOpen            |Fires when the component is added to the DOM but not rendered, and before the opening transition begins.   |
 #'  |calciteBlockClose                 |Fires when the component is closed and animation is complete.                                              |
+#'  |calciteBlockCollapse              |Fires when the component's content area is collapsed.                                                      |
+#'  |calciteBlockExpand                |Fires when the component's content area is expanded.                                                       |
 #'  |calciteBlockOpen                  |Fires when the component is open and animation is complete.                                                |
 #'  |calciteBlockSortHandleBeforeClose |Fires when the sort handle is requested to be closed and before the closing transition begins.             |
 #'  |calciteBlockSortHandleBeforeOpen  |Fires when the sort handle is added to the DOM but not rendered, and before the opening transition begins. |
@@ -464,10 +675,67 @@ calcite_avatar <- function(...) {
 #' @examples
 #' calcite_block()
 calcite_block <- function(...) {
-  res <- htmltools::tag(
-    "calcite-block",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-block", dots)
+
+  class(res) <- c("calcite_component", class(res))
+  res
+}
+#' Create a BlockGroup component
+#'
+#' 
+#'
+#' 
+#'
+#' @details
+#' ## Properties
+
+#' The following properties are provided by this component: 
+
+#'  |Name         |Attribute     |Description                                                                                                                                                                                   |Values                                              |Reflects to Attribute |
+#'  |:------------|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|:---------------------|
+#'  |canPull      |NA            |When provided, the method will be called to determine whether the element can move from the component.                                                                                        |(detail: BlockDragDetail) => boolean &#124; "clone" |FALSE                 |
+#'  |canPut       |NA            |When provided, the method will be called to determine whether the element can be added from another component.                                                                                |(detail: BlockDragDetail) => boolean                |FALSE                 |
+#'  |disabled     |disabled      |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                      |boolean                                             |TRUE                  |
+#'  |dragEnabled  |drag-enabled  |When `true`, `calcite-block`s are sortable via a draggable button.                                                                                                                            |boolean                                             |TRUE                  |
+#'  |group        |group         |The block-group's group identifier.  To drag elements from one group into another, both groups must have the same group value.                                                                |string                                              |TRUE                  |
+#'  |label        |label         |Specifies an accessible name for the component.  When `dragEnabled` is `true` and multiple group sorting is enabled with `group`, specifies the component's name for dragging between groups. |string                                              |FALSE                 |
+#'  |loading      |loading       |When `true`, a busy indicator is displayed.                                                                                                                                                   |boolean                                             |TRUE                  |
+#'  |scale        |scale         |Specifies the size of the component.                                                                                                                                                          |"l" &#124; "m" &#124; "s"                           |TRUE                  |
+#'  |sortDisabled |sort-disabled |When `true`, and a `group` is defined, `calcite-block`s are no longer sortable.                                                                                                               |boolean                                             |TRUE                  |
+
+#' ## Events
+
+#' The following events are observed by shiny:
+
+#'  |Event                        |Description                                                                                                |
+#'  |:----------------------------|:----------------------------------------------------------------------------------------------------------|
+#'  |calciteBlockGroupDragEnd     |Fires when the component's dragging has ended.                                                             |
+#'  |calciteBlockGroupDragStart   |Fires when the component's dragging has started.                                                           |
+#'  |calciteBlockGroupMoveHalt    |Fires when a user attempts to move an element using the sort menu and 'canPut' or 'canPull' returns falsy. |
+#'  |calciteBlockGroupOrderChange |Fires when the component's item order changes.                                                             |
+
+#' ## Slots
+
+#' The following slots are provided by this component: 
+
+#'  |Slot              |Description                                 |
+#'  |:-----------------|:-------------------------------------------|
+#'  |Default (unnamed) |A slot for adding `calcite-block` elements. |
+#'
+#' @param ... named attributes passed to `htmltools::tag()`
+#' @export
+#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
+#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/block-group/)
+#' @examples
+#' calcite_block_group()
+calcite_block_group <- function(...) {
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-block-group", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -485,11 +753,13 @@ calcite_block <- function(...) {
 
 #'  |Name             |Attribute      |Description                                                                                                                                                |Values                                 |Reflects to Attribute |
 #'  |:----------------|:--------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:---------------------|
+#'  |expanded         |expanded       |When `true`, expands the component and its contents.                                                                                                       |boolean                                |TRUE                  |
 #'  |iconEnd          |icon-end       |Specifies an icon to display at the end of the component.                                                                                                  |string                                 |TRUE                  |
 #'  |iconFlipRtl      |icon-flip-rtl  |Displays the `iconStart` and/or `iconEnd` as flipped when the element direction is right-to-left (`"rtl"`).                                                |"both" &#124; "end" &#124; "start"     |TRUE                  |
 #'  |iconStart        |icon-start     |Specifies an icon to display at the start of the component.                                                                                                |string                                 |TRUE                  |
 #'  |messageOverrides |NA             |Use this property to override individual strings used by the component.                                                                                    |Check API reference                    |FALSE                 |
 #'  |open             |open           |When `true`, expands the component and its contents.                                                                                                       |boolean                                |TRUE                  |
+#'  |scale            |scale          |Specifies the size of the component.                                                                                                                       |"l" &#124; "m" &#124; "s"              |TRUE                  |
 #'  |status           |status         |Displays a status-related indicator icon.                                                                                                                  |"idle" &#124; "invalid" &#124; "valid" |TRUE                  |
 #'  |text             |text           |The component header text.                                                                                                                                 |string                                 |FALSE                 |
 #'  |toggleDisplay    |toggle-display |Specifies how the component's toggle is displayed, where:  `"button"` sets the toggle to a selectable header, and  `"switch"` sets the toggle to a switch. |"button" &#124; "switch"               |TRUE                  |
@@ -498,9 +768,11 @@ calcite_block <- function(...) {
 
 #' The following events are observed by shiny:
 
-#'  |Event                     |Description                             |
-#'  |:-------------------------|:---------------------------------------|
-#'  |calciteBlockSectionToggle |Fires when the header has been clicked. |
+#'  |Event                       |Description                                           |
+#'  |:---------------------------|:-----------------------------------------------------|
+#'  |calciteBlockSectionCollapse |Fires when the component's content area is collapsed. |
+#'  |calciteBlockSectionExpand   |Fires when the component's content area is expanded.  |
+#'  |calciteBlockSectionToggle   |Fires when the header has been clicked.               |
 
 #' ## Slots
 
@@ -517,10 +789,10 @@ calcite_block <- function(...) {
 #' @examples
 #' calcite_block_section()
 calcite_block_section <- function(...) {
-  res <- htmltools::tag(
-    "calcite-block-section",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-block-section", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -549,7 +821,7 @@ calcite_block_section <- function(...) {
 #'  |iconStart        |icon-start    |Specifies an icon to display at the start of the component.                                                                                                               |string                                                                                                                        |TRUE                  |
 #'  |kind             |kind          |Specifies the kind of the component, which will apply to the border and background if applicable.                                                                         |"brand" &#124; "danger" &#124; "inverse" &#124; "neutral"                                                                     |TRUE                  |
 #'  |label            |label         |Accessible name for the component.                                                                                                                                        |string                                                                                                                        |FALSE                 |
-#'  |loading          |loading       |When `true`, a busy indicator is displayed and interaction is disabled.                                                                                                   |boolean                                                                                                                       |TRUE                  |
+#'  |loading          |loading       |When `true`, a busy indicator is displayed.                                                                                                                               |boolean                                                                                                                       |TRUE                  |
 #'  |messageOverrides |NA            |Use this property to override individual strings used by the component.                                                                                                   |Check API reference                                                                                                           |FALSE                 |
 #'  |name             |name          |Specifies the name of the component on form submission.                                                                                                                   |string                                                                                                                        |TRUE                  |
 #'  |rel              |rel           |Defines the relationship between the `href` value and the current document.                                                                                               |string                                                                                                                        |TRUE                  |
@@ -557,7 +829,7 @@ calcite_block_section <- function(...) {
 #'  |scale            |scale         |Specifies the size of the component.                                                                                                                                      |"l" &#124; "m" &#124; "s"                                                                                                     |TRUE                  |
 #'  |splitChild       |split-child   |Specifies if the component is a child of a `calcite-split-button`.                                                                                                        |"primary" &#124; "secondary" &#124; boolean                                                                                   |TRUE                  |
 #'  |target           |target        |Specifies where to open the linked document defined in the `href` property.                                                                                               |string                                                                                                                        |TRUE                  |
-#'  |type             |type          |Specifies the default behavior of the component.                                                                                                                          |string                                                                                                                        |TRUE                  |
+#'  |type             |type          |Specifies the default behavior of the component.                                                                                                                          |"button" &#124; "reset" &#124; "submit"                                                                                       |TRUE                  |
 #'  |width            |width         |Check API reference                                                                                                                                                       |"auto" &#124; "full" &#124; "half"                                                                                            |TRUE                  |
 
 #' ## Slots
@@ -575,10 +847,10 @@ calcite_block_section <- function(...) {
 #' @examples
 #' calcite_button()
 calcite_button <- function(...) {
-  res <- htmltools::tag(
-    "calcite-button",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-button", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -634,10 +906,10 @@ calcite_button <- function(...) {
 #' @examples
 #' calcite_card()
 calcite_card <- function(...) {
-  res <- htmltools::tag(
-    "calcite-card",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-card", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -683,10 +955,10 @@ calcite_card <- function(...) {
 #' @examples
 #' calcite_card_group()
 calcite_card_group <- function(...) {
-  res <- htmltools::tag(
-    "calcite-card-group",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-card-group", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -740,10 +1012,10 @@ calcite_card_group <- function(...) {
 #' @examples
 #' calcite_carousel()
 calcite_carousel <- function(...) {
-  res <- htmltools::tag(
-    "calcite-carousel",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-carousel", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -779,10 +1051,10 @@ calcite_carousel <- function(...) {
 #' @examples
 #' calcite_carousel_item()
 calcite_carousel_item <- function(...) {
-  res <- htmltools::tag(
-    "calcite-carousel-item",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-carousel-item", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -798,19 +1070,21 @@ calcite_carousel_item <- function(...) {
 
 #' The following properties are provided by this component: 
 
-#'  |Name          |Attribute     |Description                                                                                                                                                              |Values                                 |Reflects to Attribute |
-#'  |:-------------|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:---------------------|
-#'  |checked       |checked       |When `true`, the component is checked.                                                                                                                                   |boolean                                |TRUE                  |
-#'  |disabled      |disabled      |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                 |boolean                                |TRUE                  |
-#'  |form          |form          |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any.                 |string                                 |TRUE                  |
-#'  |indeterminate |indeterminate |When `true`, the component is initially indeterminate, which is independent from its `checked` value.  The state is visual only, and can look different across browsers. |boolean                                |TRUE                  |
-#'  |label         |label         |Accessible name for the component.                                                                                                                                       |string                                 |FALSE                 |
-#'  |name          |name          |Specifies the name of the component.  Required to pass the component's `value` on form submission.                                                                       |string                                 |TRUE                  |
-#'  |required      |required      |When `true` and the component resides in a form, the component must have a value in order for the form to submit.                                                        |boolean                                |TRUE                  |
-#'  |scale         |scale         |Specifies the size of the component.                                                                                                                                     |"l" &#124; "m" &#124; "s"              |TRUE                  |
-#'  |status        |status        |Specifies the status of the input field, which determines message and icons.                                                                                             |"idle" &#124; "invalid" &#124; "valid" |TRUE                  |
-#'  |validity      |NA            |The current validation state of the component.                                                                                                                           |Check API reference                    |FALSE                 |
-#'  |value         |value         |The component's value.                                                                                                                                                   |any                                    |FALSE                 |
+#'  |Name             |Attribute     |Description                                                                                                                                                              |Values                                 |Reflects to Attribute |
+#'  |:----------------|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:---------------------|
+#'  |checked          |checked       |When `true`, the component is checked.                                                                                                                                   |boolean                                |TRUE                  |
+#'  |disabled         |disabled      |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                 |boolean                                |TRUE                  |
+#'  |form             |form          |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any.                 |string                                 |TRUE                  |
+#'  |indeterminate    |indeterminate |When `true`, the component is initially indeterminate, which is independent from its `checked` value.  The state is visual only, and can look different across browsers. |boolean                                |TRUE                  |
+#'  |label            |label         |Accessible name for the component.                                                                                                                                       |string                                 |FALSE                 |
+#'  |labelText        |label-text    |When provided, displays label text on the component.                                                                                                                     |string                                 |FALSE                 |
+#'  |messageOverrides |NA            |Use this property to override individual strings used by the component.                                                                                                  |Check API reference                    |FALSE                 |
+#'  |name             |name          |Specifies the name of the component.  Required to pass the component's `value` on form submission.                                                                       |string                                 |TRUE                  |
+#'  |required         |required      |When `true` and the component resides in a form, the component must have a value in order for the form to submit.                                                        |boolean                                |TRUE                  |
+#'  |scale            |scale         |Specifies the size of the component.                                                                                                                                     |"l" &#124; "m" &#124; "s"              |TRUE                  |
+#'  |status           |status        |Specifies the status of the input field, which determines message and icons.                                                                                             |"idle" &#124; "invalid" &#124; "valid" |TRUE                  |
+#'  |validity         |NA            |The current validation state of the component.                                                                                                                           |Check API reference                    |FALSE                 |
+#'  |value            |value         |The component's value.                                                                                                                                                   |any                                    |FALSE                 |
 
 #' ## Events
 
@@ -827,10 +1101,10 @@ calcite_carousel_item <- function(...) {
 #' @examples
 #' calcite_checkbox()
 calcite_checkbox <- function(...) {
-  res <- htmltools::tag(
-    "calcite-checkbox",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-checkbox", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -887,10 +1161,10 @@ calcite_checkbox <- function(...) {
 #' @examples
 #' calcite_chip()
 calcite_chip <- function(...) {
-  res <- htmltools::tag(
-    "calcite-chip",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-chip", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -937,10 +1211,10 @@ calcite_chip <- function(...) {
 #' @examples
 #' calcite_chip_group()
 calcite_chip_group <- function(...) {
-  res <- htmltools::tag(
-    "calcite-chip-group",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-chip-group", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -963,6 +1237,7 @@ calcite_chip_group <- function(...) {
 #'  |channelsDisabled |channels-disabled |When `true`, hides the RGB/HSV channel inputs.                                                                                                                                       |boolean                                                                                                                                                                                  |FALSE                 |
 #'  |clearable        |clearable         |When `true`, an empty color (`null`) will be allowed as a `value`.  When `false`, a color value is enforced, and clearing the input or blurring will restore the last valid `value`. |boolean                                                                                                                                                                                  |TRUE                  |
 #'  |disabled         |disabled          |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                             |boolean                                                                                                                                                                                  |TRUE                  |
+#'  |fieldDisabled    |field-disabled    |When `true`, hides the color field.                                                                                                                                                  |boolean                                                                                                                                                                                  |TRUE                  |
 #'  |format           |format            |The format of `value`.  When `"auto"`, the format will be inferred from `value` when set.                                                                                            |"auto" &#124; "hex" &#124; "hexa" &#124; "hsl" &#124; "hsl-css" &#124; "hsla" &#124; "hsla-css" &#124; "hsv" &#124; "hsva" &#124; "rgb" &#124; "rgb-css" &#124; "rgba" &#124; "rgba-css" |TRUE                  |
 #'  |hexDisabled      |hex-disabled      |When `true`, hides the hex input.                                                                                                                                                    |boolean                                                                                                                                                                                  |FALSE                 |
 #'  |messageOverrides |NA                |Use this property to override individual strings used by the component.                                                                                                              |Check API reference                                                                                                                                                                      |FALSE                 |
@@ -988,10 +1263,10 @@ calcite_chip_group <- function(...) {
 #' @examples
 #' calcite_color_picker()
 calcite_color_picker <- function(...) {
-  res <- htmltools::tag(
-    "calcite-color-picker",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-color-picker", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1013,11 +1288,12 @@ calcite_color_picker <- function(...) {
 #'  |clearDisabled          |clear-disabled            |When `true`, the value-clearing will be disabled.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |boolean                                                               |TRUE                  |
 #'  |disabled               |disabled                  |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                                                                                                                                                                                                                                                                                                                            |boolean                                                               |TRUE                  |
 #'  |filteredItems          |NA                        |Specifies the component's filtered items.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |Check API reference                                                   |FALSE                 |
-#'  |filterProps            |NA                        |Specifies the properties to match against when filtering. If not set, all properties will be matched (label, description, metadata, value).                                                                                                                                                                                                                                                                                                                                                                         |Check API reference                                                   |FALSE                 |
+#'  |filterProps            |NA                        |Specifies the properties to match against when filtering. If not set, all properties will be matched (`description`, `label`, `metadata`, `shortHeading`).                                                                                                                                                                                                                                                                                                                                                          |Check API reference                                                   |FALSE                 |
 #'  |filterText             |filter-text               |Text for the component's filter input field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |string                                                                |TRUE                  |
 #'  |flipPlacements         |NA                        |Specifies the component's fallback slotted content placement when it's initial placement has insufficient space available.                                                                                                                                                                                                                                                                                                                                                                                          |Check API reference                                                   |FALSE                 |
 #'  |form                   |form                      |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any.                                                                                                                                                                                                                                                                                                                                                            |string                                                                |TRUE                  |
 #'  |label                  |label                     |Accessible name for the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |string                                                                |FALSE                 |
+#'  |labelText              |label-text                |When provided, displays label text on the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                |string                                                                |FALSE                 |
 #'  |maxItems               |max-items                 |Specifies the maximum number of `calcite-combobox-item`s (including nested children) to display before displaying a scrollbar.                                                                                                                                                                                                                                                                                                                                                                                      |number                                                                |TRUE                  |
 #'  |messageOverrides       |NA                        |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                                                                                                                                                             |Check API reference                                                   |FALSE                 |
 #'  |name                   |name                      |Specifies the name of the component.  Required to pass the component's `value` on form submission.                                                                                                                                                                                                                                                                                                                                                                                                                  |string                                                                |TRUE                  |
@@ -1029,6 +1305,7 @@ calcite_color_picker <- function(...) {
 #'  |readOnly               |read-only                 |When `true`, the component's value can be read, but controls are not accessible and the value cannot be modified.                                                                                                                                                                                                                                                                                                                                                                                                   |boolean                                                               |TRUE                  |
 #'  |required               |required                  |When `true` and the component resides in a form, the component must have a value in order for the form to submit.                                                                                                                                                                                                                                                                                                                                                                                                   |boolean                                                               |TRUE                  |
 #'  |scale                  |scale                     |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |"l" &#124; "m" &#124; "s"                                             |TRUE                  |
+#'  |selectAllEnabled       |select-all-enabled        |When `true` and `selectionMode` is `"multiple"` or `"ancestors"`, provides a checkbox for selecting all `calcite-combobox-item`s.                                                                                                                                                                                                                                                                                                                                                                                   |boolean                                                               |TRUE                  |
 #'  |selectedItems          |NA                        |Specifies the component's selected items.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |Check API reference                                                   |FALSE                 |
 #'  |selectionDisplay       |selection-display         |When `selectionMode` is `"ancestors"` or `"multiple"`, specifies the display of multiple `calcite-combobox-item` selections, where:  `"all"` displays all selections with individual `calcite-chip`s,  `"fit"` displays individual `calcite-chip`s that scale to the component's size, including a non-closable `calcite-chip`, which provides the number of additional `calcite-combobox-item` selections not visually displayed, and  `"single"` displays one `calcite-chip` with the total number of selections. |"all" &#124; "fit" &#124; "single"                                    |TRUE                  |
 #'  |selectionMode          |selection-mode            |Specifies the selection mode of the component, where:  `"multiple"` allows any number of selections,  `"single"` allows only one selection,  `"single-persist"` allows one selection and prevents de-selection, and  `"ancestors"` allows multiple selections, but shows ancestors of selected items as selected, with only deepest children shown in chips.                                                                                                                                                        |"ancestors" &#124; "multiple" &#124; "single" &#124; "single-persist" |TRUE                  |
@@ -1056,9 +1333,10 @@ calcite_color_picker <- function(...) {
 
 #' The following slots are provided by this component: 
 
-#'  |Slot              |Description                                 |
-#'  |:-----------------|:-------------------------------------------|
-#'  |Default (unnamed) |A slot for adding `calcite-combobox-item`s. |
+#'  |Slot              |Description                                                       |
+#'  |:-----------------|:-----------------------------------------------------------------|
+#'  |Default (unnamed) |A slot for adding `calcite-combobox-item`s.                       |
+#'  |label-content     |A slot for rendering content next to the component's `labelText`. |
 #'
 #' @param ... named attributes passed to `htmltools::tag()`
 #' @export
@@ -1067,10 +1345,10 @@ calcite_color_picker <- function(...) {
 #' @examples
 #' calcite_combobox()
 calcite_combobox <- function(...) {
-  res <- htmltools::tag(
-    "calcite-combobox",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-combobox", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1129,10 +1407,10 @@ calcite_combobox <- function(...) {
 #' @examples
 #' calcite_combobox_item()
 calcite_combobox_item <- function(...) {
-  res <- htmltools::tag(
-    "calcite-combobox-item",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-combobox-item", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1168,10 +1446,10 @@ calcite_combobox_item <- function(...) {
 #' @examples
 #' calcite_combobox_item_group()
 calcite_combobox_item_group <- function(...) {
-  res <- htmltools::tag(
-    "calcite-combobox-item-group",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-combobox-item-group", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1191,6 +1469,7 @@ calcite_combobox_item_group <- function(...) {
 #'  |:--------------------------|:----------------------------|:----------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:---------------------|
 #'  |activeDate                 |NA                           |Specifies the component's active date.                                                                                                   |Date                                           |FALSE                 |
 #'  |activeRange                |active-range                 |When `range` is true, specifies the active `range`. Where `"start"` specifies the starting range date and `"end"` the ending range date. |"end" &#124; "start"                           |TRUE                  |
+#'  |calendars                  |calendars                    |Specifies the number of calendars displayed when `range` is `true`.                                                                      |1 &#124; 2                                     |TRUE                  |
 #'  |headingLevel               |heading-level                |Specifies the heading level of the component's `heading` for proper document structure, without affecting visual styling.                |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6 |TRUE                  |
 #'  |layout                     |layout                       |Defines the layout of the component.                                                                                                     |"horizontal" &#124; "vertical"                 |TRUE                  |
 #'  |max                        |max                          |When the component resides in a form, specifies the latest allowed date (`"yyyy-mm-dd"`).                                                |string                                         |TRUE                  |
@@ -1222,10 +1501,10 @@ calcite_combobox_item_group <- function(...) {
 #' @examples
 #' calcite_date_picker()
 calcite_date_picker <- function(...) {
-  res <- htmltools::tag(
-    "calcite-date-picker",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-date-picker", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1241,28 +1520,32 @@ calcite_date_picker <- function(...) {
 
 #' The following properties are provided by this component: 
 
-#'  |Name                 |Attribute              |Description                                                                                                                                                                                                                                                                                                                                                                   |Values                                                                                                                             |Reflects to Attribute |
-#'  |:--------------------|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|:---------------------|
-#'  |beforeClose          |NA                     |Passes a function to run before the component closes.                                                                                                                                                                                                                                                                                                                         |Check API reference                                                                                                                |FALSE                 |
-#'  |closeDisabled        |close-disabled         |When `true`, disables the component's close button.                                                                                                                                                                                                                                                                                                                           |boolean                                                                                                                            |TRUE                  |
-#'  |description          |description            |A description for the component.                                                                                                                                                                                                                                                                                                                                              |string                                                                                                                             |FALSE                 |
-#'  |dragEnabled          |drag-enabled           |When `true`, the component is draggable.                                                                                                                                                                                                                                                                                                                                      |boolean                                                                                                                            |TRUE                  |
-#'  |escapeDisabled       |escape-disabled        |When `true`, disables the default close on escape behavior.  By default, an open dialog can be dismissed by pressing the Esc key.                                                                                                                                                                                                                                             |boolean                                                                                                                            |TRUE                  |
-#'  |heading              |heading                |The component header text.                                                                                                                                                                                                                                                                                                                                                    |string                                                                                                                             |FALSE                 |
-#'  |headingLevel         |heading-level          |Specifies the heading level of the component's `heading` for proper document structure, without affecting visual styling.                                                                                                                                                                                                                                                     |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6                                                                                     |TRUE                  |
-#'  |kind                 |kind                   |Specifies the kind of the component, which will style the top border.                                                                                                                                                                                                                                                                                                         |"brand" &#124; "danger" &#124; "info" &#124; "success" &#124; "warning"                                                            |TRUE                  |
-#'  |loading              |loading                |When `true`, a busy indicator is displayed.                                                                                                                                                                                                                                                                                                                                   |boolean                                                                                                                            |TRUE                  |
-#'  |menuOpen             |menu-open              |When `true`, the action menu items in the `header-menu-actions` slot are open.                                                                                                                                                                                                                                                                                                |boolean                                                                                                                            |TRUE                  |
-#'  |messageOverrides     |NA                     |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                       |Check API reference                                                                                                                |FALSE                 |
-#'  |modal                |modal                  |When `true`, displays a scrim blocking interaction underneath the component.                                                                                                                                                                                                                                                                                                  |boolean                                                                                                                            |TRUE                  |
-#'  |open                 |open                   |When `true`, displays and positions the component.                                                                                                                                                                                                                                                                                                                            |boolean                                                                                                                            |TRUE                  |
-#'  |outsideCloseDisabled |outside-close-disabled |When `true`, disables the closing of the component when clicked outside.                                                                                                                                                                                                                                                                                                      |boolean                                                                                                                            |TRUE                  |
-#'  |overlayPositioning   |overlay-positioning    |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. |"absolute" &#124; "fixed"                                                                                                          |TRUE                  |
-#'  |placement            |placement              |Specifies the placement of the dialog.                                                                                                                                                                                                                                                                                                                                        |"bottom" &#124; "bottom-end" &#124; "bottom-start" &#124; "center" &#124; "cover" &#124; "top" &#124; "top-end" &#124; "top-start" |TRUE                  |
-#'  |resizable            |resizable              |When `true`, the component is resizable.                                                                                                                                                                                                                                                                                                                                      |boolean                                                                                                                            |TRUE                  |
-#'  |scale                |scale                  |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                          |"l" &#124; "m" &#124; "s"                                                                                                          |TRUE                  |
-#'  |width                |width                  |Specifies the width of the component.                                                                                                                                                                                                                                                                                                                                         |"l" &#124; "m" &#124; "s"                                                                                                          |TRUE                  |
-#'  |widthScale           |width-scale            |Specifies the width of the component.                                                                                                                                                                                                                                                                                                                                         |"l" &#124; "m" &#124; "s"                                                                                                          |TRUE                  |
+#'  |Name                 |Attribute              |Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |Values                                                                                                                             |Reflects to Attribute |
+#'  |:--------------------|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|:---------------------|
+#'  |beforeClose          |NA                     |Passes a function to run before the component closes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |Check API reference                                                                                                                |FALSE                 |
+#'  |closeDisabled        |close-disabled         |When `true`, disables the component's close button.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |boolean                                                                                                                            |TRUE                  |
+#'  |description          |description            |A description for the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |string                                                                                                                             |FALSE                 |
+#'  |dragEnabled          |drag-enabled           |When `true`, the component is draggable.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |boolean                                                                                                                            |TRUE                  |
+#'  |escapeDisabled       |escape-disabled        |When `true`, disables the default close on escape behavior.  By default, an open dialog can be dismissed by pressing the Esc key.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |boolean                                                                                                                            |TRUE                  |
+#'  |focusTrapDisabled    |focus-trap-disabled    |When `true` and `modal` is `false`, prevents focus trapping.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |boolean                                                                                                                            |TRUE                  |
+#'  |focusTrapOptions     |NA                     |Specifies custom focus trap configuration on the component, where  `"allowOutsideClick`" allows outside clicks, `"initialFocus"` enables initial focus, `"returnFocusOnDeactivate"` returns focus when not active, and `"extraContainers"` specifies additional focusable elements external to the trap (e.g., 3rd-party components appending elements to the document body). `"setReturnFocus"` customizes the element to which focus is returned when the trap is deactivated. Return `false` to prevent focus return, or `undefined` to use the default behavior (returning focus to the element focused before activation). |Check API reference                                                                                                                |FALSE                 |
+#'  |heading              |heading                |The component header text.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |string                                                                                                                             |FALSE                 |
+#'  |headingLevel         |heading-level          |Specifies the heading level of the component's `heading` for proper document structure, without affecting visual styling.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6                                                                                     |TRUE                  |
+#'  |icon                 |icon                   |Specifies an icon to display.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |string                                                                                                                             |TRUE                  |
+#'  |iconFlipRtl          |icon-flip-rtl          |When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |boolean                                                                                                                            |TRUE                  |
+#'  |kind                 |kind                   |Specifies the kind of the component, which will style the top border.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |"brand" &#124; "danger" &#124; "info" &#124; "success" &#124; "warning"                                                            |TRUE                  |
+#'  |loading              |loading                |When `true`, a busy indicator is displayed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |boolean                                                                                                                            |TRUE                  |
+#'  |menuOpen             |menu-open              |When `true`, the action menu items in the `header-menu-actions` slot are open.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |boolean                                                                                                                            |TRUE                  |
+#'  |messageOverrides     |NA                     |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |Check API reference                                                                                                                |FALSE                 |
+#'  |modal                |modal                  |When `true`, displays a scrim blocking interaction underneath the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |boolean                                                                                                                            |TRUE                  |
+#'  |open                 |open                   |When `true`, displays and positions the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |boolean                                                                                                                            |TRUE                  |
+#'  |outsideCloseDisabled |outside-close-disabled |When `true`, disables the closing of the component when clicked outside.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |boolean                                                                                                                            |TRUE                  |
+#'  |overlayPositioning   |overlay-positioning    |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`.                                                                                                                                                                                                                                                   |"absolute" &#124; "fixed"                                                                                                          |TRUE                  |
+#'  |placement            |placement              |Specifies the placement of the dialog.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |"bottom" &#124; "bottom-end" &#124; "bottom-start" &#124; "center" &#124; "cover" &#124; "top" &#124; "top-end" &#124; "top-start" |TRUE                  |
+#'  |resizable            |resizable              |When `true`, the component is resizable.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |boolean                                                                                                                            |TRUE                  |
+#'  |scale                |scale                  |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |"l" &#124; "m" &#124; "s"                                                                                                          |TRUE                  |
+#'  |width                |width                  |Specifies the width of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |"l" &#124; "m" &#124; "s"                                                                                                          |TRUE                  |
+#'  |widthScale           |width-scale            |Specifies the width of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |"l" &#124; "m" &#124; "s"                                                                                                          |TRUE                  |
 
 #' ## Events
 
@@ -1305,10 +1588,10 @@ calcite_date_picker <- function(...) {
 #' @examples
 #' calcite_dialog()
 calcite_dialog <- function(...) {
-  res <- htmltools::tag(
-    "calcite-dialog",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-dialog", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1330,6 +1613,8 @@ calcite_dialog <- function(...) {
 #'  |disabled              |disabled                 |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                                                                                                                                                                                      |boolean                                                                                             |TRUE                  |
 #'  |flipPlacements        |NA                       |Specifies the component's fallback `calcite-dropdown-item` `placement` when it's initial or specified `placement` has insufficient space available.                                                                                                                                                                                                                           |Check API reference                                                                                 |FALSE                 |
 #'  |maxItems              |max-items                |Specifies the maximum number of `calcite-dropdown-item`s to display before showing a scroller. Value must be greater than `0`, and does not include `groupTitle`'s from `calcite-dropdown-group`.                                                                                                                                                                             |number                                                                                              |TRUE                  |
+#'  |offsetDistance        |offset-distance          |Offset the position of the component away from the `referenceElement`.                                                                                                                                                                                                                                                                                                        |number                                                                                              |TRUE                  |
+#'  |offsetSkidding        |offset-skidding          |Offset the position of the component along the `referenceElement`.                                                                                                                                                                                                                                                                                                            |number                                                                                              |TRUE                  |
 #'  |open                  |open                     |When `true`, displays and positions the component.                                                                                                                                                                                                                                                                                                                            |boolean                                                                                             |TRUE                  |
 #'  |overlayPositioning    |overlay-positioning      |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. |"absolute" &#124; "fixed"                                                                           |TRUE                  |
 #'  |placement             |placement                |Determines where the component will be positioned relative to the container element.                                                                                                                                                                                                                                                                                          |"bottom" &#124; "bottom-end" &#124; "bottom-start" &#124; "top" &#124; "top-end" &#124; "top-start" |TRUE                  |
@@ -1367,10 +1652,10 @@ calcite_dialog <- function(...) {
 #' @examples
 #' calcite_dropdown()
 calcite_dropdown <- function(...) {
-  res <- htmltools::tag(
-    "calcite-dropdown",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-dropdown", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1389,6 +1674,7 @@ calcite_dropdown <- function(...) {
 #'  |Name          |Attribute      |Description                                                                                                                                                                              |Values                                   |Reflects to Attribute |
 #'  |:-------------|:--------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|:---------------------|
 #'  |groupTitle    |group-title    |Specifies and displays a group title.                                                                                                                                                    |string                                   |TRUE                  |
+#'  |position      |position       |The position of the group in the dropdown menu.                                                                                                                                          |number                                   |FALSE                 |
 #'  |selectionMode |selection-mode |Specifies the selection mode of the component, where:  `"multiple"` allows any number of selections,  `"single"` allows only one selection, and  `"none"` does not allow any selections. |"multiple" &#124; "none" &#124; "single" |TRUE                  |
 
 #' ## Slots
@@ -1406,10 +1692,10 @@ calcite_dropdown <- function(...) {
 #' @examples
 #' calcite_dropdown_group()
 calcite_dropdown_group <- function(...) {
-  res <- htmltools::tag(
-    "calcite-dropdown-group",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-dropdown-group", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1460,10 +1746,10 @@ calcite_dropdown_group <- function(...) {
 #' @examples
 #' calcite_dropdown_item()
 calcite_dropdown_item <- function(...) {
-  res <- htmltools::tag(
-    "calcite-dropdown-item",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-dropdown-item", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1499,10 +1785,10 @@ calcite_dropdown_item <- function(...) {
 #' @examples
 #' calcite_fab()
 calcite_fab <- function(...) {
-  res <- htmltools::tag(
-    "calcite-fab",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-fab", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1545,10 +1831,10 @@ calcite_fab <- function(...) {
 #' @examples
 #' calcite_filter()
 calcite_filter <- function(...) {
-  res <- htmltools::tag(
-    "calcite-filter",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-filter", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1575,10 +1861,10 @@ calcite_filter <- function(...) {
 #' @examples
 #' calcite_flow()
 calcite_flow <- function(...) {
-  res <- htmltools::tag(
-    "calcite-flow",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-flow", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1606,24 +1892,28 @@ calcite_flow <- function(...) {
 #'  |disabled           |disabled            |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                                                                                                                                                                                      |boolean                                        |TRUE                  |
 #'  |heading            |heading             |The component header text.                                                                                                                                                                                                                                                                                                                                                    |string                                         |FALSE                 |
 #'  |headingLevel       |heading-level       |Specifies the heading level of the component's `heading` for proper document structure, without affecting visual styling.                                                                                                                                                                                                                                                     |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6 |TRUE                  |
+#'  |icon               |icon                |Specifies an icon to display.                                                                                                                                                                                                                                                                                                                                                 |string                                         |TRUE                  |
+#'  |iconFlipRtl        |icon-flip-rtl       |When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                                                                                                                                                                                                                                                                                  |boolean                                        |TRUE                  |
 #'  |loading            |loading             |When `true`, a busy indicator is displayed.                                                                                                                                                                                                                                                                                                                                   |boolean                                        |TRUE                  |
 #'  |menuOpen           |menu-open           |When `true`, the action menu items in the `header-menu-actions` slot are open.                                                                                                                                                                                                                                                                                                |boolean                                        |TRUE                  |
 #'  |messageOverrides   |NA                  |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                       |Check API reference                            |FALSE                 |
 #'  |overlayPositioning |overlay-positioning |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. |"absolute" &#124; "fixed"                      |TRUE                  |
 #'  |scale              |scale               |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                          |"l" &#124; "m" &#124; "s"                      |TRUE                  |
-#'  |selected           |selected            |When true, flow-item is displayed within a parent flow.                                                                                                                                                                                                                                                                                                                       |boolean                                        |TRUE                  |
+#'  |selected           |selected            |When `true`, the component is displayed within a parent flow.                                                                                                                                                                                                                                                                                                                 |boolean                                        |TRUE                  |
 #'  |showBackButton     |show-back-button    |When `true`, displays a back button in the component's header.                                                                                                                                                                                                                                                                                                                |boolean                                        |FALSE                 |
 
 #' ## Events
 
 #' The following events are observed by shiny:
 
-#'  |Event                 |Description                                |
-#'  |:---------------------|:------------------------------------------|
-#'  |calciteFlowItemBack   |Fires when the back button is clicked.     |
-#'  |calciteFlowItemClose  |Fires when the close button is clicked.    |
-#'  |calciteFlowItemScroll |Fires when the content is scrolled.        |
-#'  |calciteFlowItemToggle |Fires when the collapse button is clicked. |
+#'  |Event                   |Description                                           |
+#'  |:-----------------------|:-----------------------------------------------------|
+#'  |calciteFlowItemBack     |Fires when the back button is clicked.                |
+#'  |calciteFlowItemClose    |Fires when the close button is clicked.               |
+#'  |calciteFlowItemCollapse |Fires when the component's content area is collapsed. |
+#'  |calciteFlowItemExpand   |Fires when the component's content area is expanded.  |
+#'  |calciteFlowItemScroll   |Fires when the content is scrolled.                   |
+#'  |calciteFlowItemToggle   |Fires when the collapse button is clicked.            |
 
 #' ## Slots
 
@@ -1653,10 +1943,10 @@ calcite_flow <- function(...) {
 #' @examples
 #' calcite_flow_item()
 calcite_flow_item <- function(...) {
-  res <- htmltools::tag(
-    "calcite-flow-item",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-flow-item", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1676,7 +1966,7 @@ calcite_flow_item <- function(...) {
 #'  |:---------|:----------|:-------------------------------------------------------------------------------------------------|:-------------------------|:---------------------|
 #'  |flipRtl   |flip-rtl   |When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).      |boolean                   |TRUE                  |
 #'  |icon      |icon       |Displays a specific icon.                                                                         |string                    |TRUE                  |
-#'  |preload   |preload    |When true, it loads preloads the icon data.                                                       |boolean                   |TRUE                  |
+#'  |preload   |preload    |When `true`, it preloads the icon data.                                                           |boolean                   |TRUE                  |
 #'  |scale     |scale      |Specifies the size of the component.                                                              |"l" &#124; "m" &#124; "s" |TRUE                  |
 #'  |textLabel |text-label |Accessible name for the component.  It is recommended to set this value if your icon is semantic. |string                    |FALSE                 |
 #'
@@ -1687,10 +1977,10 @@ calcite_flow_item <- function(...) {
 #' @examples
 #' calcite_icon()
 calcite_icon <- function(...) {
-  res <- htmltools::tag(
-    "calcite-icon",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-icon", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1740,10 +2030,10 @@ calcite_icon <- function(...) {
 #' @examples
 #' calcite_inline_editable()
 calcite_inline_editable <- function(...) {
-  res <- htmltools::tag(
-    "calcite-inline-editable",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-inline-editable", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1772,6 +2062,7 @@ calcite_inline_editable <- function(...) {
 #'  |icon              |icon               |When `true`, shows a default recommended icon. Alternatively, pass a Calcite UI Icon name to display a specific icon.                                                                                                     |boolean &#124; string                                                                                                                                                                                                                            |TRUE                  |
 #'  |iconFlipRtl       |icon-flip-rtl      |When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                                                                                                                              |boolean                                                                                                                                                                                                                                          |TRUE                  |
 #'  |label             |label              |Accessible name for the component.                                                                                                                                                                                        |string                                                                                                                                                                                                                                           |FALSE                 |
+#'  |labelText         |label-text         |When provided, displays label text on the component.                                                                                                                                                                      |string                                                                                                                                                                                                                                           |FALSE                 |
 #'  |loading           |loading            |When `true`, a busy indicator is displayed.                                                                                                                                                                               |boolean                                                                                                                                                                                                                                          |TRUE                  |
 #'  |max               |max                |When the component resides in a form, specifies the maximum value for `type="number"`.                                                                                                                                    |number                                                                                                                                                                                                                                           |TRUE                  |
 #'  |maxLength         |max-length         |When the component resides in a form, specifies the maximum length of text for the component's value.                                                                                                                     |number                                                                                                                                                                                                                                           |TRUE                  |
@@ -1810,9 +2101,10 @@ calcite_inline_editable <- function(...) {
 
 #' The following slots are provided by this component: 
 
-#'  |Slot   |Description                                                      |
-#'  |:------|:----------------------------------------------------------------|
-#'  |action |A slot for positioning a `calcite-button` next to the component. |
+#'  |Slot          |Description                                                       |
+#'  |:-------------|:-----------------------------------------------------------------|
+#'  |action        |A slot for positioning a `calcite-button` next to the component.  |
+#'  |label-content |A slot for rendering content next to the component's `labelText`. |
 #'
 #' @param ... named attributes passed to `htmltools::tag()`
 #' @export
@@ -1821,10 +2113,10 @@ calcite_inline_editable <- function(...) {
 #' @examples
 #' calcite_input()
 calcite_input <- function(...) {
-  res <- htmltools::tag(
-    "calcite-input",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-input", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1842,11 +2134,14 @@ calcite_input <- function(...) {
 
 #'  |Name                       |Attribute                    |Description                                                                                                                                                                                                                                                                                                                                                                   |Values                                                                                              |Reflects to Attribute |
 #'  |:--------------------------|:----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|:---------------------|
+#'  |calendars                  |calendars                    |Specifies the number of calendars displayed when `range` is `true`.                                                                                                                                                                                                                                                                                                           |1 &#124; 2                                                                                          |TRUE                  |
 #'  |disabled                   |disabled                     |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                                                                                                                                                                                      |boolean                                                                                             |TRUE                  |
 #'  |flipPlacements             |NA                           |Specifies the component's fallback `calcite-date-picker` `placement` when it's initial or specified `placement` has insufficient space available.                                                                                                                                                                                                                             |Check API reference                                                                                 |FALSE                 |
 #'  |focusTrapDisabled          |focus-trap-disabled          |When `true`, prevents focus trapping.                                                                                                                                                                                                                                                                                                                                         |boolean                                                                                             |TRUE                  |
 #'  |form                       |form                         |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any.                                                                                                                                                                                                                      |string                                                                                              |TRUE                  |
 #'  |headingLevel               |heading-level                |Specifies the heading level of the component's `heading` for proper document structure, without affecting visual styling.                                                                                                                                                                                                                                                     |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6                                                      |TRUE                  |
+#'  |label                      |label                        |Accessible name for the component.                                                                                                                                                                                                                                                                                                                                            |string                                                                                              |FALSE                 |
+#'  |labelText                  |label-text                   |When provided, displays label text on the component.                                                                                                                                                                                                                                                                                                                          |string                                                                                              |FALSE                 |
 #'  |layout                     |layout                       |Defines the layout of the component.                                                                                                                                                                                                                                                                                                                                          |"horizontal" &#124; "vertical"                                                                      |TRUE                  |
 #'  |max                        |max                          |When the component resides in a form, specifies the latest allowed date ("yyyy-mm-dd").                                                                                                                                                                                                                                                                                       |string                                                                                              |TRUE                  |
 #'  |maxAsDate                  |NA                           |Specifies the latest allowed date as a full date object.                                                                                                                                                                                                                                                                                                                      |Date                                                                                                |FALSE                 |
@@ -1882,6 +2177,14 @@ calcite_input <- function(...) {
 #'  |calciteInputDatePickerChange      |Fires when the component's `value` changes.                                                              |
 #'  |calciteInputDatePickerClose       |Fires when the component is closed and animation is complete.                                            |
 #'  |calciteInputDatePickerOpen        |Fires when the component is open and animation is complete.                                              |
+
+#' ## Slots
+
+#' The following slots are provided by this component: 
+
+#'  |Slot          |Description                                                       |
+#'  |:-------------|:-----------------------------------------------------------------|
+#'  |label-content |A slot for rendering content next to the component's `labelText`. |
 #'
 #' @param ... named attributes passed to `htmltools::tag()`
 #' @export
@@ -1890,10 +2193,10 @@ calcite_input <- function(...) {
 #' @examples
 #' calcite_input_date_picker()
 calcite_input_date_picker <- function(...) {
-  res <- htmltools::tag(
-    "calcite-input-date-picker",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-input-date-picker", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1931,10 +2234,10 @@ calcite_input_date_picker <- function(...) {
 #' @examples
 #' calcite_input_message()
 calcite_input_message <- function(...) {
-  res <- htmltools::tag(
-    "calcite-input-message",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-input-message", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1952,7 +2255,7 @@ calcite_input_message <- function(...) {
 
 #'  |Name              |Attribute          |Description                                                                                                                                              |Values                                       |Reflects to Attribute |
 #'  |:-----------------|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|:---------------------|
-#'  |alignment         |alignment          |Specifies the text alignment of the component's value.                                                                                                   |"end" &#124; "start"                         |TRUE                  |
+#'  |alignment         |alignment          |Specifies the text alignment of the component's value.                                                                                                   |"center" &#124; "end" &#124; "start"         |TRUE                  |
 #'  |autocomplete      |NA                 |Specifies the type of content to autocomplete, for use in forms. Read the native attribute's documentation on MDN for more info.                         |AutoFill                                     |FALSE                 |
 #'  |clearable         |clearable          |When `true`, a clear button is displayed when the component has a value.                                                                                 |boolean                                      |TRUE                  |
 #'  |disabled          |disabled           |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                 |boolean                                      |TRUE                  |
@@ -1962,6 +2265,7 @@ calcite_input_message <- function(...) {
 #'  |iconFlipRtl       |icon-flip-rtl      |When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                                                             |boolean                                      |TRUE                  |
 #'  |integer           |integer            |When `true`, restricts the component to integer numbers only and disables exponential notation.                                                          |boolean                                      |FALSE                 |
 #'  |label             |label              |Accessible name for the component's button or hyperlink.                                                                                                 |string                                       |FALSE                 |
+#'  |labelText         |label-text         |When provided, displays label text on the component.                                                                                                     |string                                       |FALSE                 |
 #'  |loading           |loading            |When `true`, the component is in the loading state and `calcite-progress` is displayed.                                                                  |boolean                                      |TRUE                  |
 #'  |max               |max                |When the component resides in a form, specifies the maximum value.                                                                                       |number                                       |TRUE                  |
 #'  |maxLength         |max-length         |When the component resides in a form, specifies the maximum length of text for the component's value.                                                    |number                                       |TRUE                  |
@@ -1997,9 +2301,10 @@ calcite_input_message <- function(...) {
 
 #' The following slots are provided by this component: 
 
-#'  |Slot   |Description                                            |
-#'  |:------|:------------------------------------------------------|
-#'  |action |A slot for positioning a button next to the component. |
+#'  |Slot          |Description                                                             |
+#'  |:-------------|:-----------------------------------------------------------------------|
+#'  |action        |A slot for positioning a `calcite-action` or other interactive content. |
+#'  |label-content |A slot for rendering content next to the component's `labelText`.       |
 #'
 #' @param ... named attributes passed to `htmltools::tag()`
 #' @export
@@ -2008,10 +2313,10 @@ calcite_input_message <- function(...) {
 #' @examples
 #' calcite_input_number()
 calcite_input_number <- function(...) {
-  res <- htmltools::tag(
-    "calcite-input-number",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-input-number", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2029,7 +2334,7 @@ calcite_input_number <- function(...) {
 
 #'  |Name              |Attribute          |Description                                                                                                                                                                                             |Values                                 |Reflects to Attribute |
 #'  |:-----------------|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:---------------------|
-#'  |alignment         |alignment          |Specifies the text alignment of the component's value.                                                                                                                                                  |"end" &#124; "start"                   |TRUE                  |
+#'  |alignment         |alignment          |Specifies the text alignment of the component's value.                                                                                                                                                  |"center" &#124; "end" &#124; "start"   |TRUE                  |
 #'  |autocomplete      |NA                 |Specifies the type of content to autocomplete, for use in forms. Read the native attribute's documentation on MDN for more info.                                                                        |AutoFill                               |FALSE                 |
 #'  |clearable         |clearable          |When `true`, a clear button is displayed when the component has a value.                                                                                                                                |boolean                                |TRUE                  |
 #'  |disabled          |disabled           |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                |boolean                                |TRUE                  |
@@ -2037,6 +2342,7 @@ calcite_input_number <- function(...) {
 #'  |icon              |icon               |Specifies an icon to display.                                                                                                                                                                           |boolean &#124; string                  |TRUE                  |
 #'  |iconFlipRtl       |icon-flip-rtl      |When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                                                                                                            |boolean                                |TRUE                  |
 #'  |label             |label              |Accessible name for the component's button or hyperlink.                                                                                                                                                |string                                 |FALSE                 |
+#'  |labelText         |label-text         |                                                                                                                                                                                                        |string                                 |FALSE                 |
 #'  |loading           |loading            |When `true`, the component is in the loading state and `calcite-progress` is displayed.                                                                                                                 |boolean                                |TRUE                  |
 #'  |maxLength         |max-length         |When the component resides in a form, specifies the maximum length of text for the component's value.                                                                                                   |number                                 |TRUE                  |
 #'  |messageOverrides  |NA                 |Use this property to override individual strings used by the component.                                                                                                                                 |Check API reference                    |FALSE                 |
@@ -2068,9 +2374,10 @@ calcite_input_number <- function(...) {
 
 #' The following slots are provided by this component: 
 
-#'  |Slot   |Description                                            |
-#'  |:------|:------------------------------------------------------|
-#'  |action |A slot for positioning a button next to the component. |
+#'  |Slot          |Description                                                       |
+#'  |:-------------|:-----------------------------------------------------------------|
+#'  |action        |A slot for positioning a button next to the component.            |
+#'  |label-content |A slot for rendering content next to the component's `labelText`. |
 #'
 #' @param ... named attributes passed to `htmltools::tag()`
 #' @export
@@ -2079,10 +2386,10 @@ calcite_input_number <- function(...) {
 #' @examples
 #' calcite_input_text()
 calcite_input_text <- function(...) {
-  res <- htmltools::tag(
-    "calcite-input-text",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-input-text", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2104,11 +2411,13 @@ calcite_input_text <- function(...) {
 #'  |focusTrapDisabled  |focus-trap-disabled |When `true`, prevents focus trapping.                                                                                                                                                                                                                                                                                                                                         |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 #'  |form               |form                |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any.                                                                                                                                                                                                                      |string                                                                                                                                                                                                                                                                                                                                                                                          |TRUE                  |
 #'  |hourFormat         |hour-format         |Specifies the component's hour format, where:  `"user"` displays the user's locale format, `"12"` displays a 12-hour format, and `"24"` displays a 24-hour format.                                                                                                                                                                                                            |"12" &#124; "24" &#124; "user"                                                                                                                                                                                                                                                                                                                                                                  |TRUE                  |
+#'  |label              |label               |Accessible name for the component.                                                                                                                                                                                                                                                                                                                                            |string                                                                                                                                                                                                                                                                                                                                                                                          |FALSE                 |
+#'  |labelText          |label-text          |When provided, displays label text on the component.                                                                                                                                                                                                                                                                                                                          |string                                                                                                                                                                                                                                                                                                                                                                                          |FALSE                 |
 #'  |max                |max                 |When the component resides in a form, specifies the maximum value.                                                                                                                                                                                                                                                                                                            |string                                                                                                                                                                                                                                                                                                                                                                                          |TRUE                  |
 #'  |messageOverrides   |NA                  |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                       |Check API reference                                                                                                                                                                                                                                                                                                                                                                             |FALSE                 |
 #'  |min                |min                 |When the component resides in a form, specifies the minimum value.                                                                                                                                                                                                                                                                                                            |string                                                                                                                                                                                                                                                                                                                                                                                          |TRUE                  |
 #'  |name               |name                |Specifies the name of the component on form submission.                                                                                                                                                                                                                                                                                                                       |string                                                                                                                                                                                                                                                                                                                                                                                          |FALSE                 |
-#'  |numberingSystem    |numbering-system    |Specifies the Unicode numeral system used by the component for localization.                                                                                                                                                                                                                                                                                                  |"arab" &#124; "arabext" &#124; "latn"                                                                                                                                                                                                                                                                                                                                                           |FALSE                 |
+#'  |numberingSystem    |numbering-system    |Specifies the Unicode numeral system used by the component for localization.                                                                                                                                                                                                                                                                                                  |"arab" &#124; "arabext" &#124; "latn"                                                                                                                                                                                                                                                                                                                                                           |TRUE                  |
 #'  |open               |open                |When `true`, displays the `calcite-time-picker` component.                                                                                                                                                                                                                                                                                                                    |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 #'  |overlayPositioning |overlay-positioning |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. |"absolute" &#124; "fixed"                                                                                                                                                                                                                                                                                                                                                                       |FALSE                 |
 #'  |placement          |placement           |Determines where the popover will be positioned relative to the input.                                                                                                                                                                                                                                                                                                        |"auto" &#124; "auto-end" &#124; "auto-start" &#124; "bottom" &#124; "bottom-end" &#124; "bottom-start" &#124; "leading" &#124; "leading-end" &#124; "leading-start" &#124; "left" &#124; "left-end" &#124; "left-start" &#124; "right" &#124; "right-end" &#124; "right-start" &#124; "top" &#124; "top-end" &#124; "top-start" &#124; "trailing" &#124; "trailing-end" &#124; "trailing-start" |TRUE                  |
@@ -2116,7 +2425,7 @@ calcite_input_text <- function(...) {
 #'  |required           |required            |When `true` and the component resides in a form, the component must have a value in order for the form to submit.                                                                                                                                                                                                                                                             |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 #'  |scale              |scale               |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                          |"l" &#124; "m" &#124; "s"                                                                                                                                                                                                                                                                                                                                                                       |TRUE                  |
 #'  |status             |status              |Specifies the status of the input field, which determines message and icons.                                                                                                                                                                                                                                                                                                  |"idle" &#124; "invalid" &#124; "valid"                                                                                                                                                                                                                                                                                                                                                          |TRUE                  |
-#'  |step               |step                |Specifies the granularity the component's `value` must adhere to (in seconds).                                                                                                                                                                                                                                                                                                |number                                                                                                                                                                                                                                                                                                                                                                                          |FALSE                 |
+#'  |step               |step                |Specifies the granularity the component's `value` must adhere to (in seconds).                                                                                                                                                                                                                                                                                                |number                                                                                                                                                                                                                                                                                                                                                                                          |TRUE                  |
 #'  |validationIcon     |validation-icon     |Specifies the validation icon to display under the component.                                                                                                                                                                                                                                                                                                                 |boolean &#124; string                                                                                                                                                                                                                                                                                                                                                                           |TRUE                  |
 #'  |validationMessage  |validation-message  |Specifies the validation message to display under the component.                                                                                                                                                                                                                                                                                                              |string                                                                                                                                                                                                                                                                                                                                                                                          |FALSE                 |
 #'  |validity           |NA                  |The current validation state of the component.                                                                                                                                                                                                                                                                                                                                |Check API reference                                                                                                                                                                                                                                                                                                                                                                             |FALSE                 |
@@ -2130,9 +2439,17 @@ calcite_input_text <- function(...) {
 #'  |:---------------------------------|:--------------------------------------------------------------------------------------------------------|
 #'  |calciteInputTimePickerBeforeClose |Fires when the component is requested to be closed and before the closing transition begins.             |
 #'  |calciteInputTimePickerBeforeOpen  |Fires when the component is added to the DOM but not rendered, and before the opening transition begins. |
-#'  |calciteInputTimePickerChange      |Fires when the component's `value` is changes.                                                           |
+#'  |calciteInputTimePickerChange      |Fires when the component's `value` is modified by the user.                                              |
 #'  |calciteInputTimePickerClose       |Fires when the component is closed and animation is complete.                                            |
 #'  |calciteInputTimePickerOpen        |Fires when the component is open and animation is complete.                                              |
+
+#' ## Slots
+
+#' The following slots are provided by this component: 
+
+#'  |Slot          |Description                                                       |
+#'  |:-------------|:-----------------------------------------------------------------|
+#'  |label-content |A slot for rendering content next to the component's `labelText`. |
 #'
 #' @param ... named attributes passed to `htmltools::tag()`
 #' @export
@@ -2141,10 +2458,10 @@ calcite_input_text <- function(...) {
 #' @examples
 #' calcite_input_time_picker()
 calcite_input_time_picker <- function(...) {
-  res <- htmltools::tag(
-    "calcite-input-time-picker",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-input-time-picker", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2165,6 +2482,7 @@ calcite_input_time_picker <- function(...) {
 #'  |clearable          |clearable           |When `true`, an empty value (`null`) will be allowed as a `value`.  When `false`, an offset or name value is enforced, and clearing the input or blurring will restore the last valid `value`.                                                                                                                                                                                |boolean                                |TRUE                  |
 #'  |disabled           |disabled            |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                                                                                                                                                                                      |boolean                                |TRUE                  |
 #'  |form               |form                |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any.                                                                                                                                                                                                                      |string                                 |TRUE                  |
+#'  |labelText          |label-text          |When provided, displays label text on the component.                                                                                                                                                                                                                                                                                                                          |string                                 |FALSE                 |
 #'  |maxItems           |max-items           |Specifies the component's maximum number of options to display before displaying a scrollbar.                                                                                                                                                                                                                                                                                 |number                                 |TRUE                  |
 #'  |messageOverrides   |NA                  |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                       |Check API reference                    |FALSE                 |
 #'  |mode               |mode                |This specifies the type of `value` and the associated options presented to the user:  Using `"offset"` will provide options that show timezone offsets.  Using `"name"` will provide options that show the IANA time zone names.                                                                                                                                              |"name" &#124; "offset" &#124; "region" |TRUE                  |
@@ -2192,6 +2510,14 @@ calcite_input_time_picker <- function(...) {
 #'  |calciteInputTimeZoneChange      |Fires when the component's `value` changes.                                                              |
 #'  |calciteInputTimeZoneClose       |Fires after the component is closed and animation is complete.                                           |
 #'  |calciteInputTimeZoneOpen        |Fires after the component is opened and animation is complete.                                           |
+
+#' ## Slots
+
+#' The following slots are provided by this component: 
+
+#'  |Slot          |Description                                                       |
+#'  |:-------------|:-----------------------------------------------------------------|
+#'  |label-content |A slot for rendering content next to the component's `labelText`. |
 #'
 #' @param ... named attributes passed to `htmltools::tag()`
 #' @export
@@ -2200,10 +2526,10 @@ calcite_input_time_picker <- function(...) {
 #' @examples
 #' calcite_input_time_zone()
 calcite_input_time_zone <- function(...) {
-  res <- htmltools::tag(
-    "calcite-input-time-zone",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-input-time-zone", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2219,12 +2545,12 @@ calcite_input_time_zone <- function(...) {
 
 #' The following properties are provided by this component: 
 
-#'  |Name      |Attribute |Description                                                                                                                                   |Values                                                  |Reflects to Attribute |
-#'  |:---------|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|:---------------------|
-#'  |alignment |alignment |Specifies the text alignment of the component.                                                                                                |"center" &#124; "end" &#124; "start"                    |TRUE                  |
-#'  |for       |for       |Specifies the `id` of the component the label is bound to. Use when the component the label is bound to does not reside within the component. |string                                                  |TRUE                  |
-#'  |layout    |layout    |Defines the layout of the label in relation to the component. Use `"inline"` positions to wrap the label and component on the same line.      |"default" &#124; "inline" &#124; "inline-space-between" |TRUE                  |
-#'  |scale     |scale     |Specifies the size of the component.                                                                                                          |"l" &#124; "m" &#124; "s"                               |TRUE                  |
+#'  |Name      |Attribute |Description                                                                                                                                   |Values                                                                 |Reflects to Attribute |
+#'  |:---------|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------|:---------------------|
+#'  |alignment |alignment |Specifies the text alignment of the component.                                                                                                |"center" &#124; "end" &#124; "start"                                   |TRUE                  |
+#'  |for       |for       |Specifies the `id` of the component the label is bound to. Use when the component the label is bound to does not reside within the component. |string                                                                 |TRUE                  |
+#'  |layout    |layout    |Check API reference                                                                                                                           |"block" &#124; "default" &#124; "inline" &#124; "inline-space-between" |TRUE                  |
+#'  |scale     |scale     |Specifies the size of the component.                                                                                                          |"l" &#124; "m" &#124; "s"                                              |TRUE                  |
 
 #' ## Slots
 
@@ -2241,10 +2567,10 @@ calcite_input_time_zone <- function(...) {
 #' @examples
 #' calcite_label()
 calcite_label <- function(...) {
-  res <- htmltools::tag(
-    "calcite-label",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-label", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2253,7 +2579,7 @@ calcite_label <- function(...) {
 #'
 #' 
 #'
-#' Any attributes placed on `<calcite-link>` component will propagate to the rendered child  Passing a 'href' will render an anchor link, instead of a span. Role will be set to link, or link, depending on this.  It is the consumers responsibility to add aria information, rel, target, for links, and any link attributes for form submission
+#' Any attributes placed on <calcite-link> component will propagate to the rendered child  Passing a 'href' will render an anchor link, instead of a button.  It is the consumers responsibility to add aria information, rel, target, for links, and any link attributes for form submission
 #'
 #' @details
 #' ## Properties
@@ -2286,10 +2612,10 @@ calcite_label <- function(...) {
 #' @examples
 #' calcite_link()
 calcite_link <- function(...) {
-  res <- htmltools::tag(
-    "calcite-link",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-link", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2307,7 +2633,7 @@ calcite_link <- function(...) {
 
 #'  |Name                |Attribute            |Description                                                                                                                                                                                                                                                                       |Values                                                           |Reflects to Attribute |
 #'  |:-------------------|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|:---------------------|
-#'  |canPull             |NA                   |When provided, the method will be called to determine whether the element can  move from the list.                                                                                                                                                                                |(detail: ListDragDetail) => boolean                              |FALSE                 |
+#'  |canPull             |NA                   |When provided, the method will be called to determine whether the element can move from the list.                                                                                                                                                                                 |(detail: ListDragDetail) => boolean &#124; "clone"               |FALSE                 |
 #'  |canPut              |NA                   |When provided, the method will be called to determine whether the element can be added from another list.                                                                                                                                                                         |(detail: ListDragDetail) => boolean                              |FALSE                 |
 #'  |disabled            |disabled             |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                                                                                          |boolean                                                          |TRUE                  |
 #'  |displayMode         |display-mode         |Specifies the nesting behavior of `calcite-list-item`s, where  `"flat"` displays `calcite-list-item`s in a uniform list, and  `"nested"` displays `calcite-list-item`s under their parent element.   The parent component's behavior should follow throughout its child elements. |"flat" &#124; "nested"                                           |TRUE                  |
@@ -2318,7 +2644,7 @@ calcite_link <- function(...) {
 #'  |filterLabel         |filter-label         |Specifies an accessible name for the filter input field.                                                                                                                                                                                                                          |string                                                           |TRUE                  |
 #'  |filterPlaceholder   |filter-placeholder   |Placeholder text for the component's filter input field.                                                                                                                                                                                                                          |string                                                           |TRUE                  |
 #'  |filterPredicate     |NA                   |Specifies a function to handle filtering.                                                                                                                                                                                                                                         |(item: HTMLCalciteListItemElement) => boolean                    |FALSE                 |
-#'  |filterProps         |NA                   |Specifies the properties to match against when filtering. If not set, all properties will be matched (label, description, metadata, value, group heading).                                                                                                                        |Check API reference                                              |FALSE                 |
+#'  |filterProps         |NA                   |Specifies the properties to match against when filtering. If not set, all properties will be matched (`description`, `label`, `metadata`, and the `calcite-list-item-group`'s `heading`).                                                                                         |Check API reference                                              |FALSE                 |
 #'  |filterText          |filter-text          |Text for the component's filter input field.                                                                                                                                                                                                                                      |string                                                           |TRUE                  |
 #'  |group               |group                |The list's group identifier.  To drag elements from one list into another, both lists must have the same group value.                                                                                                                                                             |string                                                           |TRUE                  |
 #'  |interactionMode     |interaction-mode     |Specifies the interaction mode of the component.  `"interactive"` allows interaction styling and pointer changes on hover  `"static"` does not allow interaction styling and pointer changes on hover  The `"static"` value should only be used when `selectionMode` is `"none"`. |"interactive" &#124; "static"                                    |TRUE                  |
@@ -2330,18 +2656,20 @@ calcite_link <- function(...) {
 #'  |selectedItems       |NA                   |The currently selected items.                                                                                                                                                                                                                                                     |Check API reference                                              |FALSE                 |
 #'  |selectionAppearance |selection-appearance |Specifies the selection appearance - `"icon"` (displays a checkmark or dot) or `"border"` (displays a border).                                                                                                                                                                    |"border" &#124; "icon"                                           |TRUE                  |
 #'  |selectionMode       |selection-mode       |Specifies the selection mode of the component, where:  `"multiple"` allows any number of selections,  `"single"` allows only one selection,  `"single-persist"` allows one selection and prevents de-selection, and  `"none"` does not allow any selections.                      |"multiple" &#124; "none" &#124; "single" &#124; "single-persist" |TRUE                  |
+#'  |sortDisabled        |sort-disabled        |When `true`, and a `group` is defined, `calcite-list-item`s are no longer sortable.                                                                                                                                                                                               |boolean                                                          |TRUE                  |
 
 #' ## Events
 
 #' The following events are observed by shiny:
 
-#'  |Event                  |Description                                             |
-#'  |:----------------------|:-------------------------------------------------------|
-#'  |calciteListChange      |Fires when the component's selected items have changed. |
-#'  |calciteListDragEnd     |Fires when the component's dragging has ended.          |
-#'  |calciteListDragStart   |Fires when the component's dragging has started.        |
-#'  |calciteListFilter      |Fires when the component's filter has changed.          |
-#'  |calciteListOrderChange |Fires when the component's item order changes.          |
+#'  |Event                  |Description                                                                                                |
+#'  |:----------------------|:----------------------------------------------------------------------------------------------------------|
+#'  |calciteListChange      |Fires when the component's selected items have changed.                                                    |
+#'  |calciteListDragEnd     |Fires when the component's dragging has ended.                                                             |
+#'  |calciteListDragStart   |Fires when the component's dragging has started.                                                           |
+#'  |calciteListFilter      |Fires when the component's filter has changed.                                                             |
+#'  |calciteListMoveHalt    |Fires when a user attempts to move an element using the sort menu and 'canPut' or 'canPull' returns falsy. |
+#'  |calciteListOrderChange |Fires when the component's item order changes.                                                             |
 
 #' ## Slots
 
@@ -2361,10 +2689,10 @@ calcite_link <- function(...) {
 #' @examples
 #' calcite_list()
 calcite_list <- function(...) {
-  res <- htmltools::tag(
-    "calcite-list",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-list", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2387,6 +2715,7 @@ calcite_list <- function(...) {
 #'  |description      |description      |A description for the component. Displays below the label text.                                                                            |string                             |FALSE                 |
 #'  |disabled         |disabled         |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                   |boolean                            |TRUE                  |
 #'  |dragDisabled     |drag-disabled    |When `true`, the item is not draggable.                                                                                                    |boolean                            |TRUE                  |
+#'  |expanded         |expanded         |When `true`, expands the component and its contents.                                                                                       |boolean                            |TRUE                  |
 #'  |iconEnd          |icon-end         |Specifies an icon to display at the end of the component.                                                                                  |string                             |TRUE                  |
 #'  |iconFlipRtl      |icon-flip-rtl    |Displays the `iconStart` and/or `iconEnd` as flipped when the element direction is right-to-left (`"rtl"`).                                |"both" &#124; "end" &#124; "start" |TRUE                  |
 #'  |iconStart        |icon-start       |Specifies an icon to display at the start of the component.                                                                                |string                             |TRUE                  |
@@ -2407,6 +2736,8 @@ calcite_list <- function(...) {
 #'  |Event                                |Description                                                                                                |
 #'  |:------------------------------------|:----------------------------------------------------------------------------------------------------------|
 #'  |calciteListItemClose                 |Fires when the close button is clicked.                                                                    |
+#'  |calciteListItemCollapse              |Fires when the component's content area is collapsed.                                                      |
+#'  |calciteListItemExpand                |Fires when the component's content area is expanded.                                                       |
 #'  |calciteListItemSelect                |Fires when the component is selected.                                                                      |
 #'  |calciteListItemSortHandleBeforeClose |Fires when the sort handle is requested to be closed and before the closing transition begins.             |
 #'  |calciteListItemSortHandleBeforeOpen  |Fires when the sort handle is added to the DOM but not rendered, and before the opening transition begins. |
@@ -2435,10 +2766,10 @@ calcite_list <- function(...) {
 #' @examples
 #' calcite_list_item()
 calcite_list_item <- function(...) {
-  res <- htmltools::tag(
-    "calcite-list-item",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-list-item", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2475,10 +2806,10 @@ calcite_list_item <- function(...) {
 #' @examples
 #' calcite_list_item_group()
 calcite_list_item_group <- function(...) {
-  res <- htmltools::tag(
-    "calcite-list-item-group",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-list-item-group", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2496,10 +2827,10 @@ calcite_list_item_group <- function(...) {
 
 #'  |Name   |Attribute |Description                                                                                                                                                                                                                                                |Values                                                          |Reflects to Attribute |
 #'  |:------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------|:---------------------|
-#'  |inline |inline    |When `true`, displays smaller and appears to the left of the text.                                                                                                                                                                                         |boolean                                                         |TRUE                  |
+#'  |inline |inline    |When `true`, the component displays smaller.                                                                                                                                                                                                               |boolean                                                         |TRUE                  |
 #'  |label  |label     |Accessible name for the component.                                                                                                                                                                                                                         |string                                                          |FALSE                 |
 #'  |scale  |scale     |Specifies the size of the component.                                                                                                                                                                                                                       |"l" &#124; "m" &#124; "s"                                       |TRUE                  |
-#'  |text   |text      |Text that displays under the component's indicator.                                                                                                                                                                                                        |string                                                          |FALSE                 |
+#'  |text   |text      |When not `inline`, displays text under the component's indicator.                                                                                                                                                                                          |string                                                          |FALSE                 |
 #'  |type   |type      |Specifies the component type.  Use `"indeterminate"` if finding actual progress value is impossible. Otherwise, use `"determinate"` to have the value indicate the progress or `"determinate-value"` to have the value label displayed along the progress. |"determinate" &#124; "determinate-value" &#124; "indeterminate" |TRUE                  |
 #'  |value  |value     |The component's value. Valid only for `"determinate"` indicators. Percent complete of 100.                                                                                                                                                                 |number                                                          |FALSE                 |
 #'
@@ -2510,10 +2841,10 @@ calcite_list_item_group <- function(...) {
 #' @examples
 #' calcite_loader()
 calcite_loader <- function(...) {
-  res <- htmltools::tag(
-    "calcite-loader",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-loader", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2542,10 +2873,10 @@ calcite_loader <- function(...) {
 #' @examples
 #' calcite_menu()
 calcite_menu <- function(...) {
-  res <- htmltools::tag(
-    "calcite-menu",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-menu", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2599,10 +2930,10 @@ calcite_menu <- function(...) {
 #' @examples
 #' calcite_menu_item()
 calcite_menu_item <- function(...) {
-  res <- htmltools::tag(
-    "calcite-menu-item",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-menu-item", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2647,10 +2978,10 @@ calcite_menu_item <- function(...) {
 #' @examples
 #' calcite_meter()
 calcite_meter <- function(...) {
-  res <- htmltools::tag(
-    "calcite-meter",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-meter", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2666,20 +2997,21 @@ calcite_meter <- function(...) {
 
 #' The following properties are provided by this component: 
 
-#'  |Name                 |Attribute              |Description                                                                                                                |Values                                                                  |Reflects to Attribute |
-#'  |:--------------------|:----------------------|:--------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------------|
-#'  |beforeClose          |NA                     |Passes a function to run before the component closes.                                                                      |Check API reference                                                     |FALSE                 |
-#'  |closeButtonDisabled  |close-button-disabled  |When `true`, disables the component's close button.                                                                        |boolean                                                                 |TRUE                  |
-#'  |docked               |docked                 |When `true`, prevents the component from expanding to the entire screen on mobile devices.                                 |boolean                                                                 |TRUE                  |
-#'  |escapeDisabled       |escape-disabled        |When `true`, disables the default close on escape behavior.                                                                |boolean                                                                 |TRUE                  |
-#'  |focusTrapDisabled    |focus-trap-disabled    |When `true`, prevents focus trapping.                                                                                      |boolean                                                                 |TRUE                  |
-#'  |fullscreen           |fullscreen             |Sets the component to always be fullscreen. Overrides `widthScale` and `--calcite-modal-width` / `--calcite-modal-height`. |boolean                                                                 |TRUE                  |
-#'  |kind                 |kind                   |Specifies the kind of the component, which will apply to top border.                                                       |"brand" &#124; "danger" &#124; "info" &#124; "success" &#124; "warning" |TRUE                  |
-#'  |messageOverrides     |NA                     |Use this property to override individual strings used by the component.                                                    |Check API reference                                                     |FALSE                 |
-#'  |open                 |open                   |When `true`, displays and positions the component.                                                                         |boolean                                                                 |TRUE                  |
-#'  |outsideCloseDisabled |outside-close-disabled |When `true`, disables the closing of the component when clicked outside.                                                   |boolean                                                                 |TRUE                  |
-#'  |scale                |scale                  |Specifies the size of the component.                                                                                       |"l" &#124; "m" &#124; "s"                                               |TRUE                  |
-#'  |widthScale           |width-scale            |Specifies the width of the component.                                                                                      |"l" &#124; "m" &#124; "s"                                               |TRUE                  |
+#'  |Name                 |Attribute              |Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |Values                                                                  |Reflects to Attribute |
+#'  |:--------------------|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------------|
+#'  |beforeClose          |NA                     |Passes a function to run before the component closes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |Check API reference                                                     |FALSE                 |
+#'  |closeButtonDisabled  |close-button-disabled  |When `true`, disables the component's close button.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |boolean                                                                 |TRUE                  |
+#'  |docked               |docked                 |When `true`, prevents the component from expanding to the entire screen on mobile devices.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |boolean                                                                 |TRUE                  |
+#'  |escapeDisabled       |escape-disabled        |When `true`, disables the default close on escape behavior.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |boolean                                                                 |TRUE                  |
+#'  |focusTrapDisabled    |focus-trap-disabled    |When `true`, prevents focus trapping.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |boolean                                                                 |TRUE                  |
+#'  |focusTrapOptions     |NA                     |Specifies custom focus trap configuration on the component, where  `"allowOutsideClick`" allows outside clicks, `"initialFocus"` enables initial focus, `"returnFocusOnDeactivate"` returns focus when not active, and `"extraContainers"` specifies additional focusable elements external to the trap (e.g., 3rd-party components appending elements to the document body). `"setReturnFocus"` customizes the element to which focus is returned when the trap is deactivated. Return `false` to prevent focus return, or `undefined` to use the default behavior (returning focus to the element focused before activation). |Check API reference                                                     |FALSE                 |
+#'  |fullscreen           |fullscreen             |When `true`, sets the component to always be fullscreen. Overrides `widthScale` and `--calcite-modal-width` / `--calcite-modal-height`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |boolean                                                                 |TRUE                  |
+#'  |kind                 |kind                   |Specifies the kind of the component, which will apply to top border.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |"brand" &#124; "danger" &#124; "info" &#124; "success" &#124; "warning" |TRUE                  |
+#'  |messageOverrides     |NA                     |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |Check API reference                                                     |FALSE                 |
+#'  |open                 |open                   |When `true`, displays and positions the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |boolean                                                                 |TRUE                  |
+#'  |outsideCloseDisabled |outside-close-disabled |When `true`, disables the closing of the component when clicked outside.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |boolean                                                                 |TRUE                  |
+#'  |scale                |scale                  |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |"l" &#124; "m" &#124; "s"                                               |TRUE                  |
+#'  |widthScale           |width-scale            |Specifies the width of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |"l" &#124; "m" &#124; "s"                                               |TRUE                  |
 
 #' ## Events
 
@@ -2713,10 +3045,10 @@ calcite_meter <- function(...) {
 #' @examples
 #' calcite_modal()
 calcite_modal <- function(...) {
-  res <- htmltools::tag(
-    "calcite-modal",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-modal", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2768,10 +3100,10 @@ calcite_modal <- function(...) {
 #' @examples
 #' calcite_navigation()
 calcite_navigation <- function(...) {
-  res <- htmltools::tag(
-    "calcite-navigation",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-navigation", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2808,10 +3140,10 @@ calcite_navigation <- function(...) {
 #' @examples
 #' calcite_navigation_logo()
 calcite_navigation_logo <- function(...) {
-  res <- htmltools::tag(
-    "calcite-navigation-logo",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-navigation-logo", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2844,10 +3176,10 @@ calcite_navigation_logo <- function(...) {
 #' @examples
 #' calcite_navigation_user()
 calcite_navigation_user <- function(...) {
-  res <- htmltools::tag(
-    "calcite-navigation-user",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-navigation-user", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2903,10 +3235,10 @@ calcite_navigation_user <- function(...) {
 #' @examples
 #' calcite_notice()
 calcite_notice <- function(...) {
-  res <- htmltools::tag(
-    "calcite-notice",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-notice", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2936,10 +3268,10 @@ calcite_notice <- function(...) {
 #' @examples
 #' calcite_option()
 calcite_option <- function(...) {
-  res <- htmltools::tag(
-    "calcite-option",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-option", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2975,10 +3307,10 @@ calcite_option <- function(...) {
 #' @examples
 #' calcite_option_group()
 calcite_option_group <- function(...) {
-  res <- htmltools::tag(
-    "calcite-option-group",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-option-group", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3019,10 +3351,10 @@ calcite_option_group <- function(...) {
 #' @examples
 #' calcite_pagination()
 calcite_pagination <- function(...) {
-  res <- htmltools::tag(
-    "calcite-pagination",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-pagination", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3044,11 +3376,14 @@ calcite_pagination <- function(...) {
 #'  |closable           |closable            |When `true`, displays a close button in the trailing side of the header.                                                                                                                                                                                                                                                                                                      |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 #'  |closed             |closed              |When `true`, the component will be hidden.                                                                                                                                                                                                                                                                                                                                    |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 #'  |collapsed          |collapsed           |When `true`, hides the component's content area.                                                                                                                                                                                                                                                                                                                              |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
+#'  |collapseDirection  |collapse-direction  |When `collapsible` is present, specifies the direction of the collapse icon.                                                                                                                                                                                                                                                                                                  |"down" &#124; "up"                                                                                                                                                                                                                                                                                                                                                                              |FALSE                 |
 #'  |collapsible        |collapsible         |When `true`, the component is collapsible.                                                                                                                                                                                                                                                                                                                                    |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 #'  |description        |description         |A description for the component.                                                                                                                                                                                                                                                                                                                                              |string                                                                                                                                                                                                                                                                                                                                                                                          |FALSE                 |
 #'  |disabled           |disabled            |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                                                                                                                                                                                      |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 #'  |heading            |heading             |The component header text.                                                                                                                                                                                                                                                                                                                                                    |string                                                                                                                                                                                                                                                                                                                                                                                          |FALSE                 |
 #'  |headingLevel       |heading-level       |Specifies the heading level of the component's `heading` for proper document structure, without affecting visual styling.                                                                                                                                                                                                                                                     |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6                                                                                                                                                                                                                                                                                                                                                  |TRUE                  |
+#'  |icon               |icon                |Specifies an icon to display.                                                                                                                                                                                                                                                                                                                                                 |string                                                                                                                                                                                                                                                                                                                                                                                          |TRUE                  |
+#'  |iconFlipRtl        |icon-flip-rtl       |When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`).                                                                                                                                                                                                                                                                                  |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 #'  |loading            |loading             |When `true`, a busy indicator is displayed.                                                                                                                                                                                                                                                                                                                                   |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 #'  |menuFlipPlacements |NA                  |Specifies the component's fallback menu `placement` when it's initial or specified `placement` has insufficient space available.                                                                                                                                                                                                                                              |Check API reference                                                                                                                                                                                                                                                                                                                                                                             |FALSE                 |
 #'  |menuOpen           |menu-open           |When `true`, the action menu items in the `header-menu-actions` slot are open.                                                                                                                                                                                                                                                                                                |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
@@ -3061,11 +3396,13 @@ calcite_pagination <- function(...) {
 
 #' The following events are observed by shiny:
 
-#'  |Event              |Description                                |
-#'  |:------------------|:------------------------------------------|
-#'  |calcitePanelClose  |Fires when the close button is clicked.    |
-#'  |calcitePanelScroll |Fires when the content is scrolled.        |
-#'  |calcitePanelToggle |Fires when the collapse button is clicked. |
+#'  |Event                |Description                                           |
+#'  |:--------------------|:-----------------------------------------------------|
+#'  |calcitePanelClose    |Fires when the close button is clicked.               |
+#'  |calcitePanelCollapse |Fires when the component's content area is collapsed. |
+#'  |calcitePanelExpand   |Fires when the component's content area is expanded.  |
+#'  |calcitePanelScroll   |Fires when the content is scrolled.                   |
+#'  |calcitePanelToggle   |Fires when the collapse button is clicked.            |
 
 #' ## Slots
 
@@ -3095,10 +3432,10 @@ calcite_pagination <- function(...) {
 #' @examples
 #' calcite_panel()
 calcite_panel <- function(...) {
-  res <- htmltools::tag(
-    "calcite-panel",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-panel", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3114,27 +3451,27 @@ calcite_panel <- function(...) {
 
 #' The following properties are provided by this component: 
 
-#'  |Name                  |Attribute                |Description                                                                                                                                                                                                                                                                                                                                                                         |Values                                                                                                                                                                                                                                                                                                                                                                                          |Reflects to Attribute |
-#'  |:---------------------|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|
-#'  |autoClose             |auto-close               |When `true`, clicking outside of the component automatically closes open `calcite-popover`s.                                                                                                                                                                                                                                                                                        |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
-#'  |closable              |closable                 |When `true`, displays a close button within the component.                                                                                                                                                                                                                                                                                                                          |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
-#'  |flipDisabled          |flip-disabled            |When `true`, prevents flipping the component's placement when overlapping its `referenceElement`.                                                                                                                                                                                                                                                                                   |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
-#'  |flipPlacements        |NA                       |Specifies the component's fallback `placement` when it's initial or specified `placement` has insufficient space available.                                                                                                                                                                                                                                                         |Check API reference                                                                                                                                                                                                                                                                                                                                                                             |FALSE                 |
-#'  |focusTrapDisabled     |focus-trap-disabled      |When `true`, prevents focus trapping.                                                                                                                                                                                                                                                                                                                                               |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
-#'  |heading               |heading                  |The component header text.                                                                                                                                                                                                                                                                                                                                                          |string                                                                                                                                                                                                                                                                                                                                                                                          |FALSE                 |
-#'  |headingLevel          |heading-level            |Specifies the heading level of the component's `heading` for proper document structure, without affecting visual styling.                                                                                                                                                                                                                                                           |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6                                                                                                                                                                                                                                                                                                                                                  |TRUE                  |
-#'  |initialFocusTrapFocus |initial-focus-trap-focus |Specifies whether focus should move to the popover when the focus trap is activated.  `@internal`                                                                                                                                                                                                                                                                                   |((() => FocusTargetValueOrFalse)) &#124; HTMLElement &#124; SVGElement &#124; boolean &#124; string                                                                                                                                                                                                                                                                                             |FALSE                 |
-#'  |label                 |label                    |Accessible name for the component.                                                                                                                                                                                                                                                                                                                                                  |string                                                                                                                                                                                                                                                                                                                                                                                          |FALSE                 |
-#'  |messageOverrides      |NA                       |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                             |Check API reference                                                                                                                                                                                                                                                                                                                                                                             |FALSE                 |
-#'  |offsetDistance        |offset-distance          |Offsets the position of the popover away from the `referenceElement`.                                                                                                                                                                                                                                                                                                               |number                                                                                                                                                                                                                                                                                                                                                                                          |TRUE                  |
-#'  |offsetSkidding        |offset-skidding          |Offsets the position of the component along the `referenceElement`.                                                                                                                                                                                                                                                                                                                 |number                                                                                                                                                                                                                                                                                                                                                                                          |TRUE                  |
-#'  |open                  |open                     |When `true`, displays and positions the component.                                                                                                                                                                                                                                                                                                                                  |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
-#'  |overlayPositioning    |overlay-positioning      |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  `"fixed"` value should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. |"absolute" &#124; "fixed"                                                                                                                                                                                                                                                                                                                                                                       |TRUE                  |
-#'  |placement             |placement                |Determines where the component will be positioned relative to the `referenceElement`.                                                                                                                                                                                                                                                                                               |"auto" &#124; "auto-end" &#124; "auto-start" &#124; "bottom" &#124; "bottom-end" &#124; "bottom-start" &#124; "leading" &#124; "leading-end" &#124; "leading-start" &#124; "left" &#124; "left-end" &#124; "left-start" &#124; "right" &#124; "right-end" &#124; "right-start" &#124; "top" &#124; "top-end" &#124; "top-start" &#124; "trailing" &#124; "trailing-end" &#124; "trailing-start" |TRUE                  |
-#'  |pointerDisabled       |pointer-disabled         |When `true`, removes the caret pointer.                                                                                                                                                                                                                                                                                                                                             |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
-#'  |referenceElement      |reference-element        |The `referenceElement` used to position the component according to its `placement` value. Setting to an `HTMLElement` is preferred so the component does not need to query the DOM. However, a string `id` of the reference element can also be used.                                                                                                                               |Element &#124; VirtualElement &#124; string                                                                                                                                                                                                                                                                                                                                                     |FALSE                 |
-#'  |scale                 |scale                    |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                                |"l" &#124; "m" &#124; "s"                                                                                                                                                                                                                                                                                                                                                                       |TRUE                  |
-#'  |triggerDisabled       |trigger-disabled         |When `true`, disables automatically toggling the component when its `referenceElement` has been triggered.  This property can be set to `true` to manage when the component is open.                                                                                                                                                                                                |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
+#'  |Name               |Attribute           |Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |Values                                                                                                                                                                                                                                                                                                                                                                                          |Reflects to Attribute |
+#'  |:------------------|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|
+#'  |autoClose          |auto-close          |When `true`, clicking outside of the component automatically closes open `calcite-popover`s.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
+#'  |closable           |closable            |When `true`, displays a close button within the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
+#'  |flipDisabled       |flip-disabled       |When `true`, prevents flipping the component's placement when overlapping its `referenceElement`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
+#'  |flipPlacements     |NA                  |Specifies the component's fallback `placement` when it's initial or specified `placement` has insufficient space available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |Check API reference                                                                                                                                                                                                                                                                                                                                                                             |FALSE                 |
+#'  |focusTrapDisabled  |focus-trap-disabled |When `true`, prevents focus trapping.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
+#'  |focusTrapOptions   |NA                  |Specifies custom focus trap configuration on the component, where  `"allowOutsideClick`" allows outside clicks, `"initialFocus"` enables initial focus, `"returnFocusOnDeactivate"` returns focus when not active, and `"extraContainers"` specifies additional focusable elements external to the trap (e.g., 3rd-party components appending elements to the document body). `"setReturnFocus"` customizes the element to which focus is returned when the trap is deactivated. Return `false` to prevent focus return, or `undefined` to use the default behavior (returning focus to the element focused before activation). |Check API reference                                                                                                                                                                                                                                                                                                                                                                             |FALSE                 |
+#'  |heading            |heading             |The component header text.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |string                                                                                                                                                                                                                                                                                                                                                                                          |FALSE                 |
+#'  |headingLevel       |heading-level       |Specifies the heading level of the component's `heading` for proper document structure, without affecting visual styling.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |1 &#124; 2 &#124; 3 &#124; 4 &#124; 5 &#124; 6                                                                                                                                                                                                                                                                                                                                                  |TRUE                  |
+#'  |label              |label               |Accessible name for the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |string                                                                                                                                                                                                                                                                                                                                                                                          |FALSE                 |
+#'  |messageOverrides   |NA                  |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |Check API reference                                                                                                                                                                                                                                                                                                                                                                             |FALSE                 |
+#'  |offsetDistance     |offset-distance     |Offsets the position of the popover away from the `referenceElement`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |number                                                                                                                                                                                                                                                                                                                                                                                          |TRUE                  |
+#'  |offsetSkidding     |offset-skidding     |Offsets the position of the component along the `referenceElement`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |number                                                                                                                                                                                                                                                                                                                                                                                          |TRUE                  |
+#'  |open               |open                |When `true`, displays and positions the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
+#'  |overlayPositioning |overlay-positioning |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  `"fixed"` value should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`.                                                                                                                                                                                                                                             |"absolute" &#124; "fixed"                                                                                                                                                                                                                                                                                                                                                                       |TRUE                  |
+#'  |placement          |placement           |Determines where the component will be positioned relative to the `referenceElement`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |"auto" &#124; "auto-end" &#124; "auto-start" &#124; "bottom" &#124; "bottom-end" &#124; "bottom-start" &#124; "leading" &#124; "leading-end" &#124; "leading-start" &#124; "left" &#124; "left-end" &#124; "left-start" &#124; "right" &#124; "right-end" &#124; "right-start" &#124; "top" &#124; "top-end" &#124; "top-start" &#124; "trailing" &#124; "trailing-end" &#124; "trailing-start" |TRUE                  |
+#'  |pointerDisabled    |pointer-disabled    |When `true`, removes the caret pointer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
+#'  |referenceElement   |reference-element   |The `referenceElement` used to position the component according to its `placement` value.  Setting to an `HTMLElement` is preferred so the component does not need to query the DOM.  However, a string `id` of the reference element can also be used.  The component should not be placed within its own `referenceElement` to avoid unintended behavior.                                                                                                                                                                                                                                                                     |Element &#124; VirtualElement &#124; string                                                                                                                                                                                                                                                                                                                                                     |FALSE                 |
+#'  |scale              |scale               |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |"l" &#124; "m" &#124; "s"                                                                                                                                                                                                                                                                                                                                                                       |TRUE                  |
+#'  |triggerDisabled    |trigger-disabled    |When `true`, disables automatically toggling the component when its `referenceElement` has been triggered.  This property can be set to `true` to manage when the component is open.                                                                                                                                                                                                                                                                                                                                                                                                                                            |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 
 #' ## Events
 
@@ -3162,10 +3499,10 @@ calcite_panel <- function(...) {
 #' @examples
 #' calcite_popover()
 calcite_popover <- function(...) {
-  res <- htmltools::tag(
-    "calcite-popover",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-popover", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3184,7 +3521,7 @@ calcite_popover <- function(...) {
 #'  |Name     |Attribute |Description                                                                                          |Values                               |Reflects to Attribute |
 #'  |:--------|:---------|:----------------------------------------------------------------------------------------------------|:------------------------------------|:---------------------|
 #'  |label    |label     |Accessible name for the component.                                                                   |string                               |FALSE                 |
-#'  |reversed |reversed  |When `true` and for `"indeterminate"` progress bars, reverses the animation direction.               |boolean                              |TRUE                  |
+#'  |reversed |reversed  |When `true` and type is `"indeterminate"`, reverses the animation direction.                         |boolean                              |TRUE                  |
 #'  |text     |text      |Text that displays under the component's indicator.                                                  |string                               |FALSE                 |
 #'  |type     |type      |Specifies the component type.  Use `"indeterminate"` if finding actual progress value is impossible. |"determinate" &#124; "indeterminate" |TRUE                  |
 #'  |value    |value     |When `type` is `"determinate"`, specifies the component's value with a range of 0 to 100.            |number                               |FALSE                 |
@@ -3196,10 +3533,10 @@ calcite_popover <- function(...) {
 #' @examples
 #' calcite_progress()
 calcite_progress <- function(...) {
-  res <- htmltools::tag(
-    "calcite-progress",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-progress", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3215,15 +3552,16 @@ calcite_progress <- function(...) {
 
 #' The following properties are provided by this component: 
 
-#'  |Name     |Attribute |Description                                                                                                                                                      |Values                    |Reflects to Attribute |
-#'  |:--------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------------------|
-#'  |checked  |checked   |When `true`, the component is checked.                                                                                                                           |boolean                   |TRUE                  |
-#'  |disabled |disabled  |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                         |boolean                   |TRUE                  |
-#'  |form     |form      |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any.         |string                    |TRUE                  |
-#'  |name     |name      |Specifies the name of the component. Can be inherited from `calcite-radio-button-group`.  Required to pass the component's `value` on form submission.           |string                    |TRUE                  |
-#'  |required |required  |When `true` and the component resides in a form, the component must have a value selected from the `calcite-radio-button-group` in order for the form to submit. |boolean                   |TRUE                  |
-#'  |scale    |scale     |Specifies the size of the component inherited from the `calcite-radio-button-group`.                                                                             |"l" &#124; "m" &#124; "s" |TRUE                  |
-#'  |value    |value     |The component's value.                                                                                                                                           |any                       |FALSE                 |
+#'  |Name      |Attribute  |Description                                                                                                                                                      |Values                    |Reflects to Attribute |
+#'  |:---------|:----------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------------------|
+#'  |checked   |checked    |When `true`, the component is checked.                                                                                                                           |boolean                   |TRUE                  |
+#'  |disabled  |disabled   |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                         |boolean                   |TRUE                  |
+#'  |form      |form       |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any.         |string                    |TRUE                  |
+#'  |labelText |label-text |When provided, displays label text on the component.                                                                                                             |string                    |FALSE                 |
+#'  |name      |name       |Specifies the name of the component. Can be inherited from `calcite-radio-button-group`.  Required to pass the component's `value` on form submission.           |string                    |TRUE                  |
+#'  |required  |required   |When `true` and the component resides in a form, the component must have a value selected from the `calcite-radio-button-group` in order for the form to submit. |boolean                   |TRUE                  |
+#'  |scale     |scale      |Specifies the size of the component inherited from the `calcite-radio-button-group`.                                                                             |"l" &#124; "m" &#124; "s" |TRUE                  |
+#'  |value     |value      |The component's value.                                                                                                                                           |any                       |FALSE                 |
 
 #' ## Events
 
@@ -3240,10 +3578,10 @@ calcite_progress <- function(...) {
 #' @examples
 #' calcite_radio_button()
 calcite_radio_button <- function(...) {
-  res <- htmltools::tag(
-    "calcite-radio-button",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-radio-button", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3262,7 +3600,9 @@ calcite_radio_button <- function(...) {
 #'  |Name              |Attribute          |Description                                                                                                       |Values                                       |Reflects to Attribute |
 #'  |:-----------------|:------------------|:-----------------------------------------------------------------------------------------------------------------|:--------------------------------------------|:---------------------|
 #'  |disabled          |disabled           |When `true`, interaction is prevented and the component is displayed with lower opacity.                          |boolean                                      |TRUE                  |
-#'  |layout            |layout             |Defines the layout of the component.                                                                              |"grid" &#124; "horizontal" &#124; "vertical" |TRUE                  |
+#'  |labelText         |label-text         |When provided, displays label text on the component.                                                              |string                                       |FALSE                 |
+#'  |layout            |layout             |Check API reference                                                                                               |"grid" &#124; "horizontal" &#124; "vertical" |TRUE                  |
+#'  |messageOverrides  |NA                 |Use this property to override individual strings used by the component.                                           |Check API reference                          |FALSE                 |
 #'  |name              |name               |Specifies the name of the component on form submission. Must be unique to other component instances.              |string                                       |TRUE                  |
 #'  |required          |required           |When `true` and the component resides in a form, the component must have a value in order for the form to submit. |boolean                                      |TRUE                  |
 #'  |scale             |scale              |Specifies the size of the component.                                                                              |"l" &#124; "m" &#124; "s"                    |TRUE                  |
@@ -3283,9 +3623,10 @@ calcite_radio_button <- function(...) {
 
 #' The following slots are provided by this component: 
 
-#'  |Slot              |Description                                |
-#'  |:-----------------|:------------------------------------------|
-#'  |Default (unnamed) |A slot for adding `calcite-radio-button`s. |
+#'  |Slot              |Description                                                       |
+#'  |:-----------------|:-----------------------------------------------------------------|
+#'  |Default (unnamed) |A slot for adding `calcite-radio-button`s.                        |
+#'  |label-content     |A slot for rendering content next to the component's `labelText`. |
 #'
 #' @param ... named attributes passed to `htmltools::tag()`
 #' @export
@@ -3294,10 +3635,10 @@ calcite_radio_button <- function(...) {
 #' @examples
 #' calcite_radio_button_group()
 calcite_radio_button_group <- function(...) {
-  res <- htmltools::tag(
-    "calcite-radio-button-group",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-radio-button-group", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3319,6 +3660,7 @@ calcite_radio_button_group <- function(...) {
 #'  |count             |count              |Specifies the number of previous ratings to display.                                                                                                     |number                                 |TRUE                  |
 #'  |disabled          |disabled           |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                 |boolean                                |TRUE                  |
 #'  |form              |form               |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. |string                                 |TRUE                  |
+#'  |labelText         |label-text         |When provided, displays label text on the component.                                                                                                     |string                                 |FALSE                 |
 #'  |messageOverrides  |NA                 |Use this property to override individual strings used by the component.                                                                                  |Check API reference                    |FALSE                 |
 #'  |name              |name               |Specifies the name of the component.  Required to pass the component's `value` on form submission.                                                       |string                                 |TRUE                  |
 #'  |readOnly          |read-only          |When `true`, the component's value can be read, but cannot be modified.                                                                                  |boolean                                |TRUE                  |
@@ -3337,6 +3679,14 @@ calcite_radio_button_group <- function(...) {
 #'  |Event               |Description                               |
 #'  |:-------------------|:-----------------------------------------|
 #'  |calciteRatingChange |Fires when the component's value changes. |
+
+#' ## Slots
+
+#' The following slots are provided by this component: 
+
+#'  |Slot          |Description                                                       |
+#'  |:-------------|:-----------------------------------------------------------------|
+#'  |label-content |A slot for rendering content next to the component's `labelText`. |
 #'
 #' @param ... named attributes passed to `htmltools::tag()`
 #' @export
@@ -3345,10 +3695,10 @@ calcite_radio_button_group <- function(...) {
 #' @examples
 #' calcite_rating()
 calcite_rating <- function(...) {
-  res <- htmltools::tag(
-    "calcite-rating",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-rating", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3384,10 +3734,10 @@ calcite_rating <- function(...) {
 #' @examples
 #' calcite_scrim()
 calcite_scrim <- function(...) {
-  res <- htmltools::tag(
-    "calcite-scrim",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-scrim", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3408,7 +3758,9 @@ calcite_scrim <- function(...) {
 #'  |appearance        |appearance         |Specifies the appearance style of the component.                                                                                                         |"outline" &#124; "outline-fill" &#124; "solid" |TRUE                  |
 #'  |disabled          |disabled           |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                 |boolean                                        |TRUE                  |
 #'  |form              |form               |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. |string                                         |TRUE                  |
+#'  |labelText         |label-text         |When provided, displays label text on the component.                                                                                                     |string                                         |FALSE                 |
 #'  |layout            |layout             |Defines the layout of the component.                                                                                                                     |"horizontal" &#124; "vertical"                 |TRUE                  |
+#'  |messageOverrides  |NA                 |Use this property to override individual strings used by the component.                                                                                  |Check API reference                            |FALSE                 |
 #'  |name              |name               |Specifies the name of the component.  Required to pass the component's `value` on form submission.                                                       |string                                         |TRUE                  |
 #'  |required          |required           |When `true` and the component resides in a form, the component must have a value in order for the form to submit.                                        |boolean                                        |TRUE                  |
 #'  |scale             |scale              |Specifies the size of the component.                                                                                                                     |"l" &#124; "m" &#124; "s"                      |TRUE                  |
@@ -3432,9 +3784,10 @@ calcite_scrim <- function(...) {
 
 #' The following slots are provided by this component: 
 
-#'  |Slot              |Description                                          |
-#'  |:-----------------|:----------------------------------------------------|
-#'  |Default (unnamed) |A slot for adding `calcite-segmented-control-item`s. |
+#'  |Slot              |Description                                                       |
+#'  |:-----------------|:-----------------------------------------------------------------|
+#'  |Default (unnamed) |A slot for adding `calcite-segmented-control-item`s.              |
+#'  |label-content     |A slot for rendering content next to the component's `labelText`. |
 #'
 #' @param ... named attributes passed to `htmltools::tag()`
 #' @export
@@ -3443,10 +3796,10 @@ calcite_scrim <- function(...) {
 #' @examples
 #' calcite_segmented_control()
 calcite_segmented_control <- function(...) {
-  res <- htmltools::tag(
-    "calcite-segmented-control",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-segmented-control", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3477,10 +3830,10 @@ calcite_segmented_control <- function(...) {
 #' @examples
 #' calcite_segmented_control_item()
 calcite_segmented_control_item <- function(...) {
-  res <- htmltools::tag(
-    "calcite-segmented-control-item",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-segmented-control-item", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3501,6 +3854,8 @@ calcite_segmented_control_item <- function(...) {
 #'  |disabled          |disabled           |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                 |boolean                                |TRUE                  |
 #'  |form              |form               |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. |string                                 |TRUE                  |
 #'  |label             |label              |Accessible name for the component.                                                                                                                       |string                                 |FALSE                 |
+#'  |labelText         |label-text         |When provided, displays label text on the component.                                                                                                     |string                                 |FALSE                 |
+#'  |messageOverrides  |NA                 |Use this property to override individual strings used by the component.                                                                                  |Check API reference                    |FALSE                 |
 #'  |name              |name               |Specifies the name of the component.  Required to pass the component's `value` on form submission.                                                       |string                                 |TRUE                  |
 #'  |required          |required           |When `true` and the component resides in a form, the component must have a value in order for the form to submit.                                        |boolean                                |TRUE                  |
 #'  |scale             |scale              |Specifies the size of the component.                                                                                                                     |"l" &#124; "m" &#124; "s"              |TRUE                  |
@@ -3524,9 +3879,10 @@ calcite_segmented_control_item <- function(...) {
 
 #' The following slots are provided by this component: 
 
-#'  |Slot              |Description                          |
-#'  |:-----------------|:------------------------------------|
-#'  |Default (unnamed) |A slot for adding `calcite-option`s. |
+#'  |Slot              |Description                                                       |
+#'  |:-----------------|:-----------------------------------------------------------------|
+#'  |Default (unnamed) |A slot for adding `calcite-option`s.                              |
+#'  |label-content     |A slot for rendering content next to the component's `labelText`. |
 #'
 #' @param ... named attributes passed to `htmltools::tag()`
 #' @export
@@ -3535,10 +3891,10 @@ calcite_segmented_control_item <- function(...) {
 #' @examples
 #' calcite_select()
 calcite_select <- function(...) {
-  res <- htmltools::tag(
-    "calcite-select",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-select", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3554,22 +3910,23 @@ calcite_select <- function(...) {
 
 #' The following properties are provided by this component: 
 
-#'  |Name                 |Attribute              |Description                                                                                                                 |Values                                                                     |Reflects to Attribute |
-#'  |:--------------------|:----------------------|:---------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------|:---------------------|
-#'  |beforeClose          |NA                     |Passes a function to run before the component closes.                                                                       |Check API reference                                                        |FALSE                 |
-#'  |displayMode          |display-mode           |Specifies the display mode - `"float"` (content is separated detached), or `"overlay"` (displays on top of center content). |"float" &#124; "overlay"                                                   |TRUE                  |
-#'  |escapeDisabled       |escape-disabled        |When `true`, disables the default close on escape behavior.                                                                 |boolean                                                                    |TRUE                  |
-#'  |focusTrapDisabled    |focus-trap-disabled    |When `true`, prevents focus trapping.                                                                                       |boolean                                                                    |TRUE                  |
-#'  |height               |height                 |Specifies the height of the component.                                                                                      |"l" &#124; "m" &#124; "s"                                                  |TRUE                  |
-#'  |heightScale          |height-scale           |When `position` is `"block-start"` or `"block-end"`, specifies the height of the component.                                 |"l" &#124; "m" &#124; "s"                                                  |TRUE                  |
-#'  |label                |label                  |Specifies the label of the component.                                                                                       |string                                                                     |FALSE                 |
-#'  |messageOverrides     |NA                     |Use this property to override individual strings used by the component.                                                     |Check API reference                                                        |FALSE                 |
-#'  |open                 |open                   |When `true`, displays and positions the component.                                                                          |boolean                                                                    |TRUE                  |
-#'  |outsideCloseDisabled |outside-close-disabled |When `true`, disables the closing of the component when clicked outside.                                                    |boolean                                                                    |TRUE                  |
-#'  |position             |position               |Determines where the component will be positioned.                                                                          |"block-end" &#124; "block-start" &#124; "inline-end" &#124; "inline-start" |TRUE                  |
-#'  |resizable            |resizable              |When `true`, the component is resizable.                                                                                    |boolean                                                                    |TRUE                  |
-#'  |width                |width                  |Specifies the width of the component.                                                                                       |"l" &#124; "m" &#124; "s"                                                  |TRUE                  |
-#'  |widthScale           |width-scale            |When `position` is `"inline-start"` or `"inline-end"`, specifies the width of the component.                                |"l" &#124; "m" &#124; "s"                                                  |TRUE                  |
+#'  |Name                 |Attribute              |Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |Values                                                                     |Reflects to Attribute |
+#'  |:--------------------|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------|:---------------------|
+#'  |beforeClose          |NA                     |Passes a function to run before the component closes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |Check API reference                                                        |FALSE                 |
+#'  |displayMode          |display-mode           |Specifies the display mode - `"float"` (content is separated detached), or `"overlay"` (displays on top of center content).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |"float" &#124; "overlay"                                                   |TRUE                  |
+#'  |escapeDisabled       |escape-disabled        |When `true`, disables the default close on escape behavior.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |boolean                                                                    |TRUE                  |
+#'  |focusTrapDisabled    |focus-trap-disabled    |When `true`, prevents focus trapping.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |boolean                                                                    |TRUE                  |
+#'  |focusTrapOptions     |NA                     |Specifies custom focus trap configuration on the component, where  `"allowOutsideClick`" allows outside clicks, `"initialFocus"` enables initial focus, `"returnFocusOnDeactivate"` returns focus when not active, and `"extraContainers"` specifies additional focusable elements external to the trap (e.g., 3rd-party components appending elements to the document body). `"setReturnFocus"` customizes the element to which focus is returned when the trap is deactivated. Return `false` to prevent focus return, or `undefined` to use the default behavior (returning focus to the element focused before activation). |Check API reference                                                        |FALSE                 |
+#'  |height               |height                 |Specifies the height of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |"l" &#124; "m" &#124; "s"                                                  |TRUE                  |
+#'  |heightScale          |height-scale           |When `position` is `"block-start"` or `"block-end"`, specifies the height of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |"l" &#124; "m" &#124; "s"                                                  |TRUE                  |
+#'  |label                |label                  |Specifies the label of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |string                                                                     |FALSE                 |
+#'  |messageOverrides     |NA                     |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |Check API reference                                                        |FALSE                 |
+#'  |open                 |open                   |When `true`, displays and positions the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |boolean                                                                    |TRUE                  |
+#'  |outsideCloseDisabled |outside-close-disabled |When `true`, disables the closing of the component when clicked outside.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |boolean                                                                    |TRUE                  |
+#'  |position             |position               |Determines where the component will be positioned.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |"block-end" &#124; "block-start" &#124; "inline-end" &#124; "inline-start" |TRUE                  |
+#'  |resizable            |resizable              |When `true`, the component is resizable.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |boolean                                                                    |TRUE                  |
+#'  |width                |width                  |Specifies the width of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |"l" &#124; "m" &#124; "s"                                                  |TRUE                  |
+#'  |widthScale           |width-scale            |When `position` is `"inline-start"` or `"inline-end"`, specifies the width of the component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |"l" &#124; "m" &#124; "s"                                                  |TRUE                  |
 
 #' ## Events
 
@@ -3581,6 +3938,14 @@ calcite_select <- function(...) {
 #'  |calciteSheetBeforeOpen  |Fires when the component is added to the DOM but not rendered, and before the opening transition begins. |
 #'  |calciteSheetClose       |Fires when the component is closed and animation is complete.                                            |
 #'  |calciteSheetOpen        |Fires when the component is open and animation is complete.                                              |
+
+#' ## Slots
+
+#' The following slots are provided by this component: 
+
+#'  |Slot              |Description                       |
+#'  |:-----------------|:---------------------------------|
+#'  |Default (unnamed) |A slot for adding custom content. |
 #'
 #' @param ... named attributes passed to `htmltools::tag()`
 #' @export
@@ -3589,10 +3954,10 @@ calcite_select <- function(...) {
 #' @examples
 #' calcite_sheet()
 calcite_sheet <- function(...) {
-  res <- htmltools::tag(
-    "calcite-sheet",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-sheet", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3638,10 +4003,10 @@ calcite_sheet <- function(...) {
 #' @examples
 #' calcite_shell()
 calcite_shell <- function(...) {
-  res <- htmltools::tag(
-    "calcite-shell",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-shell", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3679,10 +4044,10 @@ calcite_shell <- function(...) {
 #' @examples
 #' calcite_shell_center_row()
 calcite_shell_center_row <- function(...) {
-  res <- htmltools::tag(
-    "calcite-shell-center-row",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-shell-center-row", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3711,6 +4076,15 @@ calcite_shell_center_row <- function(...) {
 #'  |width            |width        |Specifies the width of the component.                                                                       |"l" &#124; "m" &#124; "s"                                                        |TRUE                  |
 #'  |widthScale       |width-scale  |When `layout` is `vertical`, specifies the width of the component.                                          |"l" &#124; "m" &#124; "s"                                                        |TRUE                  |
 
+#' ## Events
+
+#' The following events are observed by shiny:
+
+#'  |Event                     |Description                                           |
+#'  |:-------------------------|:-----------------------------------------------------|
+#'  |calciteShellPanelCollapse |Fires when the component's content area is collapsed. |
+#'  |calciteShellPanelExpand   |Fires when the component's content area is expanded.  |
+
 #' ## Slots
 
 #' The following slots are provided by this component: 
@@ -3727,10 +4101,10 @@ calcite_shell_center_row <- function(...) {
 #' @examples
 #' calcite_shell_panel()
 calcite_shell_panel <- function(...) {
-  res <- htmltools::tag(
-    "calcite-shell-panel",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-shell-panel", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3755,16 +4129,18 @@ calcite_shell_panel <- function(...) {
 #'  |hasHistogram      |has-histogram      |When `true`, indicates a histogram is present.                                                                                                                               |boolean                                                                                                                       |TRUE                  |
 #'  |histogram         |NA                 |A list of the histogram's x,y coordinates within the component's `min` and `max`. Displays above the component's track.                                                      |Check API reference                                                                                                           |FALSE                 |
 #'  |histogramStops    |NA                 |A set of single color stops for a histogram, sorted by offset ascending.                                                                                                     |Check API reference                                                                                                           |FALSE                 |
-#'  |labelFormatter    |NA                 |When specified, allows users to customize handle labels.                                                                                                                     |(value: number, type: "min" &#124; "value" &#124; "max" &#124; "tick", defaultFormatter: (value: number) => string) => string |FALSE                 |
+#'  |labelFormatter    |NA                 |When specified, allows users to customize handle labels.                                                                                                                     |(value: number, type: "max" &#124; "min" &#124; "value" &#124; "tick", defaultFormatter: (value: number) => string) => string |FALSE                 |
 #'  |labelHandles      |label-handles      |When `true`, displays label handles with their numeric value.                                                                                                                |boolean                                                                                                                       |TRUE                  |
+#'  |labelText         |label-text         |When provided, displays label text on the component.                                                                                                                         |string                                                                                                                        |FALSE                 |
 #'  |labelTicks        |label-ticks        |When `true` and `ticks` is specified, displays label tick marks with their numeric value.                                                                                    |boolean                                                                                                                       |TRUE                  |
 #'  |max               |max                |The component's maximum selectable value.                                                                                                                                    |number                                                                                                                        |TRUE                  |
 #'  |maxLabel          |max-label          |For multiple selections, the accessible name for the second handle, such as `"Temperature, upper bound"`.                                                                    |string                                                                                                                        |FALSE                 |
 #'  |maxValue          |max-value          |For multiple selections, the component's upper value.                                                                                                                        |number                                                                                                                        |FALSE                 |
+#'  |messageOverrides  |NA                 |Use this property to override individual strings used by the component.                                                                                                      |Check API reference                                                                                                           |FALSE                 |
 #'  |min               |min                |The component's minimum selectable value.                                                                                                                                    |number                                                                                                                        |TRUE                  |
 #'  |minLabel          |min-label          |Accessible name for first (or only) handle, such as `"Temperature, lower bound"`.                                                                                            |string                                                                                                                        |FALSE                 |
 #'  |minValue          |min-value          |For multiple selections, the component's lower value.                                                                                                                        |number                                                                                                                        |FALSE                 |
-#'  |mirrored          |mirrored           |When `true`, the slider will display values from high to low.  Note that this value will be ignored if the slider has an associated histogram.                               |boolean                                                                                                                       |TRUE                  |
+#'  |mirrored          |mirrored           |When `true`, the component will display values from high to low.  Note that this value will be ignored if the slider has an associated histogram.                            |boolean                                                                                                                       |TRUE                  |
 #'  |name              |name               |Specifies the name of the component.  Required to pass the component's `value` on form submission.                                                                           |string                                                                                                                        |TRUE                  |
 #'  |numberingSystem   |numbering-system   |Specifies the Unicode numeral system used by the component for localization.                                                                                                 |"arab" &#124; "arabext" &#124; "latn"                                                                                         |FALSE                 |
 #'  |pageStep          |page-step          |Specifies the interval to move with the page up, or page down keys.                                                                                                          |number                                                                                                                        |TRUE                  |
@@ -3788,6 +4164,14 @@ calcite_shell_panel <- function(...) {
 #'  |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 #'  |calciteSliderChange |Fires when the thumb is released on the component. Note: To constantly listen to the drag event, use `calciteSliderInput` instead.                                                    |
 #'  |calciteSliderInput  |Fires on all updates to the component. Note: Fires frequently during drag. To perform expensive operations consider using a debounce or throttle to avoid locking up the main thread. |
+
+#' ## Slots
+
+#' The following slots are provided by this component: 
+
+#'  |Slot          |Description                                                       |
+#'  |:-------------|:-----------------------------------------------------------------|
+#'  |label-content |A slot for rendering content next to the component's `labelText`. |
 #'
 #' @param ... named attributes passed to `htmltools::tag()`
 #' @export
@@ -3796,10 +4180,10 @@ calcite_shell_panel <- function(...) {
 #' @examples
 #' calcite_slider()
 calcite_slider <- function(...) {
-  res <- htmltools::tag(
-    "calcite-slider",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-slider", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3819,9 +4203,11 @@ calcite_slider <- function(...) {
 #'  |:------------------|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|:---------------------|
 #'  |appearance         |appearance            |Specifies the appearance style of the component.                                                                                                                                                                                                                                                                                                                              |"outline" &#124; "outline-fill" &#124; "solid" &#124; "transparent"                                 |TRUE                  |
 #'  |disabled           |disabled              |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                                                                                                                                                                                      |boolean                                                                                             |TRUE                  |
+#'  |download           |download              |Prompts the user to save the linked URL instead of navigating to it. Can be used with or without a value: Without a value, the browser will suggest a filename/extension.                                                                                                                                                                                                     |boolean &#124; string                                                                               |TRUE                  |
 #'  |dropdownIconType   |dropdown-icon-type    |Specifies the icon used for the dropdown menu.                                                                                                                                                                                                                                                                                                                                |"caret" &#124; "chevron" &#124; "ellipsis" &#124; "overflow"                                        |TRUE                  |
 #'  |dropdownLabel      |dropdown-label        |Accessible name for the dropdown menu.                                                                                                                                                                                                                                                                                                                                        |string                                                                                              |TRUE                  |
 #'  |flipPlacements     |NA                    |Specifies the component's fallback slotted content `placement` when it's initial or specified `placement` has insufficient space available.                                                                                                                                                                                                                                   |Check API reference                                                                                 |FALSE                 |
+#'  |href               |href                  |Specifies the URL of the linked resource, which can be set as an absolute or relative path.                                                                                                                                                                                                                                                                                   |string                                                                                              |TRUE                  |
 #'  |kind               |kind                  |Specifies the kind of the component, which will apply to border and background, if applicable.                                                                                                                                                                                                                                                                                |"brand" &#124; "danger" &#124; "inverse" &#124; "neutral"                                           |TRUE                  |
 #'  |loading            |loading               |When `true`, a busy indicator is displayed on the primary button.                                                                                                                                                                                                                                                                                                             |boolean                                                                                             |TRUE                  |
 #'  |overlayPositioning |overlay-positioning   |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  `"fixed"` should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. |"absolute" &#124; "fixed"                                                                           |TRUE                  |
@@ -3831,7 +4217,9 @@ calcite_slider <- function(...) {
 #'  |primaryIconStart   |primary-icon-start    |Specifies an icon to display at the start of the primary button.                                                                                                                                                                                                                                                                                                              |string                                                                                              |TRUE                  |
 #'  |primaryLabel       |primary-label         |Accessible name for the primary button.                                                                                                                                                                                                                                                                                                                                       |string                                                                                              |TRUE                  |
 #'  |primaryText        |primary-text          |Text displayed in the primary button.                                                                                                                                                                                                                                                                                                                                         |string                                                                                              |TRUE                  |
+#'  |rel                |rel                   |Defines the relationship between the `href` value and the current document.                                                                                                                                                                                                                                                                                                   |string                                                                                              |TRUE                  |
 #'  |scale              |scale                 |Specifies the size of the component.                                                                                                                                                                                                                                                                                                                                          |"l" &#124; "m" &#124; "s"                                                                           |TRUE                  |
+#'  |target             |target                |Specifies where to open the linked document defined in the `href` property.                                                                                                                                                                                                                                                                                                   |string                                                                                              |TRUE                  |
 #'  |width              |width                 |Check API reference                                                                                                                                                                                                                                                                                                                                                           |"auto" &#124; "full" &#124; "half"                                                                  |TRUE                  |
 
 #' ## Events
@@ -3858,10 +4246,10 @@ calcite_slider <- function(...) {
 #' @examples
 #' calcite_split_button()
 calcite_split_button <- function(...) {
-  res <- htmltools::tag(
-    "calcite-split-button",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-split-button", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3911,10 +4299,10 @@ calcite_split_button <- function(...) {
 #' @examples
 #' calcite_stepper()
 calcite_stepper <- function(...) {
-  res <- htmltools::tag(
-    "calcite-stepper",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-stepper", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3964,10 +4352,111 @@ calcite_stepper <- function(...) {
 #' @examples
 #' calcite_stepper_item()
 calcite_stepper_item <- function(...) {
-  res <- htmltools::tag(
-    "calcite-stepper-item",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-stepper-item", dots)
+
+  class(res) <- c("calcite_component", class(res))
+  res
+}
+#' Create a Swatch component
+#'
+#' 
+#'
+#' 
+#'
+#' @details
+#' ## Properties
+
+#' The following properties are provided by this component: 
+
+#'  |Name     |Attribute |Description                                                                                                                 |Values                    |Reflects to Attribute |
+#'  |:--------|:---------|:---------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------------------|
+#'  |color    |color     |Specifies the component's color                                                                                             |string                    |FALSE                 |
+#'  |disabled |disabled  |When `true`, interaction is prevented and the component is displayed with lower opacity.                                    |boolean                   |TRUE                  |
+#'  |label    |label     |Accessible name for the component.                                                                                          |string                    |FALSE                 |
+#'  |scale    |scale     |Specifies the size of the component. When contained in a parent `calcite-swatch-group` inherits the parent's `scale` value. |"l" &#124; "m" &#124; "s" |TRUE                  |
+#'  |selected |selected  |When `true`, the component is selected.                                                                                     |boolean                   |TRUE                  |
+#'  |value    |value     |The component's value.                                                                                                      |any                       |FALSE                 |
+
+#' ## Events
+
+#' The following events are observed by shiny:
+
+#'  |Event               |Description                                             |
+#'  |:-------------------|:-------------------------------------------------------|
+#'  |calciteSwatchSelect |Fires when the selected state of the component changes. |
+
+#' ## Slots
+
+#' The following slots are provided by this component: 
+
+#'  |Slot  |Description                            |
+#'  |:-----|:--------------------------------------|
+#'  |image |A slot for adding an image or pattern. |
+#'
+#' @param ... named attributes passed to `htmltools::tag()`
+#' @export
+#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
+#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/swatch/)
+#' @examples
+#' calcite_swatch()
+calcite_swatch <- function(...) {
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-swatch", dots)
+
+  class(res) <- c("calcite_component", class(res))
+  res
+}
+#' Create a SwatchGroup component
+#'
+#' 
+#'
+#' 
+#'
+#' @details
+#' ## Properties
+
+#' The following properties are provided by this component: 
+
+#'  |Name          |Attribute      |Description                                                                                                                                                                                                                                                  |Values                                                           |Reflects to Attribute |
+#'  |:-------------|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|:---------------------|
+#'  |disabled      |disabled       |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                                                                                                     |boolean                                                          |TRUE                  |
+#'  |label         |label          |Accessible name for the component.                                                                                                                                                                                                                           |string                                                           |FALSE                 |
+#'  |scale         |scale          |Specifies the size of the component. Child `calcite-swatch`s inherit the component's value.                                                                                                                                                                  |"l" &#124; "m" &#124; "s"                                        |TRUE                  |
+#'  |selectedItems |NA             |Specifies the component's selected items.                                                                                                                                                                                                                    |Check API reference                                              |FALSE                 |
+#'  |selectionMode |selection-mode |Specifies the selection mode of the component, where:  `"multiple"` allows any number of selections,  `"single"` allows only one selection,  `"single-persist"` allows one selection and prevents de-selection, and  `"none"` does not allow any selections. |"multiple" &#124; "none" &#124; "single" &#124; "single-persist" |TRUE                  |
+
+#' ## Events
+
+#' The following events are observed by shiny:
+
+#'  |Event                    |Description                                   |
+#'  |:------------------------|:---------------------------------------------|
+#'  |calciteSwatchGroupSelect |Fires when the component's selection changes. |
+
+#' ## Slots
+
+#' The following slots are provided by this component: 
+
+#'  |Slot              |Description                                      |
+#'  |:-----------------|:------------------------------------------------|
+#'  |Default (unnamed) |A slot for adding one or more `calcite-swatch`s. |
+#'
+#' @param ... named attributes passed to `htmltools::tag()`
+#' @export
+#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
+#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/swatch-group/)
+#' @examples
+#' calcite_swatch_group()
+calcite_swatch_group <- function(...) {
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-swatch-group", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3983,15 +4472,17 @@ calcite_stepper_item <- function(...) {
 
 #' The following properties are provided by this component: 
 
-#'  |Name     |Attribute |Description                                                                                                                                              |Values                    |Reflects to Attribute |
-#'  |:--------|:---------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------------------|
-#'  |checked  |checked   |When `true`, the component is checked.                                                                                                                   |boolean                   |TRUE                  |
-#'  |disabled |disabled  |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                 |boolean                   |TRUE                  |
-#'  |form     |form      |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. |string                    |TRUE                  |
-#'  |label    |label     |Accessible name for the component.                                                                                                                       |string                    |FALSE                 |
-#'  |name     |name      |Specifies the name of the component.  Required to pass the component's `value` on form submission.                                                       |string                    |TRUE                  |
-#'  |scale    |scale     |Specifies the size of the component.                                                                                                                     |"l" &#124; "m" &#124; "s" |TRUE                  |
-#'  |value    |value     |The component's value.                                                                                                                                   |any                       |FALSE                 |
+#'  |Name           |Attribute        |Description                                                                                                                                              |Values                    |Reflects to Attribute |
+#'  |:--------------|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------------------|
+#'  |checked        |checked          |When `true`, the component is checked.                                                                                                                   |boolean                   |TRUE                  |
+#'  |disabled       |disabled         |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                 |boolean                   |TRUE                  |
+#'  |form           |form             |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. |string                    |TRUE                  |
+#'  |label          |label            |Accessible name for the component.                                                                                                                       |string                    |FALSE                 |
+#'  |labelTextEnd   |label-text-end   |When provided, displays label text at the end of the component                                                                                           |string                    |FALSE                 |
+#'  |labelTextStart |label-text-start |When provided, displays label text at the start of the component                                                                                         |string                    |FALSE                 |
+#'  |name           |name             |Specifies the name of the component.  Required to pass the component's `value` on form submission.                                                       |string                    |TRUE                  |
+#'  |scale          |scale            |Specifies the size of the component.                                                                                                                     |"l" &#124; "m" &#124; "s" |TRUE                  |
+#'  |value          |value            |The component's value.                                                                                                                                   |any                       |FALSE                 |
 
 #' ## Events
 
@@ -4008,10 +4499,10 @@ calcite_stepper_item <- function(...) {
 #' @examples
 #' calcite_switch()
 calcite_switch <- function(...) {
-  res <- htmltools::tag(
-    "calcite-switch",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-switch", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4047,10 +4538,10 @@ calcite_switch <- function(...) {
 #' @examples
 #' calcite_tab()
 calcite_tab <- function(...) {
-  res <- htmltools::tag(
-    "calcite-tab",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-tab", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4097,10 +4588,10 @@ calcite_tab <- function(...) {
 #' @examples
 #' calcite_tab_nav()
 calcite_tab_nav <- function(...) {
-  res <- htmltools::tag(
-    "calcite-tab-nav",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-tab-nav", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4153,10 +4644,10 @@ calcite_tab_nav <- function(...) {
 #' @examples
 #' calcite_tab_title()
 calcite_tab_title <- function(...) {
-  res <- htmltools::tag(
-    "calcite-tab-title",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-tab-title", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4182,7 +4673,7 @@ calcite_tab_title <- function(...) {
 #'  |messageOverrides |NA                |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                     |Check API reference                      |FALSE                 |
 #'  |numbered         |numbered          |When `true`, displays the position of the row in numeric form.                                                                                                                                                                                                                                                              |boolean                                  |TRUE                  |
 #'  |numberingSystem  |numbering-system  |Specifies the Unicode numeral system used by the component for localization.                                                                                                                                                                                                                                                |"arab" &#124; "arabext" &#124; "latn"    |TRUE                  |
-#'  |pageSize         |page-size         |Specifies the page size of the component. When `true`, renders `calcite-pagination`.                                                                                                                                                                                                                                        |number                                   |TRUE                  |
+#'  |pageSize         |page-size         |Specifies the page size of the component. When present, renders `calcite-pagination`.                                                                                                                                                                                                                                       |number                                   |TRUE                  |
 #'  |scale            |scale             |Specifies the size of the component.                                                                                                                                                                                                                                                                                        |"l" &#124; "m" &#124; "s"                |TRUE                  |
 #'  |selectedItems    |NA                |Specifies the component's selected items.                                                                                                                                                                                                                                                                                   |Check API reference                      |FALSE                 |
 #'  |selectionDisplay |selection-display |Specifies the display of the selection interface when `selection-mode` is not `"none"`. When `"none"`, content slotted the `selection-actions` slot will not be displayed.                                                                                                                                                  |"none" &#124; "top"                      |TRUE                  |
@@ -4216,10 +4707,10 @@ calcite_tab_title <- function(...) {
 #' @examples
 #' calcite_table()
 calcite_table <- function(...) {
-  res <- htmltools::tag(
-    "calcite-table",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-table", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4257,10 +4748,10 @@ calcite_table <- function(...) {
 #' @examples
 #' calcite_table_cell()
 calcite_table_cell <- function(...) {
-  res <- htmltools::tag(
-    "calcite-table-cell",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-table-cell", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4292,10 +4783,10 @@ calcite_table_cell <- function(...) {
 #' @examples
 #' calcite_table_header()
 calcite_table_header <- function(...) {
-  res <- htmltools::tag(
-    "calcite-table-header",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-table-header", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4340,10 +4831,10 @@ calcite_table_header <- function(...) {
 #' @examples
 #' calcite_table_row()
 calcite_table_row <- function(...) {
-  res <- htmltools::tag(
-    "calcite-table-row",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-table-row", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4382,10 +4873,10 @@ calcite_table_row <- function(...) {
 #' @examples
 #' calcite_tabs()
 calcite_tabs <- function(...) {
-  res <- htmltools::tag(
-    "calcite-tabs",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-tabs", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4408,7 +4899,8 @@ calcite_tabs <- function(...) {
 #'  |form              |form               |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. |string                                                     |TRUE                  |
 #'  |groupSeparator    |group-separator    |When `true`, number values are displayed with a group separator corresponding to the language and country format.                                        |boolean                                                    |TRUE                  |
 #'  |label             |label              |Accessible name for the component.                                                                                                                       |string                                                     |FALSE                 |
-#'  |limitText         |limit-text         |Check API reference                                                                                                                                      |boolean                                                    |TRUE                  |
+#'  |labelText         |label-text         |When provided, displays label text on the component.                                                                                                     |string                                                     |FALSE                 |
+#'  |limitText         |limit-text         |When `true`, prevents input beyond the `maxLength` value, mimicking native text area behavior.                                                           |boolean                                                    |TRUE                  |
 #'  |maxLength         |max-length         |When the component resides in a form, specifies the maximum number of characters allowed.                                                                |number                                                     |TRUE                  |
 #'  |messageOverrides  |NA                 |Use this property to override individual strings used by the component.                                                                                  |Check API reference                                        |FALSE                 |
 #'  |minLength         |min-length         |When the component resides in a form, specifies the minimum number of characters allowed.                                                                |number                                                     |TRUE                  |
@@ -4443,6 +4935,7 @@ calcite_tabs <- function(...) {
 #'  |Slot              |Description                                                       |
 #'  |:-----------------|:-----------------------------------------------------------------|
 #'  |Default (unnamed) |A slot for adding text.                                           |
+#'  |label-content     |A slot for rendering content next to the component's `labelText`. |
 #'  |footer-start      |A slot for adding content to the start of the component's footer. |
 #'  |footer-end        |A slot for adding content to the end of the component's footer.   |
 #'
@@ -4453,10 +4946,10 @@ calcite_tabs <- function(...) {
 #' @examples
 #' calcite_text_area()
 calcite_text_area <- function(...) {
-  res <- htmltools::tag(
-    "calcite-text-area",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-text-area", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4513,10 +5006,10 @@ calcite_text_area <- function(...) {
 #' @examples
 #' calcite_tile()
 calcite_tile <- function(...) {
-  res <- htmltools::tag(
-    "calcite-tile",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-tile", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4566,10 +5059,10 @@ calcite_tile <- function(...) {
 #' @examples
 #' calcite_tile_group()
 calcite_tile_group <- function(...) {
-  res <- htmltools::tag(
-    "calcite-tile-group",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-tile-group", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4623,10 +5116,10 @@ calcite_tile_group <- function(...) {
 #' @examples
 #' calcite_tile_select()
 calcite_tile_select <- function(...) {
-  res <- htmltools::tag(
-    "calcite-tile-select",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-tile-select", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4662,10 +5155,10 @@ calcite_tile_select <- function(...) {
 #' @examples
 #' calcite_tile_select_group()
 calcite_tile_select_group <- function(...) {
-  res <- htmltools::tag(
-    "calcite-tile-select-group",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-tile-select-group", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4688,15 +5181,16 @@ calcite_tile_select_group <- function(...) {
 #'  |numberingSystem  |numbering-system |Specifies the Unicode numeral system used by the component for localization.                                                                                       |"arab" &#124; "arabext" &#124; "latn" |FALSE                 |
 #'  |scale            |scale            |Specifies the size of the component.                                                                                                                               |"l" &#124; "m" &#124; "s"             |TRUE                  |
 #'  |step             |step             |Specifies the granularity the `value` must adhere to (in seconds).                                                                                                 |number                                |TRUE                  |
+#'  |time             |NA               |                                                                                                                                                                   |TimeController                        |FALSE                 |
 #'  |value            |value            |The component's value in UTC (always 24-hour format).                                                                                                              |string                                |FALSE                 |
 
 #' ## Events
 
 #' The following events are observed by shiny:
 
-#'  |Event                   |Description |
-#'  |:-----------------------|:-----------|
-#'  |calciteTimePickerChange |            |
+#'  |Event                   |Description                                    |
+#'  |:-----------------------|:----------------------------------------------|
+#'  |calciteTimePickerChange |Fires when a user changes the component's time |
 #'
 #' @param ... named attributes passed to `htmltools::tag()`
 #' @export
@@ -4705,10 +5199,10 @@ calcite_tile_select_group <- function(...) {
 #' @examples
 #' calcite_time_picker()
 calcite_time_picker <- function(...) {
-  res <- htmltools::tag(
-    "calcite-time-picker",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-time-picker", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4757,10 +5251,10 @@ calcite_time_picker <- function(...) {
 #' @examples
 #' calcite_tip()
 calcite_tip <- function(...) {
-  res <- htmltools::tag(
-    "calcite-tip",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-tip", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4795,10 +5289,10 @@ calcite_tip <- function(...) {
 #' @examples
 #' calcite_tip_group()
 calcite_tip_group <- function(...) {
-  res <- htmltools::tag(
-    "calcite-tip-group",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-tip-group", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4843,10 +5337,10 @@ calcite_tip_group <- function(...) {
 #' @examples
 #' calcite_tip_manager()
 calcite_tip_manager <- function(...) {
-  res <- htmltools::tag(
-    "calcite-tip-manager",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-tip-manager", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4871,7 +5365,7 @@ calcite_tip_manager <- function(...) {
 #'  |open               |open                |When `true`, the component is open.                                                                                                                                                                                                                                                                                                                                                     |boolean                                                                                                                                                                                                                                                                                                                                                                                         |TRUE                  |
 #'  |overlayPositioning |overlay-positioning |Determines the type of positioning to use for the overlaid content.  Using `"absolute"` will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  The `"fixed"` value should be used to escape an overflowing parent container, or when the reference element's `position` CSS property is `"fixed"`. |"absolute" &#124; "fixed"                                                                                                                                                                                                                                                                                                                                                                       |TRUE                  |
 #'  |placement          |placement           |Determines where the component will be positioned relative to the `referenceElement`.                                                                                                                                                                                                                                                                                                   |"auto" &#124; "auto-end" &#124; "auto-start" &#124; "bottom" &#124; "bottom-end" &#124; "bottom-start" &#124; "leading" &#124; "leading-end" &#124; "leading-start" &#124; "left" &#124; "left-end" &#124; "left-start" &#124; "right" &#124; "right-end" &#124; "right-start" &#124; "top" &#124; "top-end" &#124; "top-start" &#124; "trailing" &#124; "trailing-end" &#124; "trailing-start" |TRUE                  |
-#'  |referenceElement   |reference-element   |The `referenceElement` to position the component according to its `"placement"` value.  Setting to the `HTMLElement` is preferred so the component does not need to query the DOM for the `referenceElement`.  However, a string ID of the reference element can be used.                                                                                                               |Element &#124; VirtualElement &#124; string                                                                                                                                                                                                                                                                                                                                                     |FALSE                 |
+#'  |referenceElement   |reference-element   |The `referenceElement` to position the component according to its `"placement"` value.  Setting to the `HTMLElement` is preferred so the component does not need to query the DOM for the `referenceElement`.  However, a string ID of the reference element can be used.  The component should not be placed within its own `referenceElement` to avoid unintended behavior.           |Element &#124; VirtualElement &#124; string                                                                                                                                                                                                                                                                                                                                                     |FALSE                 |
 
 #' ## Events
 
@@ -4899,10 +5393,10 @@ calcite_tip_manager <- function(...) {
 #' @examples
 #' calcite_tooltip()
 calcite_tooltip <- function(...) {
-  res <- htmltools::tag(
-    "calcite-tooltip",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-tooltip", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4948,10 +5442,10 @@ calcite_tooltip <- function(...) {
 #' @examples
 #' calcite_tree()
 calcite_tree <- function(...) {
-  res <- htmltools::tag(
-    "calcite-tree",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-tree", dots)
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4970,11 +5464,20 @@ calcite_tree <- function(...) {
 #'  |Name        |Attribute     |Description                                                                                  |Values                             |Reflects to Attribute |
 #'  |:-----------|:-------------|:--------------------------------------------------------------------------------------------|:----------------------------------|:---------------------|
 #'  |disabled    |disabled      |When `true`, interaction is prevented and the component is displayed with lower opacity.     |boolean                            |TRUE                  |
-#'  |expanded    |expanded      |When `true`, the component is expanded.                                                      |boolean                            |TRUE                  |
+#'  |expanded    |expanded      |When `true`, expands the component and its contents.                                         |boolean                            |TRUE                  |
 #'  |iconFlipRtl |icon-flip-rtl |When `true`, the icon will be flipped when the element direction is right-to-left (`"rtl"`). |"both" &#124; "end" &#124; "start" |TRUE                  |
 #'  |iconStart   |icon-start    |Specifies an icon to display at the start of the component.                                  |string                             |TRUE                  |
 #'  |label       |label         |Accessible name for the component.                                                           |string                             |FALSE                 |
 #'  |selected    |selected      |When `true`, the component is selected.                                                      |boolean                            |TRUE                  |
+
+#' ## Events
+
+#' The following events are observed by shiny:
+
+#'  |Event                   |Description                                           |
+#'  |:-----------------------|:-----------------------------------------------------|
+#'  |calciteTreeItemCollapse |Fires when the component's content area is collapsed. |
+#'  |calciteTreeItemExpand   |Fires when the component's content area is expanded.  |
 
 #' ## Slots
 
@@ -4993,10 +5496,10 @@ calcite_tree <- function(...) {
 #' @examples
 #' calcite_tree_item()
 calcite_tree_item <- function(...) {
-  res <- htmltools::tag(
-    "calcite-tree-item",
-    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  )
+        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+
+  res <- htmltools::tag("calcite-tree-item", dots)
 
   class(res) <- c("calcite_component", class(res))
   res

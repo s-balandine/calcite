@@ -1,4 +1,4 @@
-CALCITE_VERSION <- "2.7.1"
+CALCITE_VERSION <- "3.3.3"
 calcite_dependency <- function() {
   htmltools::htmlDependency(
     name = "calcite",
