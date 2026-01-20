@@ -16,7 +16,6 @@
 #' @param status Validation state: "idle", "valid", or "invalid"
 #' @param validation_message Message displayed for validation feedback
 #' @param required Whether selection is required
-#' @param ... Additional attributes passed to the component
 #'
 #' @details
 #' ## Shiny Integration

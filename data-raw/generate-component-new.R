@@ -1,5 +1,5 @@
 library(dplyr)
-json_raw <- yyjsonr::read_json_conn("https://unpkg.com/@esri/calcite-components@3.0.0-next.127/dist/docs/docs.json")
+json_raw <- yyjsonr::read_json_conn("https://unpkg.com/@esri/calcite-components@3.3.3/dist/docs/docs.json")
 
 components_raw <- json_raw[["components"]] |>
   tibble::as_tibble()
@@ -8,11 +8,11 @@ components_raw <- json_raw[["components"]] |>
 
 
 api_json_raw <- yyjsonr::read_json_conn(
-  "https://unpkg.com/@esri/calcite-components@3.0.0-next.127/dist/docs/api.json"
+  "https://unpkg.com/@esri/calcite-components@3.3.3/dist/docs/api.json"
 )
 
 component_names <- yyjsonr::read_json_conn(
-  "https://unpkg.com/@esri/calcite-components@3.0.0-next.127/dist/docs/api.json"
+  "https://unpkg.com/@esri/calcite-components@3.3.3/dist/docs/api.json"
 )[[c("modules", "declarations")]] |>
   dplyr::bind_rows() |>
   pull(name)
@@ -32,6 +32,30 @@ components <- components_raw |>
     across(where(is.character), \(.x) gsub("\n", " ", .x))
   )
 
+components <- filter(!(fn_name == c(
+  'calcite_accordion',
+  'calcite_accordion_item',
+  'calcite_action_group',
+  'calcite_action',
+  'calcite_alert',
+  'calcite_block',
+  'calcite_date_picker',
+  'calcite_input_message',
+  'calcite_input_number',
+  'calcite_input_text',
+  'calcite_label',
+  'calcite_link',
+  'calcite_list',
+  'calcite_list_item',
+  'calcite_notice',
+  'calcite_panel',
+  'calcite_segmented_control',
+  'calcite_shell',
+  'calcite_slider',
+  'calcite_switch',
+  'calcite_tile_group',
+  'calcite_tile'
+)))
 
 # for now we filter out all of the components that have an API reference page
 resps <- lapply(
