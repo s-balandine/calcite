@@ -22,10 +22,11 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    actionsEndGroupLabel \tab actions-end-group-label \tab Specifies the accessible label for the last \code{calcite-action-group}. \tab string \tab FALSE \cr
    expandDisabled \tab expand-disabled \tab When \code{true}, the expand-toggling behavior is disabled. \tab boolean \tab TRUE \cr
-   expanded \tab expanded \tab When \code{true}, the component is expanded. \tab boolean \tab TRUE \cr
-   layout \tab layout \tab Specifies the layout direction of the actions. \tab "horizontal" | "vertical" \tab TRUE \cr
+   expanded \tab expanded \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
+   floating \tab floating \tab When \code{true}, the component is in a floating state. \tab boolean \tab TRUE \cr
+   layout \tab layout \tab Specifies the layout direction of the actions. \tab "grid" | "horizontal" | "vertical" \tab TRUE \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   overflowActionsDisabled \tab overflow-actions-disabled \tab Disables automatically overflowing \code{calcite-action}s that won't fit into menus. \tab boolean \tab TRUE \cr
+   overflowActionsDisabled \tab overflow-actions-disabled \tab When \code{true}, disables automatically overflowing \code{calcite-action}s that won't fit into menus. \tab boolean \tab TRUE \cr
    overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
    position \tab position \tab Arranges the component depending on the element's \code{dir} property. \tab "end" | "start" \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the expand \code{calcite-action}. \tab "l" | "m" | "s" \tab TRUE \cr
@@ -37,6 +38,8 @@ The following properties are provided by this component:\tabular{lllll}{
 
 The following events are observed by shiny:\tabular{ll}{
    Event \tab Description \cr
+   calciteActionBarCollapse \tab Fires when the component's content area is collapsed. \cr
+   calciteActionBarExpand \tab Fires when the component's content area is expanded. \cr
    calciteActionBarToggle \tab Fires when the \code{expanded} property is toggled. \cr
 }
 

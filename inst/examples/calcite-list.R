@@ -5,12 +5,14 @@ ui <- calcite_shell(
   calcite_list(
     id = 'transportation_list',
     selection_mode = 'multiple',
+    drag_enabled = TRUE,
     calcite_list_item(
       id = 'watercraft_item',
       heading = 'Watercraft',
       description = 'Yachts, boats, and dinghies',
       icon_start = 'embark',
       expanded = TRUE,
+      value = '1',
       calcite_notice(
         open = TRUE,
         div(slot = 'message', 'Recommended for coastal use')
@@ -21,6 +23,7 @@ ui <- calcite_shell(
       heading = 'Automobiles',
       description = 'Cars, trucks, and buses',
       icon_start = 'car',
+      value = '2',
       calcite_notice(
         open = TRUE,
         div(slot = 'message', 'A good choice for inland adventure')
@@ -31,6 +34,7 @@ ui <- calcite_shell(
       heading = 'Aircraft',
       description = 'Planes, helicopters, and jets',
       icon_start = 'plane',
+      value = '3',
       calcite_notice(
         open = TRUE,
         div(slot = 'message', 'Cross continents quickly')

@@ -1,10 +1,17 @@
 // Custom Shiny input binding for calcite-list
 (function() {
+
   const binding = new Shiny.InputBinding();
 
   $.extend(binding, {
+
     find: function(scope) {
       return $(scope).find("calcite-list");
+    },
+
+    initialize: function(el){
+      const currentValue = this.getValue(el);
+      Shiny.setInputValue(el.id, currentValue);
     },
 
     getId: function(el) {
@@ -13,9 +20,6 @@
 
     getValue: function(el) {
       return {
-        appearance: el.appearance,
-        iconPosition: el.iconPosition,
-        iconType: el.iconType,
         scale: el.scale,
         selectionMode: el.selectionMode
       };
@@ -28,14 +32,19 @@
       $(el).trigger("calciteListInputBinding:updated");
     },
 
-    initialize: function(el) {
-      const currentValue = this.getValue(el);
-      Shiny.setInputValue(el.id, currentValue);
-    },
-
     subscribe: function(el, callback) {
+      console.log('subscribe');
 
       $(el).on("calciteListChange.calciteListInputBinding", function() {
+        console.log('change');
+        const currentValue = binding.getValue(el);
+        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+
+        callback(true);
+      });
+
+      $(el).on("calciteListDragStart.calciteListInputBinding", function() {
+        console.log('calciteListDragStart');
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue, {priority: "event"});
 

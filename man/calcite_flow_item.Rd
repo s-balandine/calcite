@@ -30,12 +30,14 @@ The following properties are provided by this component:\tabular{lllll}{
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    heading \tab heading \tab The component header text. \tab string \tab FALSE \cr
    headingLevel \tab heading-level \tab Specifies the heading level of the component's \code{heading} for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
+   icon \tab icon \tab Specifies an icon to display. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
    menuOpen \tab menu-open \tab When \code{true}, the action menu items in the \code{header-menu-actions} slot are open. \tab boolean \tab TRUE \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
-   selected \tab selected \tab When true, flow-item is displayed within a parent flow. \tab boolean \tab TRUE \cr
+   selected \tab selected \tab When \code{true}, the component is displayed within a parent flow. \tab boolean \tab TRUE \cr
    showBackButton \tab show-back-button \tab When \code{true}, displays a back button in the component's header. \tab boolean \tab FALSE \cr
 }
 
@@ -47,6 +49,8 @@ The following events are observed by shiny:\tabular{ll}{
    Event \tab Description \cr
    calciteFlowItemBack \tab Fires when the back button is clicked. \cr
    calciteFlowItemClose \tab Fires when the close button is clicked. \cr
+   calciteFlowItemCollapse \tab Fires when the component's content area is collapsed. \cr
+   calciteFlowItemExpand \tab Fires when the component's content area is expanded. \cr
    calciteFlowItemScroll \tab Fires when the content is scrolled. \cr
    calciteFlowItemToggle \tab Fires when the collapse button is clicked. \cr
 }

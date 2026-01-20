@@ -20,11 +20,13 @@ Create a BlockSection component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   expanded \tab expanded \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
    iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
    iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
    iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    open \tab open \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    status \tab status \tab Displays a status-related indicator icon. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
    text \tab text \tab The component header text. \tab string \tab FALSE \cr
    toggleDisplay \tab toggle-display \tab Specifies how the component's toggle is displayed, where:  \code{"button"} sets the toggle to a selectable header, and  \code{"switch"} sets the toggle to a switch. \tab "button" | "switch" \tab TRUE \cr
@@ -36,6 +38,8 @@ The following properties are provided by this component:\tabular{lllll}{
 
 The following events are observed by shiny:\tabular{ll}{
    Event \tab Description \cr
+   calciteBlockSectionCollapse \tab Fires when the component's content area is collapsed. \cr
+   calciteBlockSectionExpand \tab Fires when the component's content area is expanded. \cr
    calciteBlockSectionToggle \tab Fires when the header has been clicked. \cr
 }
 

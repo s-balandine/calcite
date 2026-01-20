@@ -21,7 +21,7 @@ calcite_segmented_control(
 )
 }
 \arguments{
-\item{...}{Additional attributes passed to the component}
+\item{...}{Child \code{calcite_segmented_control_item()} elements}
 
 \item{id}{Component ID (required for Shiny reactivity)}
 

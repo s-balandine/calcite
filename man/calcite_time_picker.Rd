@@ -25,6 +25,7 @@ The following properties are provided by this component:\tabular{lllll}{
    numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab FALSE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    step \tab step \tab Specifies the granularity the \code{value} must adhere to (in seconds). \tab number \tab TRUE \cr
+   time \tab NA \tab  \tab TimeController \tab FALSE \cr
    value \tab value \tab The component's value in UTC (always 24-hour format). \tab string \tab FALSE \cr
 }
 
@@ -34,7 +35,7 @@ The following properties are provided by this component:\tabular{lllll}{
 
 The following events are observed by shiny:\tabular{ll}{
    Event \tab Description \cr
-   calciteTimePickerChange \tab  \cr
+   calciteTimePickerChange \tab Fires when a user changes the component's time \cr
 }
 
 }

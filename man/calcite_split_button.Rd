@@ -22,9 +22,11 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    appearance \tab appearance \tab Specifies the appearance style of the component. \tab "outline" | "outline-fill" | "solid" | "transparent" \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   download \tab download \tab Prompts the user to save the linked URL instead of navigating to it. Can be used with or without a value: Without a value, the browser will suggest a filename/extension. \tab boolean | string \tab TRUE \cr
    dropdownIconType \tab dropdown-icon-type \tab Specifies the icon used for the dropdown menu. \tab "caret" | "chevron" | "ellipsis" | "overflow" \tab TRUE \cr
    dropdownLabel \tab dropdown-label \tab Accessible name for the dropdown menu. \tab string \tab TRUE \cr
    flipPlacements \tab NA \tab Specifies the component's fallback slotted content \code{placement} when it's initial or specified \code{placement} has insufficient space available. \tab Check API reference \tab FALSE \cr
+   href \tab href \tab Specifies the URL of the linked resource, which can be set as an absolute or relative path. \tab string \tab TRUE \cr
    kind \tab kind \tab Specifies the kind of the component, which will apply to border and background, if applicable. \tab "brand" | "danger" | "inverse" | "neutral" \tab TRUE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed on the primary button. \tab boolean \tab TRUE \cr
    overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
@@ -34,7 +36,9 @@ The following properties are provided by this component:\tabular{lllll}{
    primaryIconStart \tab primary-icon-start \tab Specifies an icon to display at the start of the primary button. \tab string \tab TRUE \cr
    primaryLabel \tab primary-label \tab Accessible name for the primary button. \tab string \tab TRUE \cr
    primaryText \tab primary-text \tab Text displayed in the primary button. \tab string \tab TRUE \cr
+   rel \tab rel \tab Defines the relationship between the \code{href} value and the current document. \tab string \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   target \tab target \tab Specifies where to open the linked document defined in the \code{href} property. \tab string \tab TRUE \cr
    width \tab width \tab Check API reference \tab "auto" | "full" | "half" \tab TRUE \cr
 }
 

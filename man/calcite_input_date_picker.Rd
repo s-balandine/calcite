@@ -20,11 +20,14 @@ Create a InputDatePicker component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   calendars \tab calendars \tab Specifies the number of calendars displayed when \code{range} is \code{true}. \tab 1 | 2 \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    flipPlacements \tab NA \tab Specifies the component's fallback \code{calcite-date-picker} \code{placement} when it's initial or specified \code{placement} has insufficient space available. \tab Check API reference \tab FALSE \cr
    focusTrapDisabled \tab focus-trap-disabled \tab When \code{true}, prevents focus trapping. \tab boolean \tab TRUE \cr
    form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
    headingLevel \tab heading-level \tab Specifies the heading level of the component's \code{heading} for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
+   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   labelText \tab label-text \tab When provided, displays label text on the component. \tab string \tab FALSE \cr
    layout \tab layout \tab Defines the layout of the component. \tab "horizontal" | "vertical" \tab TRUE \cr
    max \tab max \tab When the component resides in a form, specifies the latest allowed date ("yyyy-mm-dd"). \tab string \tab TRUE \cr
    maxAsDate \tab NA \tab Specifies the latest allowed date as a full date object. \tab Date \tab FALSE \cr
@@ -61,6 +64,15 @@ The following events are observed by shiny:\tabular{ll}{
    calciteInputDatePickerChange \tab Fires when the component's \code{value} changes. \cr
    calciteInputDatePickerClose \tab Fires when the component is closed and animation is complete. \cr
    calciteInputDatePickerOpen \tab Fires when the component is open and animation is complete. \cr
+}
+
+}
+
+\subsection{Slots}{
+
+The following slots are provided by this component:\tabular{ll}{
+   Slot \tab Description \cr
+   label-content \tab A slot for rendering content next to the component's \code{labelText}. \cr
 }
 
 }

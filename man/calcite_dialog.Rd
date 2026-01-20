@@ -25,8 +25,12 @@ The following properties are provided by this component:\tabular{lllll}{
    description \tab description \tab A description for the component. \tab string \tab FALSE \cr
    dragEnabled \tab drag-enabled \tab When \code{true}, the component is draggable. \tab boolean \tab TRUE \cr
    escapeDisabled \tab escape-disabled \tab When \code{true}, disables the default close on escape behavior.  By default, an open dialog can be dismissed by pressing the Esc key. \tab boolean \tab TRUE \cr
+   focusTrapDisabled \tab focus-trap-disabled \tab When \code{true} and \code{modal} is \code{false}, prevents focus trapping. \tab boolean \tab TRUE \cr
+   focusTrapOptions \tab NA \tab Specifies custom focus trap configuration on the component, where  \verb{"allowOutsideClick}" allows outside clicks, \code{"initialFocus"} enables initial focus, \code{"returnFocusOnDeactivate"} returns focus when not active, and \code{"extraContainers"} specifies additional focusable elements external to the trap (e.g., 3rd-party components appending elements to the document body). \code{"setReturnFocus"} customizes the element to which focus is returned when the trap is deactivated. Return \code{false} to prevent focus return, or \code{undefined} to use the default behavior (returning focus to the element focused before activation). \tab Check API reference \tab FALSE \cr
    heading \tab heading \tab The component header text. \tab string \tab FALSE \cr
    headingLevel \tab heading-level \tab Specifies the heading level of the component's \code{heading} for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
+   icon \tab icon \tab Specifies an icon to display. \tab string \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
    kind \tab kind \tab Specifies the kind of the component, which will style the top border. \tab "brand" | "danger" | "info" | "success" | "warning" \tab TRUE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
    menuOpen \tab menu-open \tab When \code{true}, the action menu items in the \code{header-menu-actions} slot are open. \tab boolean \tab TRUE \cr

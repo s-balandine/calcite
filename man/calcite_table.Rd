@@ -28,7 +28,7 @@ The following properties are provided by this component:\tabular{lllll}{
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
    numbered \tab numbered \tab When \code{true}, displays the position of the row in numeric form. \tab boolean \tab TRUE \cr
    numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab TRUE \cr
-   pageSize \tab page-size \tab Specifies the page size of the component. When \code{true}, renders \code{calcite-pagination}. \tab number \tab TRUE \cr
+   pageSize \tab page-size \tab Specifies the page size of the component. When present, renders \code{calcite-pagination}. \tab number \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
    selectedItems \tab NA \tab Specifies the component's selected items. \tab Check API reference \tab FALSE \cr
    selectionDisplay \tab selection-display \tab Specifies the display of the selection interface when \code{selection-mode} is not \code{"none"}. When \code{"none"}, content slotted the \code{selection-actions} slot will not be displayed. \tab "none" | "top" \tab TRUE \cr

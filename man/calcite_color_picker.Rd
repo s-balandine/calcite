@@ -25,6 +25,7 @@ The following properties are provided by this component:\tabular{lllll}{
    channelsDisabled \tab channels-disabled \tab When \code{true}, hides the RGB/HSV channel inputs. \tab boolean \tab FALSE \cr
    clearable \tab clearable \tab When \code{true}, an empty color (\code{null}) will be allowed as a \code{value}.  When \code{false}, a color value is enforced, and clearing the input or blurring will restore the last valid \code{value}. \tab boolean \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   fieldDisabled \tab field-disabled \tab When \code{true}, hides the color field. \tab boolean \tab TRUE \cr
    format \tab format \tab The format of \code{value}.  When \code{"auto"}, the format will be inferred from \code{value} when set. \tab "auto" | "hex" | "hexa" | "hsl" | "hsl-css" | "hsla" | "hsla-css" | "hsv" | "hsva" | "rgb" | "rgb-css" | "rgba" | "rgba-css" \tab TRUE \cr
    hexDisabled \tab hex-disabled \tab When \code{true}, hides the hex input. \tab boolean \tab FALSE \cr
    messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr

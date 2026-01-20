@@ -31,6 +31,7 @@ The following properties are provided by this component:\tabular{lllll}{
    icon \tab icon \tab When \code{true}, shows a default recommended icon. Alternatively, pass a Calcite UI Icon name to display a specific icon. \tab boolean | string \tab TRUE \cr
    iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
    label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   labelText \tab label-text \tab When provided, displays label text on the component. \tab string \tab FALSE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
    max \tab max \tab When the component resides in a form, specifies the maximum value for \code{type="number"}. \tab number \tab TRUE \cr
    maxLength \tab max-length \tab When the component resides in a form, specifies the maximum length of text for the component's value. \tab number \tab TRUE \cr
@@ -74,6 +75,7 @@ The following events are observed by shiny:\tabular{ll}{
 The following slots are provided by this component:\tabular{ll}{
    Slot \tab Description \cr
    action \tab A slot for positioning a \code{calcite-button} next to the component. \cr
+   label-content \tab A slot for rendering content next to the component's \code{labelText}. \cr
 }
 
 }

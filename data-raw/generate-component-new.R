@@ -32,7 +32,7 @@ components <- components_raw |>
     across(where(is.character), \(.x) gsub("\n", " ", .x))
   )
 
-components <- filter(!(fn_name == c(
+components <- filter(components, !(fn_name %in% c(
   'calcite_accordion',
   'calcite_accordion_item',
   'calcite_action_group',
@@ -50,6 +50,7 @@ components <- filter(!(fn_name == c(
   'calcite_notice',
   'calcite_panel',
   'calcite_segmented_control',
+  'calcite_segmented_control_item',
   'calcite_shell',
   'calcite_slider',
   'calcite_switch',

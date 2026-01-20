@@ -25,12 +25,20 @@
       Object.entries(data).forEach(([key, value]) => {
         el[key] = value;
       });
-      $(el).trigger("calcitelistItemInputBinding:updated");
+      $(el).trigger("calciteListItemInputBinding:updated");
     },
 
     subscribe: function(el, callback) {
+
+      $(el).on("calciteListItemSelect.calciteListItemInputBinding", function() {
+        const currentValue = binding.getValue(el);
+        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+
+        callback(true);
+      });
+
       // Listen for list item expand event
-      $(el).on("calcitelistItemExpand.calcitelistItemInputBinding", function() {
+      $(el).on("calciteListItemExpand.calciteListItemInputBinding", function() {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue, {priority: "event"});
 
@@ -38,7 +46,7 @@
       });
 
       // Listen for list item collapse event
-      $(el).on("calcitelistItemCollapse.calcitelistItemInputBinding", function() {
+      $(el).on("calciteListItemCollapse.calciteListItemInputBinding", function() {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue, {priority: "event"});
 
@@ -46,7 +54,7 @@
       });
 
       // Listen for update events (from server)
-      $(el).on("calcitelistItemInputBinding:updated", function() {
+      $(el).on("calciteListItemInputBinding:updated", function() {
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue);
 
@@ -55,7 +63,7 @@
     },
 
     unsubscribe: function(el) {
-      $(el).off(".calcitelistItemInputBinding");
+      $(el).off(".calciteListItemInputBinding");
     },
 
     receiveMessage: function(el, data) {
@@ -67,5 +75,5 @@
     }
   });
 
-  Shiny.inputBindings.register(binding, "calcite.calcitelistItem");
+  Shiny.inputBindings.register(binding, "calcite.calciteListItem");
 })();

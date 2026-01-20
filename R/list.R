@@ -14,6 +14,7 @@
 calcite_list <- function(
   ...,
   id = NULL,
+  drag_enabled = NULL,
   scale = NULL,
   selection_mode = NULL
 ) {
@@ -33,6 +34,7 @@ calcite_list <- function(
   # Build attributes list
   attribs <- compact(list(
     id = id,
+    `drag-enabled` = drag_enabled,
     scale = scale,
     `selection-mode` = selection_mode
   ))
