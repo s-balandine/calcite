@@ -19,9 +19,21 @@
     },
 
     getValue: function(el) {
+      var selectedValues = [];
+      var selectedItems = el.selectedItems;
+      console.log(selectedItems);
+      console.log(!!selectedItems);
+      if (selectedItems !== undefined) {
+        for (var i = 0; i < selectedItems.length; i++) {
+          selectedValues.push(selectedItems[i].value);
+        }
+      }
+      el.setAttribute('value', selectedValues);
       return {
+        drag_enabled: el.dragEnabled,
         scale: el.scale,
-        selectionMode: el.selectionMode
+        selection_mode: el.selectionMode,
+        value: selectedValues
       };
     },
 

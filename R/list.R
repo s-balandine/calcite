@@ -2,6 +2,7 @@
 #'
 #' @param ... One or more [calcite_list()_item()] components
 #' @param id Component ID (required for Shiny reactivity)
+#' @param drag_enabled
 #' @param scale Size of the component: "s" (small), "m" (medium), or "l" (large) (default: "m")
 #' @param selection_mode Selection mode: "multiple" allows any number of selections, "single" allows only one selection, "single-persist" allows one selection and prevents de-selection (default: "multiple")
 #'
