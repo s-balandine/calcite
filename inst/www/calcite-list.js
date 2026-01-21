@@ -21,8 +21,6 @@
     getValue: function(el) {
       var selectedValues = [];
       var selectedItems = el.selectedItems;
-      console.log(selectedItems);
-      console.log(!!selectedItems);
       if (selectedItems !== undefined) {
         for (var i = 0; i < selectedItems.length; i++) {
           selectedValues.push(selectedItems[i].value);
@@ -48,7 +46,6 @@
       console.log('subscribe');
 
       $(el).on("calciteListChange.calciteListInputBinding", function() {
-        console.log('change');
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue, {priority: "event"});
 
@@ -56,7 +53,6 @@
       });
 
       $(el).on("calciteListDragStart.calciteListInputBinding", function() {
-        console.log('calciteListDragStart');
         const currentValue = binding.getValue(el);
         Shiny.setInputValue(el.id, currentValue, {priority: "event"});
 

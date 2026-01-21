@@ -15,37 +15,36 @@
 calcite_list <- function(
   ...,
   id = NULL,
-  drag_enabled = NULL,
-  scale = NULL,
-  selection_mode = NULL
+  display_mode = 'flat',
+  drag_enabled = FALSE,
+  scale = 's',
+  selection_mode = 'multiple'
 ) {
-  # Validate scale if provided
-  if (!is.null(scale)) {
-    scale <- rlang::arg_match(scale, c('s', 'm', 'l'))
-  }
 
-  # Validate selection_mode if provided
-  if (!is.null(selection_mode)) {
-    selection_mode <- rlang::arg_match(
-      selection_mode,
-      c('multiple', 'none', 'single', 'single-persist')
+  checkmate::assertString(id)
+  checkmate::assertChoice(display_mode, choices = c('flat', 'nested'))
+  checkmate::assertChoice(scale, choices = c('s', 'm', 'l'))
+  checkmate::assertChoice(selection_mode, choices = c('multiple', 'none', 'single', 'single-persist'))
+
+  checkmate::assertFlag(drag_enabled)
+
+  attribs <- compact(
+    list(
+      id = id,
+      display_mode = display_mode,
+      drag_enabled = drag_enabled,
+      scale = scale,
+      selection_mode = selection_mode
     )
-  }
-
-  # Build attributes list
-  attribs <- compact(list(
-    id = id,
-    `drag-enabled` = drag_enabled,
-    scale = scale,
-    `selection-mode` = selection_mode
-  ))
-
-  # Combine with dots (child content)
-  extra_attribs <- rlang::dots_list(...)
-  all_attribs <- c(
-    attribs,
-    extra_attribs[!names(extra_attribs) %in% names(attribs)]
   )
+
+  attribs_extra <- rlang::dots_list(...)
+  attribs <- c(
+    attribs,
+    attribs_extra[!names(attribs_extra) %in% names(attribs)]
+  )
+
+  names(attribs ) <- stringr::str_replace_all(names(attribs), stringr::fixed('_'), '-')
 
   # Custom binding for list
   list_binding <- htmltools::htmlDependency(
@@ -58,7 +57,7 @@ calcite_list <- function(
   res <- htmltools::tag(
     'calcite-list',
     c(
-      all_attribs,
+      attribs,
       list(calcite_dependency(), list_binding)
     )
   )
