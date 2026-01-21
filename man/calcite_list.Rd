@@ -4,7 +4,13 @@
 \alias{calcite_list}
 \title{Create a Calcite list Component}
 \usage{
-calcite_list(..., id = NULL, scale = NULL, selection_mode = NULL)
+calcite_list(
+  ...,
+  id = NULL,
+  drag_enabled = NULL,
+  scale = NULL,
+  selection_mode = NULL
+)
 }
 \arguments{
 \item{...}{One or more \code{\link[=calcite_list()_item]{calcite_list()_item()}} components}
