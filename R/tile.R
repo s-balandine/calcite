@@ -80,7 +80,7 @@ calcite_tile <- function(
   selected = NULL,
   disabled = NULL,
   alignment = NULL,
-  scale = NULL,
+  scale = 's',
   icon_flip_rtl = NULL,
   label = NULL,
   content_top = NULL,

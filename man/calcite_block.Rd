@@ -16,7 +16,7 @@ calcite_block(
   icon_start = NULL,
   icon_end = NULL,
   icon_flip_rtl = NULL,
-  scale = NULL,
+  scale = 's',
   heading_level = NULL,
   label = NULL,
   drag_disabled = NULL,

@@ -107,6 +107,8 @@ calcite_accordion_item <- function(
     extra_attribs[!names(extra_attribs) %in% names(attribs)]
   )
 
+  all_attribs <- clean_attribs(all_attribs)
+
   # Collect all slot content
   slot_content <- c(
     add_slot(actions_start, "actions-start"),

@@ -153,7 +153,7 @@ calcite_notice <- function(
   icon = NULL,
   icon_flip_rtl = NULL,
   kind = NULL,
-  scale = NULL,
+  scale = 's',
   width = NULL
 ) {
   # Validate kind if provided
@@ -190,6 +190,8 @@ calcite_notice <- function(
     attribs,
     extra_attribs[!names(extra_attribs) %in% names(attribs)]
   )
+
+  all_attribs <- clean_attribs(all_attribs)
 
   # Custom binding for notice
   notice_binding <- htmltools::htmlDependency(

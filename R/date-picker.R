@@ -87,7 +87,7 @@ calcite_date_picker <- function(
   range = NULL,
   min = NULL,
   max = NULL,
-  scale = NULL,
+  scale = 's',
   layout = NULL,
   calendars = NULL,
   active_range = NULL,
@@ -176,6 +176,8 @@ calcite_date_picker <- function(
     attribs,
     extra_attribs[!names(extra_attribs) %in% names(attribs)]
   )
+
+  all_attribs <- clean_attribs(all_attribs)
 
   # Custom binding for date-picker
   date_picker_binding <- htmltools::htmlDependency(

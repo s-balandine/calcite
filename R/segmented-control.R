@@ -108,7 +108,7 @@ calcite_segmented_control <- function(
   appearance = NULL,
   disabled = NULL,
   layout = NULL,
-  scale = NULL,
+  scale = 's',
   width = NULL,
   name = NULL,
   label_text = NULL,
@@ -232,6 +232,8 @@ calcite_segmented_control_item <- function(
     attribs,
     extra_attribs[!names(extra_attribs) %in% names(attribs)]
   )
+
+  all_attribs <- clean_attribs(all_attribs)
 
   res <- htmltools::tag(
     "calcite-segmented-control-item",

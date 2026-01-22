@@ -45,7 +45,7 @@ calcite_action_group <- function(
   id = NULL,
   layout = NULL,
   columns = NULL,
-  scale = NULL,
+  scale = 's',
   expanded = NULL,
   label = NULL,
   slot = NULL

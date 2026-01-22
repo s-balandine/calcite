@@ -50,10 +50,16 @@
 #' @examples
 #' calcite_action_bar()
 calcite_action_bar <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-action-bar", dots)
+  res <- htmltools::tag(
+      "calcite-action-bar",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -106,10 +112,16 @@ calcite_action_bar <- function(...) {
 #' @examples
 #' calcite_action_pad()
 calcite_action_pad <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-action-pad", dots)
+  res <- htmltools::tag(
+      "calcite-action-pad",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -190,10 +202,16 @@ calcite_action_pad <- function(...) {
 #' @examples
 #' calcite_autocomplete()
 calcite_autocomplete <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-autocomplete", dots)
+  res <- htmltools::tag(
+      "calcite-autocomplete",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -244,10 +262,16 @@ calcite_autocomplete <- function(...) {
 #' @examples
 #' calcite_autocomplete_item()
 calcite_autocomplete_item <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-autocomplete-item", dots)
+  res <- htmltools::tag(
+      "calcite-autocomplete-item",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -283,10 +307,16 @@ calcite_autocomplete_item <- function(...) {
 #' @examples
 #' calcite_autocomplete_item_group()
 calcite_autocomplete_item_group <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-autocomplete-item-group", dots)
+  res <- htmltools::tag(
+      "calcite-autocomplete-item-group",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -318,10 +348,16 @@ calcite_autocomplete_item_group <- function(...) {
 #' @examples
 #' calcite_avatar()
 calcite_avatar <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-avatar", dots)
+  res <- htmltools::tag(
+      "calcite-avatar",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -375,10 +411,16 @@ calcite_avatar <- function(...) {
 #' @examples
 #' calcite_block_group()
 calcite_block_group <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-block-group", dots)
+  res <- htmltools::tag(
+      "calcite-block-group",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -432,10 +474,16 @@ calcite_block_group <- function(...) {
 #' @examples
 #' calcite_block_section()
 calcite_block_section <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-block-section", dots)
+  res <- htmltools::tag(
+      "calcite-block-section",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -490,10 +538,16 @@ calcite_block_section <- function(...) {
 #' @examples
 #' calcite_button()
 calcite_button <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-button", dots)
+  res <- htmltools::tag(
+      "calcite-button",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -549,10 +603,16 @@ calcite_button <- function(...) {
 #' @examples
 #' calcite_card()
 calcite_card <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-card", dots)
+  res <- htmltools::tag(
+      "calcite-card",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -598,10 +658,16 @@ calcite_card <- function(...) {
 #' @examples
 #' calcite_card_group()
 calcite_card_group <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-card-group", dots)
+  res <- htmltools::tag(
+      "calcite-card-group",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -655,10 +721,16 @@ calcite_card_group <- function(...) {
 #' @examples
 #' calcite_carousel()
 calcite_carousel <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-carousel", dots)
+  res <- htmltools::tag(
+      "calcite-carousel",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -694,10 +766,16 @@ calcite_carousel <- function(...) {
 #' @examples
 #' calcite_carousel_item()
 calcite_carousel_item <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-carousel-item", dots)
+  res <- htmltools::tag(
+      "calcite-carousel-item",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -744,10 +822,16 @@ calcite_carousel_item <- function(...) {
 #' @examples
 #' calcite_checkbox()
 calcite_checkbox <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-checkbox", dots)
+  res <- htmltools::tag(
+      "calcite-checkbox",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -804,10 +888,16 @@ calcite_checkbox <- function(...) {
 #' @examples
 #' calcite_chip()
 calcite_chip <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-chip", dots)
+  res <- htmltools::tag(
+      "calcite-chip",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -854,10 +944,16 @@ calcite_chip <- function(...) {
 #' @examples
 #' calcite_chip_group()
 calcite_chip_group <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-chip-group", dots)
+  res <- htmltools::tag(
+      "calcite-chip-group",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -906,10 +1002,16 @@ calcite_chip_group <- function(...) {
 #' @examples
 #' calcite_color_picker()
 calcite_color_picker <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-color-picker", dots)
+  res <- htmltools::tag(
+      "calcite-color-picker",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -988,10 +1090,16 @@ calcite_color_picker <- function(...) {
 #' @examples
 #' calcite_combobox()
 calcite_combobox <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-combobox", dots)
+  res <- htmltools::tag(
+      "calcite-combobox",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1050,10 +1158,16 @@ calcite_combobox <- function(...) {
 #' @examples
 #' calcite_combobox_item()
 calcite_combobox_item <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-combobox-item", dots)
+  res <- htmltools::tag(
+      "calcite-combobox-item",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1089,10 +1203,16 @@ calcite_combobox_item <- function(...) {
 #' @examples
 #' calcite_combobox_item_group()
 calcite_combobox_item_group <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-combobox-item-group", dots)
+  res <- htmltools::tag(
+      "calcite-combobox-item-group",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1176,10 +1296,16 @@ calcite_combobox_item_group <- function(...) {
 #' @examples
 #' calcite_dialog()
 calcite_dialog <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-dialog", dots)
+  res <- htmltools::tag(
+      "calcite-dialog",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1240,10 +1366,16 @@ calcite_dialog <- function(...) {
 #' @examples
 #' calcite_dropdown()
 calcite_dropdown <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-dropdown", dots)
+  res <- htmltools::tag(
+      "calcite-dropdown",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1280,10 +1412,16 @@ calcite_dropdown <- function(...) {
 #' @examples
 #' calcite_dropdown_group()
 calcite_dropdown_group <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-dropdown-group", dots)
+  res <- htmltools::tag(
+      "calcite-dropdown-group",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1334,10 +1472,16 @@ calcite_dropdown_group <- function(...) {
 #' @examples
 #' calcite_dropdown_item()
 calcite_dropdown_item <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-dropdown-item", dots)
+  res <- htmltools::tag(
+      "calcite-dropdown-item",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1373,10 +1517,16 @@ calcite_dropdown_item <- function(...) {
 #' @examples
 #' calcite_fab()
 calcite_fab <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-fab", dots)
+  res <- htmltools::tag(
+      "calcite-fab",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1419,10 +1569,16 @@ calcite_fab <- function(...) {
 #' @examples
 #' calcite_filter()
 calcite_filter <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-filter", dots)
+  res <- htmltools::tag(
+      "calcite-filter",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1449,10 +1605,16 @@ calcite_filter <- function(...) {
 #' @examples
 #' calcite_flow()
 calcite_flow <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-flow", dots)
+  res <- htmltools::tag(
+      "calcite-flow",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1531,10 +1693,16 @@ calcite_flow <- function(...) {
 #' @examples
 #' calcite_flow_item()
 calcite_flow_item <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-flow-item", dots)
+  res <- htmltools::tag(
+      "calcite-flow-item",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1565,10 +1733,16 @@ calcite_flow_item <- function(...) {
 #' @examples
 #' calcite_icon()
 calcite_icon <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-icon", dots)
+  res <- htmltools::tag(
+      "calcite-icon",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1618,10 +1792,16 @@ calcite_icon <- function(...) {
 #' @examples
 #' calcite_inline_editable()
 calcite_inline_editable <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-inline-editable", dots)
+  res <- htmltools::tag(
+      "calcite-inline-editable",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1701,10 +1881,16 @@ calcite_inline_editable <- function(...) {
 #' @examples
 #' calcite_input()
 calcite_input <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-input", dots)
+  res <- htmltools::tag(
+      "calcite-input",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1781,10 +1967,16 @@ calcite_input <- function(...) {
 #' @examples
 #' calcite_input_date_picker()
 calcite_input_date_picker <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-input-date-picker", dots)
+  res <- htmltools::tag(
+      "calcite-input-date-picker",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1853,10 +2045,16 @@ calcite_input_date_picker <- function(...) {
 #' @examples
 #' calcite_input_time_picker()
 calcite_input_time_picker <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-input-time-picker", dots)
+  res <- htmltools::tag(
+      "calcite-input-time-picker",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1921,10 +2119,16 @@ calcite_input_time_picker <- function(...) {
 #' @examples
 #' calcite_input_time_zone()
 calcite_input_time_zone <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-input-time-zone", dots)
+  res <- htmltools::tag(
+      "calcite-input-time-zone",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1961,10 +2165,16 @@ calcite_input_time_zone <- function(...) {
 #' @examples
 #' calcite_list_item_group()
 calcite_list_item_group <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-list-item-group", dots)
+  res <- htmltools::tag(
+      "calcite-list-item-group",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -1996,10 +2206,16 @@ calcite_list_item_group <- function(...) {
 #' @examples
 #' calcite_loader()
 calcite_loader <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-loader", dots)
+  res <- htmltools::tag(
+      "calcite-loader",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2028,10 +2244,16 @@ calcite_loader <- function(...) {
 #' @examples
 #' calcite_menu()
 calcite_menu <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-menu", dots)
+  res <- htmltools::tag(
+      "calcite-menu",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2085,10 +2307,16 @@ calcite_menu <- function(...) {
 #' @examples
 #' calcite_menu_item()
 calcite_menu_item <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-menu-item", dots)
+  res <- htmltools::tag(
+      "calcite-menu-item",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2133,10 +2361,16 @@ calcite_menu_item <- function(...) {
 #' @examples
 #' calcite_meter()
 calcite_meter <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-meter", dots)
+  res <- htmltools::tag(
+      "calcite-meter",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2200,10 +2434,16 @@ calcite_meter <- function(...) {
 #' @examples
 #' calcite_modal()
 calcite_modal <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-modal", dots)
+  res <- htmltools::tag(
+      "calcite-modal",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2255,10 +2495,16 @@ calcite_modal <- function(...) {
 #' @examples
 #' calcite_navigation()
 calcite_navigation <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-navigation", dots)
+  res <- htmltools::tag(
+      "calcite-navigation",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2295,10 +2541,16 @@ calcite_navigation <- function(...) {
 #' @examples
 #' calcite_navigation_logo()
 calcite_navigation_logo <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-navigation-logo", dots)
+  res <- htmltools::tag(
+      "calcite-navigation-logo",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2331,10 +2583,16 @@ calcite_navigation_logo <- function(...) {
 #' @examples
 #' calcite_navigation_user()
 calcite_navigation_user <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-navigation-user", dots)
+  res <- htmltools::tag(
+      "calcite-navigation-user",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2370,10 +2628,16 @@ calcite_navigation_user <- function(...) {
 #' @examples
 #' calcite_option_group()
 calcite_option_group <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-option-group", dots)
+  res <- htmltools::tag(
+      "calcite-option-group",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2414,10 +2678,16 @@ calcite_option_group <- function(...) {
 #' @examples
 #' calcite_pagination()
 calcite_pagination <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-pagination", dots)
+  res <- htmltools::tag(
+      "calcite-pagination",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2481,10 +2751,16 @@ calcite_pagination <- function(...) {
 #' @examples
 #' calcite_popover()
 calcite_popover <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-popover", dots)
+  res <- htmltools::tag(
+      "calcite-popover",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2515,10 +2791,16 @@ calcite_popover <- function(...) {
 #' @examples
 #' calcite_progress()
 calcite_progress <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-progress", dots)
+  res <- htmltools::tag(
+      "calcite-progress",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2560,10 +2842,16 @@ calcite_progress <- function(...) {
 #' @examples
 #' calcite_radio_button()
 calcite_radio_button <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-radio-button", dots)
+  res <- htmltools::tag(
+      "calcite-radio-button",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2617,10 +2905,16 @@ calcite_radio_button <- function(...) {
 #' @examples
 #' calcite_radio_button_group()
 calcite_radio_button_group <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-radio-button-group", dots)
+  res <- htmltools::tag(
+      "calcite-radio-button-group",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2677,10 +2971,16 @@ calcite_radio_button_group <- function(...) {
 #' @examples
 #' calcite_rating()
 calcite_rating <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-rating", dots)
+  res <- htmltools::tag(
+      "calcite-rating",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2716,10 +3016,16 @@ calcite_rating <- function(...) {
 #' @examples
 #' calcite_scrim()
 calcite_scrim <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-scrim", dots)
+  res <- htmltools::tag(
+      "calcite-scrim",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2779,10 +3085,16 @@ calcite_scrim <- function(...) {
 #' @examples
 #' calcite_sheet()
 calcite_sheet <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-sheet", dots)
+  res <- htmltools::tag(
+      "calcite-sheet",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2820,10 +3132,16 @@ calcite_sheet <- function(...) {
 #' @examples
 #' calcite_shell_center_row()
 calcite_shell_center_row <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-shell-center-row", dots)
+  res <- htmltools::tag(
+      "calcite-shell-center-row",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2877,10 +3195,16 @@ calcite_shell_center_row <- function(...) {
 #' @examples
 #' calcite_shell_panel()
 calcite_shell_panel <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-shell-panel", dots)
+  res <- htmltools::tag(
+      "calcite-shell-panel",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2943,10 +3267,16 @@ calcite_shell_panel <- function(...) {
 #' @examples
 #' calcite_split_button()
 calcite_split_button <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-split-button", dots)
+  res <- htmltools::tag(
+      "calcite-split-button",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -2996,10 +3326,16 @@ calcite_split_button <- function(...) {
 #' @examples
 #' calcite_stepper()
 calcite_stepper <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-stepper", dots)
+  res <- htmltools::tag(
+      "calcite-stepper",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3049,10 +3385,16 @@ calcite_stepper <- function(...) {
 #' @examples
 #' calcite_stepper_item()
 calcite_stepper_item <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-stepper-item", dots)
+  res <- htmltools::tag(
+      "calcite-stepper-item",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3100,10 +3442,16 @@ calcite_stepper_item <- function(...) {
 #' @examples
 #' calcite_swatch()
 calcite_swatch <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-swatch", dots)
+  res <- htmltools::tag(
+      "calcite-swatch",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3150,10 +3498,16 @@ calcite_swatch <- function(...) {
 #' @examples
 #' calcite_swatch_group()
 calcite_swatch_group <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-swatch-group", dots)
+  res <- htmltools::tag(
+      "calcite-swatch-group",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3189,10 +3543,16 @@ calcite_swatch_group <- function(...) {
 #' @examples
 #' calcite_tab()
 calcite_tab <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-tab", dots)
+  res <- htmltools::tag(
+      "calcite-tab",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3239,10 +3599,16 @@ calcite_tab <- function(...) {
 #' @examples
 #' calcite_tab_nav()
 calcite_tab_nav <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-tab-nav", dots)
+  res <- htmltools::tag(
+      "calcite-tab-nav",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3295,10 +3661,16 @@ calcite_tab_nav <- function(...) {
 #' @examples
 #' calcite_tab_title()
 calcite_tab_title <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-tab-title", dots)
+  res <- htmltools::tag(
+      "calcite-tab-title",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3358,10 +3730,16 @@ calcite_tab_title <- function(...) {
 #' @examples
 #' calcite_table()
 calcite_table <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-table", dots)
+  res <- htmltools::tag(
+      "calcite-table",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3399,10 +3777,16 @@ calcite_table <- function(...) {
 #' @examples
 #' calcite_table_cell()
 calcite_table_cell <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-table-cell", dots)
+  res <- htmltools::tag(
+      "calcite-table-cell",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3434,10 +3818,16 @@ calcite_table_cell <- function(...) {
 #' @examples
 #' calcite_table_header()
 calcite_table_header <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-table-header", dots)
+  res <- htmltools::tag(
+      "calcite-table-header",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3482,10 +3872,16 @@ calcite_table_header <- function(...) {
 #' @examples
 #' calcite_table_row()
 calcite_table_row <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-table-row", dots)
+  res <- htmltools::tag(
+      "calcite-table-row",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3524,10 +3920,16 @@ calcite_table_row <- function(...) {
 #' @examples
 #' calcite_tabs()
 calcite_tabs <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-tabs", dots)
+  res <- htmltools::tag(
+      "calcite-tabs",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3597,10 +3999,16 @@ calcite_tabs <- function(...) {
 #' @examples
 #' calcite_text_area()
 calcite_text_area <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-text-area", dots)
+  res <- htmltools::tag(
+      "calcite-text-area",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3654,10 +4062,16 @@ calcite_text_area <- function(...) {
 #' @examples
 #' calcite_tile_select()
 calcite_tile_select <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-tile-select", dots)
+  res <- htmltools::tag(
+      "calcite-tile-select",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3693,10 +4107,16 @@ calcite_tile_select <- function(...) {
 #' @examples
 #' calcite_tile_select_group()
 calcite_tile_select_group <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-tile-select-group", dots)
+  res <- htmltools::tag(
+      "calcite-tile-select-group",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3737,10 +4157,16 @@ calcite_tile_select_group <- function(...) {
 #' @examples
 #' calcite_time_picker()
 calcite_time_picker <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-time-picker", dots)
+  res <- htmltools::tag(
+      "calcite-time-picker",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3789,10 +4215,16 @@ calcite_time_picker <- function(...) {
 #' @examples
 #' calcite_tip()
 calcite_tip <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-tip", dots)
+  res <- htmltools::tag(
+      "calcite-tip",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3827,10 +4259,16 @@ calcite_tip <- function(...) {
 #' @examples
 #' calcite_tip_group()
 calcite_tip_group <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-tip-group", dots)
+  res <- htmltools::tag(
+      "calcite-tip-group",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3875,10 +4313,16 @@ calcite_tip_group <- function(...) {
 #' @examples
 #' calcite_tip_manager()
 calcite_tip_manager <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-tip-manager", dots)
+  res <- htmltools::tag(
+      "calcite-tip-manager",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3931,10 +4375,16 @@ calcite_tip_manager <- function(...) {
 #' @examples
 #' calcite_tooltip()
 calcite_tooltip <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-tooltip", dots)
+  res <- htmltools::tag(
+      "calcite-tooltip",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3980,10 +4430,16 @@ calcite_tooltip <- function(...) {
 #' @examples
 #' calcite_tree()
 calcite_tree <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-tree", dots)
+  res <- htmltools::tag(
+      "calcite-tree",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -4034,10 +4490,16 @@ calcite_tree <- function(...) {
 #' @examples
 #' calcite_tree_item()
 calcite_tree_item <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("calcite-tree-item", dots)
+  res <- htmltools::tag(
+      "calcite-tree-item",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res

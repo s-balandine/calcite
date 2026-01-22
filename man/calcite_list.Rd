@@ -7,9 +7,10 @@
 calcite_list(
   ...,
   id = NULL,
-  drag_enabled = NULL,
-  scale = NULL,
-  selection_mode = NULL
+  display_mode = "flat",
+  drag_enabled = FALSE,
+  scale = "s",
+  selection_mode = "multiple"
 )
 }
 \arguments{

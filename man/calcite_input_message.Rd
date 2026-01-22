@@ -9,7 +9,7 @@ calcite_input_message(
   status = NULL,
   icon = NULL,
   icon_flip_rtl = NULL,
-  scale = NULL,
+  scale = 's',
   id = NULL
 )
 }

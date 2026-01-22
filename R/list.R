@@ -1,6 +1,6 @@
 #' Create a Calcite list Component
 #'
-#' @param ... One or more [calcite_list()_item()] components
+#' @param ... One or more [calcite_list_item] components
 #' @param id Component ID (required for Shiny reactivity)
 #' @param drag_enabled
 #' @param scale Size of the component: "s" (small), "m" (medium), or "l" (large) (default: "m")
@@ -44,7 +44,7 @@ calcite_list <- function(
     attribs_extra[!names(attribs_extra) %in% names(attribs)]
   )
 
-  names(attribs ) <- stringr::str_replace_all(names(attribs), stringr::fixed('_'), '-')
+  attribs <- clean_attribs(attribs)
 
   # Custom binding for list
   list_binding <- htmltools::htmlDependency(

@@ -11,7 +11,7 @@ calcite_segmented_control(
   appearance = NULL,
   disabled = NULL,
   layout = NULL,
-  scale = NULL,
+  scale = 's',
   width = NULL,
   name = NULL,
   label_text = NULL,

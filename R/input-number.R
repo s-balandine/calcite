@@ -129,7 +129,7 @@ calcite_input_number <- function(
   prefix_text = NULL,
   read_only = NULL,
   required = NULL,
-  scale = NULL,
+  scale = 's',
   status = NULL,
   step = NULL,
   suffix_text = NULL,

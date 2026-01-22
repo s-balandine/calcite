@@ -152,7 +152,7 @@ calcite_slider <- function(
   ticks = NULL,
   disabled = NULL,
   required = NULL,
-  scale = NULL,
+  scale = 's',
   snap = NULL,
   precise = NULL,
   mirrored = NULL,
@@ -243,6 +243,8 @@ calcite_slider <- function(
     attribs,
     extra_attribs[!names(extra_attribs) %in% names(attribs)]
   )
+
+  all_attribs <- clean_attribs(all_attribs)
 
   # Add histogram as data attribute with JSON serialization
   if (!is.null(histogram)) {

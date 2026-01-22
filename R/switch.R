@@ -108,7 +108,7 @@ calcite_switch <- function(
   label_text_end = NULL,
   label_text_start = NULL,
   name = NULL,
-  scale = NULL,
+  scale = 's',
   value = NULL,
   ...
 ) {
@@ -135,6 +135,8 @@ calcite_switch <- function(
     attribs,
     extra_attribs[!names(extra_attribs) %in% names(attribs)]
   )
+
+  all_attribs <- clean_attribs(all_attribs)
 
   switch_binding <- htmltools::htmlDependency(
     name = "calcite-switch-binding",

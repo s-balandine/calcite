@@ -97,7 +97,7 @@ calcite_select <- function(
   message_overrides = NULL,
   name = NULL,
   required = NULL,
-  scale = NULL,
+  scale = 's',
   status = NULL,
   validation_icon = NULL,
   validation_message = NULL,

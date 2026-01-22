@@ -14,10 +14,16 @@
 #' @examples
 #' {{ fn_name }}()
 {{ fn_name }} <- function(...) {
-        dots <- rlang::dots_list(..., calcite_dependency(), calcite_bindings())
-  names(dots) <- stringr::str_replace_all(names(dots), stringr::fixed('_'), '-')
+  attribs <- rlang::dots_list(...)
+  attribs <- clean_attribs(attribs)
 
-  res <- htmltools::tag("{{tag}}", dots)
+  res <- htmltools::tag(
+      "{{tag}}",
+      c(
+        attribs,
+        list(calcite_dependency(), calcite_bindings())
+      )
+    )
 
   class(res) <- c("calcite_component", class(res))
   res

@@ -24,7 +24,7 @@ calcite_panel(
   menu_placement = NULL,
   message_overrides = NULL,
   overlay_positioning = NULL,
-  scale = NULL,
+  scale = 's',
   action_bar = NULL,
   alerts = NULL,
   content_bottom = NULL,

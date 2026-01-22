@@ -68,6 +68,8 @@ calcite_option <- function(
     extra_attribs[!names(extra_attribs) %in% names(attribs)]
   )
 
+  all_attribs <- clean_attribs(all_attribs)
+  
   # Custom binding for option
   option_binding <- htmltools::htmlDependency(
     name = "calcite-option-binding",

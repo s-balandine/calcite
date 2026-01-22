@@ -63,7 +63,7 @@ calcite_input_message <- function(
   status = NULL,
   icon = NULL,
   icon_flip_rtl = NULL,
-  scale = NULL,
+  scale = 's',
   id = NULL
 ) {
   # Validate status if provided

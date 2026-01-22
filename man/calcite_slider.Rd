@@ -18,7 +18,7 @@ calcite_slider(
   ticks = NULL,
   disabled = NULL,
   required = NULL,
-  scale = NULL,
+  scale = 's',
   snap = NULL,
   precise = NULL,
   mirrored = NULL,

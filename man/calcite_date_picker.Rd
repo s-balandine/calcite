@@ -10,7 +10,7 @@ calcite_date_picker(
   range = NULL,
   min = NULL,
   max = NULL,
-  scale = NULL,
+  scale = 's',
   layout = NULL,
   calendars = NULL,
   active_range = NULL,

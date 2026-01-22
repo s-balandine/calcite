@@ -93,7 +93,7 @@ calcite_alert <- function(
   auto_close_duration = NULL,
   placement = NULL,
   queue = NULL,
-  scale = NULL,
+  scale = 's',
   numbering_system = NULL,
   title = NULL,
   message = NULL,
@@ -171,6 +171,8 @@ calcite_alert <- function(
     extra_attribs[!names(extra_attribs) %in% names(attribs)]
   )
 
+  all_attribs <- clean_attribs(all_attribs)
+
   # Collect all slot content
   slot_content <- list(
     add_slot(title, "title"),
@@ -216,7 +218,7 @@ calcite_alert_brand <- function(
   auto_close_duration = NULL,
   placement = NULL,
   queue = NULL,
-  scale = NULL,
+  scale = 's',
   numbering_system = NULL,
   title = NULL,
   message = NULL,
@@ -257,7 +259,7 @@ calcite_alert_danger <- function(
   auto_close_duration = NULL,
   placement = NULL,
   queue = NULL,
-  scale = NULL,
+  scale = 's',
   numbering_system = NULL,
   title = NULL,
   message = NULL,
@@ -298,7 +300,7 @@ calcite_alert_info <- function(
   auto_close_duration = NULL,
   placement = NULL,
   queue = NULL,
-  scale = NULL,
+  scale = 's',
   numbering_system = NULL,
   title = NULL,
   message = NULL,
@@ -339,7 +341,7 @@ calcite_alert_success <- function(
   auto_close_duration = NULL,
   placement = NULL,
   queue = NULL,
-  scale = NULL,
+  scale = 's',
   numbering_system = NULL,
   title = NULL,
   message = NULL,
@@ -380,7 +382,7 @@ calcite_alert_warning <- function(
   auto_close_duration = NULL,
   placement = NULL,
   queue = NULL,
-  scale = NULL,
+  scale = 's',
   numbering_system = NULL,
   title = NULL,
   message = NULL,

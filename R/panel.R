@@ -116,7 +116,7 @@ calcite_panel <- function(
   menu_placement = NULL,
   message_overrides = NULL,
   overlay_positioning = NULL,
-  scale = NULL,
+  scale = 's',
   action_bar = NULL,
   alerts = NULL,
   content_bottom = NULL,
@@ -213,6 +213,8 @@ calcite_panel <- function(
     attribs,
     extra_attribs[!names(extra_attribs) %in% names(attribs)]
   )
+
+  all_attribs <- clean_attribs(all_attribs)
 
   # Collect all slot content
   slot_content <- c(

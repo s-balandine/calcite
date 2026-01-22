@@ -10,7 +10,7 @@ calcite_tile_group(
   label = NULL,
   layout = NULL,
   alignment = NULL,
-  scale = NULL,
+  scale = 's',
   selection_mode = NULL,
   selection_appearance = NULL,
   disabled = NULL

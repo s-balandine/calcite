@@ -75,7 +75,7 @@ calcite_accordion <- function(
   appearance = NULL,
   icon_position = NULL,
   icon_type = NULL,
-  scale = NULL,
+  scale = 's',
   selection_mode = NULL
 ) {
   # Validate appearance if provided
@@ -122,6 +122,8 @@ calcite_accordion <- function(
     attribs,
     extra_attribs[!names(extra_attribs) %in% names(attribs)]
   )
+
+  all_attribs <- clean_attribs(all_attribs)
 
   # Custom binding for accordion
   accordion_binding <- htmltools::htmlDependency(

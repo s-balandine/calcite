@@ -9,7 +9,7 @@ calcite_action_group(
   id = NULL,
   layout = NULL,
   columns = NULL,
-  scale = NULL,
+  scale = 's',
   expanded = NULL,
   label = NULL,
   slot = NULL

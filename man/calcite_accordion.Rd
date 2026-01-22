@@ -10,7 +10,7 @@ calcite_accordion(
   appearance = NULL,
   icon_position = NULL,
   icon_type = NULL,
-  scale = NULL,
+  scale = 's',
   selection_mode = NULL
 )
 }

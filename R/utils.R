@@ -156,3 +156,20 @@ open_example <- function() {
     text
   ))
 }
+
+clean_attribs <- function(attribs) {
+
+  for (i in rev(seq_along(attribs))) {
+    arg_name <- names(attribs)[i]
+    if (arg_name != '') {
+      arg_value <- attribs[[i]]
+      if (is.logical(arg_value) && (!arg_value)) {
+        attribs <- attribs[-i]
+      }
+    }
+  }
+
+  names(attribs) <- stringr::str_replace_all(names(attribs), stringr::fixed('_'), '-')
+
+  attribs
+}

@@ -141,7 +141,7 @@ calcite_button <- function(
   name = NULL,
   rel = NULL,
   round = NULL,
-  scale = NULL,
+  scale = 's',
   split_child = NULL,
   target = NULL,
   type = NULL,
@@ -227,6 +227,8 @@ calcite_button <- function(
     attribs,
     extra_attribs[!names(extra_attribs) %in% names(attribs)]
   )
+
+  all_attribs <- clean_attribs(all_attribs)
 
   # Custom binding for button
   button_binding <- htmltools::htmlDependency(

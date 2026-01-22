@@ -13,7 +13,7 @@ calcite_switch(
   label_text_end = NULL,
   label_text_start = NULL,
   name = NULL,
-  scale = NULL,
+  scale = 's',
   value = NULL,
   ...
 )

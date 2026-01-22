@@ -114,7 +114,7 @@ calcite_action <- function(
   disabled = NULL,
   indicator = NULL,
   text_enabled = NULL,
-  scale = NULL,
+  scale = 's',
   alignment = NULL,
   appearance = NULL,
   loading = NULL,
@@ -154,6 +154,8 @@ calcite_action <- function(
     attribs,
     extra_attribs[!names(extra_attribs) %in% names(attribs)]
   )
+
+  all_attribs <- clean_attribs(all_attribs)
 
   action_binding <- htmltools::htmlDependency(
     name = "calcite-action-binding",
