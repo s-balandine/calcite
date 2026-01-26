@@ -112,6 +112,8 @@ calcite_tile <- function(
     label = label
   ))
 
+  attribs <- clean_attribs(attribs)
+  
   # Handle slot content
   slot_content <- list()
 

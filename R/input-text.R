@@ -165,6 +165,8 @@ calcite_input_text <- function(
     `validation-message` = validation_message
   ))
 
+  attribs <- clean_attribs(attribs)
+  
   # Collect slot content
   slot_content <- c(
     add_slot(action, "action"),

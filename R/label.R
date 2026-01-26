@@ -80,6 +80,8 @@ calcite_label <- function(
     scale = scale
   ))
 
+  attribs <- clean_attribs(attribs)
+  
   # Get children from dots
   children <- rlang::list2(...)
 

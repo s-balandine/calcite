@@ -143,6 +143,8 @@ calcite_block <- function(
     `overlay-positioning` = overlay_positioning
   ))
 
+  attribs <- clean_attribs(attribs)
+  
   # Custom binding for block
   block_binding <- htmltools::htmlDependency(
     name = "calcite-block-binding",

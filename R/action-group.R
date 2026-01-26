@@ -78,6 +78,8 @@ calcite_action_group <- function(
     slot = slot
   ))
 
+  attribs <- clean_attribs(attribs)
+  
   # Build the tag
   res <- htmltools::tag(
     "calcite-action-group",

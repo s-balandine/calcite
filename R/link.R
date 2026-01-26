@@ -100,6 +100,8 @@ calcite_link <- function(
     target = target
   ))
 
+  attribs <- clean_attribs(attribs)
+
   res <- htmltools::tag(
     "calcite-link",
     c(

@@ -137,6 +137,8 @@ calcite_select <- function(
     width = width
   ))
 
+  attribs <- clean_attribs(attribs)
+  
   # Handle options: values/labels take precedence over ...
   if (!is.null(values)) {
     # If labels not provided, use values as labels

@@ -136,6 +136,8 @@ calcite_tile_group <- function(
     disabled = disabled
   ))
 
+  attribs <- clean_attribs(attribs)
+  
   # Custom binding for tile-group
   tile_group_binding <- htmltools::htmlDependency(
     name = "calcite-tile-group-binding",

@@ -85,6 +85,8 @@ calcite_input_message <- function(
     scale = scale
   ))
 
+  attribs <- clean_attribs(attribs)
+  
   # Get content from dots
   content <- rlang::list2(...)
 
