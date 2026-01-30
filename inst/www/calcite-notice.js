@@ -3,7 +3,6 @@
   const binding = new Shiny.InputBinding();
 
   $.extend(binding, {
-
     find: function(scope) {
       return $(scope).find("calcite-notice");
     },

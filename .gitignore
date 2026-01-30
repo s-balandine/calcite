@@ -2,5 +2,6 @@
 node_modules
 CRAN-SUBMISSION
 /.quarto/
+dist
 docs
 .claude/

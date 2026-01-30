@@ -1,13 +1,13 @@
 #' Create a ActionBar component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name                    |Attribute                 |Description                                                                                                                                                                                                                                                                                                                                                                   |Values                                       |Reflects to Attribute |
 #'  |:-----------------------|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|:---------------------|
@@ -34,7 +34,7 @@
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                                                                                                                               |
 #'  |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -68,12 +68,12 @@ calcite_action_bar <- function(...) {
 #'
 #' Use the `calcite-action-pad` component instead.
 #'
-#' 
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name                 |Attribute               |Description                                                                                                                                                                                                                                                                                                                                                                   |Values                                       |Reflects to Attribute |
 #'  |:--------------------|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|:---------------------|
@@ -98,7 +98,7 @@ calcite_action_bar <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                |
 #'  |:-----------------|:----------------------------------------------------------|
@@ -128,14 +128,14 @@ calcite_action_pad <- function(...) {
 }
 #' Create a Autocomplete component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name               |Attribute           |Description                                                                                                                                                                                                                                                                                                                                                                   |Values                                                                                              |Reflects to Attribute |
 #'  |:------------------|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|:---------------------|
@@ -186,7 +186,7 @@ calcite_action_pad <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                           |
 #'  |:-----------------|:---------------------------------------------------------------------|
@@ -218,14 +218,14 @@ calcite_autocomplete <- function(...) {
 }
 #' Create a AutocompleteItem component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name        |Attribute     |Description                                                                                                 |Values                             |Reflects to Attribute |
 #'  |:-----------|:-------------|:-----------------------------------------------------------------------------------------------------------|:----------------------------------|:---------------------|
@@ -248,7 +248,7 @@ calcite_autocomplete <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot          |Description                                                                |
 #'  |:-------------|:--------------------------------------------------------------------------|
@@ -278,14 +278,14 @@ calcite_autocomplete_item <- function(...) {
 }
 #' Create a AutocompleteItemGroup component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name    |Attribute |Description                               |Values |Reflects to Attribute |
 #'  |:-------|:---------|:-----------------------------------------|:------|:---------------------|
@@ -294,7 +294,7 @@ calcite_autocomplete_item <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                     |
 #'  |:-----------------|:-----------------------------------------------|
@@ -323,14 +323,14 @@ calcite_autocomplete_item_group <- function(...) {
 }
 #' Create a Avatar component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name      |Attribute |Description                                                                                                                         |Values                    |Reflects to Attribute |
 #'  |:---------|:---------|:-----------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------------------|
@@ -364,14 +364,14 @@ calcite_avatar <- function(...) {
 }
 #' Create a BlockGroup component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name         |Attribute     |Description                                                                                                                                                                                   |Values                                              |Reflects to Attribute |
 #'  |:------------|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|:---------------------|
@@ -398,7 +398,7 @@ calcite_avatar <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                 |
 #'  |:-----------------|:-------------------------------------------|
@@ -427,14 +427,14 @@ calcite_block_group <- function(...) {
 }
 #' Create a BlockSection component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute      |Description                                                                                                                                                |Values                                 |Reflects to Attribute |
 #'  |:----------------|:--------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:---------------------|
@@ -461,7 +461,7 @@ calcite_block_group <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                       |
 #'  |:-----------------|:---------------------------------|
@@ -488,80 +488,17 @@ calcite_block_section <- function(...) {
   class(res) <- c("calcite_component", class(res))
   res
 }
-#' Create a Button component
-#'
-#' 
-#'
-#' Passing a 'href' will render an anchor link, instead of a button. Role will be set to link, or button, depending on this.  It is the consumers responsibility to add aria information, rel, target, for links, and any button attributes for form submission
-#'
-#' @details
-#' ## Properties
 
-#' The following properties are provided by this component: 
-
-#'  |Name             |Attribute     |Description                                                                                                                                                               |Values                                                                                                                        |Reflects to Attribute |
-#'  |:----------------|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|:---------------------|
-#'  |alignment        |alignment     |Specifies the alignment of the component's elements.                                                                                                                      |"center" &#124; "end" &#124; "icon-end-space-between" &#124; "icon-start-space-between" &#124; "space-between" &#124; "start" |TRUE                  |
-#'  |appearance       |appearance    |Specifies the appearance style of the component.                                                                                                                          |"outline" &#124; "outline-fill" &#124; "solid" &#124; "transparent"                                                           |TRUE                  |
-#'  |disabled         |disabled      |When `true`, interaction is prevented and the component is displayed with lower opacity.                                                                                  |boolean                                                                                                                       |TRUE                  |
-#'  |download         |download      |Prompts the user to save the linked URL instead of navigating to it. Can be used with or without a value: Without a value, the browser will suggest a filename/extension. |boolean &#124; string                                                                                                         |TRUE                  |
-#'  |form             |form          |The `id` of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any.                  |string                                                                                                                        |TRUE                  |
-#'  |href             |href          |Specifies the URL of the linked resource, which can be set as an absolute or relative path.                                                                               |string                                                                                                                        |TRUE                  |
-#'  |iconEnd          |icon-end      |Specifies an icon to display at the end of the component.                                                                                                                 |string                                                                                                                        |TRUE                  |
-#'  |iconFlipRtl      |icon-flip-rtl |Displays the `iconStart` and/or `iconEnd` as flipped when the element direction is right-to-left (`"rtl"`).                                                               |"both" &#124; "end" &#124; "start"                                                                                            |TRUE                  |
-#'  |iconStart        |icon-start    |Specifies an icon to display at the start of the component.                                                                                                               |string                                                                                                                        |TRUE                  |
-#'  |kind             |kind          |Specifies the kind of the component, which will apply to the border and background if applicable.                                                                         |"brand" &#124; "danger" &#124; "inverse" &#124; "neutral"                                                                     |TRUE                  |
-#'  |label            |label         |Accessible name for the component.                                                                                                                                        |string                                                                                                                        |FALSE                 |
-#'  |loading          |loading       |When `true`, a busy indicator is displayed.                                                                                                                               |boolean                                                                                                                       |TRUE                  |
-#'  |messageOverrides |NA            |Use this property to override individual strings used by the component.                                                                                                   |Check API reference                                                                                                           |FALSE                 |
-#'  |name             |name          |Specifies the name of the component on form submission.                                                                                                                   |string                                                                                                                        |TRUE                  |
-#'  |rel              |rel           |Defines the relationship between the `href` value and the current document.                                                                                               |string                                                                                                                        |TRUE                  |
-#'  |round            |round         |When `true`, adds a round style to the component.                                                                                                                         |boolean                                                                                                                       |TRUE                  |
-#'  |scale            |scale         |Specifies the size of the component.                                                                                                                                      |"l" &#124; "m" &#124; "s"                                                                                                     |TRUE                  |
-#'  |splitChild       |split-child   |Specifies if the component is a child of a `calcite-split-button`.                                                                                                        |"primary" &#124; "secondary" &#124; boolean                                                                                   |TRUE                  |
-#'  |target           |target        |Specifies where to open the linked document defined in the `href` property.                                                                                               |string                                                                                                                        |TRUE                  |
-#'  |type             |type          |Specifies the default behavior of the component.                                                                                                                          |"button" &#124; "reset" &#124; "submit"                                                                                       |TRUE                  |
-#'  |width            |width         |Check API reference                                                                                                                                                       |"auto" &#124; "full" &#124; "half"                                                                                            |TRUE                  |
-
-#' ## Slots
-
-#' The following slots are provided by this component: 
-
-#'  |Slot              |Description             |
-#'  |:-----------------|:-----------------------|
-#'  |Default (unnamed) |A slot for adding text. |
-#'
-#' @param ... named attributes passed to `htmltools::tag()`
-#' @export
-#' @return an object of class `calcite_component` which is a subclass of `shiny.tag`
-#' @references [Official Documentation](https://developers.arcgis.com/calcite-design-system/components/button/)
-#' @examples
-#' calcite_button()
-calcite_button <- function(...) {
-  attribs <- rlang::dots_list(...)
-  attribs <- clean_attribs(attribs)
-
-  res <- htmltools::tag(
-      "calcite-button",
-      c(
-        attribs,
-        list(calcite_dependency(), calcite_bindings())
-      )
-    )
-
-  class(res) <- c("calcite_component", class(res))
-  res
-}
 #' Create a Card component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name              |Attribute          |Description                                                                              |Values                                                                     |Reflects to Attribute |
 #'  |:-----------------|:------------------|:----------------------------------------------------------------------------------------|:--------------------------------------------------------------------------|:---------------------|
@@ -583,7 +520,7 @@ calcite_button <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                              |
 #'  |:-----------------|:------------------------------------------------------------------------|
@@ -619,14 +556,14 @@ calcite_card <- function(...) {
 }
 #' Create a CardGroup component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name          |Attribute      |Description                                                                              |Values                                                           |Reflects to Attribute |
 #'  |:-------------|:--------------|:----------------------------------------------------------------------------------------|:----------------------------------------------------------------|:---------------------|
@@ -645,7 +582,7 @@ calcite_card <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                    |
 #'  |:-----------------|:----------------------------------------------|
@@ -674,14 +611,14 @@ calcite_card_group <- function(...) {
 }
 #' Create a Carousel component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute         |Description                                                                                                                                                                      |Values                               |Reflects to Attribute |
 #'  |:----------------|:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:---------------------|
@@ -708,7 +645,7 @@ calcite_card_group <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                 |
 #'  |:-----------------|:-------------------------------------------|
@@ -737,14 +674,14 @@ calcite_carousel <- function(...) {
 }
 #' Create a CarouselItem component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name     |Attribute |Description                             |Values  |Reflects to Attribute |
 #'  |:--------|:---------|:---------------------------------------|:-------|:---------------------|
@@ -753,7 +690,7 @@ calcite_carousel <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                |
 #'  |:-----------------|:--------------------------|
@@ -782,14 +719,14 @@ calcite_carousel_item <- function(...) {
 }
 #' Create a Checkbox component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute     |Description                                                                                                                                                              |Values                                 |Reflects to Attribute |
 #'  |:----------------|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:---------------------|
@@ -838,14 +775,14 @@ calcite_checkbox <- function(...) {
 }
 #' Create a Chip component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute       |Description                                                                                                               |Values                                         |Reflects to Attribute |
 #'  |:----------------|:---------------|:-------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:---------------------|
@@ -874,7 +811,7 @@ calcite_checkbox <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                 |
 #'  |:-----------------|:---------------------------|
@@ -904,14 +841,14 @@ calcite_chip <- function(...) {
 }
 #' Create a ChipGroup component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name          |Attribute      |Description                                                                                                                                                                                                                                                  |Values                                                           |Reflects to Attribute |
 #'  |:-------------|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|:---------------------|
@@ -931,7 +868,7 @@ calcite_chip <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                    |
 #'  |:-----------------|:----------------------------------------------|
@@ -960,14 +897,14 @@ calcite_chip_group <- function(...) {
 }
 #' Create a ColorPicker component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute         |Description                                                                                                                                                                          |Values                                                                                                                                                                                   |Reflects to Attribute |
 #'  |:----------------|:-----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|
@@ -1018,14 +955,14 @@ calcite_color_picker <- function(...) {
 }
 #' Create a Combobox component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name                   |Attribute                 |Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |Values                                                                |Reflects to Attribute |
 #'  |:----------------------|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|:---------------------|
@@ -1076,7 +1013,7 @@ calcite_color_picker <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                       |
 #'  |:-----------------|:-----------------------------------------------------------------|
@@ -1106,14 +1043,14 @@ calcite_combobox <- function(...) {
 }
 #' Create a ComboboxItem component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name           |Attribute       |Description                                                                                                                                                       |Values              |Reflects to Attribute |
 #'  |:--------------|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:---------------------|
@@ -1143,7 +1080,7 @@ calcite_combobox <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                               |
 #'  |:-----------------|:-------------------------------------------------------------------------|
@@ -1174,14 +1111,14 @@ calcite_combobox_item <- function(...) {
 }
 #' Create a ComboboxItemGroup component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name      |Attribute |Description                                                                                         |Values              |Reflects to Attribute |
 #'  |:---------|:---------|:---------------------------------------------------------------------------------------------------|:-------------------|:---------------------|
@@ -1190,7 +1127,7 @@ calcite_combobox_item <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                 |
 #'  |:-----------------|:-------------------------------------------|
@@ -1219,14 +1156,14 @@ calcite_combobox_item_group <- function(...) {
 }
 #' Create a Dialog component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name                 |Attribute              |Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |Values                                                                                                                             |Reflects to Attribute |
 #'  |:--------------------|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|:---------------------|
@@ -1269,7 +1206,7 @@ calcite_combobox_item_group <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot                 |Description                                                                                                                             |
 #'  |:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------|
@@ -1312,14 +1249,14 @@ calcite_dialog <- function(...) {
 }
 #' Create a Dropdown component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name                  |Attribute                |Description                                                                                                                                                                                                                                                                                                                                                                   |Values                                                                                              |Reflects to Attribute |
 #'  |:---------------------|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|:---------------------|
@@ -1352,7 +1289,7 @@ calcite_dialog <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                                                                                                                                   |
 #'  |:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1382,14 +1319,14 @@ calcite_dropdown <- function(...) {
 }
 #' Create a DropdownGroup component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name          |Attribute      |Description                                                                                                                                                                              |Values                                   |Reflects to Attribute |
 #'  |:-------------|:--------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|:---------------------|
@@ -1399,7 +1336,7 @@ calcite_dropdown <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                 |
 #'  |:-----------------|:-------------------------------------------|
@@ -1428,14 +1365,14 @@ calcite_dropdown_group <- function(...) {
 }
 #' Create a DropdownItem component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name        |Attribute     |Description                                                                                                                                        |Values                             |Reflects to Attribute |
 #'  |:-----------|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|:---------------------|
@@ -1459,7 +1396,7 @@ calcite_dropdown_group <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description             |
 #'  |:-----------------|:-----------------------|
@@ -1488,14 +1425,14 @@ calcite_dropdown_item <- function(...) {
 }
 #' Create a Fab component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name        |Attribute     |Description                                                                                  |Values                                                    |Reflects to Attribute |
 #'  |:-----------|:-------------|:--------------------------------------------------------------------------------------------|:---------------------------------------------------------|:---------------------|
@@ -1533,14 +1470,14 @@ calcite_fab <- function(...) {
 }
 #' Create a Filter component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute   |Description                                                                                                                                                                                                                                   |Values                    |Reflects to Attribute |
 #'  |:----------------|:-----------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------------------|
@@ -1585,14 +1522,14 @@ calcite_filter <- function(...) {
 }
 #' Create a Flow component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                      |
 #'  |:-----------------|:----------------------------------------------------------------|
@@ -1621,14 +1558,14 @@ calcite_flow <- function(...) {
 }
 #' Create a FlowItem component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name               |Attribute           |Description                                                                                                                                                                                                                                                                                                                                                                   |Values                                         |Reflects to Attribute |
 #'  |:------------------|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:---------------------|
@@ -1667,7 +1604,7 @@ calcite_flow <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot                 |Description                                                                                                                       |
 #'  |:--------------------|:---------------------------------------------------------------------------------------------------------------------------------|
@@ -1709,14 +1646,14 @@ calcite_flow_item <- function(...) {
 }
 #' Create a Icon component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name      |Attribute  |Description                                                                                       |Values                    |Reflects to Attribute |
 #'  |:---------|:----------|:-------------------------------------------------------------------------------------------------|:-------------------------|:---------------------|
@@ -1749,14 +1686,14 @@ calcite_icon <- function(...) {
 }
 #' Create a InlineEditable component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute       |Description                                                                                                                                                  |Values                    |Reflects to Attribute |
 #'  |:----------------|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------------------|
@@ -1779,7 +1716,7 @@ calcite_icon <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                          |
 #'  |:-----------------|:------------------------------------|
@@ -1808,14 +1745,14 @@ calcite_inline_editable <- function(...) {
 }
 #' Create a Input component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name              |Attribute          |Description                                                                                                                                                                                                               |Values                                                                                                                                                                                                                                           |Reflects to Attribute |
 #'  |:-----------------|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|
@@ -1867,7 +1804,7 @@ calcite_inline_editable <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot          |Description                                                       |
 #'  |:-------------|:-----------------------------------------------------------------|
@@ -1897,14 +1834,14 @@ calcite_input <- function(...) {
 }
 #' Create a InputDatePicker component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name                       |Attribute                    |Description                                                                                                                                                                                                                                                                                                                                                                   |Values                                                                                              |Reflects to Attribute |
 #'  |:--------------------------|:----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|:---------------------|
@@ -1954,7 +1891,7 @@ calcite_input <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot          |Description                                                       |
 #'  |:-------------|:-----------------------------------------------------------------|
@@ -1983,14 +1920,14 @@ calcite_input_date_picker <- function(...) {
 }
 #' Create a InputTimePicker component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name               |Attribute           |Description                                                                                                                                                                                                                                                                                                                                                                   |Values                                                                                                                                                                                                                                                                                                                                                                                          |Reflects to Attribute |
 #'  |:------------------|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|
@@ -2032,7 +1969,7 @@ calcite_input_date_picker <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot          |Description                                                       |
 #'  |:-------------|:-----------------------------------------------------------------|
@@ -2061,14 +1998,14 @@ calcite_input_time_picker <- function(...) {
 }
 #' Create a InputTimeZone component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name               |Attribute           |Description                                                                                                                                                                                                                                                                                                                                                                   |Values                                 |Reflects to Attribute |
 #'  |:------------------|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:---------------------|
@@ -2106,7 +2043,7 @@ calcite_input_time_picker <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot          |Description                                                       |
 #'  |:-------------|:-----------------------------------------------------------------|
@@ -2135,14 +2072,14 @@ calcite_input_time_zone <- function(...) {
 }
 #' Create a ListItemGroup component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name     |Attribute |Description                                                                              |Values                    |Reflects to Attribute |
 #'  |:--------|:---------|:----------------------------------------------------------------------------------------|:-------------------------|:---------------------|
@@ -2152,7 +2089,7 @@ calcite_input_time_zone <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                                   |
 #'  |:-----------------|:-----------------------------------------------------------------------------|
@@ -2181,14 +2118,14 @@ calcite_list_item_group <- function(...) {
 }
 #' Create a Loader component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name   |Attribute |Description                                                                                                                                                                                                                                                |Values                                                          |Reflects to Attribute |
 #'  |:------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------|:---------------------|
@@ -2222,14 +2159,14 @@ calcite_loader <- function(...) {
 }
 #' Create a Menu component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute |Description                                                             |Values                         |Reflects to Attribute |
 #'  |:----------------|:---------|:-----------------------------------------------------------------------|:------------------------------|:---------------------|
@@ -2260,14 +2197,14 @@ calcite_menu <- function(...) {
 }
 #' Create a MenuItem component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute     |Description                                                                                                 |Values                             |Reflects to Attribute |
 #'  |:----------------|:-------------|:-----------------------------------------------------------------------------------------------------------|:----------------------------------|:---------------------|
@@ -2294,7 +2231,7 @@ calcite_menu <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot         |Description                                          |
 #'  |:------------|:----------------------------------------------------|
@@ -2323,14 +2260,14 @@ calcite_menu_item <- function(...) {
 }
 #' Create a Meter component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name            |Attribute        |Description                                                                                                                                                                  |Values                                         |Reflects to Attribute |
 #'  |:---------------|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:---------------------|
@@ -2379,12 +2316,12 @@ calcite_meter <- function(...) {
 #'
 #' Use the `calcite-dialog` component instead.
 #'
-#' 
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name                 |Attribute              |Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |Values                                                                  |Reflects to Attribute |
 #'  |:--------------------|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------------|
@@ -2415,7 +2352,7 @@ calcite_meter <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot           |Description                                                                                                                                  |
 #'  |:--------------|:--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -2450,14 +2387,14 @@ calcite_modal <- function(...) {
 }
 #' Create a Navigation component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute         |Description                                                                                              |Values  |Reflects to Attribute |
 #'  |:----------------|:-----------------|:--------------------------------------------------------------------------------------------------------|:-------|:---------------------|
@@ -2474,7 +2411,7 @@ calcite_modal <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot                 |Description                                                                                                                                                                                        |
 #'  |:--------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -2511,14 +2448,14 @@ calcite_navigation <- function(...) {
 }
 #' Create a NavigationLogo component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name         |Attribute     |Description                                                                                                                               |Values                                         |Reflects to Attribute |
 #'  |:------------|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:---------------------|
@@ -2557,14 +2494,14 @@ calcite_navigation_logo <- function(...) {
 }
 #' Create a NavigationUser component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name         |Attribute     |Description                                                                                                              |Values  |Reflects to Attribute |
 #'  |:------------|:-------------|:------------------------------------------------------------------------------------------------------------------------|:-------|:---------------------|
@@ -2599,14 +2536,14 @@ calcite_navigation_user <- function(...) {
 }
 #' Create a OptionGroup component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name     |Attribute |Description                                                                              |Values  |Reflects to Attribute |
 #'  |:--------|:---------|:----------------------------------------------------------------------------------------|:-------|:---------------------|
@@ -2615,7 +2552,7 @@ calcite_navigation_user <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                          |
 #'  |:-----------------|:------------------------------------|
@@ -2644,14 +2581,14 @@ calcite_option_group <- function(...) {
 }
 #' Create a Pagination component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute        |Description                                                                                                       |Values                                |Reflects to Attribute |
 #'  |:----------------|:----------------|:-----------------------------------------------------------------------------------------------------------------|:-------------------------------------|:---------------------|
@@ -2694,14 +2631,14 @@ calcite_pagination <- function(...) {
 }
 #' Create a Popover component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name               |Attribute           |Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |Values                                                                                                                                                                                                                                                                                                                                                                                          |Reflects to Attribute |
 #'  |:------------------|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|
@@ -2738,7 +2675,7 @@ calcite_pagination <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                       |
 #'  |:-----------------|:---------------------------------|
@@ -2767,14 +2704,14 @@ calcite_popover <- function(...) {
 }
 #' Create a Progress component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name     |Attribute |Description                                                                                          |Values                               |Reflects to Attribute |
 #'  |:--------|:---------|:----------------------------------------------------------------------------------------------------|:------------------------------------|:---------------------|
@@ -2807,14 +2744,14 @@ calcite_progress <- function(...) {
 }
 #' Create a RadioButton component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name      |Attribute  |Description                                                                                                                                                      |Values                    |Reflects to Attribute |
 #'  |:---------|:----------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------------------|
@@ -2858,14 +2795,14 @@ calcite_radio_button <- function(...) {
 }
 #' Create a RadioButtonGroup component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name              |Attribute          |Description                                                                                                       |Values                                       |Reflects to Attribute |
 #'  |:-----------------|:------------------|:-----------------------------------------------------------------------------------------------------------------|:--------------------------------------------|:---------------------|
@@ -2891,7 +2828,7 @@ calcite_radio_button <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                       |
 #'  |:-----------------|:-----------------------------------------------------------------|
@@ -2921,14 +2858,14 @@ calcite_radio_button_group <- function(...) {
 }
 #' Create a Rating component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name              |Attribute          |Description                                                                                                                                              |Values                                 |Reflects to Attribute |
 #'  |:-----------------|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:---------------------|
@@ -2958,7 +2895,7 @@ calcite_radio_button_group <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot          |Description                                                       |
 #'  |:-------------|:-----------------------------------------------------------------|
@@ -2987,14 +2924,14 @@ calcite_rating <- function(...) {
 }
 #' Create a Scrim component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute |Description                                                             |Values              |Reflects to Attribute |
 #'  |:----------------|:---------|:-----------------------------------------------------------------------|:-------------------|:---------------------|
@@ -3003,7 +2940,7 @@ calcite_rating <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                      |
 #'  |:-----------------|:----------------------------------------------------------------|
@@ -3032,14 +2969,14 @@ calcite_scrim <- function(...) {
 }
 #' Create a Sheet component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name                 |Attribute              |Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |Values                                                                     |Reflects to Attribute |
 #'  |:--------------------|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------|:---------------------|
@@ -3072,7 +3009,7 @@ calcite_scrim <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                       |
 #'  |:-----------------|:---------------------------------|
@@ -3103,12 +3040,12 @@ calcite_sheet <- function(...) {
 #'
 #' Use the `calcite-shell-panel` component instead.
 #'
-#' 
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name        |Attribute    |Description                                                                                                |Values                    |Reflects to Attribute |
 #'  |:-----------|:------------|:----------------------------------------------------------------------------------------------------------|:-------------------------|:---------------------|
@@ -3118,7 +3055,7 @@ calcite_sheet <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                            |
 #'  |:-----------------|:----------------------------------------------------------------------|
@@ -3148,14 +3085,14 @@ calcite_shell_center_row <- function(...) {
 }
 #' Create a ShellPanel component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute    |Description                                                                                                 |Values                                                                           |Reflects to Attribute |
 #'  |:----------------|:------------|:-----------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:---------------------|
@@ -3181,7 +3118,7 @@ calcite_shell_center_row <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                |
 #'  |:-----------------|:----------------------------------------------------------|
@@ -3211,14 +3148,14 @@ calcite_shell_panel <- function(...) {
 }
 #' Create a SplitButton component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name               |Attribute             |Description                                                                                                                                                                                                                                                                                                                                                                   |Values                                                                                              |Reflects to Attribute |
 #'  |:------------------|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|:---------------------|
@@ -3254,7 +3191,7 @@ calcite_shell_panel <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                   |
 #'  |:-----------------|:---------------------------------------------|
@@ -3283,14 +3220,14 @@ calcite_split_button <- function(...) {
 }
 #' Create a Stepper component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute        |Description                                                                  |Values                                                    |Reflects to Attribute |
 #'  |:----------------|:----------------|:----------------------------------------------------------------------------|:---------------------------------------------------------|:---------------------|
@@ -3313,7 +3250,7 @@ calcite_split_button <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                        |
 #'  |:-----------------|:--------------------------------------------------|
@@ -3342,14 +3279,14 @@ calcite_stepper <- function(...) {
 }
 #' Create a StepperItem component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute     |Description                                                                                  |Values              |Reflects to Attribute |
 #'  |:----------------|:-------------|:--------------------------------------------------------------------------------------------|:-------------------|:---------------------|
@@ -3372,7 +3309,7 @@ calcite_stepper <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                       |
 #'  |:-----------------|:---------------------------------|
@@ -3401,14 +3338,14 @@ calcite_stepper_item <- function(...) {
 }
 #' Create a Swatch component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name     |Attribute |Description                                                                                                                 |Values                    |Reflects to Attribute |
 #'  |:--------|:---------|:---------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------------------|
@@ -3429,7 +3366,7 @@ calcite_stepper_item <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot  |Description                            |
 #'  |:-----|:--------------------------------------|
@@ -3458,14 +3395,14 @@ calcite_swatch <- function(...) {
 }
 #' Create a SwatchGroup component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name          |Attribute      |Description                                                                                                                                                                                                                                                  |Values                                                           |Reflects to Attribute |
 #'  |:-------------|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|:---------------------|
@@ -3485,7 +3422,7 @@ calcite_swatch <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                      |
 #'  |:-----------------|:------------------------------------------------|
@@ -3514,14 +3451,14 @@ calcite_swatch_group <- function(...) {
 }
 #' Create a Tab component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name     |Attribute |Description                                                                                                         |Values  |Reflects to Attribute |
 #'  |:--------|:---------|:-------------------------------------------------------------------------------------------------------------------|:-------|:---------------------|
@@ -3530,7 +3467,7 @@ calcite_swatch_group <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                       |
 #'  |:-----------------|:---------------------------------|
@@ -3559,14 +3496,14 @@ calcite_tab <- function(...) {
 }
 #' Create a TabNav component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute  |Description                                                                                                                                                                      |Values                     |Reflects to Attribute |
 #'  |:----------------|:----------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:---------------------|
@@ -3586,7 +3523,7 @@ calcite_tab <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                             |
 #'  |:-----------------|:---------------------------------------|
@@ -3615,14 +3552,14 @@ calcite_tab_nav <- function(...) {
 }
 #' Create a TabTitle component
 #'
-#' 
+#'
 #'
 #' Tab-titles are optionally individually closable.
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute     |Description                                                                                                                                                                      |Values                             |Reflects to Attribute |
 #'  |:----------------|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|:---------------------|
@@ -3648,7 +3585,7 @@ calcite_tab_nav <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description             |
 #'  |:-----------------|:-----------------------|
@@ -3677,14 +3614,14 @@ calcite_tab_title <- function(...) {
 }
 #' Create a Table component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute         |Description                                                                                                                                                                                                                                                                                                                 |Values                                   |Reflects to Attribute |
 #'  |:----------------|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|:---------------------|
@@ -3714,7 +3651,7 @@ calcite_tab_title <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                                                                                                   |
 #'  |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3746,14 +3683,14 @@ calcite_table <- function(...) {
 }
 #' Create a TableCell component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute |Description                                                             |Values                               |Reflects to Attribute |
 #'  |:----------------|:---------|:-----------------------------------------------------------------------|:------------------------------------|:---------------------|
@@ -3764,7 +3701,7 @@ calcite_table <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                      |
 #'  |:-----------------|:------------------------------------------------|
@@ -3793,14 +3730,14 @@ calcite_table_cell <- function(...) {
 }
 #' Create a TableHeader component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute   |Description                                                             |Values                               |Reflects to Attribute |
 #'  |:----------------|:-----------|:-----------------------------------------------------------------------|:------------------------------------|:---------------------|
@@ -3834,14 +3771,14 @@ calcite_table_header <- function(...) {
 }
 #' Create a TableRow component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name      |Attribute |Description                                                                              |Values                               |Reflects to Attribute |
 #'  |:---------|:---------|:----------------------------------------------------------------------------------------|:------------------------------------|:---------------------|
@@ -3859,7 +3796,7 @@ calcite_table_header <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                                |
 #'  |:-----------------|:--------------------------------------------------------------------------|
@@ -3888,14 +3825,14 @@ calcite_table_row <- function(...) {
 }
 #' Create a Tabs component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name     |Attribute |Description                                                                                                                                        |Values                    |Reflects to Attribute |
 #'  |:--------|:---------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------------------|
@@ -3906,7 +3843,7 @@ calcite_table_row <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                            |
 #'  |:-----------------|:--------------------------------------|
@@ -3936,14 +3873,14 @@ calcite_tabs <- function(...) {
 }
 #' Create a TextArea component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name              |Attribute          |Description                                                                                                                                              |Values                                                     |Reflects to Attribute |
 #'  |:-----------------|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:---------------------|
@@ -3983,7 +3920,7 @@ calcite_tabs <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                       |
 #'  |:-----------------|:-----------------------------------------------------------------|
@@ -4017,12 +3954,12 @@ calcite_text_area <- function(...) {
 #'
 #' Use the `calcite-tile` component instead.
 #'
-#' 
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name           |Attribute       |Description                                                                                                                             |Values                    |Reflects to Attribute |
 #'  |:--------------|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------------------|
@@ -4049,7 +3986,7 @@ calcite_text_area <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                       |
 #'  |:-----------------|:---------------------------------|
@@ -4080,12 +4017,12 @@ calcite_tile_select <- function(...) {
 #'
 #' Use the `calcite-tile-group` component instead.
 #'
-#' 
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name     |Attribute |Description                                                                                              |Values                         |Reflects to Attribute |
 #'  |:--------|:---------|:--------------------------------------------------------------------------------------------------------|:------------------------------|:---------------------|
@@ -4094,7 +4031,7 @@ calcite_tile_select <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                       |
 #'  |:-----------------|:-------------------------------------------------|
@@ -4123,14 +4060,14 @@ calcite_tile_select_group <- function(...) {
 }
 #' Create a TimePicker component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute        |Description                                                                                                                                                        |Values                                |Reflects to Attribute |
 #'  |:----------------|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:---------------------|
@@ -4175,12 +4112,12 @@ calcite_time_picker <- function(...) {
 #'
 #' Use the `calcite-card`, `calcite-notice`, `calcite-panel`, or `calcite-tile` component instead.
 #'
-#' 
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute      |Description                                                                                                                                             |Values                                         |Reflects to Attribute |
 #'  |:----------------|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:---------------------|
@@ -4201,7 +4138,7 @@ calcite_time_picker <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                              |
 #'  |:-----------------|:----------------------------------------|
@@ -4233,12 +4170,12 @@ calcite_tip <- function(...) {
 #'
 #' Use the `calcite-carousel` and `calcite-carousel-item` components instead.
 #'
-#' 
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name       |Attribute   |Description                                              |Values |Reflects to Attribute |
 #'  |:----------|:-----------|:--------------------------------------------------------|:------|:---------------------|
@@ -4246,7 +4183,7 @@ calcite_tip <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                       |
 #'  |:-----------------|:---------------------------------|
@@ -4277,12 +4214,12 @@ calcite_tip_group <- function(...) {
 #'
 #' Use the `calcite-carousel` and `calcite-carousel-item` components instead.
 #'
-#' 
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name             |Attribute     |Description                                                                                                               |Values                                         |Reflects to Attribute |
 #'  |:----------------|:-------------|:-------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:---------------------|
@@ -4300,7 +4237,7 @@ calcite_tip_group <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                       |
 #'  |:-----------------|:---------------------------------|
@@ -4329,14 +4266,14 @@ calcite_tip_manager <- function(...) {
 }
 #' Create a Tooltip component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name               |Attribute           |Description                                                                                                                                                                                                                                                                                                                                                                             |Values                                                                                                                                                                                                                                                                                                                                                                                          |Reflects to Attribute |
 #'  |:------------------|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|
@@ -4362,7 +4299,7 @@ calcite_tip_manager <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description             |
 #'  |:-----------------|:-----------------------|
@@ -4391,14 +4328,14 @@ calcite_tooltip <- function(...) {
 }
 #' Create a Tree component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name          |Attribute      |Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |Values                                                                                                                       |Reflects to Attribute |
 #'  |:-------------|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|:---------------------|
@@ -4417,7 +4354,7 @@ calcite_tooltip <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                              |
 #'  |:-----------------|:----------------------------------------|
@@ -4446,14 +4383,14 @@ calcite_tree <- function(...) {
 }
 #' Create a TreeItem component
 #'
-#' 
 #'
-#' 
+#'
+#'
 #'
 #' @details
 #' ## Properties
 
-#' The following properties are provided by this component: 
+#' The following properties are provided by this component:
 
 #'  |Name        |Attribute     |Description                                                                                  |Values                             |Reflects to Attribute |
 #'  |:-----------|:-------------|:--------------------------------------------------------------------------------------------|:----------------------------------|:---------------------|
@@ -4475,7 +4412,7 @@ calcite_tree <- function(...) {
 
 #' ## Slots
 
-#' The following slots are provided by this component: 
+#' The following slots are provided by this component:
 
 #'  |Slot              |Description                                                                                           |
 #'  |:-----------------|:-----------------------------------------------------------------------------------------------------|

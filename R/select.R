@@ -138,7 +138,7 @@ calcite_select <- function(
   ))
 
   attribs <- clean_attribs(attribs)
-  
+
   # Handle options: values/labels take precedence over ...
   if (!is.null(values)) {
     # If labels not provided, use values as labels
@@ -149,6 +149,11 @@ calcite_select <- function(
     # Validate lengths match
     if (length(values) != length(labels)) {
       stop("'values' and 'labels' must have the same length")
+    }
+
+    # If no value is specified, default to the first value
+    if (is.null(value) && length(values) > 0) {
+      value <- values[1]
     }
 
     # Create calcite_option components

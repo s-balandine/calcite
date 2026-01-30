@@ -39,6 +39,7 @@ components <- filter(components, !(fn_name %in% c(
   'calcite_action',
   'calcite_alert',
   'calcite_block',
+  'calcite_button',
   'calcite_date_picker',
   'calcite_input_message',
   'calcite_input_number',

@@ -1,4 +1,6 @@
 
+[![R-CMD-check](https://github.com/R-ArcGIS/calcite/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/R-ArcGIS/calcite/actions/workflows/R-CMD-check.yaml)
+
 # Calcite Design System for R
 
 The `{calcite}` package provides R bindings to Esri’s [Calcite Design
@@ -17,7 +19,7 @@ remotes::install_github("r-arcgis/calcite")
 ## Usage
 
 `{calcite}` consists of many components. See them all in the [official
-documntation](https://developers.arcgis.com/calcite-design-system/components/).
+documentation](https://developers.arcgis.com/calcite-design-system/components/).
 
 Use the calcite components to scaffold the UI of your application. The
 below replicates the [navigation
