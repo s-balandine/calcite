@@ -4,9 +4,6 @@ json_raw <- yyjsonr::read_json_conn("https://unpkg.com/@esri/calcite-components@
 components_raw <- json_raw[["components"]] |>
   tibble::as_tibble()
 
-
-
-
 api_json_raw <- yyjsonr::read_json_conn(
   "https://unpkg.com/@esri/calcite-components@3.3.3/dist/docs/api.json"
 )
@@ -41,6 +38,8 @@ components <- filter(components, !(fn_name %in% c(
   'calcite_block',
   'calcite_button',
   'calcite_date_picker',
+  'calcite_dropdown',
+  'calcite_dropdown_item',
   'calcite_input_message',
   'calcite_input_number',
   'calcite_input_text',

@@ -180,12 +180,6 @@ createCalciteInputBinding("calciteDialog", "calcite-dialog", ["beforeClose", "cl
 // Component: calcite-dropdown-group
 createCalciteInputBinding("calciteDropdownGroup", "calcite-dropdown-group", ["groupTitle", "selectionMode"], [])
 
-// Component: calcite-dropdown-item
-createCalciteInputBinding("calciteDropdownItem", "calcite-dropdown-item", ["disabled", "href", "iconEnd", "iconFlipRtl", "iconStart", "label", "rel", "selected", "target"], ["calciteDropdownItemSelect"])
-
-// Component: calcite-dropdown
-createCalciteInputBinding("calciteDropdown", "calcite-dropdown", ["closeOnSelectDisabled", "disabled", "flipPlacements", "maxItems", "open", "overlayPositioning", "placement", "scale", "selectedItems", "type", "widthScale"], ["calciteDropdownBeforeClose", "calciteDropdownBeforeOpen", "calciteDropdownClose", "calciteDropdownOpen", "calciteDropdownSelect"])
-
 // Component: calcite-fab
 createCalciteInputBinding("calciteFab", "calcite-fab", ["appearance", "disabled", "icon", "iconFlipRtl", "kind", "label", "loading", "scale", "text", "textEnabled"], [])
 
@@ -377,5 +371,3 @@ createCalciteInputBinding("calciteTreeItem", "calcite-tree-item", ["disabled", "
 
 // Component: calcite-tree
 createCalciteInputBinding("calciteTree", "calcite-tree", ["lines", "scale", "selectedItems", "selectionMode"], ["calciteTreeSelect"])
-
-
