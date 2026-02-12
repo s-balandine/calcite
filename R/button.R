@@ -220,15 +220,15 @@ calcite_button <- function(
   ))
 
   # Get extra content from dots
-  extra_attribs <- rlang::dots_list(...)
+  attribs_extra <- rlang::dots_list(...)
 
   # Combine attributes
-  all_attribs <- c(
+  attribs <- c(
     attribs,
-    extra_attribs[!names(extra_attribs) %in% names(attribs)]
+    attribs_extra[!names(attribs_extra) %in% names(attribs)]
   )
 
-  all_attribs <- clean_attribs(all_attribs)
+  attribs <- clean_attribs(attribs)
 
   # Custom binding for button
   button_binding <- htmltools::htmlDependency(
@@ -241,7 +241,7 @@ calcite_button <- function(
   res <- htmltools::tag(
     "calcite-button",
     c(
-      all_attribs,
+      attribs,
       list(calcite_dependency(), button_binding)
     )
   )

@@ -32,7 +32,7 @@
 
       $(el).on("calciteListItemSelect.calciteListItemInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_select`, currentValue, {priority: "event"});
 
         callback(true);
       });
@@ -40,7 +40,7 @@
       // Listen for list item expand event
       $(el).on("calciteListItemExpand.calciteListItemInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_expand`, currentValue, {priority: "event"});
 
         callback(true);
       });
@@ -48,7 +48,7 @@
       // Listen for list item collapse event
       $(el).on("calciteListItemCollapse.calciteListItemInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_collapse`, currentValue, {priority: "event"});
 
         callback(true);
       });

@@ -39,7 +39,7 @@
       // Listen for tile group select events
       $(el).on("calciteTileGroupSelect.calciteTileGroupInputBinding", function(event) {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_select`, currentValue, {priority: "event"});
 
         callback(true);
       });

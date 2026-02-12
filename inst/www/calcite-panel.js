@@ -56,7 +56,7 @@
       // Listen for panel close event
       $(el).on("calcitePanelClose.calcitePanelInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_close`, currentValue, {priority: "event"});
 
         callback(true);
       });
@@ -64,7 +64,7 @@
       // Listen for panel collapse event
       $(el).on("calcitePanelCollapse.calcitePanelInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_collapse`, currentValue, {priority: "event"});
 
         callback(true);
       });
@@ -72,7 +72,7 @@
       // Listen for panel expand event
       $(el).on("calcitePanelExpand.calcitePanelInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_expand`, currentValue, {priority: "event"});
 
         callback(true);
       });
@@ -80,7 +80,7 @@
       // Listen for panel scroll event
       $(el).on("calcitePanelScroll.calcitePanelInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_scroll`, currentValue, {priority: "event"});
 
         callback(true);
       });
@@ -88,7 +88,7 @@
       // Listen for panel toggle event
       $(el).on("calcitePanelToggle.calcitePanelInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_toggle`, currentValue, {priority: "event"});
 
         callback(true);
       });

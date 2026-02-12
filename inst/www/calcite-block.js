@@ -43,7 +43,7 @@
       // Listen for block open event (after animation complete)
       $(el).on("calciteBlockOpen.calciteBlockInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_open`, currentValue, {priority: "event"});
 
         callback(true);
       });
@@ -51,7 +51,7 @@
       // Listen for block close event (after animation complete)
       $(el).on("calciteBlockClose.calciteBlockInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_close`, currentValue, {priority: "event"});
 
         callback(true);
       });

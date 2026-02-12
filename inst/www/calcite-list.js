@@ -47,14 +47,14 @@
 
       $(el).on("calciteListChange.calciteListInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_change`, currentValue, {priority: "event"});
 
         callback(true);
       });
 
       $(el).on("calciteListDragStart.calciteListInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_drag_start`, currentValue, {priority: "event"});
 
         callback(true);
       });

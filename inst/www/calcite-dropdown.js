@@ -68,37 +68,51 @@
     subscribe: function(el, callback) {
       console.log('subscribe');
 
+      // Wait for component to be ready, then initialize
+      const initializeValue = function() {
+        const initialValue = binding.getValue(el);
+        Shiny.setInputValue(el.id, initialValue);
+      };
+
+      if (el.componentOnReady) {
+        el.componentOnReady().then(initializeValue);
+      } else {
+        // Fallback: wait a bit for component to initialize
+        setTimeout(initializeValue, 100);
+      }
+
+
       $(el).on("calciteDropdownBeforeClose.calciteDropdownInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_before_close`, currentValue, {priority: "event"});
 
         callback(true);
       });
 
       $(el).on("calciteDropdownBeforeOpen.calciteDropdownInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_before_open`, currentValue, {priority: "event"});
 
         callback(true);
       });
 
       $(el).on("calciteDropdownClose.calciteDropdownInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_close`, currentValue, {priority: "event"});
 
         callback(true);
       });
 
       $(el).on("calciteDropdownOpen.calciteDropdownInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_open`, currentValue, {priority: "event"});
 
         callback(true);
       });
 
       $(el).on("calciteDropdownSelect.calciteDropdownInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_before_select`, currentValue, {priority: "event"});
 
         callback(true);
       });

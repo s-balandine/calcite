@@ -34,7 +34,7 @@
       // Listen for notice open event (after animation complete)
       $(el).on("calciteNoticeOpen.calciteNoticeInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_open`, currentValue, {priority: "event"});
 
         callback(true);
       });
@@ -42,7 +42,7 @@
       // Listen for notice close event (after animation complete)
       $(el).on("calciteNoticeClose.calciteNoticeInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_close`, currentValue, {priority: "event"});
 
         callback(true);
       });

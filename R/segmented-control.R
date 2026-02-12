@@ -227,17 +227,17 @@ calcite_segmented_control_item <- function(
   ))
 
   # Combine attributes with extra attributes from dots
-  extra_attribs <- rlang::dots_list(...)
-  all_attribs <- c(
+  attribs_extra <- rlang::dots_list(...)
+  attribs <- c(
     attribs,
-    extra_attribs[!names(extra_attribs) %in% names(attribs)]
+    attribs_extra[!names(attribs_extra) %in% names(attribs)]
   )
 
-  all_attribs <- clean_attribs(all_attribs)
+  attribs <- clean_attribs(attribs)
 
   res <- htmltools::tag(
     "calcite-segmented-control-item",
-    c(all_attribs, list(label, calcite_dependency()))
+    c(attribs, list(label, calcite_dependency()))
   )
 
   class(res) <- c("calcite_component", class(res))

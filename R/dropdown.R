@@ -87,6 +87,7 @@ calcite_dropdown <- function(
     'calcite-dropdown',
     c(
       attribs,
+      slot_content,
       list(calcite_dependency(), dropdown_binding)
     )
   )

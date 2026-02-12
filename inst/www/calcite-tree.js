@@ -49,7 +49,7 @@
 
       $(el).on("calciteTreeSelect.calcitetreeInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_select`, currentValue, {priority: "event"});
 
         callback(true);
       });

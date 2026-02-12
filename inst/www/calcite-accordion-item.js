@@ -34,7 +34,7 @@
       // Listen for accordion item expand event
       $(el).on("calciteAccordionItemExpand.calciteAccordionItemInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_expand`, currentValue, {priority: "event"});
 
         callback(true);
       });
@@ -42,7 +42,7 @@
       // Listen for accordion item collapse event
       $(el).on("calciteAccordionItemCollapse.calciteAccordionItemInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_collapse`, currentValue, {priority: "event"});
 
         callback(true);
       });

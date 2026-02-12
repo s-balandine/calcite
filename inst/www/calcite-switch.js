@@ -38,7 +38,7 @@
         const currentValue = binding.getValue(el);
 
         // Send to Shiny with priority event
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_change`, currentValue, {priority: "event"});
 
         callback(true);
       });

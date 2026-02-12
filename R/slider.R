@@ -237,18 +237,18 @@ calcite_slider <- function(
   ))
 
   # Combine with additional attributes
-  extra_attribs <- rlang::dots_list(...)
+  attribs_extra <- rlang::dots_list(...)
 
-  all_attribs <- c(
+  attribs <- c(
     attribs,
-    extra_attribs[!names(extra_attribs) %in% names(attribs)]
+    attribs_extra[!names(attribs_extra) %in% names(attribs)]
   )
 
-  all_attribs <- clean_attribs(all_attribs)
+  attribs <- clean_attribs(attribs)
 
   # Add histogram as data attribute with JSON serialization
   if (!is.null(histogram)) {
-    all_attribs$`data-histogram` <- yyjsonr::write_json_str(histogram, auto_unbox = TRUE)
+    attribs$`data-histogram` <- yyjsonr::write_json_str(histogram, auto_unbox = TRUE)
   }
 
   # Custom binding for slider
@@ -261,7 +261,7 @@ calcite_slider <- function(
 
   res <- htmltools::tag(
     "calcite-slider",
-    c(all_attribs, list(calcite_dependency(), slider_binding))
+    c(attribs, list(calcite_dependency(), slider_binding))
   )
 
   class(res) <- c("calcite_component", class(res))

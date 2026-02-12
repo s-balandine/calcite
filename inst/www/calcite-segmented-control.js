@@ -38,7 +38,7 @@
       // Listen for selection change events
       $(el).on("calciteSegmentedControlChange.calciteSegmentedControlInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_change`, currentValue, {priority: "event"});
 
         callback(true);
       });

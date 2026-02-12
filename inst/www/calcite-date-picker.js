@@ -66,7 +66,7 @@
       // Listen for single date change
       $(el).on("calciteDatePickerChange.calciteDatePickerInputBinding", function(event) {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_change`, currentValue, {priority: "event"});
 
         callback(true);
       });
@@ -74,7 +74,7 @@
       // Listen for range change
       $(el).on("calciteDatePickerRangeChange.calciteDatePickerInputBinding", function(event) {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_range_change`, currentValue, {priority: "event"});
 
         callback(true);
       });

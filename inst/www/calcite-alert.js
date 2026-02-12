@@ -43,28 +43,28 @@
       // Listen for alert before close event
       $(el).on("calciteAlertBeforeClose.calciteAlertInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_before_close`, currentValue, {priority: "event"});
         callback(true);
       });
 
       // Listen for alert before open event
       $(el).on("calciteAlertBeforeOpen.calciteAlertInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_before_open`, currentValue, {priority: "event"});
         callback(true);
       });
 
       // Listen for alert close event
       $(el).on("calciteAlertClose.calciteAlertInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_close`, currentValue, {priority: "event"});
         callback(true);
       });
 
       // Listen for alert open event
       $(el).on("calciteAlertOpen.calciteAlertInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_open`, currentValue, {priority: "event"});
         callback(true);
       });
 

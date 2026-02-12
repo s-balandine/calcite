@@ -57,7 +57,7 @@
       // Listen for change events (when value is committed)
       $(el).on("calciteInputTextChange.calciteInputTextInputBinding", function() {
         const currentValue = binding.getValue(el);
-        Shiny.setInputValue(el.id, currentValue, {priority: "event"});
+        Shiny.setInputValue(`${el.id}_change`, currentValue, {priority: "event"});
         callback(true);
       });
 

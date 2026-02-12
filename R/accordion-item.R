@@ -101,13 +101,13 @@ calcite_accordion_item <- function(
   ))
 
   # Combine with dots (child content)
-  extra_attribs <- rlang::dots_list(...)
-  all_attribs <- c(
+  attribs_extra <- rlang::dots_list(...)
+  attribs <- c(
     attribs,
-    extra_attribs[!names(extra_attribs) %in% names(attribs)]
+    attribs_extra[!names(attribs_extra) %in% names(attribs)]
   )
 
-  all_attribs <- clean_attribs(all_attribs)
+  attribs <- clean_attribs(attribs)
 
   # Collect all slot content
   slot_content <- c(
@@ -131,7 +131,7 @@ calcite_accordion_item <- function(
   res <- htmltools::tag(
     "calcite-accordion-item",
     c(
-      all_attribs,
+      attribs,
       slot_content,
       list(calcite_dependency(), accordion_item_binding)
     )
