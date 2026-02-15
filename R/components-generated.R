@@ -3504,7 +3504,7 @@ calcite_tab_title <- function(...) {
 #'  |messageOverrides |NA                |Use this property to override individual strings used by the component.                                                                                                                                                                                                                                                     |Check API reference                      |FALSE                 |
 #'  |numbered         |numbered          |When `true`, displays the position of the row in numeric form.                                                                                                                                                                                                                                                              |boolean                                  |TRUE                  |
 #'  |numberingSystem  |numbering-system  |Specifies the Unicode numeral system used by the component for localization.                                                                                                                                                                                                                                                |"arab" &#124; "arabext" &#124; "latn"    |TRUE                  |
-#'  |pageSize         |page-size         |Specifies the page size of the component. When present, renders `calcite-pagination`.                                                                                                                                                                                                                                       |number                                   |TRUE                  |
+#'  |pageSize         |page-size         |Specifies the page size of the component. When `true`, renders `calcite-pagination`.                                                                                                                                                                                                                                        |number                                   |TRUE                  |
 #'  |scale            |scale             |Specifies the size of the component.                                                                                                                                                                                                                                                                                        |"l" &#124; "m" &#124; "s"                |TRUE                  |
 #'  |selectedItems    |NA                |Specifies the component's selected items.                                                                                                                                                                                                                                                                                   |Check API reference                      |FALSE                 |
 #'  |selectionDisplay |selection-display |Specifies the display of the selection interface when `selection-mode` is not `"none"`. When `"none"`, content slotted the `selection-actions` slot will not be displayed.                                                                                                                                                  |"none" &#124; "top"                      |TRUE                  |
@@ -3538,16 +3538,10 @@ calcite_tab_title <- function(...) {
 #' @examples
 #' calcite_table()
 calcite_table <- function(...) {
-  attribs <- rlang::dots_list(...)
-  attribs <- clean_attribs(attribs)
-
   res <- htmltools::tag(
-      "calcite-table",
-      c(
-        attribs,
-        list(calcite_dependency(), calcite_bindings())
-      )
-    )
+    "calcite-table",
+    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3585,16 +3579,10 @@ calcite_table <- function(...) {
 #' @examples
 #' calcite_table_cell()
 calcite_table_cell <- function(...) {
-  attribs <- rlang::dots_list(...)
-  attribs <- clean_attribs(attribs)
-
   res <- htmltools::tag(
-      "calcite-table-cell",
-      c(
-        attribs,
-        list(calcite_dependency(), calcite_bindings())
-      )
-    )
+    "calcite-table-cell",
+    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3626,16 +3614,10 @@ calcite_table_cell <- function(...) {
 #' @examples
 #' calcite_table_header()
 calcite_table_header <- function(...) {
-  attribs <- rlang::dots_list(...)
-  attribs <- clean_attribs(attribs)
-
   res <- htmltools::tag(
-      "calcite-table-header",
-      c(
-        attribs,
-        list(calcite_dependency(), calcite_bindings())
-      )
-    )
+    "calcite-table-header",
+    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  )
 
   class(res) <- c("calcite_component", class(res))
   res
@@ -3680,16 +3662,10 @@ calcite_table_header <- function(...) {
 #' @examples
 #' calcite_table_row()
 calcite_table_row <- function(...) {
-  attribs <- rlang::dots_list(...)
-  attribs <- clean_attribs(attribs)
-
   res <- htmltools::tag(
-      "calcite-table-row",
-      c(
-        attribs,
-        list(calcite_dependency(), calcite_bindings())
-      )
-    )
+    "calcite-table-row",
+    rlang::dots_list(..., calcite_dependency(), calcite_bindings())
+  )
 
   class(res) <- c("calcite_component", class(res))
   res

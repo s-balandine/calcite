@@ -4,26 +4,7 @@
 \alias{calcite_select}
 \title{Create a Calcite Select Component}
 \usage{
-calcite_select(
-  ...,
-  values = NULL,
-  labels = NULL,
-  id = NULL,
-  label,
-  disabled = NULL,
-  form = NULL,
-  label_text = NULL,
-  message_overrides = NULL,
-  name = NULL,
-  required = NULL,
-  scale = 's',
-  status = NULL,
-  validation_icon = NULL,
-  validation_message = NULL,
-  value = NULL,
-  width = NULL,
-  label_content = NULL
-)
+calcite_select(...)
 }
 \arguments{
 \item{...}{calcite-option components (default slot). Ignored if \code{values} is provided.}
