@@ -82,6 +82,12 @@
     },
 
     receiveMessage: function(el, data) {
+      console.log("receivemessage")
+
+      if (data.text !== null) {
+        el.textContent = String(data.text);
+      }
+
       this.setValue(el, data);
     },
 
