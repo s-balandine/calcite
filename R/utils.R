@@ -1,16 +1,16 @@
-CALCITE_VERSION <- "3.3.3"
+CALCITE_VERSION <- "5.0.2"
+
 calcite_dependency <- function() {
   htmltools::htmlDependency(
     name = "calcite",
     version = CALCITE_VERSION,
     src = c(
-      href = sprintf(
-        "https://js.arcgis.com/calcite-components/%s/",
-        CALCITE_VERSION
-      )
+      href = "https://js.arcgis.com"
     ),
-    script = list(src = "calcite.esm.js", type = "module"),
-    stylesheet = "calcite.css"
+    script = list(src = sprintf(
+        "calcite-components/%s/",
+        CALCITE_VERSION
+      ), type = "module")
   )
 }
 
