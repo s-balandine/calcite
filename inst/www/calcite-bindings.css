@@ -1,0 +1,41 @@
+:root {
+  --calcite-color-brand-hue: 211;
+
+  --calcite-color-brand: hsl(211.43deg 41.18% 90%);
+
+  /*
+  --calcite-color-brand: hsl(var(--calcite-color-brand-hue), 100%, 38%);
+  --calcite-color-brand-hover: hsl(var(--calcite-color-brand-hue), 100%, 30%);
+  --calcite-color-brand-press: hsl(var(--calcite-color-brand-hue), 100%, 22%);
+
+  --calcite-color-brand-underline: hsla(var(--calcite-color-brand-hue), 100%, 38.04%, 0.4);
+  */
+
+  --calcite-icon-color: hsl(211.43deg 41.18% 50%);
+
+  --calcite-loader-progress-color: hsl(211.43deg 41.18% 50%);
+
+  --calcite-tree-selected-icon-color: hsl(211.43deg 41.18% 50%);
+
+  --calcite-color-text-link: var(--calcite-color-brand-hover);
+  --calcite-color-text-highlight: var(--calcite-color-brand-press);
+
+  --calcite-color-text-inverse: rgb(29, 61, 99);
+
+  --calcite-color-text-3: #b4b4b4;
+
+  --calcite-tab-content-space-y: 0;
+
+  /*
+  --calcite-panel-space: 5px;
+  --calcite-panel-content-space: 5px;
+  */
+
+  --calcite-color-background: #ffffff;
+
+  --calcite-list-background-color: #f0f4fa;
+  --calcite-list-background-color-hover: #e7f2ff;
+  --calcite-list-background-color-press: #adbed4;
+
+  --calcite-internal-color-focus: 0px
+}

@@ -20,7 +20,8 @@ calcite_bindings <- function() {
     name = "calcite-binding",
     version = CALCITE_VERSION,
     src = c(file = system.file("www", package = "calcite")),
-    script = "calcite-bindings.js"
+    script = "calcite-bindings.js",
+    stylesheet = "calcite-bindings.css"
   )
 }
 
