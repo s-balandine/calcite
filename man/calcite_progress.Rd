@@ -20,10 +20,10 @@ Create a Progress component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
    reversed \tab reversed \tab When \code{true} and type is \code{"indeterminate"}, reverses the animation direction. \tab boolean \tab TRUE \cr
    text \tab text \tab Text that displays under the component's indicator. \tab string \tab FALSE \cr
-   type \tab type \tab Specifies the component type.  Use \code{"indeterminate"} if finding actual progress value is impossible. \tab "determinate" | "indeterminate" \tab TRUE \cr
+   type \tab type \tab Specifies the component type.  Use \code{"indeterminate"} if finding actual progress value is impossible. \tab "indeterminate" | "determinate" \tab TRUE \cr
    value \tab value \tab When \code{type} is \code{"determinate"}, specifies the component's value with a range of 0 to 100. \tab number \tab FALSE \cr
 }
 

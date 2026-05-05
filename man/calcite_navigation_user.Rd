@@ -22,7 +22,7 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    active \tab active \tab When \code{true}, the component is highlighted. \tab boolean \tab TRUE \cr
    fullName \tab full-name \tab Specifies the full name of the user. \tab string \tab FALSE \cr
-   label \tab label \tab Describes the appearance of the avatar. If no label is provided, context will not be provided to assistive technologies. \tab string \tab FALSE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
    textDisabled \tab text-disabled \tab When \code{true}, hides the \code{fullName} and \code{username} contents. \tab boolean \tab TRUE \cr
    thumbnail \tab thumbnail \tab Specifies the \code{src} to an image (remember to add a token if the user is private). \tab string \tab FALSE \cr
    userId \tab user-id \tab Specifies the unique id of the user. \tab string \tab FALSE \cr

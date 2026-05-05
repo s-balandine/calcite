@@ -21,7 +21,8 @@ Create a ComboboxItemGroup component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    ancestors \tab NA \tab Specifies the parent and grandparent \code{calcite-combobox-item}s, which are set on \code{calcite-combobox}. \tab Check API reference \tab FALSE \cr
-   label \tab label \tab Specifies the title of the component. \tab string \tab FALSE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
+   position \tab position \tab Specifies the group's position in the \code{calcite-combobox} menu. \tab number \tab FALSE \cr
 }
 
 }

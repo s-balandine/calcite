@@ -22,9 +22,9 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    expanded \tab expanded \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
-   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
-   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab FlipContext \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab IconName \tab TRUE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
    selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
 }
 
@@ -36,6 +36,7 @@ The following events are observed by shiny:\tabular{ll}{
    Event \tab Description \cr
    calciteTreeItemCollapse \tab Fires when the component's content area is collapsed. \cr
    calciteTreeItemExpand \tab Fires when the component's content area is expanded. \cr
+   calciteTreeItemSelect \tab Fires when the component is selected or deselected. \cr
 }
 
 }

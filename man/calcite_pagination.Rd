@@ -21,10 +21,10 @@ Create a Pagination component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    groupSeparator \tab group-separator \tab When \code{true}, number values are displayed with a group separator corresponding to the language and country format. \tab boolean \tab TRUE \cr
-   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab FALSE \cr
+   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab NumberingSystem \tab FALSE \cr
    pageSize \tab page-size \tab Specifies the number of items per page. \tab number \tab TRUE \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
    startItem \tab start-item \tab Specifies the starting item number. \tab number \tab TRUE \cr
    totalItems \tab total-items \tab Specifies the total number of items. \tab number \tab TRUE \cr
 }

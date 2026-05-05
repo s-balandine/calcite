@@ -4,7 +4,7 @@
 \alias{calcite_table_row}
 \title{Create a TableRow component}
 \usage{
-calcite_table_row(...)
+calcite_table_row(cells)
 }
 \arguments{
 \item{...}{named attributes passed to \code{htmltools::tag()}}
@@ -20,7 +20,7 @@ Create a TableRow component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   alignment \tab alignment \tab Specifies the alignment of the component. \tab "center" | "end" | "start" \tab TRUE \cr
+   alignment \tab alignment \tab Specifies the alignment of the component. \tab Alignment \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
 }

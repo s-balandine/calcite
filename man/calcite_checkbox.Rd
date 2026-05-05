@@ -22,16 +22,16 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    checked \tab checked \tab When \code{true}, the component is checked. \tab boolean \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
-   form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
+   form \tab form \tab Specifies the \code{id} of the component's associated form.  When not set, the component is associated with its ancestor form element, if one exists. \tab string \tab TRUE \cr
    indeterminate \tab indeterminate \tab When \code{true}, the component is initially indeterminate, which is independent from its \code{checked} value.  The state is visual only, and can look different across browsers. \tab boolean \tab TRUE \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
-   labelText \tab label-text \tab When provided, displays label text on the component. \tab string \tab FALSE \cr
-   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
+   labelText \tab label-text \tab Specifies the component's label text. \tab string \tab FALSE \cr
+   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   name \tab name \tab Specifies the name of the component. Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
    required \tab required \tab When \code{true} and the component resides in a form, the component must have a value in order for the form to submit. \tab boolean \tab TRUE \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
-   status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
-   validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
+   status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab Status \tab TRUE \cr
+   validity \tab NA \tab The component's current validation state. \tab MutableValidityState \tab FALSE \cr
    value \tab value \tab The component's value. \tab any \tab FALSE \cr
 }
 

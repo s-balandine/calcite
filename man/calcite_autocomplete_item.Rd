@@ -20,14 +20,14 @@ Create a AutocompleteItem component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   description \tab description \tab A description for the component. Displays below the label text. \tab string \tab FALSE \cr
+   description \tab description \tab Specifies a description for the component. Displays below the label text. \tab string \tab FALSE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
-   heading \tab heading \tab Specifies heading text for the component. \tab string \tab FALSE \cr
-   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
-   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
-   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
-   value \tab value \tab The component's value. \tab string \tab FALSE \cr
+   heading \tab heading \tab Specifies the component's heading text. \tab string \tab FALSE \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab IconName \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab FlipContext \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab IconName \tab TRUE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
+   value \tab value \tab Specifies the component's value. \tab string \tab FALSE \cr
 }
 
 }

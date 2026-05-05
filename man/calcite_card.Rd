@@ -21,12 +21,12 @@ Create a Card component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
-   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
    selectable \tab selectable \tab When \code{true}, the component is selectable. \tab boolean \tab TRUE \cr
    selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
-   thumbnailPosition \tab thumbnail-position \tab Sets the placement of the thumbnail defined in the \code{thumbnail} slot. \tab "block-end" | "block-start" | "inline-end" | "inline-start" \tab TRUE \cr
+   thumbnailPosition \tab thumbnail-position \tab Sets the placement of the thumbnail defined in the \code{thumbnail} slot. \tab LogicalFlowPosition \tab TRUE \cr
 }
 
 }
@@ -45,8 +45,6 @@ The following events are observed by shiny:\tabular{ll}{
 The following slots are provided by this component:\tabular{ll}{
    Slot \tab Description \cr
    Default (unnamed) \tab A slot for adding content. \cr
-   title \tab \link{Deprecated} use \code{heading} instead. A slot for adding a heading. \cr
-   subtitle \tab \link{Deprecated} use \code{description} instead. A slot for adding a description. \cr
    thumbnail \tab A slot for adding a thumbnail. \cr
    heading \tab A slot for adding a heading. \cr
    description \tab A slot for adding a description. \cr

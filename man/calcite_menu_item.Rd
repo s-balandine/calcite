@@ -23,11 +23,11 @@ The following properties are provided by this component:\tabular{lllll}{
    active \tab active \tab When \code{true}, the component is highlighted. \tab boolean \tab TRUE \cr
    breadcrumb \tab breadcrumb \tab When \code{true}, the component displays a breadcrumb trail for use as a navigational aid. \tab boolean \tab TRUE \cr
    href \tab href \tab Specifies the URL destination of the component, which can be set as an absolute or relative path. \tab string \tab FALSE \cr
-   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
-   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
-   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
-   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab IconName \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab FlipContext \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab IconName \tab TRUE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
+   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
    open \tab open \tab When \code{true}, the component will display any slotted \code{calcite-menu-item} in an open overflow menu. \tab boolean \tab TRUE \cr
    rel \tab rel \tab Defines the relationship between the \code{href} value and the current document. \tab string \tab TRUE \cr
    target \tab target \tab Specifies where to open the linked document defined in the \code{href} property. \tab string \tab TRUE \cr

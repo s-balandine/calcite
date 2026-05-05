@@ -13,7 +13,7 @@ calcite_action_pad(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Use the \code{calcite-action-pad} component instead.
+in v5.0.0, removal target v6.0.0 - Use the \code{calcite-action-bar} component instead.
 }
 \details{
 \subsection{Properties}{
@@ -23,11 +23,12 @@ The following properties are provided by this component:\tabular{lllll}{
    actionsEndGroupLabel \tab actions-end-group-label \tab Specifies the accessible label for the last \code{calcite-action-group}. \tab string \tab FALSE \cr
    expandDisabled \tab expand-disabled \tab When \code{true}, the expand-toggling behavior is disabled. \tab boolean \tab TRUE \cr
    expanded \tab expanded \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
-   layout \tab layout \tab Indicates the layout of the component. \tab "grid" | "horizontal" | "vertical" \tab TRUE \cr
-   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
-   position \tab position \tab Arranges the component depending on the element's \code{dir} property. \tab "end" | "start" \tab TRUE \cr
-   scale \tab scale \tab Specifies the size of the expand \code{calcite-action}. \tab "l" | "m" | "s" \tab TRUE \cr
+   layout \tab layout \tab Specifies the layout of the component. \tab Check API reference \tab TRUE \cr
+   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content, where:  \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout, and  \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
+   position \tab position \tab Specifies the position of the component depending on the element's \code{dir} property. \tab Check API reference \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the expand \code{calcite-action}. \tab Scale \tab TRUE \cr
+   selectionAppearance \tab selection-appearance \tab Specifies the selection appearance of the component \tab Check API reference \tab TRUE \cr
 }
 
 }

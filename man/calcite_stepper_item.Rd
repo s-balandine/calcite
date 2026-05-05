@@ -20,13 +20,13 @@ Create a StepperItem component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   complete \tab complete \tab When \code{true}, the step has been completed. \tab boolean \tab TRUE \cr
-   description \tab description \tab A description for the component. Displays below the header text. \tab string \tab FALSE \cr
-   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   complete \tab complete \tab When \code{true}, completes the step. \tab boolean \tab TRUE \cr
+   description \tab description \tab Specifies a description for the component. Displays below the header text. \tab string \tab FALSE \cr
+   disabled \tab disabled \tab When \code{true}, prevents interaction and decreases the component's opacity. \tab boolean \tab TRUE \cr
    error \tab error \tab When \code{true}, the component contains an error that requires resolution from the user. \tab boolean \tab TRUE \cr
-   heading \tab heading \tab The component header text. \tab string \tab FALSE \cr
+   heading \tab heading \tab Specifies the component's heading text. \tab string \tab FALSE \cr
    iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
-   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
    selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
 }
 

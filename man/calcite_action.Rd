@@ -12,7 +12,7 @@ calcite_action(
   disabled = NULL,
   indicator = NULL,
   text_enabled = NULL,
-  scale = 's',
+  scale = "s",
   alignment = NULL,
   appearance = NULL,
   loading = NULL,

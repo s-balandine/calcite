@@ -12,7 +12,7 @@ calcite_notice(
   icon = NULL,
   icon_flip_rtl = NULL,
   kind = NULL,
-  scale = 's',
+  scale = "s",
   width = NULL
 )
 }

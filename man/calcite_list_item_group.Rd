@@ -21,8 +21,8 @@ Create a ListItemGroup component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
-   heading \tab heading \tab The header text for all nested \code{calcite-list-item} rows. \tab string \tab TRUE \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   heading \tab heading \tab Specifies the heading text for the nested \code{calcite-list-item} rows. \tab string \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
 }
 
 }

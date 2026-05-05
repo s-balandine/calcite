@@ -20,15 +20,15 @@ Create a Fab component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   appearance \tab appearance \tab Specifies the appearance style of the component. \tab "outline-fill" | "solid" \tab TRUE \cr
-   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
-   icon \tab icon \tab Specifies an icon to display. \tab string \tab TRUE \cr
-   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
-   kind \tab kind \tab Specifies the kind of the component, which will apply to border and background. \tab "brand" | "danger" | "inverse" | "neutral" \tab TRUE \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
+   appearance \tab appearance \tab Specifies the component's appearance style. \tab Check API reference \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, prevents interaction and decreases the component's opacity. \tab boolean \tab TRUE \cr
+   icon \tab icon \tab Specifies an icon to display. \tab IconName \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true} and the element direction is right-to-left (\code{"rtl"}), flips the component\code{s }icon`. \tab boolean \tab TRUE \cr
+   kind \tab kind \tab Specifies the component's kind, which determines border and background styling. \tab Check API reference \tab TRUE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string | undefined \tab FALSE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
-   text \tab text \tab Specifies text to accompany the component's icon. \tab string \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
+   text \tab text \tab Specifies text to accompany the component's icon. \tab string | undefined \tab FALSE \cr
    textEnabled \tab text-enabled \tab When \code{true}, displays the \code{text} value in the component. \tab boolean \tab TRUE \cr
 }
 

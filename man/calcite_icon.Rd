@@ -20,11 +20,11 @@ Create a Icon component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   flipRtl \tab flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
-   icon \tab icon \tab Displays a specific icon. \tab string \tab TRUE \cr
-   preload \tab preload \tab When \code{true}, it preloads the icon data. \tab boolean \tab TRUE \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
-   textLabel \tab text-label \tab Accessible name for the component.  It is recommended to set this value if your icon is semantic. \tab string \tab FALSE \cr
+   flipRtl \tab flip-rtl \tab When \code{true} and the element direction is right-to-left (\code{"rtl"}), flips the component's \code{icon}. \tab boolean \tab TRUE \cr
+   icon \tab icon \tab Specifies an icon to display. \tab IconName \tab TRUE \cr
+   preload \tab preload \tab When \code{true}, preloads the \code{icon} data. \tab boolean \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
+   textLabel \tab text-label \tab Specifies the component's accessible name.  It is recommended to set this value if your icon is semantic. \tab string \tab FALSE \cr
 }
 
 }

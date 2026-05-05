@@ -21,14 +21,14 @@ Tab-titles are optionally individually closable.
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   closable \tab closable \tab When \code{true}, a close button is added to the component. \tab boolean \tab TRUE \cr
-   closed \tab closed \tab When \code{true}, does not display or position the component. \tab boolean \tab TRUE \cr
+   closable \tab closable \tab When \code{true}, displays a close button in the component. \tab boolean \tab TRUE \cr
+   closed \tab closed \tab When \code{true}, hides the component. \tab boolean \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
-   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab string \tab TRUE \cr
-   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab "both" | "end" | "start" \tab TRUE \cr
-   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab string \tab TRUE \cr
-   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   position \tab position \tab Specifies the position of \code{calcite-tab-nav} and \code{calcite-tab-title} components in relation to, and is inherited from the parent \code{calcite-tabs}, defaults to \code{top}.   \verb{@internal} \tab "bottom" | "top" \tab FALSE \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab IconName \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab FlipContext \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab IconName \tab TRUE \cr
+   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   position \tab position \tab Specifies the position of \code{calcite-tab-nav} and \code{calcite-tab-title} components in relation to, and is inherited from the parent \code{calcite-tabs}, defaults to \code{top}.   @internal \tab TabPosition \tab FALSE \cr
    selected \tab selected \tab When \code{true}, the component and its respective \code{calcite-tab} contents are selected.  Only one tab can be selected within the \code{calcite-tabs} parent. \tab boolean \tab TRUE \cr
    tab \tab tab \tab Specifies a unique name for the component.  When specified, use the same value on the \code{calcite-tab}. \tab string \tab TRUE \cr
 }

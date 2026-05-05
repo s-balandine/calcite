@@ -21,12 +21,12 @@ Create a InlineEditable component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    afterConfirm \tab NA \tab Specifies a callback to be executed prior to disabling editing via the controls. When provided, the component's loading state will be handled automatically. \tab Check API reference \tab FALSE \cr
-   controls \tab controls \tab When \code{true} and \code{editingEnabled} is \code{true}, displays save and cancel controls on the component. \tab boolean \tab TRUE \cr
-   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
-   editingEnabled \tab editing-enabled \tab When \code{true}, inline editing is enabled on the component. \tab boolean \tab TRUE \cr
+   controls \tab controls \tab When \code{true} and \code{editingEnabled} is \code{true}, displays save and cancel controls. \tab boolean \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, prevents interaction and decreases the component's opacity. \tab boolean \tab TRUE \cr
+   editingEnabled \tab editing-enabled \tab When \code{true}, inline editing is enabled. \tab boolean \tab TRUE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
-   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   scale \tab scale \tab Specifies the size of the component. Defaults to the scale of the wrapped \code{calcite-input} or the scale of the closest wrapping component with a set scale. \tab "l" | "m" | "s" \tab TRUE \cr
+   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
 }
 
 }
@@ -35,8 +35,8 @@ The following properties are provided by this component:\tabular{lllll}{
 
 The following events are observed by shiny:\tabular{ll}{
    Event \tab Description \cr
-   calciteInlineEditableEditCancel \tab Emits when the component's "cancel editing" button is pressed. \cr
-   calciteInlineEditableEditConfirm \tab Emits when the component's "confirm edits" button is pressed. \cr
+   calciteInlineEditableEditCancel \tab Fires when the component's "cancel editing" button is pressed. \cr
+   calciteInlineEditableEditConfirm \tab Fires when the component's "confirm edits" button is pressed. \cr
 }
 
 }

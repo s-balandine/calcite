@@ -21,13 +21,14 @@ Create a Tooltip component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    closeOnClick \tab close-on-click \tab Closes the component when the \code{referenceElement} is clicked. \tab boolean \tab TRUE \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
-   offsetDistance \tab offset-distance \tab Offset the position of the component away from the \code{referenceElement}. \tab number \tab TRUE \cr
-   offsetSkidding \tab offset-skidding \tab Offset the position of the component along the \code{referenceElement}. \tab number \tab TRUE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
+   offsetDistance \tab offset-distance \tab Specifies the distance to position the component away from the \code{referenceElement}. \tab number \tab TRUE \cr
+   offsetSkidding \tab offset-skidding \tab Specifies the distance to position the component along the \code{referenceElement}. \tab number \tab TRUE \cr
    open \tab open \tab When \code{true}, the component is open. \tab boolean \tab TRUE \cr
-   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  The \code{"fixed"} value should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
-   placement \tab placement \tab Determines where the component will be positioned relative to the \code{referenceElement}. \tab "auto" | "auto-end" | "auto-start" | "bottom" | "bottom-end" | "bottom-start" | "leading" | "leading-end" | "leading-start" | "left" | "left-end" | "left-start" | "right" | "right-end" | "right-start" | "top" | "top-end" | "top-start" | "trailing" | "trailing-end" | "trailing-start" \tab TRUE \cr
-   referenceElement \tab reference-element \tab The \code{referenceElement} to position the component according to its \code{"placement"} value.  Setting to the \code{HTMLElement} is preferred so the component does not need to query the DOM for the \code{referenceElement}.  However, a string ID of the reference element can be used.  The component should not be placed within its own \code{referenceElement} to avoid unintended behavior. \tab Element | VirtualElement | string \tab FALSE \cr
+   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content, where:  \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout, and  \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
+   placement \tab placement \tab Determines where the component will be positioned relative to the \code{referenceElement}. \tab LogicalPlacement \tab TRUE \cr
+   referenceElement \tab reference-element \tab The \code{referenceElement} is used to position the component according to its \code{placement} value.  Setting the value to an \code{HTMLElement} is preferred so the component does not need to query the DOM.  However, a string \code{id} of the reference element can also be used.  The component should not be placed within its own \code{referenceElement} to avoid unintended behavior. \tab ReferenceElement | string \tab FALSE \cr
+   topLayerDisabled \tab top-layer-disabled \tab When \code{true} and the component is \code{open}, disables top layer placement.  Only set this if you need complex z-index control or if top layer placement causes conflicts with third-party components. \tab boolean \tab TRUE \cr
 }
 
 }

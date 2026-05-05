@@ -20,20 +20,19 @@ Create a ColorPicker component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   allowEmpty \tab allow-empty \tab When \code{true}, an empty color (\code{null}) will be allowed as a \code{value}.  When \code{false}, a color value is enforced, and clearing the input or blurring will restore the last valid \code{value}. \tab boolean \tab TRUE \cr
    alphaChannel \tab alpha-channel \tab When \code{true}, the component will allow updates to the color's alpha value. \tab boolean \tab FALSE \cr
    channelsDisabled \tab channels-disabled \tab When \code{true}, hides the RGB/HSV channel inputs. \tab boolean \tab FALSE \cr
    clearable \tab clearable \tab When \code{true}, an empty color (\code{null}) will be allowed as a \code{value}.  When \code{false}, a color value is enforced, and clearing the input or blurring will restore the last valid \code{value}. \tab boolean \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    fieldDisabled \tab field-disabled \tab When \code{true}, hides the color field. \tab boolean \tab TRUE \cr
-   format \tab format \tab The format of \code{value}.  When \code{"auto"}, the format will be inferred from \code{value} when set. \tab "auto" | "hex" | "hexa" | "hsl" | "hsl-css" | "hsla" | "hsla-css" | "hsv" | "hsva" | "rgb" | "rgb-css" | "rgba" | "rgba-css" \tab TRUE \cr
+   format \tab format \tab The format of \code{value}.  When \code{"auto"}, the format will be inferred from \code{value} when set. \tab Format \tab TRUE \cr
    hexDisabled \tab hex-disabled \tab When \code{true}, hides the hex input. \tab boolean \tab FALSE \cr
-   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab TRUE \cr
+   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab NumberingSystem \tab TRUE \cr
    savedDisabled \tab saved-disabled \tab When \code{true}, hides the saved colors section. \tab boolean \tab TRUE \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
    storageId \tab storage-id \tab Specifies the storage ID for colors. \tab string \tab TRUE \cr
-   value \tab value \tab The component's value, where the value can be a CSS color string, or a RGB, HSL or HSV object.  The type will be preserved as the color is updated. \tab (HSL & ObjectWithAlpha) | (HSV & ObjectWithAlpha) | (RGB & ObjectWithAlpha) | HSL | HSV | RGB | string \tab FALSE \cr
+   value \tab value \tab The component's value, where the value can be a CSS color string, or a RGB, HSL or HSV object.  The type will be preserved as the color is updated. \tab ColorValue | null \tab FALSE \cr
 }
 
 }

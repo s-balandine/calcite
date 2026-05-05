@@ -20,14 +20,14 @@ Create a Filter component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   disabled \tab disabled \tab When \code{true}, prevents interaction and decreases the component's opacity. \tab boolean \tab TRUE \cr
    filteredItems \tab NA \tab The component's resulting items after filtering. \tab Check API reference \tab FALSE \cr
-   filterProps \tab NA \tab Specifies the properties to match against when filtering. This will only apply when \code{value} is an object. If not set, all properties will be matched. \tab Check API reference \tab FALSE \cr
-   items \tab NA \tab Defines the items to filter. The component uses the values as the starting point, and returns items  that contain the string entered in the input, using a partial match and recursive search.  This property is needed to conduct filtering. \tab Check API reference \tab FALSE \cr
-   label \tab label \tab Specifies an accessible name for the component. \tab string \tab FALSE \cr
-   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   placeholder \tab placeholder \tab Specifies placeholder text for the input element. \tab string \tab FALSE \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   filterProps \tab NA \tab When \code{value} is an object, specifies the properties to match against when filtering. If not set, all properties will be matched. \tab Check API reference \tab FALSE \cr
+   items \tab NA \tab Specifies the items to filter. The component uses the values as the starting point, and returns items  that contain the string entered in the input, using a partial match and recursive search.  This property is needed to conduct filtering. \tab Check API reference \tab FALSE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string | undefined \tab FALSE \cr
+   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   placeholder \tab placeholder \tab Specifies the component's input placeholder text. \tab string | undefined \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
    value \tab value \tab The component's value. \tab string \tab FALSE \cr
 }
 

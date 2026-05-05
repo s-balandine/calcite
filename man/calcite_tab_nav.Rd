@@ -20,9 +20,9 @@ Create a TabNav component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   position \tab position \tab Specifies the position of \code{calcite-tab-nav} and \code{calcite-tab-title} components in relation to, and is inherited from the parent \code{calcite-tabs}, defaults to \code{top}.   \verb{@internal} \tab "bottom" | "top" \tab FALSE \cr
-   selectedTitle \tab NA \tab Specifies the component's selected \code{calcite-tab-title}. \tab HTMLCalciteTabTitleElement \tab FALSE \cr
+   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   position \tab position \tab Specifies the position of \code{calcite-tab-nav} and \code{calcite-tab-title} components in relation to, and is inherited from the parent \code{calcite-tabs}, defaults to \code{top}.   @internal \tab TabPosition \tab FALSE \cr
+   selectedTitle \tab NA \tab Specifies the component's selected \code{calcite-tab-title}. \tab TabTitle \tab FALSE \cr
    storageId \tab storage-id \tab Specifies the name when saving selected \code{calcite-tab} data to \code{localStorage}. \tab string \tab TRUE \cr
    syncId \tab sync-id \tab Specifies text to update multiple components to keep in sync if one changes. \tab string \tab TRUE \cr
 }

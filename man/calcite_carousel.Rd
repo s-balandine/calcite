@@ -20,14 +20,15 @@ Create a Carousel component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   arrowType \tab arrow-type \tab Specifies how and if the "previous" and "next" arrows are displayed. \tab "edge" | "inline" | "none" \tab TRUE \cr
-   autoplay \tab autoplay \tab When \code{true}, the carousel will autoplay and controls will be displayed. When "paused" at time of initialization, the carousel will not autoplay, but controls will be displayed. \tab "" | "paused" | boolean \tab TRUE \cr
+   arrowType \tab arrow-type \tab Specifies how and if the "previous" and "next" arrows are displayed. \tab ArrowType \tab TRUE \cr
+   autoplay \tab autoplay \tab When \code{true}, the carousel will autoplay and controls will be displayed. When "paused" at time of initialization, the carousel will not autoplay, but controls will be displayed. \tab AutoplayType \tab TRUE \cr
    autoplayDuration \tab autoplay-duration \tab When \code{autoplay} is \code{true}, specifies in milliseconds the length of time to display each Carousel Item. \tab number \tab TRUE \cr
    controlOverlay \tab control-overlay \tab Specifies if the component's controls are positioned absolutely on top of slotted Carousel Items. \tab boolean \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
-   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   selectedItem \tab NA \tab The component's selected \code{calcite-carousel-item}. \tab HTMLCalciteCarouselItemElement \tab FALSE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
+   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   paginationDisabled \tab pagination-disabled \tab When \code{true}, the component's pagination controls are hidden. \tab boolean \tab FALSE \cr
+   selectedItem \tab NA \tab The component's selected \code{calcite-carousel-item}. \tab CarouselItem \tab FALSE \cr
 }
 
 }

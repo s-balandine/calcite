@@ -20,7 +20,7 @@ Create a Navigation component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   label \tab label \tab When \code{navigationAction} is \code{true}, specifies the label of the \code{calcite-action}. \tab string \tab FALSE \cr
+   label \tab label \tab When \code{navigationAction} is \code{true}, specifies an accessible label for the \code{calcite-action}. \tab string \tab FALSE \cr
    navigationAction \tab navigation-action \tab When \code{true}, displays a \code{calcite-action} and emits a \code{calciteNavActionSelect} event on selection change. \tab boolean \tab TRUE \cr
 }
 

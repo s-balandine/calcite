@@ -21,15 +21,15 @@ Create a RadioButtonGroup component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
-   labelText \tab label-text \tab When provided, displays label text on the component. \tab string \tab FALSE \cr
-   layout \tab layout \tab Check API reference \tab "grid" | "horizontal" | "vertical" \tab TRUE \cr
-   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   name \tab name \tab Specifies the name of the component on form submission. Must be unique to other component instances. \tab string \tab TRUE \cr
+   labelText \tab label-text \tab Specifies the component's label text. \tab string \tab FALSE \cr
+   layout \tab layout \tab Specifies the layout of the component. \tab Check API reference \tab TRUE \cr
+   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   name \tab name \tab Specifies the name of the component. Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
    required \tab required \tab When \code{true} and the component resides in a form, the component must have a value in order for the form to submit. \tab boolean \tab TRUE \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
-   selectedItem \tab NA \tab Specifies the component's selected item. \tab HTMLCalciteRadioButtonElement \tab FALSE \cr
-   status \tab status \tab Specifies the status of the validation message. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
-   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab boolean | string \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
+   selectedItem \tab NA \tab Specifies the component's selected item. \tab RadioButton \tab FALSE \cr
+   status \tab status \tab Specifies the status of the validation message. \tab Status \tab TRUE \cr
+   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab IconName | boolean \tab TRUE \cr
    validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
 }
 

@@ -21,10 +21,10 @@ Create a Loader component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    inline \tab inline \tab When \code{true}, the component displays smaller. \tab boolean \tab TRUE \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
    text \tab text \tab When not \code{inline}, displays text under the component's indicator. \tab string \tab FALSE \cr
-   type \tab type \tab Specifies the component type.  Use \code{"indeterminate"} if finding actual progress value is impossible. Otherwise, use \code{"determinate"} to have the value indicate the progress or \code{"determinate-value"} to have the value label displayed along the progress. \tab "determinate" | "determinate-value" | "indeterminate" \tab TRUE \cr
+   type \tab type \tab Specifies the component type.  Use \code{"indeterminate"} if finding actual progress value is impossible. Otherwise, use \code{"determinate"} to have the value indicate the progress or \code{"determinate-value"} to have the value label displayed along the progress. \tab "indeterminate" | "determinate" | "determinate-value" \tab TRUE \cr
    value \tab value \tab The component's value. Valid only for \code{"determinate"} indicators. Percent complete of 100. \tab number \tab FALSE \cr
 }
 

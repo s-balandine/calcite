@@ -20,7 +20,7 @@ Create a Flow component
 
 The following slots are provided by this component:\tabular{ll}{
    Slot \tab Description \cr
-   Default (unnamed) \tab A slot for adding \code{calcite-flow-item} elements to the component. \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-flow-item}s to the component. \cr
 }
 
 }

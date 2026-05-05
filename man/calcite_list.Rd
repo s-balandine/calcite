@@ -14,7 +14,7 @@ calcite_list(
 )
 }
 \arguments{
-\item{...}{One or more \code{\link[=calcite_list()_item]{calcite_list()_item()}} components}
+\item{...}{One or more \link{calcite_list_item} components}
 
 \item{id}{Component ID (required for Shiny reactivity)}
 

@@ -21,12 +21,12 @@ Create a Stepper component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    icon \tab icon \tab When \code{true}, displays a status icon in the \code{calcite-stepper-item} heading. \tab boolean \tab TRUE \cr
-   layout \tab layout \tab Defines the layout of the component. \tab "horizontal" | "horizontal-single" | "vertical" \tab TRUE \cr
-   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   layout \tab layout \tab Defines the component's layout. \tab StepperLayout \tab TRUE \cr
+   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
    numbered \tab numbered \tab When \code{true}, displays the step number in the \code{calcite-stepper-item} heading. \tab boolean \tab TRUE \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab TRUE \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
-   selectedItem \tab NA \tab Specifies the component's selected item. \tab HTMLCalciteStepperItemElement \tab FALSE \cr
+   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab NumberingSystem | undefined \tab TRUE \cr
+   scale \tab scale \tab Specifies the component's size. \tab Scale \tab TRUE \cr
+   selectedItem \tab NA \tab Specifies the component's selected item. \tab StepperItem \tab FALSE \cr
 }
 
 }
@@ -36,7 +36,6 @@ The following properties are provided by this component:\tabular{lllll}{
 The following events are observed by shiny:\tabular{ll}{
    Event \tab Description \cr
    calciteStepperChange \tab Fires when the active \code{calcite-stepper-item} changes. \cr
-   calciteStepperItemChange \tab Fires when the active \code{calcite-stepper-item} changes. \cr
 }
 
 }
@@ -45,7 +44,7 @@ The following events are observed by shiny:\tabular{ll}{
 
 The following slots are provided by this component:\tabular{ll}{
    Slot \tab Description \cr
-   Default (unnamed) \tab A slot for adding \code{calcite-stepper-item} elements. \cr
+   Default (unnamed) \tab A slot for adding \code{calcite-stepper-item}s. \cr
 }
 
 }

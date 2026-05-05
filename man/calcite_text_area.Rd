@@ -22,28 +22,29 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    columns \tab columns \tab Specifies the component's number of columns. \tab number \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
-   form \tab form \tab The \code{id} of the form that will be associated with the component.  When not set, the component will be associated with its ancestor form element, if any. \tab string \tab TRUE \cr
+   form \tab form \tab Specifies the \code{id} of the component's associated form.  When not set, the component is associated with its ancestor form element, if one exists. \tab string \tab TRUE \cr
    groupSeparator \tab group-separator \tab When \code{true}, number values are displayed with a group separator corresponding to the language and country format. \tab boolean \tab TRUE \cr
-   label \tab label \tab Accessible name for the component. \tab string \tab FALSE \cr
-   labelText \tab label-text \tab When provided, displays label text on the component. \tab string \tab FALSE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
+   labelText \tab label-text \tab Specifies the component's label text. \tab string \tab FALSE \cr
    limitText \tab limit-text \tab When \code{true}, prevents input beyond the \code{maxLength} value, mimicking native text area behavior. \tab boolean \tab TRUE \cr
+   loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
    maxLength \tab max-length \tab When the component resides in a form, specifies the maximum number of characters allowed. \tab number \tab TRUE \cr
-   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
    minLength \tab min-length \tab When the component resides in a form, specifies the minimum number of characters allowed. \tab number \tab TRUE \cr
-   name \tab name \tab Specifies the name of the component. \tab string \tab TRUE \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab "arab" | "arabext" | "latn" \tab FALSE \cr
+   name \tab name \tab Specifies the name of the component. Required to pass the component's value on form submission. \tab string \tab TRUE \cr
+   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab NumberingSystem \tab FALSE \cr
    placeholder \tab placeholder \tab Specifies the placeholder text for the component. \tab string \tab FALSE \cr
    readOnly \tab read-only \tab When \code{true}, the component's \code{value} can be read, but cannot be modified. \tab boolean \tab TRUE \cr
    required \tab required \tab When \code{true} and the component resides in a form, the component must have a value in order for the form to submit. \tab boolean \tab TRUE \cr
-   resize \tab resize \tab Specifies if the component is resizable. \tab "both" | "horizontal" | "none" | "vertical" \tab TRUE \cr
+   resize \tab resize \tab Specifies if the component is resizable. \tab "both" | "horizontal" | "vertical" | "none" \tab TRUE \cr
    rows \tab rows \tab Specifies the component's number of rows. \tab number \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
-   status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab "idle" | "invalid" | "valid" \tab TRUE \cr
-   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab boolean | string \tab TRUE \cr
+   status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab Status \tab TRUE \cr
+   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab IconName | boolean \tab TRUE \cr
    validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
-   validity \tab NA \tab The current validation state of the component. \tab Check API reference \tab FALSE \cr
+   validity \tab NA \tab The component's current validation state. \tab MutableValidityState \tab FALSE \cr
    value \tab value \tab The component's value. \tab string \tab FALSE \cr
-   wrap \tab wrap \tab Specifies the wrapping mechanism for the text. \tab "hard" | "soft" \tab TRUE \cr
+   wrap \tab wrap \tab Specifies the wrapping mechanism for the text. \tab "soft" | "hard" \tab TRUE \cr
 }
 
 }

@@ -24,10 +24,10 @@ The following properties are provided by this component:\tabular{lllll}{
    canPut \tab NA \tab When provided, the method will be called to determine whether the element can be added from another component. \tab (detail: BlockDragDetail) => boolean \tab FALSE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    dragEnabled \tab drag-enabled \tab When \code{true}, \code{calcite-block}s are sortable via a draggable button. \tab boolean \tab TRUE \cr
-   group \tab group \tab The block-group's group identifier.  To drag elements from one group into another, both groups must have the same group value. \tab string \tab TRUE \cr
-   label \tab label \tab Specifies an accessible name for the component.  When \code{dragEnabled} is \code{true} and multiple group sorting is enabled with \code{group}, specifies the component's name for dragging between groups. \tab string \tab FALSE \cr
+   group \tab group \tab Specifies the component's group identifier.  To drag elements from one group into another, both groups must have the same group value. \tab string | undefined \tab TRUE \cr
+   label \tab label \tab Specifies an accessible label for the component.  When \code{dragEnabled} is \code{true} and multiple group sorting is enabled with \code{group}, specifies the component's name for dragging between groups. \tab string \tab FALSE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
    sortDisabled \tab sort-disabled \tab When \code{true}, and a \code{group} is defined, \code{calcite-block}s are no longer sortable. \tab boolean \tab TRUE \cr
 }
 

@@ -28,7 +28,7 @@ calcite_input_number(
   prefix_text = NULL,
   read_only = NULL,
   required = NULL,
-  scale = 's',
+  scale = "s",
   status = NULL,
   step = NULL,
   suffix_text = NULL,

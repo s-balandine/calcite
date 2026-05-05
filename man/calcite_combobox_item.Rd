@@ -21,20 +21,19 @@ Create a ComboboxItem component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    active \tab active \tab When \code{true}, the component is active. \tab boolean \tab TRUE \cr
-   ancestors \tab NA \tab Specifies the parent and grandparent items, which are set on \code{calcite-combobox}. \tab Check API reference \tab FALSE \cr
-   description \tab description \tab A description for the component, which displays below the heading. \tab string \tab FALSE \cr
-   disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
+   ancestors \tab NA \tab Specifies the parent and grandparent \code{calcite-combobox-item}s, which are set on \code{calcite-combobox}. \tab Check API reference \tab FALSE \cr
+   description \tab description \tab Specifies a description for the component. Displays below the heading. \tab string \tab FALSE \cr
+   disabled \tab disabled \tab When \code{true}, prevents interaction and decreases the component's opacity. \tab boolean \tab TRUE \cr
    filterDisabled \tab filter-disabled \tab When \code{true}, omits the component from the \code{calcite-combobox} filtered search results. \tab boolean \tab TRUE \cr
    guid \tab guid \tab The \code{id} attribute of the component. When omitted, a globally unique identifier is used. \tab string \tab TRUE \cr
-   heading \tab heading \tab The component's text. \tab string \tab FALSE \cr
-   icon \tab icon \tab Specifies an icon to display. \tab string \tab TRUE \cr
-   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
-   label \tab label \tab The component's label. \tab any \tab FALSE \cr
-   metadata \tab NA \tab Provides additional metadata to the component used in filtering. \tab Check API reference \tab FALSE \cr
+   heading \tab heading \tab Specifies the component's heading text. \tab string \tab FALSE \cr
+   icon \tab icon \tab Specifies an icon to display. \tab IconName \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true} and the element direction is right-to-left (\code{"rtl"}), flips the component\code{s }icon`. \tab boolean \tab TRUE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab any \tab FALSE \cr
+   metadata \tab NA \tab Specifies additional metadata to the component for use in filtering. \tab Check API reference \tab FALSE \cr
    selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
-   shortHeading \tab short-heading \tab The component's short heading.  When provided, the short heading will be displayed in the component's selection.  It is recommended to use 5 characters or fewer. \tab string \tab FALSE \cr
-   textLabel \tab text-label \tab The component's text. \tab string \tab TRUE \cr
-   value \tab value \tab The component's value. \tab any \tab FALSE \cr
+   shortHeading \tab short-heading \tab Specifies the component's short heading.  When provided, the short heading will be displayed in the component's selection.  It is recommended to use 5 characters or fewer. \tab string \tab FALSE \cr
+   value \tab value \tab The component's value. Falls back to \code{heading} if not provided. \tab any \tab TRUE \cr
 }
 
 }

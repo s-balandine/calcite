@@ -20,30 +20,32 @@ Create a Dialog component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   beforeClose \tab NA \tab Passes a function to run before the component closes. \tab Check API reference \tab FALSE \cr
+   beforeClose \tab NA \tab Specifies a function to run before the component closes. \tab Check API reference \tab FALSE \cr
    closeDisabled \tab close-disabled \tab When \code{true}, disables the component's close button. \tab boolean \tab TRUE \cr
-   description \tab description \tab A description for the component. \tab string \tab FALSE \cr
+   description \tab description \tab Specifies the component's description. \tab string \tab FALSE \cr
    dragEnabled \tab drag-enabled \tab When \code{true}, the component is draggable. \tab boolean \tab TRUE \cr
    escapeDisabled \tab escape-disabled \tab When \code{true}, disables the default close on escape behavior.  By default, an open dialog can be dismissed by pressing the Esc key. \tab boolean \tab TRUE \cr
    focusTrapDisabled \tab focus-trap-disabled \tab When \code{true} and \code{modal} is \code{false}, prevents focus trapping. \tab boolean \tab TRUE \cr
-   focusTrapOptions \tab NA \tab Specifies custom focus trap configuration on the component, where  \verb{"allowOutsideClick}" allows outside clicks, \code{"initialFocus"} enables initial focus, \code{"returnFocusOnDeactivate"} returns focus when not active, and \code{"extraContainers"} specifies additional focusable elements external to the trap (e.g., 3rd-party components appending elements to the document body). \code{"setReturnFocus"} customizes the element to which focus is returned when the trap is deactivated. Return \code{false} to prevent focus return, or \code{undefined} to use the default behavior (returning focus to the element focused before activation). \tab Check API reference \tab FALSE \cr
-   heading \tab heading \tab The component header text. \tab string \tab FALSE \cr
-   headingLevel \tab heading-level \tab Specifies the heading level of the component's \code{heading} for proper document structure, without affecting visual styling. \tab 1 | 2 | 3 | 4 | 5 | 6 \tab TRUE \cr
-   icon \tab icon \tab Specifies an icon to display. \tab string \tab TRUE \cr
-   iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
-   kind \tab kind \tab Specifies the kind of the component, which will style the top border. \tab "brand" | "danger" | "info" | "success" | "warning" \tab TRUE \cr
+   focusTrapOptions \tab NA \tab Specifies custom focus trap configuration on the component, where  \verb{"allowOutsideClick}" allows outside clicks, \code{"initialFocus"} enables initial focus, \code{"returnFocusOnDeactivate"} returns focus when not active, \code{"extraContainers"} specifies additional focusable elements external to the trap, such as 3rd-party components appending elements to the document body, and \code{"setReturnFocus"} customizes the element to which focus is returned when the trap is deactivated. Return \code{false} to prevent focus return, or \code{undefined} to use the default behavior (returning focus to the element focused before activation). \tab Check API reference \tab FALSE \cr
+   fullscreenDisabled \tab fullscreen-disabled \tab When \code{true}, the component will not display at fullscreen, which may be desired in limited display areas, such as mobile devices. \tab boolean \tab TRUE \cr
+   heading \tab heading \tab Specifies the component's heading text. \tab string \tab FALSE \cr
+   headingLevel \tab heading-level \tab Specifies the heading level number of the component's \code{heading} for proper document structure, without affecting visual styling. \tab HeadingLevel \tab TRUE \cr
+   icon \tab icon \tab Specifies an icon to display. \tab IconName \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true} and the element direction is right-to-left (\code{"rtl"}), flips the component\code{s }icon`. \tab boolean \tab TRUE \cr
+   kind \tab kind \tab Specifies the component's kind, which determines the top border styling. \tab Check API reference \tab TRUE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
    menuOpen \tab menu-open \tab When \code{true}, the action menu items in the \code{header-menu-actions} slot are open. \tab boolean \tab TRUE \cr
-   messageOverrides \tab NA \tab Use this property to override individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
    modal \tab modal \tab When \code{true}, displays a scrim blocking interaction underneath the component. \tab boolean \tab TRUE \cr
    open \tab open \tab When \code{true}, displays and positions the component. \tab boolean \tab TRUE \cr
    outsideCloseDisabled \tab outside-close-disabled \tab When \code{true}, disables the closing of the component when clicked outside. \tab boolean \tab TRUE \cr
-   overlayPositioning \tab overlay-positioning \tab Determines the type of positioning to use for the overlaid content.  Using \code{"absolute"} will work for most cases. The component will be positioned inside of overflowing parent containers and will affect the container's layout.  \code{"fixed"} should be used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab "absolute" | "fixed" \tab TRUE \cr
-   placement \tab placement \tab Specifies the placement of the dialog. \tab "bottom" | "bottom-end" | "bottom-start" | "center" | "cover" | "top" | "top-end" | "top-start" \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content, where:  \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout, and  \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
+   placement \tab placement \tab Specifies the component's placement. \tab DialogPlacement \tab TRUE \cr
    resizable \tab resizable \tab When \code{true}, the component is resizable. \tab boolean \tab TRUE \cr
-   scale \tab scale \tab Specifies the size of the component. \tab "l" | "m" | "s" \tab TRUE \cr
-   width \tab width \tab Specifies the width of the component. \tab "l" | "m" | "s" \tab TRUE \cr
-   widthScale \tab width-scale \tab Specifies the width of the component. \tab "l" | "m" | "s" \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
+   topLayerDisabled \tab top-layer-disabled \tab When \code{true} and the component is \code{open}, disables top layer placement.  Only set this if you need complex z-index control or if top layer placement causes conflicts with third-party components. \tab boolean \tab TRUE \cr
+   width \tab width \tab Specifies the component's width. \tab Check API reference \tab TRUE \cr
+   widthScale \tab width-scale \tab Specifies the component's width. \tab Scale \tab TRUE \cr
 }
 
 }
@@ -55,8 +57,8 @@ The following events are observed by shiny:\tabular{ll}{
    calciteDialogBeforeClose \tab Fires when the component is requested to be closed and before the closing transition begins. \cr
    calciteDialogBeforeOpen \tab Fires when the component is added to the DOM but not rendered, and before the opening transition begins. \cr
    calciteDialogClose \tab Fires when the component is closed and animation is complete. \cr
-   calciteDialogOpen \tab Fires when the component is open and animation is complete. \cr
-   calciteDialogScroll \tab Fires when the content is scrolled. \cr
+   calciteDialogOpen \tab Fires when the component is opened and animation is complete. \cr
+   calciteDialogScroll \tab Fires when the component's content is scrolled. \cr
 }
 
 }
@@ -66,8 +68,7 @@ The following events are observed by shiny:\tabular{ll}{
 The following slots are provided by this component:\tabular{ll}{
    Slot \tab Description \cr
    Default (unnamed) \tab A slot for adding content. \cr
-   content \tab \link{Deprecated} Use \code{custom-content} slot instead. \cr
-   custom-content \tab A slot for displaying custom content. Will prevent the rendering of any default Dialog UI, except for \code{box-shadow} and \code{corner-radius}. \cr
+   custom-content \tab A slot for displaying custom content. Will prevent the rendering of any default component UI, except for \code{box-shadow} and \code{corner-radius}. \cr
    action-bar \tab A slot for adding a \code{calcite-action-bar} to the component. \cr
    alerts \tab A slot for adding \code{calcite-alert}s to the component. \cr
    content-bottom \tab A slot for adding content below the unnamed (default) slot and - if populated - the \code{footer} slot. \cr
@@ -77,9 +78,9 @@ The following slots are provided by this component:\tabular{ll}{
    header-content \tab A slot for adding custom content to the component's header. \cr
    header-menu-actions \tab A slot for adding an overflow menu with actions inside a \code{calcite-dropdown}. \cr
    fab \tab A slot for adding a \code{calcite-fab} (floating action button) to perform an action. \cr
-   footer \tab A slot for adding custom content to the component's footer. Should not be used with the \code{"footer-start"} or \code{"footer-end"} slots. \cr
-   footer-end \tab A slot for adding a trailing footer custom content. Should not be used with the \code{"footer"} slot. \cr
-   footer-start \tab A slot for adding a leading footer custom content. Should not be used with the \code{"footer"} slot. \cr
+   footer \tab A slot for adding custom content to the component's footer. Should not be used with the \code{footer-start} or \code{footer-end} slots. \cr
+   footer-end \tab A slot for adding a trailing footer custom content. Should not be used with the \code{footer} slot. \cr
+   footer-start \tab A slot for adding a leading footer custom content. Should not be used with the \code{footer} slot. \cr
 }
 
 }
