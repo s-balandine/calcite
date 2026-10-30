@@ -1,16 +1,16 @@
 library(dplyr)
-json_raw <- yyjsonr::read_json_conn("https://unpkg.com/@esri/calcite-components@5.0.2/dist/docs/docs.json")
+json_raw <- yyjsonr::read_json_conn("https://unpkg.com/@esri/calcite-components@5.2.0/dist/docs/docs.json")
 
 components_raw <- json_raw[["components"]] |>
   tibble::as_tibble()
 
 api_json_raw <- yyjsonr::read_json_conn(
-  "https://unpkg.com/@esri/calcite-components@5.0.2/dist/docs/api.json"
+  "https://unpkg.com/@esri/calcite-components@5.2.0/dist/docs/api.json"
 )
 
 
 component_names <- yyjsonr::read_json_conn(
-  "https://unpkg.com/@esri/calcite-components@5.0.2/dist/docs/api.json"
+  "https://unpkg.com/@esri/calcite-components@5.2.0/dist/docs/api.json"
 )[[c("modules", "declarations")]] |>
   dplyr::bind_rows() |>
   dplyr::filter(kind == 'class', name != 'TimeController') |>
@@ -64,7 +64,7 @@ components <- filter(components, !(fn_name %in% c(
 
 # for now we filter out all of the components that have an API reference page
 resps <- lapply(
-  paste0("https://developers.arcgis.com/calcite-design-system/components/", gsub("calcite-", "", components$tag)),
+  paste0("https://developers.arcgis.com/calcite-design-system/components/", gsub("calcite-", "", components$tag, fixed = TRUE)),
   \(url) {
     httr2::request(url) |>
       httr2::req_error(\(.x) FALSE)

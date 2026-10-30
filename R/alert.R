@@ -3,7 +3,7 @@
 #' Alerts are meant to quickly convey a message to the user. They are ephemeral,
 #' workflow-specific messaging that is positioned absolutely over content.
 #'
-#' @param kind Specifies the kind of alert: "brand", "danger", "info", "success", or "warning" (default: "brand")
+#' @param kind [input | esriLong ] Specifies the kind of alert: "brand", "danger", "info", "success", or "warning" (default: "brand")
 #' @param ... Child content for the alert
 #' @param id Component ID (required for Shiny reactivity)
 #' @param label Accessible name for the component (required)
