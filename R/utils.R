@@ -1,27 +1,21 @@
-CALCITE_VERSION <- "5.0.2"
+CALCITE_VERSION <- '5.1.2'
 
 calcite_dependency <- function() {
   htmltools::htmlDependency(
-    name = "calcite",
+    name = 'calcite',
     version = CALCITE_VERSION,
-    src = c(
-      href = "https://js.arcgis.com"
-    ),
-    script = list(src = sprintf(
-        "calcite-components/%s/",
-        CALCITE_VERSION
-      ), type = "module")
+    src = c(href = 'https://js.arcgis.com'),
+    script = list(src = sprintf('calcite-components/%s/', CALCITE_VERSION), type = 'module')
   )
 }
 
-
 calcite_bindings <- function() {
   htmltools::htmlDependency(
-    name = "calcite-binding",
+    name = 'calcite-binding',
     version = CALCITE_VERSION,
-    src = c(file = system.file("www", package = "calcite")),
-    script = "calcite-bindings.js",
-    stylesheet = "calcite-bindings.css"
+    src = c(file = system.file('www', package = 'calcite')),
+    script = 'calcite-bindings.js',
+    stylesheet = 'calcite-bindings.css'
   )
 }
 
@@ -48,32 +42,32 @@ calcite_version <- function() {
 #' @examples
 #' # this cannot work outside of shiny
 #' if (interactive()) {
-#' library(shiny)
-#' ui <- calcite_shell(
-#'   calcite_card(
-#'     heading = "Content",
-#'     calcite_label(
-#'       layout = "inline",
-#'       calcite_checkbox(id = "checked"),
-#'       "Click me"
+#'   library(shiny)
+#'   ui <- calcite_shell(
+#'     calcite_card(
+#'       heading = 'Content',
+#'       calcite_label(
+#'         layout = 'inline',
+#'         calcite_checkbox(id = 'checked'),
+#'         'Click me'
+#'       )
+#'     ),
+#'     calcite_notice(
+#'       id = 'initial-note',
+#'       div(slot = 'title', 'Nice!'),
+#'       div(slot = 'message', 'This is a success message')
 #'     )
-#'   ),
-#'   calcite_notice(
-#'     id = "initial-note",
-#'     div(slot = "title", "Nice!"),
-#'     div(slot = "message", "This is a success message")
 #'   )
-#' )
 #'
-#' server <- function(input, output, session) {
-#'   observeEvent(input$checked_checked, {
-#'     checked <- input$checked_checked$values
-#'     # Update the `initial-note` property here
-#'     update_calcite("initial-note", open = checked)
-#'   })
-#' }
+#'   server <- function(input, output, session) {
+#'     observeEvent(input$checked_checked, {
+#'       checked <- input$checked_checked$values
+#'       # Update the `initial-note` property here
+#'       update_calcite('initial-note', open = checked)
+#'     })
+#'   }
 #'
-#' # shinyApp(ui, server)
+#'   # shinyApp(ui, server)
 #' }
 #' @returns NULL. Sends a message to the shiny session object.
 update_calcite <- function(
@@ -105,7 +99,7 @@ add_slot <- function(content, slot_name) {
   }
 
   # If content is already a tag, add/override the slot attribute
-  if (inherits(content, "shiny.tag")) {
+  if (inherits(content, 'shiny.tag')) {
     content$attribs$slot <- slot_name
     return(content)
   }
@@ -113,7 +107,7 @@ add_slot <- function(content, slot_name) {
   # If it's a list of tags, add slot to each
   if (is.list(content)) {
     return(lapply(content, function(x) {
-      if (inherits(x, "shiny.tag")) {
+      if (inherits(x, 'shiny.tag')) {
         x$attribs$slot <- slot_name
       }
       x
@@ -129,37 +123,36 @@ add_slot <- function(content, slot_name) {
 #' @export
 #' @examples
 #' if (interactive()) {
-#' open_example()
+#'   open_example()
 #' }
 #'
 open_example <- function() {
-  rlang::check_installed("rstudioapi")
+  rlang::check_installed('rstudioapi')
   examples <- list.files(
-    system.file("examples", package = "calcite"),
+    system.file('examples', package = 'calcite'),
     full.names = TRUE
   )
 
   fnames <- basename(examples)
-  chosen <- menu(fnames, title = "Choose an example")
+  chosen <- menu(fnames, title = 'Choose an example')
 
   cli::cli_inform(
     c(
-      "*" = "Opening new file with example {.file {fnames[chosen]}}",
-      "i" = "Please replace {.fn devtools::load_all} with {.code library(calcite)}"
+      `*` = 'Opening new file with example {.file {fnames[chosen]}}',
+      i = 'Please replace {.fn devtools::load_all} with {.code library(calcite)}'
     )
   )
   path <- examples[chosen]
   text <- brio::read_file(examples[chosen])
 
   rstudioapi::documentNew(gsub(
-    "devtools::load_all\\(\\)",
-    "library(calcite)",
+    'devtools::load_all\\(\\)',
+    'library(calcite)',
     text
   ))
 }
 
 clean_attribs <- function(attribs) {
-
   for (i in rev(seq_along(attribs))) {
     arg_name <- names(attribs)[i]
     if (arg_name != '') {
