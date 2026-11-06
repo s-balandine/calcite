@@ -24,7 +24,7 @@ The following properties are provided by this component:\tabular{lllll}{
    label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
    scale \tab scale \tab Specifies the size of the component. Child \code{calcite-chip}s inherit the component's value. \tab Scale \tab TRUE \cr
    selectedItems \tab NA \tab Specifies the component's selected items. \tab Check API reference \tab FALSE \cr
-   selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where:  \code{"multiple"} allows any number of selections,  \code{"single"} allows only one selection,  \code{"single-persist"} allows one selection and prevents de-selection, and  \code{"none"} does not allow any selections. \tab Check API reference \tab TRUE \cr
+   selectionMode \tab selection-mode \tab Specifies the selection mode of the component.  - \code{"multiple"} allows any number of selections. - \code{"single"} allows only one selection. - \code{"single-persist"} allows one selection and prevents de-selection. - \code{"none"} does not allow any selections. \tab Check API reference \tab TRUE \cr
 }
 
 }

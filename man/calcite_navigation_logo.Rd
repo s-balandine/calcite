@@ -21,16 +21,16 @@ Create a NavigationLogo component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    active \tab active \tab When \code{true}, the component is highlighted. \tab boolean \tab TRUE \cr
-   description \tab description \tab Specifies a description for the component. Displays below the \code{heading}. \tab string \tab FALSE \cr
-   heading \tab heading \tab Specifies the component's heading text. \tab string \tab FALSE \cr
-   headingLevel \tab heading-level \tab Specifies the heading level number of the component's \code{heading} for proper document structure, without affecting visual styling. \tab HeadingLevel \tab TRUE \cr
-   href \tab href \tab Specifies the URL destination of the component, which can be set as an absolute or relative path. \tab string \tab TRUE \cr
-   icon \tab icon \tab Specifies an icon to display. \tab IconName \tab TRUE \cr
+   description \tab description \tab Specifies a description for the component. Displays below the \code{heading}. \tab string | undefined \tab FALSE \cr
+   heading \tab heading \tab Specifies the component's heading text. \tab string | undefined \tab FALSE \cr
+   headingLevel \tab heading-level \tab Specifies the heading level number of the component's \code{heading} for proper document structure, without affecting visual styling. \tab HeadingLevel | undefined \tab TRUE \cr
+   href \tab href \tab Specifies the URL destination of the component, which can be set as an absolute or relative path. \tab string | undefined \tab TRUE \cr
+   icon \tab icon \tab Specifies an icon to display. \tab IconName | undefined \tab TRUE \cr
    iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
-   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
-   rel \tab rel \tab Defines the relationship between the \code{href} value and the current document. \tab string \tab TRUE \cr
-   target \tab target \tab Specifies where to open the linked document defined in the \code{href} property. \tab string \tab TRUE \cr
-   thumbnail \tab thumbnail \tab Specifies the \code{src} to an image. \tab string \tab FALSE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string | undefined \tab FALSE \cr
+   rel \tab rel \tab Defines the relationship between the \code{href} value and the current document. \tab string | undefined \tab TRUE \cr
+   target \tab target \tab Specifies where to open the linked document defined in the \code{href} property. \tab string | undefined \tab TRUE \cr
+   thumbnail \tab thumbnail \tab Specifies the \code{src} to an image. \tab string | undefined \tab FALSE \cr
 }
 
 }

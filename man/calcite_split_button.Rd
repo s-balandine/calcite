@@ -24,22 +24,22 @@ The following properties are provided by this component:\tabular{lllll}{
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    download \tab download \tab Prompts the user to save the linked URL instead of navigating to it. Can be used with or without a value: Without a value, the browser will suggest a filename/extension. \tab string | boolean \tab TRUE \cr
    dropdownIconType \tab dropdown-icon-type \tab Specifies the icon used for the dropdown menu. \tab DropdownIconType \tab TRUE \cr
-   dropdownLabel \tab dropdown-label \tab Accessible name for the dropdown menu. \tab string \tab TRUE \cr
-   flipPlacements \tab NA \tab Specifies the component's fallback \code{placement} for slotted content when it's initial or specified \code{placement} has insufficient space available. \tab Check API reference \tab FALSE \cr
-   href \tab href \tab Specifies the URL of the linked resource, which can be set as an absolute or relative path. \tab string \tab TRUE \cr
+   dropdownLabel \tab dropdown-label \tab Accessible name for the dropdown menu. \tab string | undefined \tab TRUE \cr
+   flipPlacements \tab NA \tab Specifies the component's fallback \code{placement} for slotted content when its initial or specified \code{placement} has insufficient space available. \tab Check API reference \tab FALSE \cr
+   href \tab href \tab Specifies the URL of the linked resource, which can be set as an absolute or relative path. \tab string | undefined \tab TRUE \cr
    kind \tab kind \tab Specifies the kind of the component, which will apply to border and background, if applicable. \tab Check API reference \tab TRUE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed on the primary button. \tab boolean \tab TRUE \cr
-   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content, where:  \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout, and  \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
-   placement \tab placement \tab Determines where the component will be positioned relative to the container element. \tab MenuPlacement \tab TRUE \cr
-   primaryIconEnd \tab primary-icon-end \tab Specifies an icon to display at the end of the primary button. \tab IconName \tab TRUE \cr
-   primaryIconFlipRtl \tab primary-icon-flip-rtl \tab Displays the \code{primaryIconStart} and/or \code{primaryIconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab FlipContext \tab TRUE \cr
-   primaryIconStart \tab primary-icon-start \tab Specifies an icon to display at the start of the primary button. \tab IconName \tab TRUE \cr
-   primaryLabel \tab primary-label \tab Speficies an accessible name for the primary button. \tab string \tab TRUE \cr
-   primaryText \tab primary-text \tab Specifies the text displayed in the primary button. \tab string \tab TRUE \cr
-   rel \tab rel \tab Defines the relationship between the \code{href} value and the current document. \tab string \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content.  - \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout.  - \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
+   placement \tab placement \tab Determines where the component will be positioned relative to the container element. \tab LogicalPlacement \tab TRUE \cr
+   primaryIconEnd \tab primary-icon-end \tab Specifies an icon to display at the end of the primary button. \tab IconName | undefined \tab TRUE \cr
+   primaryIconFlipRtl \tab primary-icon-flip-rtl \tab Displays the \code{primaryIconStart} and/or \code{primaryIconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab FlipContext | undefined \tab TRUE \cr
+   primaryIconStart \tab primary-icon-start \tab Specifies an icon to display at the start of the primary button. \tab IconName | undefined \tab TRUE \cr
+   primaryLabel \tab primary-label \tab Specifies an accessible name for the primary button. \tab string | undefined \tab TRUE \cr
+   primaryText \tab primary-text \tab Specifies the text displayed in the primary button. \tab string | undefined \tab TRUE \cr
+   rel \tab rel \tab Defines the relationship between the \code{href} value and the current document. \tab string | undefined \tab TRUE \cr
    scale \tab scale \tab Specifies the component's size. \tab Scale \tab TRUE \cr
-   target \tab target \tab Specifies where to open the linked document defined in the \code{href} property. \tab string \tab TRUE \cr
-   topLayerDisabled \tab top-layer-disabled \tab When \code{true} and the component is \code{open}, disables top layer placement.  Only set this if you need complex z-index control or if top layer placement causes conflicts with third-party components. \tab boolean \tab TRUE \cr
+   target \tab target \tab Specifies where to open the linked document defined in the \code{href} property. \tab string | undefined \tab TRUE \cr
+   topLayerDisabled \tab top-layer-disabled \tab When \code{true} and the component is \code{open}, disables top layer placement. Only set this if you need complex z-index control or if top layer placement causes conflicts with third-party components. \tab boolean \tab TRUE \cr
    width \tab width \tab Check API reference \tab Check API reference \tab TRUE \cr
 }
 

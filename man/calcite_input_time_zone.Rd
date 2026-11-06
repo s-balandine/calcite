@@ -22,24 +22,26 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    clearable \tab clearable \tab When \code{true}, an empty value (\code{null}) will be allowed as a \code{value}.  When \code{false}, an offset or name value is enforced, and clearing the input or blurring will restore the last valid \code{value}. \tab boolean \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, prevents interaction and decreases the component's opacity. \tab boolean \tab TRUE \cr
-   form \tab form \tab Specifies the \code{id} of the component's associated form.  When not set, the component is associated with its ancestor form element, if one exists. \tab string \tab TRUE \cr
-   labelText \tab label-text \tab Specifies the component's label text. \tab string \tab FALSE \cr
+   form \tab form \tab Specifies the \code{id} of the component's associated form. When not set, the component is associated with its ancestor form element, if one exists. \tab string | undefined \tab TRUE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string | undefined \tab FALSE \cr
+   labelText \tab label-text \tab Specifies the component's label text. \tab string | undefined \tab FALSE \cr
    maxItems \tab max-items \tab Specifies the component's maximum number of options to display before displaying a scrollbar. \tab number \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
    mode \tab mode \tab This specifies the type of \code{value} and the associated options presented to the user:  Using \code{"offset"} will provide options that show timezone offsets.  Using \code{"name"} will provide options that show the IANA time zone names. \tab TimeZoneMode \tab TRUE \cr
-   name \tab name \tab Specifies the name of the component. Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
-   offsetStyle \tab offset-style \tab When \code{mode} is \code{"offset"}, specifies how the offset will be displayed, where  \code{"user"} uses \code{UTC} or \code{GMT} depending on the user's locale, \code{"gmt"} always uses \code{GMT}, and \code{"utc"} always uses \code{UTC}. \tab OffsetStyle \tab TRUE \cr
+   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string | undefined \tab TRUE \cr
+   offsetStyle \tab offset-style \tab When \code{mode} is \code{"offset"}, specifies how the offset will be displayed.  - \code{"user"} uses \code{UTC} or \code{GMT} depending on the user's locale. - \code{"gmt"} always uses \code{GMT}. - \code{"utc"} always uses \code{UTC}. \tab OffsetStyle \tab TRUE \cr
    open \tab open \tab When \code{true}, displays and positions the component. \tab boolean \tab TRUE \cr
-   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content, where:  \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout, and  \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content.  - \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout.  - \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
+   placeholder \tab placeholder \tab Specifies placeholder text for the component. \tab string | undefined \tab FALSE \cr
    readOnly \tab read-only \tab When \code{true}, the component's \code{value} can be read, but controls are not accessible and the \code{value} cannot be modified. \tab boolean \tab TRUE \cr
-   referenceDate \tab reference-date \tab This \code{date} will be used as a reference to Daylight Savings Time when creating time zone item groups.  It can be either a Date instance or a string in ISO format (\code{"YYYY-MM-DD"}, \code{"YYYY-MM-DDTHH:MM:SS.SSSZ"}). \tab Date | string \tab FALSE \cr
+   referenceDate \tab reference-date \tab This \code{date} will be used as a reference to Daylight Savings Time when creating time zone item groups.  It can be either a Date instance or a string in ISO format (\code{"YYYY-MM-DD"}, \code{"YYYY-MM-DDTHH:MM:SS.SSSZ"}). \tab Date | string | undefined \tab FALSE \cr
    scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
    status \tab status \tab Specifies the input field's status, which determines message and icons. \tab Status \tab TRUE \cr
-   topLayerDisabled \tab top-layer-disabled \tab When \code{true} and the component is \code{open}, disables top layer placement.  Only set this if you need complex z-index control or if top layer placement causes conflicts with third-party components. \tab boolean \tab TRUE \cr
-   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab IconName | boolean \tab TRUE \cr
-   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
-   validity \tab NA \tab The component's current validation state. \tab MutableValidityState \tab FALSE \cr
-   value \tab value \tab The component's value, where the value is the time zone offset or the difference, in minutes, between the selected time zone and UTC.  If no value is provided, the user's time zone offset will be selected by default. \tab string \tab FALSE \cr
+   topLayerDisabled \tab top-layer-disabled \tab When \code{true} and the component is \code{open}, disables top layer placement. Only set this if you need complex z-index control or if top layer placement causes conflicts with third-party components. \tab boolean \tab TRUE \cr
+   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab IconName | boolean | undefined \tab TRUE \cr
+   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string | undefined \tab FALSE \cr
+   validity \tab NA \tab The component's current validation state. \tab ValidityState \tab FALSE \cr
+   value \tab value \tab The component's value, where the value is the time zone offset or the difference, in minutes, between the selected time zone and UTC.  If no value is provided, the user's time zone offset will be selected by default. \tab string | undefined \tab FALSE \cr
 }
 
 }

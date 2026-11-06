@@ -20,20 +20,20 @@ Create a Rating component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   average \tab average \tab Specifies a cumulative average from previous ratings to display. \tab number \tab TRUE \cr
-   count \tab count \tab Specifies the number of previous ratings to display. \tab number \tab TRUE \cr
+   average \tab average \tab Specifies a cumulative average from previous ratings to display. \tab number | undefined \tab TRUE \cr
+   count \tab count \tab Specifies the number of previous ratings to display. \tab number | undefined \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
-   form \tab form \tab Specifies the \code{id} of the component's associated form.  When not set, the component is associated with its ancestor form element, if one exists. \tab string \tab TRUE \cr
-   labelText \tab label-text \tab Specifies the component's label text. \tab string \tab FALSE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   name \tab name \tab Specifies the name of the component. Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
+   form \tab form \tab Specifies the \code{id} of the component's associated form. When not set, the component is associated with its ancestor form element, if one exists. \tab string | undefined \tab TRUE \cr
+   labelText \tab label-text \tab Specifies the component's label text. \tab string | undefined \tab FALSE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
+   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string | undefined \tab TRUE \cr
    readOnly \tab read-only \tab When \code{true}, the component's value can be read, but cannot be modified. \tab boolean \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
    showChip \tab show-chip \tab When \code{true}, and if available, displays the \code{average} and/or \code{count} data summary in a \code{calcite-chip}. \tab boolean \tab TRUE \cr
    status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab Status \tab TRUE \cr
-   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab IconName | boolean \tab TRUE \cr
-   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
-   validity \tab NA \tab The component's current validation state. \tab MutableValidityState \tab FALSE \cr
+   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab IconName | boolean | undefined \tab TRUE \cr
+   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string | undefined \tab FALSE \cr
+   validity \tab NA \tab The component's current validation state. \tab ValidityState \tab FALSE \cr
    value \tab value \tab The component's value. \tab number \tab TRUE \cr
 }
 

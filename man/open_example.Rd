@@ -11,7 +11,7 @@ Open a calcite example
 }
 \examples{
 if (interactive()) {
-open_example()
+  open_example()
 }
 
 }

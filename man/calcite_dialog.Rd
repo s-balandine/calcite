@@ -22,28 +22,28 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    beforeClose \tab NA \tab Specifies a function to run before the component closes. \tab Check API reference \tab FALSE \cr
    closeDisabled \tab close-disabled \tab When \code{true}, disables the component's close button. \tab boolean \tab TRUE \cr
-   description \tab description \tab Specifies the component's description. \tab string \tab FALSE \cr
+   description \tab description \tab Specifies a description for the component. \tab string | undefined \tab FALSE \cr
    dragEnabled \tab drag-enabled \tab When \code{true}, the component is draggable. \tab boolean \tab TRUE \cr
    escapeDisabled \tab escape-disabled \tab When \code{true}, disables the default close on escape behavior.  By default, an open dialog can be dismissed by pressing the Esc key. \tab boolean \tab TRUE \cr
    focusTrapDisabled \tab focus-trap-disabled \tab When \code{true} and \code{modal} is \code{false}, prevents focus trapping. \tab boolean \tab TRUE \cr
-   focusTrapOptions \tab NA \tab Specifies custom focus trap configuration on the component, where  \verb{"allowOutsideClick}" allows outside clicks, \code{"initialFocus"} enables initial focus, \code{"returnFocusOnDeactivate"} returns focus when not active, \code{"extraContainers"} specifies additional focusable elements external to the trap, such as 3rd-party components appending elements to the document body, and \code{"setReturnFocus"} customizes the element to which focus is returned when the trap is deactivated. Return \code{false} to prevent focus return, or \code{undefined} to use the default behavior (returning focus to the element focused before activation). \tab Check API reference \tab FALSE \cr
+   focusTrapOptions \tab NA \tab Specifies custom focus trap configuration on the component.  - \verb{"allowOutsideClick}" allows outside clicks. - \code{"initialFocus"} enables initial focus. - \code{"returnFocusOnDeactivate"} returns focus when not active. - \code{"extraContainers"} specifies additional focusable elements external to the trap, such as 3rd-party components appending elements to the document body. - \code{"setReturnFocus"} customizes the element to which focus is returned when the trap is deactivated. Return \code{false} to prevent focus return, or \code{undefined} to use the default behavior (returning focus to the element focused before activation). \tab Check API reference \tab FALSE \cr
    fullscreenDisabled \tab fullscreen-disabled \tab When \code{true}, the component will not display at fullscreen, which may be desired in limited display areas, such as mobile devices. \tab boolean \tab TRUE \cr
-   heading \tab heading \tab Specifies the component's heading text. \tab string \tab FALSE \cr
-   headingLevel \tab heading-level \tab Specifies the heading level number of the component's \code{heading} for proper document structure, without affecting visual styling. \tab HeadingLevel \tab TRUE \cr
-   icon \tab icon \tab Specifies an icon to display. \tab IconName \tab TRUE \cr
-   iconFlipRtl \tab icon-flip-rtl \tab When \code{true} and the element direction is right-to-left (\code{"rtl"}), flips the component\code{s }icon`. \tab boolean \tab TRUE \cr
+   heading \tab heading \tab Specifies the component's heading text. \tab string | undefined \tab FALSE \cr
+   headingLevel \tab heading-level \tab Specifies the heading level number of the component's \code{heading} for proper document structure, without affecting visual styling. \tab HeadingLevel | undefined \tab TRUE \cr
+   icon \tab icon \tab Specifies an icon to display. \tab IconName | undefined \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab When \code{true} and the element direction is right-to-left (\code{"rtl"}), flips the component's \code{icon}. \tab boolean \tab TRUE \cr
    kind \tab kind \tab Specifies the component's kind, which determines the top border styling. \tab Check API reference \tab TRUE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
    menuOpen \tab menu-open \tab When \code{true}, the action menu items in the \code{header-menu-actions} slot are open. \tab boolean \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
    modal \tab modal \tab When \code{true}, displays a scrim blocking interaction underneath the component. \tab boolean \tab TRUE \cr
    open \tab open \tab When \code{true}, displays and positions the component. \tab boolean \tab TRUE \cr
-   outsideCloseDisabled \tab outside-close-disabled \tab When \code{true}, disables the closing of the component when clicked outside. \tab boolean \tab TRUE \cr
-   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content, where:  \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout, and  \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
+   outsideCloseDisabled \tab outside-close-disabled \tab When \code{true} and \code{modal} is \code{true}, disables the closing of the component when clicked outside. \tab boolean \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content.  - \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout.  - \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
    placement \tab placement \tab Specifies the component's placement. \tab DialogPlacement \tab TRUE \cr
    resizable \tab resizable \tab When \code{true}, the component is resizable. \tab boolean \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
-   topLayerDisabled \tab top-layer-disabled \tab When \code{true} and the component is \code{open}, disables top layer placement.  Only set this if you need complex z-index control or if top layer placement causes conflicts with third-party components. \tab boolean \tab TRUE \cr
+   topLayerDisabled \tab top-layer-disabled \tab When \code{true} and the component is \code{open}, disables top layer placement. Only set this if you need complex z-index control or if top layer placement causes conflicts with third-party components. \tab boolean \tab TRUE \cr
    width \tab width \tab Specifies the component's width. \tab Check API reference \tab TRUE \cr
    widthScale \tab width-scale \tab Specifies the component's width. \tab Scale \tab TRUE \cr
 }
@@ -76,7 +76,10 @@ The following slots are provided by this component:\tabular{ll}{
    header-actions-start \tab A slot for adding actions or content to the starting side of the component's header. \cr
    header-actions-end \tab A slot for adding actions or content to the ending side of the component's header. \cr
    header-content \tab A slot for adding custom content to the component's header. \cr
+   header-top \tab A slot for adding custom content above the header actions and content. \cr
    header-menu-actions \tab A slot for adding an overflow menu with actions inside a \code{calcite-dropdown}. \cr
+   heading \tab A slot for adding content to the heading area of the default header. Takes precedence over the \code{heading} property. \cr
+   description \tab A slot for adding content to the description area of the default header. Takes precedence over the \code{description} property. \cr
    fab \tab A slot for adding a \code{calcite-fab} (floating action button) to perform an action. \cr
    footer \tab A slot for adding custom content to the component's footer. Should not be used with the \code{footer-start} or \code{footer-end} slots. \cr
    footer-end \tab A slot for adding a trailing footer custom content. Should not be used with the \code{footer} slot. \cr

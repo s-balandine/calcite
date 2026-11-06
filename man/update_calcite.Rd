@@ -11,7 +11,7 @@ update_calcite(id, ..., session = shiny::getDefaultReactiveDomain())
 
 \item{...}{named properties to be updated in the component. The names must match the property name. Otherwise, will fail silently.}
 
-\item{session}{a shiny session object. Default \code{\link[shiny:domains]{shiny::getDefaultReactiveDomain()}}.}
+\item{session}{a shiny session object. Default \code{\link[shiny:getDefaultReactiveDomain]{shiny::getDefaultReactiveDomain()}}.}
 }
 \value{
 NULL. Sends a message to the shiny session object.
@@ -22,31 +22,31 @@ Updates the properties of the javascript Calcite component.
 \examples{
 # this cannot work outside of shiny
 if (interactive()) {
-library(shiny)
-ui <- calcite_shell(
-  calcite_card(
-    heading = "Content",
-    calcite_label(
-      layout = "inline",
-      calcite_checkbox(id = "checked"),
-      "Click me"
+  library(shiny)
+  ui <- calcite_shell(
+    calcite_card(
+      heading = 'Content',
+      calcite_label(
+        layout = 'inline',
+        calcite_checkbox(id = 'checked'),
+        'Click me'
+      )
+    ),
+    calcite_notice(
+      id = 'initial-note',
+      div(slot = 'title', 'Nice!'),
+      div(slot = 'message', 'This is a success message')
     )
-  ),
-  calcite_notice(
-    id = "initial-note",
-    div(slot = "title", "Nice!"),
-    div(slot = "message", "This is a success message")
   )
-)
 
-server <- function(input, output, session) {
-  observeEvent(input$checked_checked, {
-    checked <- input$checked_checked$values
-    # Update the `initial-note` property here
-    update_calcite("initial-note", open = checked)
-  })
-}
+  server <- function(input, output, session) {
+    observeEvent(input$checked_checked, {
+      checked <- input$checked_checked$values
+      # Update the `initial-note` property here
+      update_calcite('initial-note', open = checked)
+    })
+  }
 
-# shinyApp(ui, server)
+  # shinyApp(ui, server)
 }
 }

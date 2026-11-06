@@ -20,7 +20,7 @@ Create a Swatch component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   color \tab color \tab Specifies the component's color \tab string \tab FALSE \cr
+   color \tab color \tab Specifies the component's color \tab string | undefined \tab FALSE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
    scale \tab scale \tab Specifies the component's size. When contained in a parent \code{calcite-swatch-group}, the component inherits the parent's \code{scale} value. \tab Scale \tab TRUE \cr

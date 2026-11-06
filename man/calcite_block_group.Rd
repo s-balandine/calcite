@@ -20,11 +20,12 @@ Create a BlockGroup component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   canPull \tab NA \tab When provided, the method will be called to determine whether the element can move from the component. \tab (detail: BlockDragDetail) => boolean | "clone" \tab FALSE \cr
-   canPut \tab NA \tab When provided, the method will be called to determine whether the element can be added from another component. \tab (detail: BlockDragDetail) => boolean \tab FALSE \cr
+   canPull \tab NA \tab When provided, the method will be called to determine whether the element can be moved from the component. \tab ((detail: BlockDragDetail) => boolean | "clone") | undefined \tab FALSE \cr
+   canPut \tab NA \tab When provided, the method will be called to determine whether the element can be added from another \code{calcite-block-group}. \tab ((detail: BlockDragDetail) => boolean) | undefined \tab FALSE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    dragEnabled \tab drag-enabled \tab When \code{true}, \code{calcite-block}s are sortable via a draggable button. \tab boolean \tab TRUE \cr
-   group \tab group \tab Specifies the component's group identifier.  To drag elements from one group into another, both groups must have the same group value. \tab string | undefined \tab TRUE \cr
+   expandMode \tab expand-mode \tab Specifies the expansion mode of the component, where:  \code{"multiple"} allows any number of \code{calcite-block}s to be expanded,  \code{"single"} allows only one \code{calcite-block} to be expanded, and  \code{"single-persist"} allows one \code{calcite-block} to be expanded and prevents collapsing. \tab Check API reference \tab TRUE \cr
+   group \tab group \tab Specifies the component's group identifier.  To drag elements from one \code{calcite-block-group} into another, both must have the same group value. \tab string | undefined \tab TRUE \cr
    label \tab label \tab Specifies an accessible label for the component.  When \code{dragEnabled} is \code{true} and multiple group sorting is enabled with \code{group}, specifies the component's name for dragging between groups. \tab string \tab FALSE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr

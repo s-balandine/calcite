@@ -20,12 +20,12 @@ in v5.0.0, removal target v6.0.0 - Use the \code{calcite-action-bar} component i
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   actionsEndGroupLabel \tab actions-end-group-label \tab Specifies the accessible label for the last \code{calcite-action-group}. \tab string \tab FALSE \cr
+   actionsEndGroupLabel \tab actions-end-group-label \tab Specifies the accessible label for the last \code{calcite-action-group}. \tab string | undefined \tab FALSE \cr
    expandDisabled \tab expand-disabled \tab When \code{true}, the expand-toggling behavior is disabled. \tab boolean \tab TRUE \cr
    expanded \tab expanded \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
    layout \tab layout \tab Specifies the layout of the component. \tab Check API reference \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content, where:  \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout, and  \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
+   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content.  - \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout.  - \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
    position \tab position \tab Specifies the position of the component depending on the element's \code{dir} property. \tab Check API reference \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the expand \code{calcite-action}. \tab Scale \tab TRUE \cr
    selectionAppearance \tab selection-appearance \tab Specifies the selection appearance of the component \tab Check API reference \tab TRUE \cr

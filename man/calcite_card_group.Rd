@@ -22,6 +22,7 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. Child \code{calcite-card}s inherit the component's value. \tab Scale \tab TRUE \cr
    selectedItems \tab NA \tab Specifies the component's selected items. \tab Check API reference \tab FALSE \cr
    selectionMode \tab selection-mode \tab Specifies the selection mode of the component. \tab Check API reference \tab TRUE \cr
 }

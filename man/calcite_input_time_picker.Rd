@@ -20,28 +20,30 @@ Create a InputTimePicker component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
+   clearable \tab clearable \tab When \code{true}, displays a clear button when the component has a value. \tab boolean \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, prevents interaction and decreases the component's opacity. \tab boolean \tab TRUE \cr
    focusTrapDisabled \tab focus-trap-disabled \tab When \code{true}, prevents focus trapping. \tab boolean \tab TRUE \cr
-   form \tab form \tab Specifies the \code{id} of the component's associated form.  When not set, the component is associated with its ancestor form element, if one exists. \tab string \tab TRUE \cr
-   hourFormat \tab hour-format \tab Specifies the component's hour format, where:  \code{"user"} displays the user's locale format, \code{"12"} displays a 12-hour format, and \code{"24"} displays a 24-hour format. \tab HourFormat \tab TRUE \cr
-   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
-   labelText \tab label-text \tab Specifies the component's label text. \tab string \tab FALSE \cr
-   max \tab max \tab When the component resides in a form, specifies the maximum \code{value}. \tab string \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   min \tab min \tab When the component resides in a form, specifies the minimum \code{value}. \tab string \tab TRUE \cr
-   name \tab name \tab Specifies the name of the component. Required to pass the component's \code{value} on form submission. \tab string \tab FALSE \cr
+   form \tab form \tab Specifies the \code{id} of the component's associated form. When not set, the component is associated with its ancestor form element, if one exists. \tab string | undefined \tab TRUE \cr
+   hourFormat \tab hour-format \tab Specifies the component's hour format.  - \code{"user"} displays the user's locale format. - \code{"12"} displays a 12-hour format. - \code{"24"} displays a 24-hour format. \tab HourFormat \tab TRUE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string | undefined \tab FALSE \cr
+   labelText \tab label-text \tab Specifies the component's label text. \tab string | undefined \tab FALSE \cr
+   max \tab max \tab When the component resides in a form, specifies the maximum \code{value}. \tab string | undefined \tab TRUE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
+   min \tab min \tab When the component resides in a form, specifies the minimum \code{value}. \tab string | undefined \tab TRUE \cr
+   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string | undefined \tab FALSE \cr
    numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab NumberingSystem \tab TRUE \cr
    open \tab open \tab When \code{true}, displays the \code{calcite-time-picker} component. \tab boolean \tab TRUE \cr
-   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content, where:  \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout, and  \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab FALSE \cr
+   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content.  - \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout.  - \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab FALSE \cr
+   placeholder \tab placeholder \tab Specifies the component's placeholder text. \tab string | undefined \tab FALSE \cr
    placement \tab placement \tab Determines the \code{calcite-time-picker}'s position relative to the input. \tab LogicalPlacement \tab TRUE \cr
    readOnly \tab read-only \tab When \code{true}, the component's \code{value} can be read, but controls are not accessible and the \code{value} cannot be modified. \tab boolean \tab TRUE \cr
    required \tab required \tab When \code{true} and the component resides in a form, the component must have a \code{value} in order for the form to submit. \tab boolean \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
    status \tab status \tab Specifies the input field's status, which determines message and icons. \tab Status \tab TRUE \cr
    step \tab step \tab Specifies the granularity the component's \code{value} must adhere to (in seconds). \tab number \tab TRUE \cr
-   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab IconName | boolean \tab TRUE \cr
-   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
-   validity \tab NA \tab The component's current validation state. \tab MutableValidityState \tab FALSE \cr
+   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab IconName | boolean | undefined \tab TRUE \cr
+   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string | undefined \tab FALSE \cr
+   validity \tab NA \tab The component's current validation state. \tab ValidityState \tab FALSE \cr
    value \tab value \tab The time value in ISO (24-hour) format. \tab string \tab FALSE \cr
 }
 

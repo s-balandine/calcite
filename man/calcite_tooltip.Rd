@@ -21,14 +21,16 @@ Create a Tooltip component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    closeOnClick \tab close-on-click \tab Closes the component when the \code{referenceElement} is clicked. \tab boolean \tab TRUE \cr
-   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string | undefined \tab FALSE \cr
    offsetDistance \tab offset-distance \tab Specifies the distance to position the component away from the \code{referenceElement}. \tab number \tab TRUE \cr
    offsetSkidding \tab offset-skidding \tab Specifies the distance to position the component along the \code{referenceElement}. \tab number \tab TRUE \cr
    open \tab open \tab When \code{true}, the component is open. \tab boolean \tab TRUE \cr
-   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content, where:  \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout, and  \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content.  - \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout.  - \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
    placement \tab placement \tab Determines where the component will be positioned relative to the \code{referenceElement}. \tab LogicalPlacement \tab TRUE \cr
-   referenceElement \tab reference-element \tab The \code{referenceElement} is used to position the component according to its \code{placement} value.  Setting the value to an \code{HTMLElement} is preferred so the component does not need to query the DOM.  However, a string \code{id} of the reference element can also be used.  The component should not be placed within its own \code{referenceElement} to avoid unintended behavior. \tab ReferenceElement | string \tab FALSE \cr
-   topLayerDisabled \tab top-layer-disabled \tab When \code{true} and the component is \code{open}, disables top layer placement.  Only set this if you need complex z-index control or if top layer placement causes conflicts with third-party components. \tab boolean \tab TRUE \cr
+   pointerDisabled \tab pointer-disabled \tab When \code{true}, removes the caret pointer. \tab boolean \tab TRUE \cr
+   referenceElement \tab reference-element \tab The \code{referenceElement} is used to position the component according to its \code{placement} value.  Setting the value to an \code{HTMLElement} is preferred so the component does not need to query the DOM.  However, a string \code{id} of the reference element can also be used.  The component should not be placed within its own \code{referenceElement} to avoid unintended behavior. \tab ReferenceElement | string | undefined \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
+   topLayerDisabled \tab top-layer-disabled \tab When \code{true} and the component is \code{open}, disables top layer placement. Only set this if you need complex z-index control or if top layer placement causes conflicts with third-party components. \tab boolean \tab TRUE \cr
 }
 
 }

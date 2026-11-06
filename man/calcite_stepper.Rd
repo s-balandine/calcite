@@ -22,11 +22,11 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    icon \tab icon \tab When \code{true}, displays a status icon in the \code{calcite-stepper-item} heading. \tab boolean \tab TRUE \cr
    layout \tab layout \tab Defines the component's layout. \tab StepperLayout \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
    numbered \tab numbered \tab When \code{true}, displays the step number in the \code{calcite-stepper-item} heading. \tab boolean \tab TRUE \cr
    numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab NumberingSystem | undefined \tab TRUE \cr
    scale \tab scale \tab Specifies the component's size. \tab Scale \tab TRUE \cr
-   selectedItem \tab NA \tab Specifies the component's selected item. \tab StepperItem \tab FALSE \cr
+   selectedItem \tab NA \tab Specifies the component's selected item. \tab StepperItem | null \tab FALSE \cr
 }
 
 }

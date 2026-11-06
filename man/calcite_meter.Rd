@@ -22,21 +22,21 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    appearance \tab appearance \tab Specifies the appearance of the component. \tab Check API reference \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
-   fillType \tab fill-type \tab Specifies the component's display, where \code{"single"} displays a single color, and \code{"range"} displays a range of colors based on provided \code{low}, \code{high}, \code{min} or \code{max} values. \tab MeterFillType \tab TRUE \cr
-   form \tab form \tab Specifies the \code{id} of the component's associated form.  When not set, the component is associated with its ancestor form element, if one exists. \tab string \tab TRUE \cr
+   fillType \tab fill-type \tab Specifies the component's display.  - \code{"single"} displays a single color. - \code{"range"} displays a range of colors based on provided \code{low}, \code{high}, \code{min} or \code{max} values. \tab MeterFillType \tab TRUE \cr
+   form \tab form \tab Specifies the \code{id} of the component's associated form. When not set, the component is associated with its ancestor form element, if one exists. \tab string | undefined \tab TRUE \cr
    groupSeparator \tab group-separator \tab When \code{true}, number values are displayed with a group separator corresponding to the language and country format. \tab boolean \tab TRUE \cr
-   high \tab high \tab Specifies a high value.  When \code{fillType} is \code{"range"}, displays a different color when above the specified threshold. \tab number \tab TRUE \cr
+   high \tab high \tab Specifies a high value.  When \code{fillType} is \code{"range"}, displays a different color when above the specified threshold. \tab number | undefined \tab TRUE \cr
    label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
-   low \tab low \tab Specifies a low value.  When \code{fillType} is \code{"range"}, displays a different color when above the specified threshold. \tab number \tab TRUE \cr
+   low \tab low \tab Specifies a low value.  When \code{fillType} is \code{"range"}, displays a different color when above the specified threshold. \tab number | undefined \tab TRUE \cr
    max \tab max \tab Specifies the component's highest allowed value. \tab number \tab TRUE \cr
    min \tab min \tab Specifies the component's lowest allowed value. \tab number \tab TRUE \cr
-   name \tab name \tab Specifies the name of the component. Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab NumberingSystem \tab FALSE \cr
+   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string | undefined \tab TRUE \cr
+   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab NumberingSystem | undefined \tab FALSE \cr
    rangeLabels \tab range-labels \tab When \code{true}, displays the values of \code{high}, \code{low}, \code{min}, and \code{max}. \tab boolean \tab TRUE \cr
    rangeLabelType \tab range-label-type \tab When \code{rangeLabels} is \code{true}, specifies the format of displayed labels. \tab MeterLabelType \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
    unitLabel \tab unit-label \tab When \code{rangeLabelType} is \code{"units"} and either \code{valueLabel} or \code{rangeLabels} are \code{true}, displays beside the \code{value} and/or  \code{min} values. \tab string \tab FALSE \cr
-   value \tab value \tab Specifies the component's value. \tab number \tab FALSE \cr
+   value \tab value \tab Specifies the component's value. \tab number | undefined \tab FALSE \cr
    valueLabel \tab value-label \tab When \code{true}, displays the \code{value}. \tab boolean \tab TRUE \cr
    valueLabelType \tab value-label-type \tab When \code{valueLabel} is \code{true}, specifies the format of displayed label. \tab MeterLabelType \tab TRUE \cr
 }

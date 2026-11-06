@@ -20,15 +20,19 @@ Create a ActionBar component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   actionsEndGroupLabel \tab actions-end-group-label \tab Specifies an accessible name for the last \code{calcite-action-group}. \tab string \tab FALSE \cr
-   expandDisabled \tab expand-disabled \tab When \code{true}, the expand-toggling behavior is disabled. \tab boolean \tab TRUE \cr
-   expanded \tab expanded \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
+   actionsEndGroupLabel \tab actions-end-group-label \tab Specifies an accessible name for the last \code{calcite-action-group}. \tab string | undefined \tab FALSE \cr
+   actionsStartGroupLabel \tab actions-start-group-label \tab Specifies an accessible name for the first \code{calcite-action-group}. \tab string | undefined \tab FALSE \cr
+   expandDisabled \tab expand-disabled \tab When \code{true}, the expand/collapse toggle button is not shown. \tab boolean \tab TRUE \cr
+   expanded \tab expanded \tab When \code{true}, expands the component.  The \code{expanded} or \code{textEnabled} state of \code{calcite-action}, \code{calcite-action-group}, and \code{calcite-action-menu} children is synced when this property is toggled, not during initialization. When a child \code{calcite-action} specifies \code{textEnabled} as \code{true}, its \code{text} initially displays adjacent to its \code{icon} regardless of expansion. \tab boolean \tab TRUE \cr
+   expandPosition \tab expand-position \tab Specifies the position of the expand \code{calcite-action}. \tab Check API reference \tab TRUE \cr
+   expandToggleDisabled \tab expand-toggle-disabled \tab When \code{true}, the expand/collapse toggle button is not shown. \tab boolean \tab TRUE \cr
    floating \tab floating \tab When \code{true}, the component is in a floating state. \tab boolean \tab TRUE \cr
    layout \tab layout \tab Specifies the layout direction of the actions. \tab Check API reference \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
    overflowActionsDisabled \tab overflow-actions-disabled \tab When \code{true}, disables automatically overflowing \code{calcite-action}s that won't fit into menus. \tab boolean \tab TRUE \cr
-   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content, where:  \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout, and  \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
-   position \tab position \tab Specifies the position of the component depending on the element's \code{dir} property. \tab Check API reference \tab TRUE \cr
+   overflowMode \tab overflow-mode \tab Specifies how the component handles \code{calcite-action}s that overflow the available space, where:  \code{"collapse"} overflows actions that won't fit into menus,  \code{"wrap"} allows the actions to wrap onto multiple lines, adding dividers between the wrapped rows or columns (has no effect when \code{layout} is \code{"grid"}), and  \code{"none"} applies no overflow handling. \tab "collapse" | "wrap" | "none" \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content.  - \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout.  - \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
+   position \tab position \tab When \code{expandToggleDisabled} is \code{false}, specifies the expand toggle's chevron direction.  - \code{"start"} positions the expand toggle's chevron away from the start of the component when \code{expanded} is \code{false}. - \code{"end"} positions the expand toggle's chevron away from the end of the component when \code{expanded} is \code{false}.  When \code{expanded} is \code{true}, the chevron direction is reversed. \tab Check API reference \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the expand \code{calcite-action}. \tab Scale \tab TRUE \cr
    selectionAppearance \tab selection-appearance \tab Specifies the selection appearance of the component \tab Check API reference \tab TRUE \cr
 }
@@ -52,6 +56,7 @@ The following slots are provided by this component:\tabular{ll}{
    Slot \tab Description \cr
    Default (unnamed) \tab A slot for adding \code{calcite-action}s that will appear at the top of the component. \cr
    actions-end \tab A slot for adding \code{calcite-action}s that will appear at the end of the component, prior to the collapse/expand button. \cr
+   actions-start \tab A slot for adding \code{calcite-action}s that will appear at the start of the component. When \code{expandPosition} is \code{"start"}, actions in this slot will render after the collapse/expand button. \cr
    expand-tooltip \tab A slot to set the \code{calcite-tooltip} for the expand toggle. \cr
 }
 

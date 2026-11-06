@@ -79,14 +79,15 @@ The following properties are provided by this component:\tabular{lllll}{
    groupSeparator \tab group-separator \tab When \code{true}, number values are displayed with a group separator corresponding to the language and country format. \tab boolean \tab TRUE \cr
    interactionMode \tab interaction-mode \tab When \code{"interactive"}, allows focus and keyboard navigation of \code{table-header}s and \code{table-cell}s.  When \code{"static"}, prevents focus and keyboard navigation of \code{table-header}s and \code{table-cell}s when assistive technologies are not active. Selection affordances and slotted content within \code{table-cell}s remain focusable. \tab TableInteractionMode \tab TRUE \cr
    layout \tab layout \tab Specifies the layout of the component. \tab TableLayout \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
    numbered \tab numbered \tab When \code{true}, displays the position of the row in numeric form. \tab boolean \tab TRUE \cr
    numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab NumberingSystem | undefined \tab TRUE \cr
    pageSize \tab page-size \tab Specifies the page size of the component. When present, renders \code{calcite-pagination}. \tab number \tab TRUE \cr
    scale \tab scale \tab Specifies the component's size. \tab Scale \tab TRUE \cr
    selectedItems \tab NA \tab Specifies the component's selected items. \tab Check API reference \tab FALSE \cr
    selectionDisplay \tab selection-display \tab When \code{selectionMode} is \code{"single"} or \code{"multiple"}, specifies the display of the selection interface. When  \code{selectionMode} is \code{"none"}, content slotted in the \code{selection-actions} slot will not be displayed. \tab TableSelectionDisplay \tab TRUE \cr
-   selectionMode \tab selection-mode \tab Specifies the selection mode of the component, where:  \code{"multiple"} allows any number of selections,  \code{"single"} allows only one selection, and  \code{"none"} does not allow any selections. \tab Check API reference \tab TRUE \cr
+   selectionMode \tab selection-mode \tab Specifies the selection mode of the component.  - \code{"multiple"} allows any number of selections. - \code{"single"} allows only one selection. - \code{"none"} does not allow any selections. \tab Check API reference \tab TRUE \cr
+   stickyHeader \tab sticky-header \tab When \code{true}, displays the component's \code{table-header} slot as sticky while the component remains in view. \tab boolean \tab TRUE \cr
    striped \tab striped \tab When \code{true}, displays striped styling on the component's \code{calcite-table-rows}. \tab boolean \tab TRUE \cr
 }
 

@@ -25,11 +25,11 @@ The following properties are provided by this component:\tabular{lllll}{
    closed \tab closed \tab When \code{true}, hides the component. \tab boolean \tab TRUE \cr
    closeOnDelete \tab close-on-delete \tab When \code{true}, the component closes when the Delete or Backspace key is pressed while focused. \tab boolean \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
-   icon \tab icon \tab Specifies an icon to display. \tab IconName \tab TRUE \cr
+   icon \tab icon \tab Specifies an icon to display. \tab IconName | undefined \tab TRUE \cr
    iconFlipRtl \tab icon-flip-rtl \tab When \code{true}, the icon will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab boolean \tab TRUE \cr
    kind \tab kind \tab Specifies the kind of the component, which will apply to border and background if applicable. \tab Check API reference \tab TRUE \cr
    label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
    scale \tab scale \tab Specifies the size of the component.  When contained in a parent \code{calcite-chip-group}, inherits the parent's \code{scale} value. \tab Scale \tab TRUE \cr
    selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
    value \tab value \tab The component's value. \tab any \tab FALSE \cr

@@ -13,7 +13,7 @@ calcite_block_section(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a BlockSection component
+in v5.2.0, removal target v7.0.0 - Use the \code{calcite-block} component instead.
 }
 \details{
 \subsection{Properties}{
@@ -21,15 +21,15 @@ Create a BlockSection component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    expanded \tab expanded \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
-   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab IconName \tab TRUE \cr
-   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab FlipContext \tab TRUE \cr
-   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab IconName \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab IconName | undefined \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab FlipContext | undefined \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab IconName | undefined \tab TRUE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
    open \tab open \tab When \code{true}, expands the component and its contents. \tab boolean \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
-   status \tab status \tab Displays a status-related indicator icon. \tab Status \tab TRUE \cr
-   text \tab text \tab The component header text. \tab string \tab FALSE \cr
-   toggleDisplay \tab toggle-display \tab Specifies how the component's toggle is displayed, where:  \code{"button"} sets the toggle to a selectable header, and  \code{"switch"} sets the toggle to a switch. \tab BlockSectionToggleDisplay \tab TRUE \cr
+   status \tab status \tab Displays a status-related indicator icon. \tab Status | undefined \tab TRUE \cr
+   text \tab text \tab The component header text. \tab string | undefined \tab FALSE \cr
+   toggleDisplay \tab toggle-display \tab Specifies how the component's toggle is displayed.  - \code{"button"} sets the toggle to a selectable header. - \code{"switch"} sets the toggle to a switch. \tab BlockSectionToggleDisplay \tab TRUE \cr
 }
 
 }

@@ -20,13 +20,13 @@ Create a TimePicker component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   hourFormat \tab hour-format \tab Specifies the component's hour format, where:  \code{"user"} displays the user's locale format, \code{"12"} displays a 12-hour format, and \code{"24"} displays a 24-hour format. \tab HourFormat \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   hourFormat \tab hour-format \tab Specifies the component's hour format.  - \code{"user"} displays the user's locale format. - \code{"12"} displays a 12-hour format. - \code{"24"} displays a 24-hour format. \tab HourFormat \tab TRUE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
    numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab NumberingSystem \tab FALSE \cr
    scale \tab scale \tab Specifies the component's size. \tab Scale \tab TRUE \cr
    step \tab step \tab Specifies the granularity the \code{value} must adhere to (in seconds). \tab number \tab TRUE \cr
    time \tab NA \tab  \tab Check API reference \tab FALSE \cr
-   value \tab value \tab The component's value in UTC (always 24-hour format). \tab string \tab FALSE \cr
+   value \tab value \tab The component's value in UTC (always 24-hour format). \tab string | null \tab FALSE \cr
 }
 
 }

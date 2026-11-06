@@ -21,9 +21,10 @@ Create a Card component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
-   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string | undefined \tab FALSE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. When contained in a parent \code{calcite-card-group}, inherits the parent's \code{scale} value, but can be overridden if needed. \tab Scale \tab TRUE \cr
    selectable \tab selectable \tab When \code{true}, the component is selectable. \tab boolean \tab TRUE \cr
    selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
    thumbnailPosition \tab thumbnail-position \tab Sets the placement of the thumbnail defined in the \code{thumbnail} slot. \tab LogicalFlowPosition \tab TRUE \cr

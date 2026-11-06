@@ -20,13 +20,14 @@ Create a AutocompleteItem component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   description \tab description \tab Specifies a description for the component. Displays below the label text. \tab string \tab FALSE \cr
+   description \tab description \tab Specifies a description for the component. Displays below the \code{label}. \tab string | undefined \tab FALSE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    heading \tab heading \tab Specifies the component's heading text. \tab string \tab FALSE \cr
-   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab IconName \tab TRUE \cr
-   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab FlipContext \tab TRUE \cr
-   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab IconName \tab TRUE \cr
-   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab IconName | undefined \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab FlipContext | undefined \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab IconName | undefined \tab TRUE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string | undefined \tab FALSE \cr
+   selected \tab selected \tab When \code{true}, the component is selected. The parent \code{calcite-autocomplete} synchronizes this property with its non-empty \code{value}; declarative selection is preserved when no initial value is provided, but is cleared when a controlled value is explicitly reset. \tab boolean \tab TRUE \cr
    value \tab value \tab Specifies the component's value. \tab string \tab FALSE \cr
 }
 
@@ -36,7 +37,7 @@ The following properties are provided by this component:\tabular{lllll}{
 
 The following events are observed by shiny:\tabular{ll}{
    Event \tab Description \cr
-   calciteAutocompleteItemSelect \tab Fires when the item has been selected. \cr
+   calciteAutocompleteItemSelect \tab Fires when selection is requested. \cr
 }
 
 }

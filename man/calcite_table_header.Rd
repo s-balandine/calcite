@@ -31,11 +31,11 @@ Creates a header cell for use in calcite_table headers.
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    alignment \tab alignment \tab Specifies the alignment of the component. \tab Alignment \tab TRUE \cr
-   colSpan \tab col-span \tab Specifies the number of columns the component should span. \tab number \tab TRUE \cr
-   description \tab description \tab Specifies a description for the component. Displays below the \code{heading}. \tab string \tab TRUE \cr
-   heading \tab heading \tab Specifies the component's heading text. Displays above the \code{description}. \tab string \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   rowSpan \tab row-span \tab Specifies the number of rows the component should span. \tab number \tab TRUE \cr
+   colSpan \tab col-span \tab Specifies the number of columns the component should span. \tab number | undefined \tab TRUE \cr
+   description \tab description \tab Specifies a description for the component. Displays below the \code{heading}. \tab string | undefined \tab TRUE \cr
+   heading \tab heading \tab Specifies the component's heading text. \tab string | undefined \tab TRUE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
+   rowSpan \tab row-span \tab Specifies the number of rows the component should span. \tab number | undefined \tab TRUE \cr
 }
 
 }

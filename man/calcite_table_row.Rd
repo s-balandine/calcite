@@ -20,7 +20,7 @@ Create a TableRow component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   alignment \tab alignment \tab Specifies the alignment of the component. \tab Alignment \tab TRUE \cr
+   alignment \tab alignment \tab Specifies the vertical alignment of content within child \code{calcite-table-cell}s.  - \code{"start"} positions content at the top of a \code{calcite-table-cell}. - \code{"center"} positions content in the middle of a \code{calcite-table-cell}. - \code{"end"} positions content at the bottom of a \code{calcite-table-cell}. \tab Alignment \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    selected \tab selected \tab When \code{true}, the component is selected. \tab boolean \tab TRUE \cr
 }

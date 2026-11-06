@@ -25,7 +25,7 @@ The following properties are provided by this component:\tabular{lllll}{
    filterProps \tab NA \tab When \code{value} is an object, specifies the properties to match against when filtering. If not set, all properties will be matched. \tab Check API reference \tab FALSE \cr
    items \tab NA \tab Specifies the items to filter. The component uses the values as the starting point, and returns items  that contain the string entered in the input, using a partial match and recursive search.  This property is needed to conduct filtering. \tab Check API reference \tab FALSE \cr
    label \tab label \tab Specifies an accessible label for the component. \tab string | undefined \tab FALSE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
    placeholder \tab placeholder \tab Specifies the component's input placeholder text. \tab string | undefined \tab FALSE \cr
    scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
    value \tab value \tab The component's value. \tab string \tab FALSE \cr

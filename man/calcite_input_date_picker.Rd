@@ -21,24 +21,26 @@ Create a InputDatePicker component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    calendars \tab calendars \tab When \code{range} is \code{true}, specifies the number of calendars displayed. \tab 1 | 2 \tab TRUE \cr
+   clearable \tab clearable \tab When \code{true}, displays a clear button when the component has a value. \tab boolean \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, prevents interaction and decreases the component's opacity. \tab boolean \tab TRUE \cr
-   flipPlacements \tab NA \tab Specifies the component's fallback \code{placement} for slotted content when it's initial or specified \code{placement} has insufficient space available. \tab Check API reference \tab FALSE \cr
+   flipPlacements \tab NA \tab Specifies the component's fallback \code{placement} for slotted content when its initial or specified \code{placement} has insufficient space available. \tab Check API reference \tab FALSE \cr
    focusTrapDisabled \tab focus-trap-disabled \tab When \code{true}, prevents focus trapping. \tab boolean \tab TRUE \cr
-   form \tab form \tab Specifies the \code{id} of the component's associated form.  When not set, the component is associated with its ancestor form element, if one exists. \tab string \tab TRUE \cr
-   headingLevel \tab heading-level \tab Specifies the heading level number of the component's \code{heading} for proper document structure, without affecting visual styling. \tab HeadingLevel \tab TRUE \cr
-   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
-   labelText \tab label-text \tab Specifies the component's label text. \tab string \tab FALSE \cr
+   form \tab form \tab Specifies the \code{id} of the component's associated form. When not set, the component is associated with its ancestor form element, if one exists. \tab string | undefined \tab TRUE \cr
+   headingLevel \tab heading-level \tab Specifies the heading level number of the component's \code{heading} for proper document structure, without affecting visual styling. \tab HeadingLevel | undefined \tab TRUE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string | undefined \tab FALSE \cr
+   labelText \tab label-text \tab Specifies the component's label text. \tab string | undefined \tab FALSE \cr
    layout \tab layout \tab Defines the component's layout. \tab "horizontal" | "vertical" \tab TRUE \cr
-   max \tab max \tab When the component resides in a form, specifies the latest allowed date ("yyyy-mm-dd"). \tab string \tab TRUE \cr
-   maxAsDate \tab NA \tab Specifies the latest allowed date as a full date object. \tab Date \tab FALSE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   min \tab min \tab When the component resides in a form, specifies the earliest allowed date ("yyyy-mm-dd"). \tab string \tab TRUE \cr
-   minAsDate \tab NA \tab Specifies the earliest allowed date as a full date object. \tab Date \tab FALSE \cr
+   max \tab max \tab When the component resides in a form, specifies the latest allowed date ("yyyy-mm-dd"). \tab string | undefined \tab TRUE \cr
+   maxAsDate \tab NA \tab Specifies the latest allowed date as a full date object. \tab Date | undefined \tab FALSE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
+   min \tab min \tab When the component resides in a form, specifies the earliest allowed date ("yyyy-mm-dd"). \tab string | undefined \tab TRUE \cr
+   minAsDate \tab NA \tab Specifies the earliest allowed date as a full date object. \tab Date | undefined \tab FALSE \cr
    monthStyle \tab month-style \tab Specifies the component's month style. \tab "abbreviated" | "wide" \tab FALSE \cr
-   name \tab name \tab Specifies the name of the component. Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. This property cannot be dynamically changed. \tab NumberingSystem \tab TRUE \cr
+   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string | undefined \tab TRUE \cr
+   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. This property cannot be dynamically changed. \tab NumberingSystem | undefined \tab TRUE \cr
    open \tab open \tab When \code{true}, displays the \code{calcite-date-picker} component. \tab boolean \tab TRUE \cr
-   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content, where:  \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout, and  \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
+   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content.  - \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout.  - \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
+   placeholder \tab placeholder \tab Specifies placeholder text for the component. \tab string | undefined \tab FALSE \cr
    placement \tab placement \tab Determines the \code{calcite-date-picker}'s placement relative to the input. \tab MenuPlacement \tab TRUE \cr
    proximitySelectionDisabled \tab proximity-selection-disabled \tab When \code{true}, disables the default behavior on the third click of narrowing or extending the range. Instead starts a new range. \tab boolean \tab FALSE \cr
    range \tab range \tab When \code{true}, activates a range for the component. \tab boolean \tab TRUE \cr
@@ -46,10 +48,10 @@ The following properties are provided by this component:\tabular{lllll}{
    required \tab required \tab When \code{true} and the component resides in a form, the component must have a \code{value} in order for the form to submit. \tab boolean \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab "s" | "m" | "l" \tab TRUE \cr
    status \tab status \tab Specifies the input field's status, which determines message and icons. \tab Status \tab TRUE \cr
-   topLayerDisabled \tab top-layer-disabled \tab When \code{true} and the component is \code{open}, disables top layer placement.  Only set this if you need complex z-index control or if top layer placement causes conflicts with third-party components. \tab boolean \tab TRUE \cr
-   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab IconName | boolean \tab TRUE \cr
-   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
-   validity \tab NA \tab The component's current validation state. \tab MutableValidityState \tab FALSE \cr
+   topLayerDisabled \tab top-layer-disabled \tab When \code{true} and the component is \code{open}, disables top layer placement. Only set this if you need complex z-index control or if top layer placement causes conflicts with third-party components. \tab boolean \tab TRUE \cr
+   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab IconName | boolean | undefined \tab TRUE \cr
+   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string | undefined \tab FALSE \cr
+   validity \tab NA \tab The component's current validation state. \tab ValidityState \tab FALSE \cr
    value \tab value \tab Selected date as a string in ISO format (\code{"yyyy-mm-dd"}). \tab Check API reference \tab FALSE \cr
    valueAsDate \tab NA \tab The component's \code{value} as a full date object. \tab Check API reference \tab FALSE \cr
 }

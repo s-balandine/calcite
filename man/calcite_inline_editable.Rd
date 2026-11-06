@@ -13,7 +13,7 @@ calcite_inline_editable(...)
 an object of class \code{calcite_component} which is a subclass of \code{shiny.tag}
 }
 \description{
-Create a InlineEditable component
+in v5.2.0, removal target v7.0.0 - Use \code{calcite-input}, \code{calcite-input-number}, or \code{calcite-input-text} with built-in inline edit (\code{inline-edit} and \code{inline-edit="controls-disabled"} prop) instead.
 }
 \details{
 \subsection{Properties}{
@@ -25,7 +25,7 @@ The following properties are provided by this component:\tabular{lllll}{
    disabled \tab disabled \tab When \code{true}, prevents interaction and decreases the component's opacity. \tab boolean \tab TRUE \cr
    editingEnabled \tab editing-enabled \tab When \code{true}, inline editing is enabled. \tab boolean \tab TRUE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
    scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
 }
 

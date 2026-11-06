@@ -27,12 +27,12 @@ The following properties are provided by this component:\tabular{lllll}{
    fieldDisabled \tab field-disabled \tab When \code{true}, hides the color field. \tab boolean \tab TRUE \cr
    format \tab format \tab The format of \code{value}.  When \code{"auto"}, the format will be inferred from \code{value} when set. \tab Format \tab TRUE \cr
    hexDisabled \tab hex-disabled \tab When \code{true}, hides the hex input. \tab boolean \tab FALSE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab NumberingSystem \tab TRUE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
+   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab NumberingSystem | undefined \tab TRUE \cr
    savedDisabled \tab saved-disabled \tab When \code{true}, hides the saved colors section. \tab boolean \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
-   storageId \tab storage-id \tab Specifies the storage ID for colors. \tab string \tab TRUE \cr
-   value \tab value \tab The component's value, where the value can be a CSS color string, or a RGB, HSL or HSV object.  The type will be preserved as the color is updated. \tab ColorValue | null \tab FALSE \cr
+   storageId \tab storage-id \tab Specifies the storage ID for colors. \tab string | undefined \tab TRUE \cr
+   value \tab value \tab The component's value, where the value can be a CSS color string, or a RGB, HSL or HSV object.  The type will be preserved as the color is updated. \tab ColorValue | null | undefined \tab FALSE \cr
 }
 
 }

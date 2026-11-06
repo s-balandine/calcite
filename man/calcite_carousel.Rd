@@ -26,8 +26,9 @@ The following properties are provided by this component:\tabular{lllll}{
    controlOverlay \tab control-overlay \tab Specifies if the component's controls are positioned absolutely on top of slotted Carousel Items. \tab boolean \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
    label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
    paginationDisabled \tab pagination-disabled \tab When \code{true}, the component's pagination controls are hidden. \tab boolean \tab FALSE \cr
+   paginationPosition \tab pagination-position \tab Specifies the position of the component's pagination controls. \tab PaginationPosition \tab TRUE \cr
    selectedItem \tab NA \tab The component's selected \code{calcite-carousel-item}. \tab CarouselItem \tab FALSE \cr
 }
 

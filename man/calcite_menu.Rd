@@ -22,7 +22,8 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
    layout \tab layout \tab Specifies the layout of the component. \tab Layout \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
 }
 
 }

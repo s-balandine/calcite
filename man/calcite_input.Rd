@@ -20,41 +20,44 @@ Create a Input component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   accept \tab accept \tab When \code{type} is \code{"file"}, specifies a comma separated list of unique file type specifiers for limiting accepted file types. Read the native attribute's documentation on MDN for more info. \tab string \tab FALSE \cr
+   accept \tab accept \tab When \code{type} is \code{"file"}, specifies a comma separated list of unique file type specifiers for limiting accepted file types. Read the native attribute's documentation on MDN for more info. \tab string | undefined \tab FALSE \cr
    alignment \tab alignment \tab Specifies the text alignment of the component's \code{value}. \tab Check API reference \tab TRUE \cr
-   autocomplete \tab autocomplete \tab Specifies the type of content to autocomplete, for use in forms. Read the native attribute's documentation on MDN for more info. \tab AutoFill \tab FALSE \cr
+   autocomplete \tab autocomplete \tab Specifies the type of content to autocomplete, for use in forms. Read the native attribute's documentation on MDN for more info. \tab AutoFill | undefined \tab FALSE \cr
    clearable \tab clearable \tab When \code{true} and the component has a \code{value}, a clear button is displayed. The clear button shows by default for \code{"search"}, \code{"time"}, and \code{"date"} types. \tab boolean \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, prevents interaction and decreases the component's opacity. \tab boolean \tab TRUE \cr
    files \tab NA \tab When \code{type} is \code{"file"}, specifies the component's selected files. \tab FileList | undefined \tab FALSE \cr
-   form \tab form \tab Specifies the \code{id} of the component's associated form.  When not set, the component is associated with its ancestor form element, if one exists. \tab string \tab TRUE \cr
+   form \tab form \tab Specifies the \code{id} of the component's associated form. When not set, the component is associated with its ancestor form element, if one exists. \tab string | undefined \tab TRUE \cr
    groupSeparator \tab group-separator \tab When \code{true}, number values are displayed with a group separator corresponding to the language and country format. \tab boolean \tab TRUE \cr
-   icon \tab icon \tab When \code{true}, displays a default recommended icon. Alternatively, pass a Calcite UI Icon name to display a specific icon. \tab IconName | boolean \tab TRUE \cr
+   icon \tab icon \tab When \code{true}, displays a default recommended icon. Alternatively, pass a Calcite UI Icon name to display a specific icon. \tab IconName | boolean | undefined \tab TRUE \cr
    iconFlipRtl \tab icon-flip-rtl \tab When \code{true} and the element direction is right-to-left (\code{"rtl"}), flips the component\code{s }icon`. \tab boolean \tab TRUE \cr
-   label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
-   labelText \tab label-text \tab Specifies the component's label text. \tab string \tab FALSE \cr
+   inlineEdit \tab inline-edit \tab Enables inline editing. When not editing, the component displays without a border. When \code{true}, edits must be saved or cancelled via controls. When \code{"controls-disabled"} is specified, edits are saved on blur. \tab boolean | "controls-disabled" \tab TRUE \cr
+   inlineEditing \tab inline-editing \tab When \code{true} and \code{inlineEdit} is defined, the component is editable. \tab boolean \tab TRUE \cr
+   inlineEditingBeforeConfirm \tab NA \tab When \code{inlineEdit} is \code{true}, specifies a callback to be run when changes are saved. \tab Check API reference \tab FALSE \cr
+   label \tab label \tab Specifies an accessible label for the component. \tab string | undefined \tab FALSE \cr
+   labelText \tab label-text \tab Specifies the component's label text. \tab string | undefined \tab FALSE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
-   max \tab max \tab When the component resides in a form, specifies the maximum value for \code{type="number"}. \tab number \tab TRUE \cr
-   maxLength \tab max-length \tab When the component resides in a form, specifies the maximum length of text for the component's \code{value}. \tab number \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   min \tab min \tab When the component resides in a form, specifies the minimum value for \code{type="number"}. \tab number \tab TRUE \cr
-   minLength \tab min-length \tab When the component resides in a form, specifies the minimum length of text for the component's \code{value}. \tab number \tab TRUE \cr
+   max \tab max \tab When the component resides in a form, specifies the maximum value for \code{type="number"}. \tab number | undefined \tab TRUE \cr
+   maxLength \tab max-length \tab When the component resides in a form, specifies the maximum length of text for the component's \code{value}. \tab number | undefined \tab TRUE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
+   min \tab min \tab When the component resides in a form, specifies the minimum value for \code{type="number"}. \tab number | undefined \tab TRUE \cr
+   minLength \tab min-length \tab When the component resides in a form, specifies the minimum length of text for the component's \code{value}. \tab number | undefined \tab TRUE \cr
    multiple \tab multiple \tab When \code{true} and \code{type} is \code{"email"} or \code{"file"}, the component can accept more than one value. Read the native attribute's documentation on MDN for more info. \tab boolean \tab FALSE \cr
-   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
+   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string | undefined \tab TRUE \cr
    numberButtonType \tab number-button-type \tab When \code{type="number"}, specifies the placement of the buttons. \tab InputPlacement \tab TRUE \cr
-   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab NumberingSystem \tab TRUE \cr
-   pattern \tab pattern \tab When the component resides in a form, specifies a regular expression (regex) pattern the component's \code{value} must match for validation. Read the native attribute's documentation on MDN for more info. \tab string \tab FALSE \cr
-   placeholder \tab placeholder \tab Specifies the component's placeholder text. \tab string \tab FALSE \cr
-   prefixText \tab prefix-text \tab Specifies text to display at the start of the component. \tab string \tab FALSE \cr
+   numberingSystem \tab numbering-system \tab Specifies the Unicode numeral system used by the component for localization. \tab NumberingSystem | undefined \tab TRUE \cr
+   pattern \tab pattern \tab When the component resides in a form, specifies a regular expression (regex) pattern the component's \code{value} must match for validation. Read the native attribute's documentation on MDN for more info. \tab string | undefined \tab FALSE \cr
+   placeholder \tab placeholder \tab Specifies the component's placeholder text. \tab string | undefined \tab FALSE \cr
+   prefixText \tab prefix-text \tab Specifies text to display at the start of the component. \tab string | undefined \tab FALSE \cr
    readOnly \tab read-only \tab When \code{true}, the component's \code{value} can be read, but cannot be modified. \tab boolean \tab TRUE \cr
    required \tab required \tab When \code{true} and the component resides in a form, the component must have a \code{value} in order for the form to submit. \tab boolean \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
    status \tab status \tab Specifies the input field's status, which determines message and icons. \tab Status \tab TRUE \cr
-   step \tab step \tab Specifies the granularity the component's \code{value} must adhere to. \tab number | "any" \tab TRUE \cr
-   suffixText \tab suffix-text \tab Specifies text to display at the end of the component. \tab string \tab FALSE \cr
+   step \tab step \tab Specifies the granularity the component's \code{value} must adhere to. \tab number | "any" | undefined \tab TRUE \cr
+   suffixText \tab suffix-text \tab Specifies text to display at the end of the component. \tab string | undefined \tab FALSE \cr
    type \tab type \tab Specifies the component type.  Note that the following \code{type}s add type-specific icons by default: \code{"date"}, \code{"email"}, \code{"password"}, \code{"search"}, \code{"tel"}, \code{"time"}. \tab "color" | "date" | "datetime-local" | "email" | "file" | "image" | "month" | "number" | "password" | "search" | "tel" | "text" | "time" | "url" | "week" \tab TRUE \cr
-   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab IconName | boolean \tab TRUE \cr
-   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string \tab FALSE \cr
-   validity \tab NA \tab The component's current validation state. \tab MutableValidityState \tab FALSE \cr
+   validationIcon \tab validation-icon \tab Specifies the validation icon to display under the component. \tab IconName | boolean | undefined \tab TRUE \cr
+   validationMessage \tab validation-message \tab Specifies the validation message to display under the component. \tab string | undefined \tab FALSE \cr
+   validity \tab NA \tab The component's current validation state. \tab ValidityState \tab FALSE \cr
    value \tab value \tab The component's value. \tab string \tab FALSE \cr
 }
 
@@ -64,8 +67,11 @@ The following properties are provided by this component:\tabular{lllll}{
 
 The following events are observed by shiny:\tabular{ll}{
    Event \tab Description \cr
-   calciteInputChange \tab Fires each time a new \code{value} is typed and committed. \cr
-   calciteInputInput \tab Fires each time a new \code{value} is typed. \cr
+   calciteInputChange \tab Fires each time a new \code{value} is committed. \cr
+   calciteInputInlineEditingCancel \tab When \code{inlineEdit} is defined, fires when editing is cancelled. \cr
+   calciteInputInlineEditingChange \tab When \code{inlineEdit} is defined, fires when \code{inlineEditing} is enabled or disabled. \cr
+   calciteInputInlineEditingConfirm \tab When \code{inlineEdit} is \code{true}, fires after editing is confirmed. \cr
+   calciteInputInput \tab When \code{inlineEdit} is \code{false}, fires each time a new \code{value} is typed. \cr
 }
 
 }

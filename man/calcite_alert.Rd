@@ -125,7 +125,7 @@ calcite_alert_warning(
 )
 }
 \arguments{
-\item{kind}{Specifies the kind of alert: "brand", "danger", "info", "success", or "warning" (default: "brand")}
+\item{kind}{\link{input | esriLong } Specifies the kind of alert: "brand", "danger", "info", "success", or "warning" (default: "brand")}
 
 \item{...}{Child content for the alert}
 

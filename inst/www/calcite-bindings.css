@@ -1,1 +1,82 @@
+:root {
 
+  --calcite-font-family: \'Avenir Next\', Avenir, Inter, \'Helvetica Neue\', sans-serif;
+
+  --calcite-color-brand-hue: 211;
+
+  --calcite-color-brand: hsl(211.43deg 41.18% 90%);
+
+  /*
+  --calcite-color-brand: hsl(var(--calcite-color-brand-hue), 100%, 38%);
+  --calcite-color-brand-hover: hsl(var(--calcite-color-brand-hue), 100%, 30%);
+  --calcite-color-brand-press: hsl(var(--calcite-color-brand-hue), 100%, 22%);
+
+  --calcite-color-brand-underline: hsla(var(--calcite-color-brand-hue), 100%, 38.04%, 0.4);
+  */
+
+  --calcite-icon-color: hsl(211.43deg 41.18% 50%);
+
+  --calcite-loader-progress-color: hsl(211.43deg 41.18% 50%);
+
+  --calcite-tree-selected-icon-color: hsl(211.43deg 41.18% 50%);
+
+  --calcite-color-text-link: var(--calcite-color-brand-hover);
+  --calcite-color-text-highlight: var(--calcite-color-brand-press);
+
+  --calcite-color-text-inverse: rgb(29, 61, 99);
+
+  --calcite-tab-content-space-y: 0;
+
+  /*
+  --calcite-panel-space: 5px;
+  --calcite-panel-content-space: 5px;
+  */
+
+  --calcite-list-background-color: #f0f4fa;
+  --calcite-list-background-color-hover: #e7f2ff;
+  --calcite-list-background-color-press: #adbed4;
+
+  --calcite-internal-color-focus: 0px
+}
+
+.section {
+  margin-block: calc(-1 * var(--calcite-internal-block-padding-block));
+  margin-inline: calc(-1 * var(--calcite-internal-block-padding-inline));
+  background-color: var(--calcite-color-background);
+  padding: 1rem;
+  line-height: 1.35;
+}
+
+.details-title:first-of-type {
+  margin-top: 0px;
+}
+
+.details-title {
+  margin-top: 1rem;
+  margin-bottom: 0px;
+  padding-bottom: 0.25rem;
+  padding-top: 0px;
+  font-size: var(--calcite-font-size-xs);
+  font-weight: 500;
+  color: var(--calcite-color-text-3);
+  --calcite-label-margin-bottom: 0;
+}
+
+.details-text {
+  margin: 0px;
+  overflow-wrap: break-word;
+  padding: 0px;
+  font-size: var(--calcite-font-size-sm);
+  font-weight: 400;
+  color: var(--calcite-color-text-1);
+}
+
+.description {
+  --item-browser-table-border: 1px solid var(--calcite-color-border-2);
+  font-size: var(--calcite-font-size-sm);
+  width: 100%;
+  overflow: auto;
+  overflow-wrap: break-word;
+  padding-bottom: 0.25rem;
+  line-height: 1.35;
+}

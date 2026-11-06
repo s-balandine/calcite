@@ -22,11 +22,14 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    checked \tab checked \tab When \code{true}, the component is checked. \tab boolean \tab TRUE \cr
    disabled \tab disabled \tab When \code{true}, interaction is prevented and the component is displayed with lower opacity. \tab boolean \tab TRUE \cr
-   form \tab form \tab Specifies the \code{id} of the component's associated form.  When not set, the component is associated with its ancestor form element, if one exists. \tab string \tab TRUE \cr
-   labelText \tab label-text \tab Specifies the component's label text. \tab string \tab FALSE \cr
-   name \tab name \tab Specifies the name of the component. Required to pass the component's \code{value} on form submission. \tab string \tab TRUE \cr
+   form \tab form \tab Specifies the \code{id} of the component's associated form. When not set, the component is associated with its ancestor form element, if one exists. \tab string | undefined \tab TRUE \cr
+   labelText \tab label-text \tab Specifies the component's label text. \tab string | undefined \tab FALSE \cr
+   name \tab name \tab Specifies the name of the component.  Required to pass the component's \code{value} on form submission. \tab string | undefined \tab TRUE \cr
    required \tab required \tab When \code{true} and the component resides in a form, the component must have a value selected from the \code{calcite-radio-button-group} in order for the form to submit. \tab boolean \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component inherited from the \code{calcite-radio-button-group}. \tab Scale \tab TRUE \cr
+   status \tab status \tab Specifies the status of the input field, which determines message and icons. \tab Status \tab TRUE \cr
+   validationMessage \tab validation-message \tab The component's validation message. \tab string | undefined \tab FALSE \cr
+   validity \tab NA \tab The component's current validation state. \tab ValidityState \tab FALSE \cr
    value \tab value \tab The component's value. \tab any \tab FALSE \cr
 }
 

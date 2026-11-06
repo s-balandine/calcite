@@ -24,16 +24,17 @@ The following properties are provided by this component:\tabular{lllll}{
    displayMode \tab display-mode \tab Specifies the display mode - \code{"float"} separates content from main layout, and \code{"overlay"} displays on top of center content. \tab DisplayMode \tab TRUE \cr
    escapeDisabled \tab escape-disabled \tab When \code{true}, disables the default close on escape behavior. \tab boolean \tab TRUE \cr
    focusTrapDisabled \tab focus-trap-disabled \tab When \code{true}, prevents focus trapping. \tab boolean \tab TRUE \cr
-   focusTrapOptions \tab NA \tab Specifies custom focus trap configuration on the component, where  \code{"allowOutsideClick"} allows outside clicks, \code{"initialFocus"} enables initial focus, \code{"returnFocusOnDeactivate"} returns focus when not active, \code{"extraContainers"} specifies additional focusable elements external to the trap, such as 3rd-party components appending elements to the document body, and \code{"setReturnFocus"} customizes the element to which focus is returned when the trap is deactivated. Return \code{false} to prevent focus return, or \code{undefined} to use the default behavior (returning focus to the element focused before activation). \tab Check API reference \tab FALSE \cr
-   height \tab height \tab Specifies the component's height. \tab Height \tab TRUE \cr
+   focusTrapOptions \tab NA \tab Specifies custom focus trap configuration on the component.  - \code{"allowOutsideClick"} allows outside clicks. - \code{"initialFocus"} enables initial focus. - \code{"returnFocusOnDeactivate"} returns focus when not active. - \code{"extraContainers"} specifies additional focusable elements external to the trap, such as 3rd-party components appending elements to the document body. - \code{"setReturnFocus"} customizes the element to which focus is returned when the trap is deactivated. Return \code{false} to prevent focus return, or \code{undefined} to use the default behavior (returning focus to the element focused before activation). \tab Check API reference \tab FALSE \cr
+   height \tab height \tab Specifies the component's height. \tab Height | undefined \tab TRUE \cr
    heightScale \tab height-scale \tab When \code{position} is \code{"block-start"} or \code{"block-end"}, specifies the component's height. \tab Scale \tab TRUE \cr
    label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
+   modalDisabled \tab modal-disabled \tab When \code{true}, disables the default modal behavior, allowing interaction with content outside the component. \tab boolean \tab TRUE \cr
    open \tab open \tab When \code{true}, displays and positions the component. \tab boolean \tab TRUE \cr
-   outsideCloseDisabled \tab outside-close-disabled \tab When \code{true}, disables closing the component when the area outside of the component is clicked. \tab boolean \tab TRUE \cr
+   outsideCloseDisabled \tab outside-close-disabled \tab When \code{true} and \code{modalDisabled} is \code{false}, disables the closing of the component when clicked outside. \tab boolean \tab TRUE \cr
    position \tab position \tab Determines where the component will be positioned. \tab LogicalFlowPosition \tab TRUE \cr
    resizable \tab resizable \tab When \code{true}, the component is resizable. \tab boolean \tab TRUE \cr
-   topLayerDisabled \tab top-layer-disabled \tab When \code{true} and the component is \code{open}, disables top layer placement.  Only set this if you need complex z-index control or if top layer placement causes conflicts with third-party components. \tab boolean \tab TRUE \cr
+   topLayerDisabled \tab top-layer-disabled \tab When \code{true} and the component is \code{open}, disables top layer placement. Only set this if you need complex z-index control or if top layer placement causes conflicts with third-party components. \tab boolean \tab TRUE \cr
    width \tab width \tab Specifies the component's width. \tab Check API reference \tab TRUE \cr
    widthScale \tab width-scale \tab When \code{position} is \code{"inline-start"} or \code{"inline-end"}, specifies the component's width. \tab Scale \tab TRUE \cr
 }

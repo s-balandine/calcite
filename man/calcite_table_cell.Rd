@@ -20,10 +20,10 @@ Create a TableCell component
 
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
-   alignment \tab alignment \tab Specifies the alignment of the component. \tab Alignment \tab TRUE \cr
-   colSpan \tab col-span \tab Specifies the number of columns the component should span. \tab number \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   rowSpan \tab row-span \tab Specifies the number of rows the component should span. \tab number \tab TRUE \cr
+   alignment \tab alignment \tab Specifies the horizontal alignment of content within the component.  - \code{"start"} positions content at the start of the component. - \code{"center"} positions content in the middle of the component. - \code{"end"} positions content at the end of the component. \tab Alignment \tab TRUE \cr
+   colSpan \tab col-span \tab Specifies the number of columns the component should span. \tab number | undefined \tab TRUE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
+   rowSpan \tab row-span \tab Specifies the number of rows the component should span. \tab number | undefined \tab TRUE \cr
 }
 
 }

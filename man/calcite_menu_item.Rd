@@ -22,16 +22,17 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    active \tab active \tab When \code{true}, the component is highlighted. \tab boolean \tab TRUE \cr
    breadcrumb \tab breadcrumb \tab When \code{true}, the component displays a breadcrumb trail for use as a navigational aid. \tab boolean \tab TRUE \cr
-   href \tab href \tab Specifies the URL destination of the component, which can be set as an absolute or relative path. \tab string \tab FALSE \cr
-   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab IconName \tab TRUE \cr
-   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab FlipContext \tab TRUE \cr
-   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab IconName \tab TRUE \cr
+   href \tab href \tab Specifies the URL destination of the component, which can be set as an absolute or relative path. \tab string | undefined \tab FALSE \cr
+   iconEnd \tab icon-end \tab Specifies an icon to display at the end of the component. \tab IconName | undefined \tab TRUE \cr
+   iconFlipRtl \tab icon-flip-rtl \tab Displays the \code{iconStart} and/or \code{iconEnd} as flipped when the element direction is right-to-left (\code{"rtl"}). \tab FlipContext | undefined \tab TRUE \cr
+   iconStart \tab icon-start \tab Specifies an icon to display at the start of the component. \tab IconName | undefined \tab TRUE \cr
    label \tab label \tab Specifies an accessible label for the component. \tab string \tab FALSE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
    open \tab open \tab When \code{true}, the component will display any slotted \code{calcite-menu-item} in an open overflow menu. \tab boolean \tab TRUE \cr
-   rel \tab rel \tab Defines the relationship between the \code{href} value and the current document. \tab string \tab TRUE \cr
-   target \tab target \tab Specifies where to open the linked document defined in the \code{href} property. \tab string \tab TRUE \cr
-   text \tab text \tab Specifies the text to display. \tab string \tab FALSE \cr
+   rel \tab rel \tab Defines the relationship between the \code{href} value and the current document. \tab string | undefined \tab TRUE \cr
+   scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
+   target \tab target \tab Specifies where to open the linked document defined in the \code{href} property. \tab string | undefined \tab TRUE \cr
+   text \tab text \tab Specifies the text to display. \tab string | undefined \tab FALSE \cr
 }
 
 }

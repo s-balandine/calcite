@@ -21,6 +21,7 @@ Create a AutocompleteItemGroup component
 The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    heading \tab heading \tab Specifies the component's heading text. \tab string \tab FALSE \cr
+   items \tab NA \tab Specifies the \code{calcite-autocomplete-item}s in the group. \tab Check API reference \tab FALSE \cr
    label \tab label \tab Specifies an accessible label for the component. \tab any \tab FALSE \cr
    position \tab position \tab Specifies the position of the group in the autocomplete menu. \tab number \tab FALSE \cr
 }

@@ -22,12 +22,13 @@ The following properties are provided by this component:\tabular{lllll}{
    Name \tab Attribute \tab Description \tab Values \tab Reflects to Attribute \cr
    collapsed \tab collapsed \tab When \code{true}, hides the component's content area. \tab boolean \tab TRUE \cr
    displayMode \tab display-mode \tab Check API reference \tab DisplayMode \tab TRUE \cr
-   height \tab height \tab Specifies the component's height. \tab Height \tab TRUE \cr
-   heightScale \tab height-scale \tab When \code{layout} is \code{horizontal}, specifies the component's maximum height. \tab Scale \tab TRUE \cr
+   height \tab height \tab Specifies the component's height. \tab Height | undefined \tab TRUE \cr
+   heightScale \tab height-scale \tab When \code{layout} is \code{horizontal}, specifies the component's maximum height. \tab Scale | undefined \tab TRUE \cr
    layout \tab layout \tab Specifies the component's direction. \tab Check API reference \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
    position \tab position \tab Specifies the component's position. Will be flipped when the element direction is right-to-left (\code{"rtl"}). \tab Check API reference \tab TRUE \cr
    resizable \tab resizable \tab When \code{true} and \code{displayMode} is \code{"dock"} or \code{"overlay"}, the component's content area is resizable. \tab boolean \tab TRUE \cr
+   shellSizingDataProvider \tab NA \tab  \tab ShellSizingDataProvider | undefined \tab FALSE \cr
    width \tab width \tab Specifies the component's width. \tab Check API reference \tab TRUE \cr
    widthScale \tab width-scale \tab When \code{layout} is \code{vertical}, specifies the component's width. \tab Scale \tab TRUE \cr
 }

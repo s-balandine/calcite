@@ -25,21 +25,22 @@ The following properties are provided by this component:\tabular{lllll}{
    closable \tab closable \tab When \code{true}, displays a close button in the trailing side of the component's header. \tab boolean \tab TRUE \cr
    closed \tab closed \tab When \code{true}, hides the component. \tab boolean \tab TRUE \cr
    collapsed \tab collapsed \tab When \code{true}, hides the component's content area. \tab boolean \tab TRUE \cr
+   collapseDirection \tab collapse-direction \tab When \code{collapsible} is \code{true}, specifies the direction of the collapse icon. \tab CollapseDirection \tab FALSE \cr
    collapsible \tab collapsible \tab When \code{true}, the component is collapsible. \tab boolean \tab TRUE \cr
-   description \tab description \tab Specifies a the component's description. \tab string \tab FALSE \cr
+   description \tab description \tab Specifies a description for the component. \tab string | undefined \tab FALSE \cr
    disabled \tab disabled \tab When \code{true}, prevents interaction and decreases the component's opacity. \tab boolean \tab TRUE \cr
-   heading \tab heading \tab Specifies the component's heading text. \tab string \tab FALSE \cr
-   headingLevel \tab heading-level \tab Specifies the heading level number of the component's \code{heading} for proper document structure, without affecting visual styling. \tab HeadingLevel \tab TRUE \cr
-   icon \tab icon \tab Specifies an icon to display. \tab IconName \tab TRUE \cr
+   heading \tab heading \tab Specifies the component's heading text. \tab string | undefined \tab FALSE \cr
+   headingLevel \tab heading-level \tab Specifies the heading level number of the component's \code{heading} for proper document structure, without affecting visual styling. \tab HeadingLevel | undefined \tab TRUE \cr
+   icon \tab icon \tab Specifies an icon to display. \tab IconName | undefined \tab TRUE \cr
    iconFlipRtl \tab icon-flip-rtl \tab When \code{true} and the element direction is right-to-left (\code{"rtl"}), flips the component\code{s }icon`. \tab boolean \tab TRUE \cr
    loading \tab loading \tab When \code{true}, a busy indicator is displayed. \tab boolean \tab TRUE \cr
    menuOpen \tab menu-open \tab When \code{true}, the action menu items in the \code{header-menu-actions} slot are open. \tab boolean \tab TRUE \cr
-   messageOverrides \tab NA \tab Overrides individual strings used by the component. \tab Check API reference \tab FALSE \cr
-   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content, where:  \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout, and  \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
+   messageOverrides \tab NA \tab Replace localized message strings with your own strings.  \emph{\strong{Note}: Individual message keys may change between releases.} \tab Check API reference \tab FALSE \cr
+   overlayPositioning \tab overlay-positioning \tab Specifies the type of positioning to use for overlaid content.  - \code{"absolute"} works for most cases - positioning the component inside of overflowing parent containers, which affects the container's layout.  - \code{"fixed"} is used to escape an overflowing parent container, or when the reference element's \code{position} CSS property is \code{"fixed"}. \tab OverlayPositioning \tab TRUE \cr
    scale \tab scale \tab Specifies the size of the component. \tab Scale \tab TRUE \cr
    selected \tab selected \tab When \code{true}, the component is displayed within a parent \code{calcite-flow}. \tab boolean \tab TRUE \cr
    showBackButton \tab show-back-button \tab When \code{true}, displays a back button in the component's header. \tab boolean \tab FALSE \cr
-   topLayerDisabled \tab top-layer-disabled \tab When \code{true} and the component is \code{open}, disables top layer placement.  Only set this if you need complex z-index control or if top layer placement causes conflicts with third-party components. \tab boolean \tab TRUE \cr
+   topLayerDisabled \tab top-layer-disabled \tab When \code{true} and the component is \code{open}, disables top layer placement. Only set this if you need complex z-index control or if top layer placement causes conflicts with third-party components. \tab boolean \tab TRUE \cr
 }
 
 }
@@ -67,10 +68,13 @@ The following slots are provided by this component:\tabular{ll}{
    alerts \tab A slot for adding \code{calcite-alert}s to the component. \cr
    content-top \tab A slot for adding content above the unnamed (default) slot and below the action-bar slot (if populated). \cr
    content-bottom \tab A slot for adding content below the unnamed (default) slot and above the footer slot (if populated) \cr
+   header-top \tab A slot for adding custom content above the header actions and content. \cr
    header-actions-start \tab A slot for adding \code{calcite-action}s or content to the start side of the component's header. \cr
    header-actions-end \tab A slot for adding \code{calcite-action}s or content to the end side of the component's header. \cr
    header-content \tab A slot for adding custom content to the component's header. \cr
    header-menu-actions \tab A slot for adding an overflow menu with \code{calcite-action}s inside a \code{calcite-dropdown}. \cr
+   heading \tab A slot for adding content to the heading area of the default header. Takes precedence over the \code{heading} property. \cr
+   description \tab A slot for adding content to the description area of the default header. Takes precedence over the \code{description} property. \cr
    fab \tab A slot for adding a \code{calcite-fab} (floating action button) to perform an action. \cr
    footer \tab A slot for adding custom content to the component's footer. Should not be used with the \code{footer-start} or \code{footer-end} slots. \cr
    footer-end \tab A slot for adding a trailing footer custom content. Should not be used with the \code{footer} slot. \cr
