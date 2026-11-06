@@ -37,13 +37,19 @@
   --calcite-list-background-color-press: #adbed4;
 
   --calcite-internal-color-focus: 0px
+
+  --calcite-card-group-space: 1.5rem;
+}
+
+calcite-card-group {
+--calcite-card-group-space: 1rem;
 }
 
 .section {
   margin-block: calc(-1 * var(--calcite-internal-block-padding-block));
   margin-inline: calc(-1 * var(--calcite-internal-block-padding-inline));
   background-color: var(--calcite-color-background);
-  padding: 1rem;
+  padding: 0.5rem;
   line-height: 1.35;
 }
 
