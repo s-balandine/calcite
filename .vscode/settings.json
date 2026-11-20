@@ -1,3 +1,4 @@
 {
-  "r.lsp.diagnostics": false
+    "r.lsp.index_mode": "off"
 }
+
