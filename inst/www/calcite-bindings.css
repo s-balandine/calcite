@@ -45,7 +45,17 @@
   --calcite-input-text-corner-radius: 6px;
   --calcite-input-corner-radius: 6px;
 
+  /* --calcite-segmented-control-background-color: #e0f2fe; */
+
   --calcite-color-focus: transparent;
+}
+
+calcite-input-text, calcite-input {
+  --calcite-color-focus: var(--calcite-color-brand);
+}
+
+calcite-button[scale="s"] {
+  height: 24px;
 }
 
 calcite-button[kind="brand"] {
@@ -56,6 +66,10 @@ calcite-button[kind="brand"] {
 
 calcite-card-group {
 --calcite-card-group-space: 1rem;
+}
+
+calcite-segmented-control-item[scale="s"] {
+  height: 23px;
 }
 
 .section {
