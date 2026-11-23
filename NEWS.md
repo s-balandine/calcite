@@ -44,6 +44,7 @@ Use `open_example()` to run one yourself!
 - inst/examples/calcite-notice.R
 - inst/examples/calcite-panel.R
 - inst/examples/calcite-segmented-control.R
+- inst/examples/calcite-shell-panel.R
 - inst/examples/calcite-slider.R
 - inst/examples/calcite-switch.R
 - inst/examples/calcite-tile-group.R
